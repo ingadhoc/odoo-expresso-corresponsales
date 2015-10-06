@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_panel_control_actualizacion_nickel_wizard" model="ir.ui.view">
+            <field name="name">panel_control_actualizacion_nickel_wizard</field>
+            <field name="model">panel_control_update_nickel</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Panel de Control de las Actualizaciones de Nickel">
+                    <label colspan="4"
+                           string="Este panel de control permite actualizar diferentes objetos del sistema Nickel."/>
+                    
+                    <separator colspan="4" string="Clientes"/>
+                    <label colspan="2" string="Actualizar los Clientes"/>
+                    <button name="update_partners" string="Actualizar Clientes"
+                            type="object" icon="gtk-ok" />
+                    
+                    
+                    <separator colspan="4" string="Facturas"/>
+                    <label colspan="2" string="Actualizar las Facturas"/>
+                    <button name="update_invoices" string="Actualizar Facturas"
+                            type="object" icon="gtk-ok" />
+                    
+                    
+                    <separator colspan="4" string="Stock"/>
+                    <label colspan="2" string="Actualizar el Stock"/>
+                    <button name="update_stock" string="Actualizar Stock"
+                            type="object" icon="gtk-ok" />
+                    
+                    
+                    <separator colspan="4" string="Todo"/>
+                    <label colspan="2" string="Actualizar toda la base de datos lanzando un thread asincrono"/>
+                    <button name="actualizar_todo_threading" string="Iniciar Threading Actualización"
+                            type="object" icon="gtk-ok" />
+                            
+                    
+                    <separator colspan="4"/>
+                    <button icon='gtk-cancel' special="cancel" string="Salir" />
+                </form>
+            </field>
+        </record>
+        
+
+        <record id="action_panel_control_actualizacion_nickel" model="ir.actions.act_window">
+            <field name="name">Panel de Control de Nickel</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">panel_control_update_nickel</field>
+            <field name="view_id" ref="view_panel_control_actualizacion_nickel_wizard"/>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        
+        <menuitem
+            name="Panel de Control de Nickel"
+            id="menu_panel_control_actualizacion_nickel"
+            action="action_panel_control_actualizacion_nickel"
+            parent="expresso_product_attributes.menu_administracion_expresso"
+            sequence="4"
+            icon="terp-tools"/>
+        
+        
+        
+        
+    </data>
+</openerp>

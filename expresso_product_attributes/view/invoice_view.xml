@@ -1,0 +1,190 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <!-- Form -->
+        <record id="view_invoice_expresso_form" model="ir.ui.view">
+            <field name="name">account.invoice.expresso.form</field>
+            <field name="priority" eval="30"/>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="model">account.invoice</field>
+            <field name="arch" type="xml">
+                    <field name="quantity" position="replace">
+                        <field name="quantity" widget="integer"/>
+                    </field>
+                    
+                    <!-- <xpath expr="//form[@string='Supplier Invoice']/notebook[1]/page[@string='Invoice']/field[@name='invoice_line']/tree/field[@name='quantity']" position="replace">
+                        <field name="quantity" widget="integer"/>
+                    </xpath> -->
+                    
+                    <field name="invoice_line_tax_id" position="replace">
+                        <field name="invoice_line_tax_id" view_mode="2" context="{'type':parent.type}"
+                               domain="[('parent_id','=',False)]" invisible="True"/>
+                    </field>
+                    
+                    <field name="tax_line" position="replace"/>
+                    
+                    <button name="button_reset_taxes" position="replace"/>
+                    
+                    <field name="amount_tax" position="replace">
+                        <field name="amount_tax" invisible="True"/>
+                    </field>
+                    <field name="reconciled"/>
+                    
+                                        
+                    <field name="amount_total" position="replace">
+                        <field name="amount_total"/>
+                        <field name="reconciled"/>
+                    </field>
+                    
+                    <field name="number" position="replace">
+                        <field name="number" invisible="1"/>
+                        <field name="invoice_number" readonly="1"/>
+                    </field>
+                    
+                    
+                    <field name="journal_id" position="replace">
+                        <field name="journal_id" on_change="onchange_journal_id(journal_id)" widget="selection" invisible="True"/>
+                    </field>
+                    
+                    <field name="fiscal_position" position="replace">
+                        <field name="fiscal_position" groups="base.group_extended" widget="selection" invisible="True" />
+                    </field>
+                    
+                    <field name="reference_type" position="replace">
+                        <field name="reference_type" nolabel="1" size="0" invisible="True"/>
+                    </field>
+                    
+                    <field name="reference" position="replace">
+                        <field name="reference" nolabel="1" invisible="True"/>
+                    </field>
+                    
+                    <field name="date_due" position="replace">
+                        <field name="date_due" invisible="True"/>
+                    </field>
+                    
+                    <!--
+                    <xpath expr="//form[@string='Supplier Invoice']/group[1]">
+                        <field name="packing_id"/>
+                    </xpath>
+                    -->
+                    
+                    <field name="account_id" position="replace">
+                        <field name="account_id"
+                               domain="[('company_id', '=', parent.company_id), ('journal_id', '=', parent.journal_id), ('type', '&lt;&gt;', 'view')]" on_change="onchange_account_id(product_id,parent.partner_id,parent.type,parent.fiscal_position,account_id)"
+                               invisible="True"/>
+                    </field>
+                    
+                    <!-- <xpath expr="//form[@string='Supplier Invoice']/notebook/page[@string='Invoice']//tree[@string='Invoice lines']/field[@name='name']" position="replace"/> -->
+                    
+                    <field name="product_id" position="replace">
+                        <field name="product_id"
+                               on_change="product_id_change(product_id, uos_id, quantity, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id, context, parent.company_id)"
+                               invisible="1"/>
+                        <field name="name"/>
+                    </field>
+                    
+                    <!-- <xpath expr="//form[@string='Supplier Invoice']/notebook/page[@string='Other Info']"
+                           position="replace"/>
+                    <xpath expr="//form[@string='Supplier Invoice']/notebook/page[@string='Payments']"
+                           position="replace"/> -->
+                    
+                    <field name="state" position="replace">
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="draft,open,paid"
+                               statusbar_colors='{"proforma":"blue","proforma2":"blue"}'
+                               invisible="1"/>
+                    </field>
+                    <!-- <xpath expr="//form[@string='Supplier Invoice']/notebook/page[@string='Invoice']/group[2]/group[1]"
+                           position="replace"/> -->
+            </field>
+        </record>
+        
+        <!-- Tree -->
+        <record id="view_invoice_expresso_tree" model="ir.ui.view">
+            <field name="name">account.invoice.expresso.tree</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_tree"/>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <field name="user_id" position="replace">
+                    <field name="user_id" invisible="1"/>
+                </field>
+                <field name="date_due" position="replace">
+                    <field name="date_due" invisible="1"/>
+                </field>
+                <field name="origin" position="replace">
+                    <field name="origin" invisible="1"/>
+                </field>
+                <field name="state" position="replace">
+                    <field name="state" invisible="1"/>
+                </field>
+                <field name="number" position="replace">
+                    <field name="invoice_number"/>
+                    <field name="account_id"/>
+                    <field name="number" invisible="1"/>
+                </field>
+                <field name="account_id" position="replace">
+                    <field name="account_id" invisible="1"/>
+                </field>
+            </field>
+        </record>
+        
+        <!-- Search -->
+        <!-- <record id="view_invoice_expresso_search" model="ir.ui.view">
+            <field name="name">account.invoice.expresso.search</field>
+            <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+            <field name="model">account.invoice</field>
+            <field name="arch" type="xml">
+                <search string="Search Invoice" position="replace" >
+                    <search string="Invoices" >
+                        <field name="invoice_number"/>
+                        <field name="partner_id"/>
+                    </search>
+                </search>
+            </field>
+        </record> -->
+        
+        <record id="view_invoice_line_expresso_form" model="ir.ui.view">
+            <field name="name">account.invoice.line.expresso.form</field>
+            <field name="inherit_id" ref="account.view_invoice_line_form"/>
+            <field name="model">account.invoice.line</field>
+            <field name="arch" type="xml">
+                    <!-- <xpath expr="//form[@string='Invoice Line']/separator[@string='Taxes']"
+                           position="replace"/> -->
+                    <field name="invoice_line_tax_id" position="replace">
+                        <field colspan="4" name="invoice_line_tax_id" context="{'type':parent.type}"
+                               domain="[('parent_id','=',False),('company_id', '=', parent.company_id)]" nolabel="1"
+                               invisible="True"/>
+                    </field>
+                    
+                    <field name="discount" position="replace">
+                        <field name="discount" groups="base.group_extended" invisible="True"/>
+                    </field>
+                    
+                    <field name="account_id" position="replace">
+                        <field name="account_id"
+                               invisible="True"
+                               on_change="onchange_account_id(product_id, parent.partner_id, parent.type, parent.fiscal_position,account_id)"
+                               domain="[('company_id', '=', parent.company_id), ('journal_id', '=', parent.journal_id), ('type', '&lt;&gt;', 'view')]" />
+                    </field>
+            </field>
+        </record>
+        
+        <!-- Tree -->
+        <record id="view_invoice_line_expresso_tree" model="ir.ui.view">
+            <field name="name">account.invoice.line.expresso.tree</field>
+            <field name="model">account.invoice.line</field>
+            <field name="inherit_id" ref="account.view_invoice_line_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="quantity" position="replace">
+                        <field name="quantity" nolabel="1" widget="integer"/>
+                    </field>
+                </data>
+            </field>
+        </record>
+        
+        
+    </data>
+</openerp>

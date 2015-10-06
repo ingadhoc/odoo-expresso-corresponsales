@@ -1,0 +1,450 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <!-- Ciclos -->
+	    <record id="view_expresso_ciclo_form" model="ir.ui.view">
+            <field name="name">expresso.ciclo.form</field>
+            <field name="model">expresso.ciclo</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Ciclo">
+                    <field name="remote_id"/>
+                    <field name="denomination"/>
+                </form>
+            </field>
+        </record>
+
+	    <record id="view_expresso_ciclo_tree" model="ir.ui.view">
+            <field name="name">expresso.ciclo.tree</field>
+            <field name="model">expresso.ciclo</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Ciclos">
+                    <field name="denomination"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Coleccion -->
+	    <record id="view_expresso_coleccion_form" model="ir.ui.view">
+            <field name="name">expresso.coleccion.form</field>
+            <field name="model">expresso.coleccion</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Coleccion">
+                    <field name="remote_id"/>
+                    <field name="denomination"/>
+                </form>
+            </field>
+        </record>
+
+	    <record id="view_expresso_coleccion_tree" model="ir.ui.view">
+            <field name="name">expresso.coleccion.tree</field>
+            <field name="model">expresso.coleccion</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Colecciones">
+                    <field name="denomination"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Cursos -->
+	    <record id="view_expresso_curso_form" model="ir.ui.view">
+            <field name="name">expresso.curso.form</field>
+            <field name="model">expresso.curso</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Curso">
+                    <field name="remote_id"/>
+                    <field name="denomination"/>
+                </form>
+            </field>
+        </record>
+
+	    <record id="view_expresso_curso_tree" model="ir.ui.view">
+            <field name="name">expresso.curso.tree</field>
+            <field name="model">expresso.curso</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Curso">
+                    <field name="denomination"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Encuadernacion -->
+        <record id="view_expresso_encuadernacion_form" model="ir.ui.view">
+            <field name="name">expresso.encuadernacion.form</field>
+            <field name="model">expresso.encuadernacion</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Encuadernacion">
+                    <field name="remote_id"/>
+                    <field name="denomination"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_expresso_encuadernacion_tree" model="ir.ui.view">
+            <field name="name">expresso.encuadernacion.tree</field>
+            <field name="model">expresso.encuadernacion</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Encuadernaciones">
+                    <field name="denomination"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Forma de Envío -->
+        <record id="view_expresso_forma_envio_form" model="ir.ui.view">
+            <field name="name">expresso.forma_envio.form</field>
+            <field name="model">expresso.forma_envio</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Formas de Envío">
+                     <field name="remote_id"/>
+                    <field name="denomination"/>
+                </form>
+            </field>
+        </record>
+        
+        <record id="view_expresso_forma_envio_tree" model="ir.ui.view">
+            <field name="name">expresso.forma_envio.tree</field>
+            <field name="model">expresso.forma_envio</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Formas de Envío">
+                    <field name="denomination"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Idioma -->
+        <record id="view_expresso_idioma_form" model="ir.ui.view">
+            <field name="name">expresso.idioma.form</field>
+            <field name="model">expresso.idioma</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Idiomas de Títulos">
+                     <field name="remote_id"/>
+                    <field name="denomination"/>
+                    <field name="idioma_amigo"/>
+                </form>
+            </field>
+        </record>
+        
+        <record id="view_expresso_idioma_tree" model="ir.ui.view">
+            <field name="name">expresso.idioma.tree</field>
+            <field name="model">expresso.idioma</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Partner Addresses">
+                    <field name="denomination"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Proyecto -->
+        <record id="view_expresso_proyecto_form" model="ir.ui.view">
+            <field name="name">expresso.proyecto.form</field>
+            <field name="model">expresso.proyecto</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Proyecto">
+                    <field name="remote_id"/>
+                    <field name="denomination"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_expresso_proyecto_tree" model="ir.ui.view">
+            <field name="name">expresso.proyecto.tree</field>
+            <field name="model">expresso.proyecto</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Proyecto">
+                    <field name="denomination"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Público Objetivo -->
+	    <record id="view_expresso_publico_form" model="ir.ui.view">
+            <field name="name">expresso.publico.form</field>
+            <field name="model">expresso.publico</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Público Objetivo">
+                    <field name="remote_id"/>
+                    <field name="denomination"/>
+                </form>
+            </field>
+        </record>
+
+	    <record id="view_expresso_publico_tree" model="ir.ui.view">
+            <field name="name">expresso.publico.tree</field>
+            <field name="model">expresso.publico</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Público Objetivo">
+                    <field name="denomination"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Situaciones -->
+	    <record id="view_expresso_situacion_form" model="ir.ui.view">
+            <field name="name">expresso.situacion.form</field>
+            <field name="model">expresso.situacion</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Situacion">
+                    <field name="remote_id"/>
+                    <field name="denomination"/>
+                    <field name="permite_pedido"/>
+                </form>
+            </field>
+        </record>
+
+	    <record id="view_expresso_situacion_tree" model="ir.ui.view">
+            <field name="name">expresso.situacion.tree</field>
+            <field name="model">expresso.situacion</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Situacion">
+                    <field name="denomination"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Tipo -->
+	    <record id="view_expresso_tipo_form" model="ir.ui.view">
+            <field name="name">expresso.tipo.form</field>
+            <field name="model">expresso.tipo</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Tipo">
+                    <field name="remote_id"/>
+                    <field name="denomination"/>
+                </form>
+            </field>
+        </record>
+
+	    <record id="view_expresso_tipo_tree" model="ir.ui.view">
+            <field name="name">expresso.tipo.tree</field>
+            <field name="model">expresso.tipo</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Tipo">
+                    <field name="denomination"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Valor -->
+	    <record id="view_expresso_valor_form" model="ir.ui.view">
+            <field name="name">expresso.valor.form</field>
+            <field name="model">expresso.valor</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Valor">
+                    <field name="remote_id"/>
+                    <field name="denomination"/>
+                </form>
+            </field>
+        </record>
+
+	    <record id="view_expresso_valor_tree" model="ir.ui.view">
+            <field name="name">expresso.valor.tree</field>
+            <field name="model">expresso.valor</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Valor">
+                    <field name="denomination"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Director -->
+        <record id="view_expresso_director_form" model="ir.ui.view">
+            <field name="name">expresso.director.form</field>
+            <field name="model">expresso.director</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Director">
+                    <field name="remote_id"/>
+                    <field name="denomination"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_expresso_director_tree" model="ir.ui.view">
+            <field name="name">expresso.director.tree</field>
+            <field name="model">expresso.director</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Directores">
+                    <field name="denomination"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Materia -->
+	    <record id="view_expresso_materia_form" model="ir.ui.view">
+            <field name="name">expresso.materia.form</field>
+            <field name="model">expresso.materia</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Materia">
+                    <field name="remote_id"/>
+                    <field name="denomination"/>
+                    <field name="director_id"/>
+                    <field name="proyecto_id"/>
+                </form>
+            </field>
+        </record>
+
+	    <record id="view_expresso_materia_tree" model="ir.ui.view">
+            <field name="name">expresso.materia.tree</field>
+            <field name="model">expresso.materia</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Materias">
+                    <field name="denomination"/>
+                    <field name="director_id"/>
+                    <field name="proyecto_id"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Seleccion -->
+	    <record id="view_expresso_seleccion_form" model="ir.ui.view">
+            <field name="name">expresso.seleccion.form</field>
+            <field name="model">expresso.seleccion</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Seleccion">
+                    <field name="remote_id"/>
+                    <field name="denomination"/>
+                    <field name="matter_id"/>
+                    <field name="project_id"/>
+                </form>
+            </field>
+        </record>
+
+	    <record id="view_expresso_seleccion_tree" model="ir.ui.view">
+            <field name="name">expresso.seleccion.tree</field>
+            <field name="model">expresso.seleccion</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Selecciones">
+                    <field name="denomination"/>
+                    <field name="matter_id"/>
+                    <field name="project_id"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Acciones -->
+        <record id="action_expresso_ciclo_form" model="ir.actions.act_window">
+            <field name="name">Ciclos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">expresso.ciclo</field>
+            <field name="view_type">form</field>
+        </record>
+        
+        <record id="action_expresso_coleccion_form" model="ir.actions.act_window">
+            <field name="name">Colecciones</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">expresso.coleccion</field>
+            <field name="view_type">form</field>
+        </record>
+        
+        <record id="action_expresso_curso_form" model="ir.actions.act_window">
+            <field name="name">Cursos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">expresso.curso</field>
+            <field name="view_type">form</field>
+        </record>
+        
+        <record id="action_expresso_encuadernacion_form" model="ir.actions.act_window">
+            <field name="name">Encuadernaciones</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">expresso.encuadernacion</field>
+            <field name="view_type">form</field>
+        </record>
+        
+        <record id="action_expresso_forma_envio_form" model="ir.actions.act_window">
+            <field name="name">Formas de Envío</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">expresso.forma_envio</field>
+            <field name="view_type">form</field>
+        </record>
+        
+        <record id="action_expresso_idioma_form" model="ir.actions.act_window">
+            <field name="name">Idiomas</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">expresso.idioma</field>
+            <field name="view_type">form</field>
+        </record>
+        
+        <record id="action_expresso_proyecto_form" model="ir.actions.act_window">
+            <field name="name">Proyectos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">expresso.proyecto</field>
+            <field name="view_type">form</field>
+        </record>
+        
+        <record id="action_expresso_publico_form" model="ir.actions.act_window">
+            <field name="name">Público Objetivo</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">expresso.publico</field>
+            <field name="view_type">form</field>
+        </record>
+        
+        <record id="action_expresso_situacion_form" model="ir.actions.act_window">
+            <field name="name">Situaciones</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">expresso.situacion</field>
+            <field name="view_type">form</field>
+        </record>
+        
+        <record id="action_expresso_tipo_form" model="ir.actions.act_window">
+            <field name="name">Tipo</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">expresso.tipo</field>
+            <field name="view_type">form</field>
+        </record>
+        
+        <record id="action_expresso_valor_form" model="ir.actions.act_window">
+            <field name="name">Valores</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">expresso.valor</field>
+            <field name="view_type">form</field>
+        </record>
+        
+        <record id="action_expresso_director_form" model="ir.actions.act_window">
+            <field name="name">Directores</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">expresso.director</field>
+            <field name="view_type">form</field>
+        </record>
+        
+        <record id="action_expresso_materia_form" model="ir.actions.act_window">
+            <field name="name">Materias</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">expresso.materia</field>
+            <field name="view_type">form</field>
+        </record>
+        
+        <record id="action_expresso_seleccion_form" model="ir.actions.act_window">
+            <field name="name">Selecciones</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">expresso.seleccion</field>
+            <field name="view_type">form</field>
+        </record>
+
+    </data>
+</openerp>
