@@ -255,16 +255,6 @@
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
 		
-		<record id="access_sale_order_message_corresponsales" model="ir.model.access">
-			<field name="model_id" ref="expresso_product_attributes.model_sale_order_message"/>
-			<field name="name">sale.order.message.corresponsales</field>
-			<field eval="1" name="perm_read"/>
-			<field eval="1" name="perm_write"/>
-			<field eval="1" name="perm_create"/>
-			<field eval="1" name="perm_unlink"/>
-			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
-		</record>
-		
 		<record id="access_expresso_idioma_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="expresso_product_attributes.model_expresso_idioma"/>
 			<field name="name">expresso.idioma.corresponsales</field>

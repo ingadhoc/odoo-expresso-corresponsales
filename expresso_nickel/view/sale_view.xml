@@ -5,7 +5,6 @@
             <field name="name">sale.order.nickel_expresso.form</field>
             <field name="priority" eval="40"/>
             <field name="model">sale.order</field>
-            <field name="type">form</field>
             <field name="inherit_id" ref="expresso_product_attributes.view_order_expresso_form"/>
             <field name="arch" type="xml">
                 <data>
@@ -29,9 +28,7 @@
         <record id="view_order_nickel_expresso_tree" model="ir.ui.view">
             <field name="name">sale.order.nickel_expresso.tree</field>
             <field name="priority" eval="40"/>
-            <field name="model">sale.order</field>
-            <field name="type">tree</field>
-            <field name="inherit_id" ref="expresso_product_attributes.view_order_expresso_tree"/>
+            <field name="model">sale.order</field><field name="inherit_id" ref="expresso_product_attributes.view_order_expresso_tree"/>
             <field name="arch" type="xml">
                 <data>
                     <field name="state_expresso" position="before">
@@ -45,7 +42,6 @@
         <record id="view_order_expresso_search" model="ir.ui.view">
             <field name="name">sale.order.nickel_expresso.search</field>
             <field name="model">sale.order</field>
-            <field name="type">search</field>
             <field name="priority" eval="40"/>
             <field name="inherit_id" ref="expresso_product_attributes.view_order_expresso_search"/>
             <field name="arch" type="xml">

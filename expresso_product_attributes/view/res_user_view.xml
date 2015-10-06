@@ -6,7 +6,6 @@
             <field name="name">base.users.expresso.search</field>
             <field name="priority" eval="30"/>
             <field name="model">res.users</field>
-            <field name="type">search</field>
             <field name="inherit_id" ref="base.view_users_search"/>
             <field name="arch" type="xml">
                 <data>

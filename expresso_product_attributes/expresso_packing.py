@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from openerp import models, fields, api
+from openerp import models, fields
 import openerp.addons.decimal_precision as dp
 
 
@@ -12,81 +12,101 @@ class expresso_packing(models.Model):
     id_remoto = fields.Char(
         'Identificador Remoto',
         size=30,
-        readonly=True)
+        readonly=True,
+        copy=False,
+        )
     date = fields.Datetime(
         'Fecha Orden',
         required=True,
-        help='Fecha de la Orden')
-    number_of_packages = fields.Integer('Numero de paquetes')
-    partner_id = fields.Many2one('res.partner', 'Corresponsal', required=True)
+        help='Fecha de la Orden'
+        )
+    number_of_packages = fields.Integer(
+        'Numero de paquetes'
+        )
+    partner_id = fields.Many2one(
+        'res.partner',
+        'Corresponsal',
+        required=True
+        )
     partner_address_id = fields.Many2one(
         'payment.transaction',
         'Address',
         required=True,
-        domain="[('partner_id','=', partner_id)]")
-    imprimirpeso = fields.Char('Imprimir Peso', size=30)
+        domain="[('partner_id','=', partner_id)]"
+        )
+    imprimirpeso = fields.Char(
+        'Imprimir Peso',
+        size=30
+        )
     packing_box_ids = fields.One2many(
         'expresso.packing.box',
         'packing_id',
-        'Cajas')
-    invoice_ids = fields.One2many('account.invoice', 'packing_id', 'Facturas')
-
-    def copy(self, cr, uid, id, default=None, context=None):
-        if default is None:
-            default = {}
-        default['remote_id'] = None
-        return super(expresso_packing, self).copy(cr, uid, id, default, context)
+        'Cajas'
+        )
+    invoice_ids = fields.One2many(
+        'account.invoice',
+        'packing_id',
+        'Facturas'
+        )
 
 
 class expresso_packing_box(models.Model):
     _name = 'expresso.packing.box'
     _description = 'Cajas de Packing'
 
-    name = fields.Char('Nombre', size=64)
+    name = fields.Char(
+        'Nombre',
+        size=64,
+        copy=False
+        )
     remote_id = fields.Char(
         'Identificador Remoto',
         size=30,
-        readonly=True)
-    weight = fields.Float('Peso')
+        readonly=True
+        )
+    weight = fields.Float(
+        'Peso'
+        )
     packing_id = fields.Many2one(
         'expresso.packing',
         'Packing',
-        required=True)
+        required=True
+        )
     packing_detail_ids = fields.One2many(
         'expresso.packing.detail',
         'box_id',
-        'Detalles')
-
-    @api.one
-    def copy(self, default=None):
-        if default is None:
-            default = {}
-        default['remote_id'] = None
-        return super(expresso_packing_box, self).copy(default)
+        'Detalles'
+        )
 
 
 class expresso_packing_detail(models.Model):
     _name = 'expresso.packing.detail'
     _description = 'Detalle de Packing'
 
-    name = fields.Char('Nombre', size=64)
+    name = fields.Char(
+        'Nombre',
+        size=64
+        )
     remote_id = fields.Char(
         'Identificador Remoto',
         size=30,
-        readonly=True)
+        readonly=True,
+        copy=False,
+        )
     product_id = fields.Many2one(
         'product.product',
-        'Producto')
+        'Producto'
+        )
     product_qty = fields.Float(
         'Cantidad',
-        digits_compute=dp.get_precision('Product UoM'),
-        required=True)
-    weight = fields.Float('Peso')
-    box_id = fields.Many2one('expresso.packing.box', 'Caja', required=True)
-
-    @api.one
-    def copy(self, default=None):
-        if default is None:
-            default = {}
-        default['remote_id'] = None
-        return super(expresso_packing_detail, self).copy(default)
+        digits=dp.get_precision('Product UoM'),
+        required=True
+        )
+    weight = fields.Float(
+        'Peso'
+        )
+    box_id = fields.Many2one(
+        'expresso.packing.box',
+        'Caja',
+        required=True
+        )

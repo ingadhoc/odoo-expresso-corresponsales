@@ -5,7 +5,6 @@
         <record id="view_pre_cerrar_pedido" model="ir.ui.view">
             <field name="name">view_pre_cerrar_pedido</field>
             <field name="model">pre_cerrar_pedido</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Antes de cerrar el pedido">
                     <separator colspan="4" string="Antes de cerrar el pedido"/>
@@ -240,7 +239,6 @@
 	    <record id="view_sale_empresa_logistica_form" model="ir.ui.view">
             <field name="name">sale.empresa_logistica.form</field>
             <field name="model">sale.empresa_logistica</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Empresa de Lógistica">
                     <field name="name"/>
@@ -250,42 +248,13 @@
 
 	    <record id="view_sale_empresa_logistica_tree" model="ir.ui.view">
             <field name="name">sale.empresa_logistica.tree</field>
-            <field name="model">sale.empresa_logistica</field>
-            <field name="type">tree</field>
-            <field name="arch" type="xml">
+            <field name="model">sale.empresa_logistica</field><field name="arch" type="xml">
                 <tree string="Empresa de Lógistica">
                     <field name="name"/>
                 </tree>
             </field>
         </record>
-        
-        <!-- Mensaje de Pedido -->
-	    <record id="view_sale_order_message_form" model="ir.ui.view">
-            <field name="name">sale.order.message.form</field>
-            <field name="model">sale.order.message</field>
-            <field name="type">form</field>
-            <field name="arch" type="xml">
-                <form string="Empresa de Lógistica">
-                    <field name="user_id"/>
-                    <field name="creation_date"/>
-                    <separator string="Mensaje" colspan="4"/>
-                    <field name="message" nolabel="1" colspan="4"/>
-                </form>
-            </field>
-        </record>
 
-	    <record id="view_sale_order_message_tree" model="ir.ui.view">
-            <field name="name">sale.order.message.tree</field>
-            <field name="model">sale.order.message</field>
-            <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <tree string="Empresa de Lógistica">
-                    <field name="user_id"/>
-                    <field name="creation_date"/>
-                    <field name="message"/>
-                </tree>
-            </field>
-        </record>
         
         <!-- Acciones -->
         <record id="action_sale_empresa_logistica" model="ir.actions.act_window">
@@ -295,15 +264,6 @@
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
         </record>
-        
-        <record id="action_sale_order_message" model="ir.actions.act_window">
-            <field name="name">Mensaje de Pedido</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">sale.order.message</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-        
-        
+
     </data>
 </openerp>

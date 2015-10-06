@@ -4,7 +4,6 @@
         <record id="view_panel_control_actualizacion_nickel_wizard" model="ir.ui.view">
             <field name="name">panel_control_actualizacion_nickel_wizard</field>
             <field name="model">panel_control_update_nickel</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Panel de Control de las Actualizaciones de Nickel">
                     <label colspan="4"

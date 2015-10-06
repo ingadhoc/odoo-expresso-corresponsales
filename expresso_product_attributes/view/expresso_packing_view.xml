@@ -5,7 +5,6 @@
 	    <record id="view_expresso_packing_form" model="ir.ui.view">
             <field name="name">expresso.packing.form</field>
             <field name="model">expresso.packing</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Packing">
                     <field name="partner_id"/>
@@ -31,9 +30,7 @@
 
 	    <record id="view_expresso_packing_tree" model="ir.ui.view">
             <field name="name">expresso.packing.tree</field>
-            <field name="model">expresso.packing</field>
-            <field name="type">tree</field>
-            <field name="arch" type="xml">
+            <field name="model">expresso.packing</field><field name="arch" type="xml">
                 <tree string="Packing">
                     <field name="date"/>
                     <field name="number_of_packages"/>
@@ -46,7 +43,6 @@
         <record id="view_expresso_packing_search" model="ir.ui.view">
             <field name="name">expresso.packing.search</field>
             <field name="model">expresso.packing</field>
-            <field name="type">search</field>
             <field name="arch" type="xml">
                 <search string="Packing" >
                     <field name="date"/>
@@ -60,7 +56,6 @@
 	    <record id="view_expresso_packing_box_form" model="ir.ui.view">
             <field name="name">expresso.packing.box.form</field>
             <field name="model">expresso.packing.box</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Caja">
                     <field name="name"/>
@@ -74,9 +69,7 @@
 
 	    <record id="view_expresso_packing_box_tree" model="ir.ui.view">
             <field name="name">expresso.packing.box.tree</field>
-            <field name="model">expresso.packing.box</field>
-            <field name="type">tree</field>
-            <field name="arch" type="xml">
+            <field name="model">expresso.packing.box</field><field name="arch" type="xml">
                 <tree string="Caja">
                     <field name="name"/>
                     <field name="weight"/>
@@ -88,7 +81,6 @@
 	    <record id="view_expresso_packing_detail_form" model="ir.ui.view">
             <field name="name">expresso.packing.detail.form</field>
             <field name="model">expresso.packing.detail</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Detalle">
                     <field name="name" colspan="4"/>
@@ -101,9 +93,7 @@
 
 	    <record id="view_expresso_packing_detail_tree" model="ir.ui.view">
             <field name="name">expresso.packing.detail.tree</field>
-            <field name="model">expresso.packing.detail</field>
-            <field name="type">tree</field>
-            <field name="arch" type="xml">
+            <field name="model">expresso.packing.detail</field><field name="arch" type="xml">
                 <tree string="Detalle">
                     <field name="name"/>
                     <field name="product_id"/>

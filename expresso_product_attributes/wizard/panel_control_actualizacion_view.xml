@@ -4,7 +4,6 @@
         <record id="view_panel_control_actualizacion_wizard" model="ir.ui.view">
             <field name="name">panel_control_actualizacion_wizard</field>
             <field name="model">expresso.panel_control_actualizacion</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Panel de Control de las Actualizaciones">
                     <label colspan="4"

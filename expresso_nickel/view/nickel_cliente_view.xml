@@ -4,7 +4,6 @@
         <record id="view_nickel_cliente_form" model="ir.ui.view">
             <field name="name">nickel_partner.form</field>
             <field name="model">nickel_partner</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Cliente de Nickel">
                     <field name="remote_id"/>
@@ -17,9 +16,7 @@
 
 	    <record id="view_nickel_cliente_tree" model="ir.ui.view">
             <field name="name">nickel_partner.tree</field>
-            <field name="model">nickel_partner</field>
-            <field name="type">tree</field>
-            <field name="arch" type="xml">
+            <field name="model">nickel_partner</field><field name="arch" type="xml">
                 <tree string="Cliente de Nickel">
                     <field name="remote_id"/>
                     <field name="name"/>
@@ -56,7 +53,6 @@
             <field name="name">expresso.info_corresponsal.nickel.form</field>
             <field name="priority" eval="30"/>
             <field name="model">expresso.info_corresponsal</field>
-            <field name="type">form</field>
             <field name="inherit_id" ref="expresso_product_attributes.view_expresso_info_corresponsal_form"/>
             <field name="arch" type="xml">
                 <data>
@@ -70,9 +66,7 @@
         <record id="view_expresso_info_corresponsal_nickel_tree" model="ir.ui.view">
             <field name="name">expresso.info_corresponsal.nickel.tree</field>
             <field name="priority" eval="30"/>
-            <field name="model">expresso.info_corresponsal</field>
-            <field name="type">tree</field>
-            <field name="inherit_id" ref="expresso_product_attributes.view_expresso_info_corresponsal_tree"/>
+            <field name="model">expresso.info_corresponsal</field><field name="inherit_id" ref="expresso_product_attributes.view_expresso_info_corresponsal_tree"/>
             <field name="arch" type="xml">
                 <data>
                     <xpath expr="//tree[@string='Información de los Corresponsales']">

@@ -6,7 +6,6 @@
             <field name="name">account.invoice.expresso.nickel.form</field>
             <field name="priority" eval="40"/>
             <field name="model">account.invoice</field>
-            <field name="type">form</field>
             <field name="inherit_id" ref="account.invoice_supplier_form"/>
             <field name="arch" type="xml">
                 <data>
@@ -43,9 +42,7 @@
         <record id="view_invoice_expresso_nickel_tree" model="ir.ui.view">
             <field name="name">account.invoice.expresso.nickel.tree</field>
             <field name="model">account.invoice</field>
-            <field name="inherit_id" ref="account.invoice_tree"/>
-            <field name="type">tree</field>
-            <field name="arch" type="xml">
+            <field name="inherit_id" ref="account.invoice_tree"/><field name="arch" type="xml">
                 <data>
                     <field name="residual" position="replace">
                         <field name="residual_2"/>

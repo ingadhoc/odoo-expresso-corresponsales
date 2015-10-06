@@ -6,25 +6,14 @@
             <field name="name">product.normal.form.inherit</field>
             <field name="model">product.product</field>
             <field name="inherit_id" ref="product.product_normal_form_view"/>
-            <field name="arch" type="xml">
-                                
-                
-                    <field name="ean13" position="replace">
-                        <field name="name" string="Titulo"/>
-                        <field name="isbn" string="ISBN" />
-                        <field name="autor"/>
-                    </field>
-                    <field name="default_code" position="replace">
-                        <field name="default_code" string="EAN"/>
-                    </field>
-                <!-- 
-                    <field name="type" position="replace">
-                        <separator string="Información" colspan="2"/>
-                    </field> -->
-                
- -->          <!--   <page string="Procurements" position="replace"/>
-                <page string="Information" position="replace"/>
-                <page string="Inventory" position="replace"/> -->
+            <field name="arch" type="xml">                
+                <field name="ean13" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="ean13" position="after">
+                    <field name="isbn" string="ISBN" />
+                    <field name="autor"/>
+                </field>
                 <notebook position="inside">
                     <page string="Ficha">
                         <group colspan="2" col="2">
@@ -102,7 +91,7 @@
                         <separator orientation="vertical"/>
                         
                         <field name="name" string="Título" />
-                        <field name="author" />
+                        <field name="autor" />
                         <field name="editorial" />
                         <separator orientation="vertical"/>
                         
@@ -125,7 +114,7 @@
                 <tree string="Product Variants" position="replace">
                     <tree string="Títulos">
                         <field name="name" string="Título" />
-                        <field name="author" />
+                        <field name="autor" />
                         <field name="editorial" />
                         <field name="situacion_id" />
                         <field name="isbn" string="ISBN" />
@@ -141,7 +130,6 @@
         <record id="view_producto_pendiente_form" model="ir.ui.view">
             <field name="name">product.producto_pendiente.form</field>
             <field name="model">product.producto_pendiente</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Título Pendiente">
                     <field name="name"/>
@@ -161,9 +149,7 @@
 
 	    <record id="view_producto_pendiente_tree" model="ir.ui.view">
             <field name="name">product.producto_pendiente.tree</field>
-            <field name="model">product.producto_pendiente</field>
-            <field name="type">tree</field>
-            <field name="arch" type="xml">
+            <field name="model">product.producto_pendiente</field><field name="arch" type="xml">
                 <tree string="Título Pendiente" colors="red:state=='cancelado';blue:state=='repedido'">
                     <field name="name"/>
                     <field name="product_id" string="Título" />
@@ -178,7 +164,6 @@
         <record id="view_producto_pendiente_search" model="ir.ui.view">
             <field name="name">product.producto_pendiente.search</field>
             <field name="model">product.producto_pendiente</field>
-            <field name="type">search</field>
             <field name="arch" type="xml">
                 <search string="Título Pendiente" >
                     <filter name="activo" string="Activo" icon="terp-document-new"

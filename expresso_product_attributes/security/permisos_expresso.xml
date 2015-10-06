@@ -527,16 +527,6 @@
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
 		</record>
 		
-		<record id="access_sale_order_message_expresso" model="ir.model.access">
-			<field name="model_id" ref="expresso_product_attributes.model_sale_order_message"/>
-			<field name="name">sale.order.message.expresso</field>
-			<field eval="1" name="perm_read"/>
-			<field eval="1" name="perm_write"/>
-			<field eval="1" name="perm_create"/>
-			<field eval="1" name="perm_unlink"/>
-			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
-		</record>
-		
 	<!-- 	<record id="access_sale_shop_expresso" model="ir.model.access">
 			<field name="model_id" ref="sale.model_sale_shop"/>
 			<field name="name">sale.shop.expresso</field>

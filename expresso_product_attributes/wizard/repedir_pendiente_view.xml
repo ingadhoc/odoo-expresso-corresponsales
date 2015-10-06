@@ -4,7 +4,6 @@
         <record id="view_repedir_pendiente_pedido_existente" model="ir.ui.view">
             <field name="name">Repedir Título en Pedido Existente</field>
             <field name="model">expresso.repedir_pendiente_pedido_existente</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Repedir Título en Pedido Existente">
                     <separator colspan="4" string="Repedir Título en Pedido Existente"/>

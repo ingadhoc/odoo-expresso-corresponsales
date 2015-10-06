@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 from openerp import models, fields
 
-# Ciclo
-
 
 class expresso_ciclo(models.Model):
 
@@ -16,18 +14,21 @@ class expresso_ciclo(models.Model):
     remote_id = fields.Char(
         'Identificador Remoto',
         size=30,
-        readonly=True)
+        readonly=True,
+        copy=False,
+        )
     denomination = fields.Char(
         'Denominación',
         size=30,
         required=True,
-        readonly=True)
+        readonly=True
+        )
 
     _sql_constraints = [
-        ('remote_id_no_uniq', 'unique(remote_id)', 'El Identificador Remoto debe ser unico!')]
+        ('remote_id_no_uniq',
+            'unique(remote_id)', 'El Identificador Remoto debe ser unico!')]
 
 
-# Colección
 class expresso_coleccion(models.Model):
 
     # Coleccion de los productos de Expresso Bibliogáfico
@@ -39,7 +40,9 @@ class expresso_coleccion(models.Model):
     remote_id = fields.Char(
         'Identificador Remoto',
         size=30,
-        readonly=True)
+        readonly=True,
+        copy=False,
+        )
     denomination = fields.Char(
         'Denominación',
         size=50,
@@ -47,10 +50,8 @@ class expresso_coleccion(models.Model):
         readonly=True)
 
     _sql_constraints = [
-        ('remote_id_no_uniq', 'unique(remote_id)', 'El Identificador Remoto debe ser unico!')]
-
-
-# Curso
+        ('remote_id_no_uniq',
+            'unique(remote_id)', 'El Identificador Remoto debe ser unico!')]
 
 
 class expresso_curso(models.Model):
@@ -64,17 +65,18 @@ class expresso_curso(models.Model):
     remote_id = fields.Char(
         'Identificador Remoto',
         size=30,
-        readonly=True)
+        readonly=True,
+        copy=False
+        )
     denomination = fields.Char(
         'Denominación',
         size=30,
-        readonly=True)
+        readonly=True
+        )
 
     _sql_constraints = [
-        ('remote_id_no_uniq', 'unique(remote_id)', 'El Identificador Remoto debe ser unico!')]
-
-
-# Encuadernación
+        ('remote_id_no_uniq',
+            'unique(remote_id)', 'El Identificador Remoto debe ser unico!')]
 
 
 class expresso_encuadernacion(models.Model):
@@ -88,18 +90,19 @@ class expresso_encuadernacion(models.Model):
     remote_id = fields.Char(
         'Identificador Remoto',
         size=30,
-        readonly=True)
+        readonly=True,
+        copy=False
+        )
     denomination = fields.Char(
         'Denominación',
         size=30,
         required=True,
-        readonly=True)
+        readonly=True
+        )
 
     _sql_constraints = [
-        ('remote_id_no_uniq', 'unique(remote_id)', 'El Identificador Remoto debe ser unico!')]
-
-
-# Forma de Envío
+        ('remote_id_no_uniq',
+            'unique(remote_id)', 'El Identificador Remoto debe ser unico!')]
 
 
 class expresso_forma_envio(models.Model):
@@ -113,7 +116,9 @@ class expresso_forma_envio(models.Model):
     remote_id = fields.Char(
         'Identificador Remoto',
         size=30,
-        readonly=True)
+        readonly=True,
+        copy=False
+        )
     denomination = fields.Char(
         'Denominación',
         size=30,
@@ -121,10 +126,8 @@ class expresso_forma_envio(models.Model):
         readonly=True)
 
     _sql_constraints = [
-        ('remote_id_no_uniq', 'unique(remote_id)', 'El Identificador Remoto debe ser unico!')]
-
-
-# Idioma
+        ('remote_id_no_uniq',
+            'unique(remote_id)', 'El Identificador Remoto debe ser unico!')]
 
 
 class expresso_idioma(models.Model):
@@ -138,19 +141,20 @@ class expresso_idioma(models.Model):
     remote_id = fields.Char(
         'Identificador Remoto',
         size=30,
-        readonly=True)
+        readonly=True,
+        copy=False
+        )
     denomination = fields.Char(
         'Denominación',
         size=20,
         required=True,
-        readonly=True)
+        readonly=True
+        )
     idioma_amigo = fields.Boolean('Idioma Amigo')
 
     _sql_constraints = [
-        ('remote_id_no_uniq', 'unique(remote_id)', 'El Identificador Remoto debe ser unico!')]
-
-
-# Proyecto
+        ('remote_id_no_uniq',
+            'unique(remote_id)', 'El Identificador Remoto debe ser unico!')]
 
 
 class expresso_proyecto(models.Model):
@@ -164,18 +168,19 @@ class expresso_proyecto(models.Model):
     remote_id = fields.Char(
         'Identificador Remoto',
         size=30,
-        readonly=True)
+        readonly=True,
+        copy=False
+        )
     denomination = fields.Char(
         'Denominación',
         size=30,
         required=True,
-        readonly=True)
+        readonly=True
+        )
 
     _sql_constraints = [
-        ('remote_id_no_uniq', 'unique(remote_id)', 'El Identificador Remoto debe ser unico!')]
-
-
-# Público Objetivo
+        ('remote_id_no_uniq',
+            'unique(remote_id)', 'El Identificador Remoto debe ser unico!')]
 
 
 class expresso_publico(models.Model):
@@ -183,24 +188,25 @@ class expresso_publico(models.Model):
     # Público Objetivo de los productos de Expresso Bibliogáfico
 
     _name = 'expresso.publico'
-    _description = u'Público Objetivo'
+    _description = 'Público Objetivo'
     _rec_name = 'denomination'
 
     remote_id = fields.Char(
         'Identificador Remoto',
         size=30,
-        readonly=True)
+        readonly=True,
+        copy=False
+        )
     denomination = fields.Char(
         'Denominación',
         size=50,
         required=True,
-        readonly=True)
+        readonly=True
+        )
 
     _sql_constraints = [
-        ('remote_id_no_uniq', 'unique(remote_id)', 'El Identificador Remoto debe ser unico!')]
-
-
-# Situación
+        ('remote_id_no_uniq',
+            'unique(remote_id)', 'El Identificador Remoto debe ser unico!')]
 
 
 class expresso_situacion(models.Model):
@@ -208,25 +214,28 @@ class expresso_situacion(models.Model):
     # Situacion de los productos de Expresso Bibliogáfico
 
     _name = 'expresso.situacion'
-    _description = u'Situación'
+    _description = 'Situación'
     _rec_name = 'denomination'
 
     remote_id = fields.Char(
         'Identificador Remoto',
         size=30,
-        readonly=True)
+        readonly=True,
+        copy=False
+        )
     denomination = fields.Char(
         'Denominación',
         size=30,
         required=True,
-        readonly=True)
-    permite_pedido = fields.Boolean('Permite Pedido')
+        readonly=True
+        )
+    permite_pedido = fields.Boolean(
+        'Permite Pedido'
+        )
 
     _sql_constraints = [
-        ('remote_id_no_uniq', 'unique(remote_id)', 'El Identificador Remoto debe ser unico!')]
-
-
-# Tipo
+        ('remote_id_no_uniq',
+            'unique(remote_id)', 'El Identificador Remoto debe ser unico!')]
 
 
 class expresso_tipo(models.Model):
@@ -239,15 +248,21 @@ class expresso_tipo(models.Model):
     _rec_name = 'denomination'
 
     remote_id = fields.Char(
-        'Identificador Remoto', size=30, readonly=True)
+        'Identificador Remoto',
+        size=30,
+        readonly=True,
+        copy=False
+        )
     denomination = fields.Char(
-        'Denominación', size=30, required=True, readonly=True)
+        'Denominación',
+        size=30,
+        required=True,
+        readonly=True
+        )
 
     _sql_constraints = [
-        ('remote_id_no_uniq', 'unique(remote_id)', 'El Identificador Remoto debe ser unico!')]
-
-
-# Valor
+        ('remote_id_no_uniq',
+            'unique(remote_id)', 'El Identificador Remoto debe ser unico!')]
 
 
 class expresso_valor(models.Model):
@@ -261,15 +276,19 @@ class expresso_valor(models.Model):
     remote_id = fields.Char(
         'Identificador Remoto',
         size=30,
-        readonly=True)
+        readonly=True,
+        copy=False
+        )
     denomination = fields.Char(
         'Denominación',
         size=20,
         required=True,
-        readonly=True)
+        readonly=True
+        )
 
     _sql_constraints = [
-        ('remote_id_no_uniq', 'unique(remote_id)', 'El Identificador Remoto debe ser unico!')]
+        ('remote_id_no_uniq',
+            'unique(remote_id)', 'El Identificador Remoto debe ser unico!')]
 
 
 # Director
@@ -286,18 +305,19 @@ class expresso_director(models.Model):
     remote_id = fields.Char(
         'Identificador Remoto',
         size=30,
-        readonly=True)
+        readonly=True,
+        copy=False
+        )
     denomination = fields.Char(
         'Denominación',
         size=50,
         required=True,
-        readonly=True)
+        readonly=True
+        )
 
     _sql_constraints = [
-        ('remote_id_no_uniq', 'unique(remote_id)', 'El Identificador Remoto debe ser unico!')]
-
-
-# Materia
+        ('remote_id_no_uniq',
+            'unique(remote_id)', 'El Identificador Remoto debe ser unico!')]
 
 
 class expresso_materia(models.Model):
@@ -311,24 +331,27 @@ class expresso_materia(models.Model):
     remote_id = fields.Char(
         'Identificador Remoto',
         size=30,
-        readonly=True)
+        readonly=True,
+        copy=False
+        )
     denomination = fields.Char(
         'Denominación',
         size=50,
         required=True,
-        readonly=True)
+        readonly=True
+        )
     director_id = fields.Many2one(
         'expresso.director',
-        'Director')
+        'Director'
+        )
     proyecto_id = fields.Many2one(
         'expresso.proyecto',
-        'Proyecto')
+        'Proyecto'
+        )
 
     _sql_constraints = [
-        ('remote_id_no_uniq', 'unique(remote_id)', 'El Identificador Remoto debe ser unico!')]
-
-
-# Seleccion
+        ('remote_id_no_uniq',
+            'unique(remote_id)', 'El Identificador Remoto debe ser unico!')]
 
 
 class expresso_seleccion(models.Model):
@@ -342,18 +365,24 @@ class expresso_seleccion(models.Model):
     remote_id = fields.Char(
         'Identificador Remoto',
         size=30,
-        readonly=True)
+        readonly=True,
+        copy=False
+        )
     denomination = fields.Char(
         'Denominación',
         size=50,
         required=True,
-        readonly=True)
+        readonly=True
+        )
     matter_id = fields.Many2one(
         'expresso.materia',
-        'Matter')
+        'Matter'
+        )
     project_id = fields.Many2one(
         'expresso.proyecto',
-        'Project')
+        'Project'
+        )
 
     _sql_constraints = [
-        ('remote_id_no_uniq', 'unique(remote_id)', 'El Identificador Remoto debe ser unico!')]
+        ('remote_id_no_uniq',
+            'unique(remote_id)', 'El Identificador Remoto debe ser unico!')]

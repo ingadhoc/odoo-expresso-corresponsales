@@ -5,7 +5,6 @@
 	    <record id="view_expresso_ciclo_form" model="ir.ui.view">
             <field name="name">expresso.ciclo.form</field>
             <field name="model">expresso.ciclo</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Ciclo">
                     <field name="remote_id"/>
@@ -16,9 +15,7 @@
 
 	    <record id="view_expresso_ciclo_tree" model="ir.ui.view">
             <field name="name">expresso.ciclo.tree</field>
-            <field name="model">expresso.ciclo</field>
-            <field name="type">tree</field>
-            <field name="arch" type="xml">
+            <field name="model">expresso.ciclo</field><field name="arch" type="xml">
                 <tree string="Ciclos">
                     <field name="denomination"/>
                 </tree>
@@ -29,7 +26,6 @@
 	    <record id="view_expresso_coleccion_form" model="ir.ui.view">
             <field name="name">expresso.coleccion.form</field>
             <field name="model">expresso.coleccion</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Coleccion">
                     <field name="remote_id"/>
@@ -40,9 +36,7 @@
 
 	    <record id="view_expresso_coleccion_tree" model="ir.ui.view">
             <field name="name">expresso.coleccion.tree</field>
-            <field name="model">expresso.coleccion</field>
-            <field name="type">tree</field>
-            <field name="arch" type="xml">
+            <field name="model">expresso.coleccion</field><field name="arch" type="xml">
                 <tree string="Colecciones">
                     <field name="denomination"/>
                 </tree>
@@ -53,7 +47,6 @@
 	    <record id="view_expresso_curso_form" model="ir.ui.view">
             <field name="name">expresso.curso.form</field>
             <field name="model">expresso.curso</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Curso">
                     <field name="remote_id"/>
@@ -64,9 +57,7 @@
 
 	    <record id="view_expresso_curso_tree" model="ir.ui.view">
             <field name="name">expresso.curso.tree</field>
-            <field name="model">expresso.curso</field>
-            <field name="type">tree</field>
-            <field name="arch" type="xml">
+            <field name="model">expresso.curso</field><field name="arch" type="xml">
                 <tree string="Curso">
                     <field name="denomination"/>
                 </tree>
@@ -77,7 +68,6 @@
         <record id="view_expresso_encuadernacion_form" model="ir.ui.view">
             <field name="name">expresso.encuadernacion.form</field>
             <field name="model">expresso.encuadernacion</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Encuadernacion">
                     <field name="remote_id"/>
@@ -88,9 +78,7 @@
 
         <record id="view_expresso_encuadernacion_tree" model="ir.ui.view">
             <field name="name">expresso.encuadernacion.tree</field>
-            <field name="model">expresso.encuadernacion</field>
-            <field name="type">tree</field>
-            <field name="arch" type="xml">
+            <field name="model">expresso.encuadernacion</field><field name="arch" type="xml">
                 <tree string="Encuadernaciones">
                     <field name="denomination"/>
                 </tree>
@@ -101,10 +89,9 @@
         <record id="view_expresso_forma_envio_form" model="ir.ui.view">
             <field name="name">expresso.forma_envio.form</field>
             <field name="model">expresso.forma_envio</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Formas de Envío">
-                     <field name="remote_id"/>
+                    <field name="remote_id"/>
                     <field name="denomination"/>
                 </form>
             </field>
@@ -112,9 +99,7 @@
         
         <record id="view_expresso_forma_envio_tree" model="ir.ui.view">
             <field name="name">expresso.forma_envio.tree</field>
-            <field name="model">expresso.forma_envio</field>
-            <field name="type">tree</field>
-            <field name="arch" type="xml">
+            <field name="model">expresso.forma_envio</field><field name="arch" type="xml">
                 <tree string="Formas de Envío">
                     <field name="denomination"/>
                 </tree>
@@ -125,10 +110,9 @@
         <record id="view_expresso_idioma_form" model="ir.ui.view">
             <field name="name">expresso.idioma.form</field>
             <field name="model">expresso.idioma</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Idiomas de Títulos">
-                     <field name="remote_id"/>
+                    <field name="remote_id"/>
                     <field name="denomination"/>
                     <field name="idioma_amigo"/>
                 </form>
@@ -137,9 +121,7 @@
         
         <record id="view_expresso_idioma_tree" model="ir.ui.view">
             <field name="name">expresso.idioma.tree</field>
-            <field name="model">expresso.idioma</field>
-            <field name="type">tree</field>
-            <field name="arch" type="xml">
+            <field name="model">expresso.idioma</field><field name="arch" type="xml">
                 <tree string="Partner Addresses">
                     <field name="denomination"/>
                 </tree>
@@ -150,7 +132,6 @@
         <record id="view_expresso_proyecto_form" model="ir.ui.view">
             <field name="name">expresso.proyecto.form</field>
             <field name="model">expresso.proyecto</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Proyecto">
                     <field name="remote_id"/>
@@ -161,9 +142,7 @@
 
         <record id="view_expresso_proyecto_tree" model="ir.ui.view">
             <field name="name">expresso.proyecto.tree</field>
-            <field name="model">expresso.proyecto</field>
-            <field name="type">tree</field>
-            <field name="arch" type="xml">
+            <field name="model">expresso.proyecto</field><field name="arch" type="xml">
                 <tree string="Proyecto">
                     <field name="denomination"/>
                 </tree>
@@ -174,7 +153,6 @@
 	    <record id="view_expresso_publico_form" model="ir.ui.view">
             <field name="name">expresso.publico.form</field>
             <field name="model">expresso.publico</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Público Objetivo">
                     <field name="remote_id"/>
@@ -185,9 +163,7 @@
 
 	    <record id="view_expresso_publico_tree" model="ir.ui.view">
             <field name="name">expresso.publico.tree</field>
-            <field name="model">expresso.publico</field>
-            <field name="type">tree</field>
-            <field name="arch" type="xml">
+            <field name="model">expresso.publico</field><field name="arch" type="xml">
                 <tree string="Público Objetivo">
                     <field name="denomination"/>
                 </tree>
@@ -198,7 +174,6 @@
 	    <record id="view_expresso_situacion_form" model="ir.ui.view">
             <field name="name">expresso.situacion.form</field>
             <field name="model">expresso.situacion</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Situacion">
                     <field name="remote_id"/>
@@ -210,9 +185,7 @@
 
 	    <record id="view_expresso_situacion_tree" model="ir.ui.view">
             <field name="name">expresso.situacion.tree</field>
-            <field name="model">expresso.situacion</field>
-            <field name="type">tree</field>
-            <field name="arch" type="xml">
+            <field name="model">expresso.situacion</field><field name="arch" type="xml">
                 <tree string="Situacion">
                     <field name="denomination"/>
                 </tree>
@@ -223,7 +196,6 @@
 	    <record id="view_expresso_tipo_form" model="ir.ui.view">
             <field name="name">expresso.tipo.form</field>
             <field name="model">expresso.tipo</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Tipo">
                     <field name="remote_id"/>
@@ -234,9 +206,7 @@
 
 	    <record id="view_expresso_tipo_tree" model="ir.ui.view">
             <field name="name">expresso.tipo.tree</field>
-            <field name="model">expresso.tipo</field>
-            <field name="type">tree</field>
-            <field name="arch" type="xml">
+            <field name="model">expresso.tipo</field><field name="arch" type="xml">
                 <tree string="Tipo">
                     <field name="denomination"/>
                 </tree>
@@ -247,7 +217,6 @@
 	    <record id="view_expresso_valor_form" model="ir.ui.view">
             <field name="name">expresso.valor.form</field>
             <field name="model">expresso.valor</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Valor">
                     <field name="remote_id"/>
@@ -258,9 +227,7 @@
 
 	    <record id="view_expresso_valor_tree" model="ir.ui.view">
             <field name="name">expresso.valor.tree</field>
-            <field name="model">expresso.valor</field>
-            <field name="type">tree</field>
-            <field name="arch" type="xml">
+            <field name="model">expresso.valor</field><field name="arch" type="xml">
                 <tree string="Valor">
                     <field name="denomination"/>
                 </tree>
@@ -271,7 +238,6 @@
         <record id="view_expresso_director_form" model="ir.ui.view">
             <field name="name">expresso.director.form</field>
             <field name="model">expresso.director</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Director">
                     <field name="remote_id"/>
@@ -282,9 +248,7 @@
 
         <record id="view_expresso_director_tree" model="ir.ui.view">
             <field name="name">expresso.director.tree</field>
-            <field name="model">expresso.director</field>
-            <field name="type">tree</field>
-            <field name="arch" type="xml">
+            <field name="model">expresso.director</field><field name="arch" type="xml">
                 <tree string="Directores">
                     <field name="denomination"/>
                 </tree>
@@ -295,7 +259,6 @@
 	    <record id="view_expresso_materia_form" model="ir.ui.view">
             <field name="name">expresso.materia.form</field>
             <field name="model">expresso.materia</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Materia">
                     <field name="remote_id"/>
@@ -308,9 +271,7 @@
 
 	    <record id="view_expresso_materia_tree" model="ir.ui.view">
             <field name="name">expresso.materia.tree</field>
-            <field name="model">expresso.materia</field>
-            <field name="type">tree</field>
-            <field name="arch" type="xml">
+            <field name="model">expresso.materia</field><field name="arch" type="xml">
                 <tree string="Materias">
                     <field name="denomination"/>
                     <field name="director_id"/>
@@ -323,7 +284,6 @@
 	    <record id="view_expresso_seleccion_form" model="ir.ui.view">
             <field name="name">expresso.seleccion.form</field>
             <field name="model">expresso.seleccion</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Seleccion">
                     <field name="remote_id"/>
@@ -336,9 +296,7 @@
 
 	    <record id="view_expresso_seleccion_tree" model="ir.ui.view">
             <field name="name">expresso.seleccion.tree</field>
-            <field name="model">expresso.seleccion</field>
-            <field name="type">tree</field>
-            <field name="arch" type="xml">
+            <field name="model">expresso.seleccion</field><field name="arch" type="xml">
                 <tree string="Selecciones">
                     <field name="denomination"/>
                     <field name="matter_id"/>

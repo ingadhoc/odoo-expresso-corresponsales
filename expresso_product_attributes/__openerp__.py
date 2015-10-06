@@ -25,14 +25,13 @@
     'version': '1.0',
     'category': 'Tools',
     'description': """
-    Atributos para Productos de Expresso Bibliográfico.
-    Requiere instalar python-suds 4.1+
-    
-    - Una vez instalado probar de ir a Corresponsales -> Pedidos -> Nuevo Pedido, si
-    abre un pedido en vista de formulario esta bien. Sino, ir a Administración ->
-    Personalización -> Objetos de bajo nivel -> Acciones -> Acciones de Ventana, buscar
-    'Nuevo Pedido', abrirlo y checkear que en 'Tipo de vista' este asignado 'Formulario'
-    y que en 'Modo de vista' figure 'form,tree'.
+Atributos para Productos de Expresso Bibliográfico.
+Requiere instalar python-suds 4.1+
+- Una vez instalado probar de ir a Corresponsales -> Pedidos -> Nuevo Pedido, si
+abre un pedido en vista de formulario esta bien. Sino, ir a Administración ->
+Personalización -> Objetos de bajo nivel -> Acciones -> Acciones de Ventana, buscar
+'Nuevo Pedido', abrirlo y checkear que en 'Tipo de vista' este asignado 'Formulario'
+y que en 'Modo de vista' figure 'form,tree'.
     """,
     'author': 'ADHOC',
     'website': 'www.adhoc.com.ar',
@@ -42,7 +41,6 @@
             'security/ir.model.access.csv',
             'security/permisos_corresponsales.xml',
             'security/permisos_expresso.xml',
-            'wizard/order_add_message_view.xml',
             'view/expresso_product_view.xml',
             'view/ir_values_data.xml',
             'view/product_view.xml',
@@ -52,7 +50,6 @@
             'view/product_workflow.xml',
             'view/partner_data.xml',
             'view/expresso_sync_info_view.xml',
-            'view/expresso_sync_info_data.xml',
             'view/res_user_view.xml',
             'view/expresso_packing_view.xml',
             'view/acciones_generales.xml',
@@ -63,11 +60,12 @@
             'wizard/pedir_multi_titulos_view.xml',
             'wizard/panel_control_actualizacion_view.xml',
             'wizard/multi_marcar_para_procesar_view.xml',
-            'report/sale_report_view.xml',
-            'view/sale_report.xml',
-            'view/partner_view.xml'],
+            'view/partner_view.xml',
+            # TODO borrar si no lo vamos a usar
+            # 'data/expresso_sync_info_data.xml',
+            ],
     'demo': [],
-    'test':[],
+    'test': [],
     'installable': True,
     'active': False,
 }

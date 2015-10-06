@@ -5,7 +5,6 @@
 	    <record id="view_info_objeto_remoto_form" model="ir.ui.view">
             <field name="name">expresso.info_objeto_remoto.form</field>
             <field name="model">expresso.info_objeto_remoto</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Info Objeto Remoto">
                     <group colspan="4" col="4">
@@ -33,9 +32,7 @@
 
 	    <record id="view_info_objeto_remoto_tree" model="ir.ui.view">
             <field name="name">expresso.info_objeto_remoto.tree</field>
-            <field name="model">expresso.info_objeto_remoto</field>
-            <field name="type">tree</field>
-            <field name="arch" type="xml">
+            <field name="model">expresso.info_objeto_remoto</field><field name="arch" type="xml">
                 <tree string="Info Objeto Remoto">
                     <field name="id_remoto"/>
                     <field name="clase"/>
@@ -51,7 +48,6 @@
         <record id="view_info_objeto_remoto_search" model="ir.ui.view">
             <field name="name">expresso.info_objeto_remoto.search</field>
             <field name="model">expresso.info_objeto_remoto</field>
-            <field name="type">search</field>
             <field name="arch" type="xml">
                 <search string="Información de Sincronización" >
                     <filter name="filter_procesado" string="Procesado" icon="terp-document-new"
@@ -75,7 +71,6 @@
 	    <record id="view_sincronizacion_objeto_remoto_form" model="ir.ui.view">
             <field name="name">expresso.sincronizacion_objeto_remoto.form</field>
             <field name="model">expresso.sincronizacion_objeto_remoto</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Info Objeto Remoto">
                     <group colspan="4" col="4">
@@ -94,9 +89,7 @@
 
 	    <record id="view_sincronizacion_objeto_remoto_tree" model="ir.ui.view">
             <field name="name">expresso.sincronizacion_objeto_remoto.tree</field>
-            <field name="model">expresso.sincronizacion_objeto_remoto</field>
-            <field name="type">tree</field>
-            <field name="arch" type="xml">
+            <field name="model">expresso.sincronizacion_objeto_remoto</field><field name="arch" type="xml">
                 <tree string="Info Objeto Remoto">
                     <field name="datetime"/>
                     <field name="procesado"/>
@@ -110,7 +103,6 @@
 	    <record id="view_expresso_sync_info_form" model="ir.ui.view">
             <field name="name">expresso.sync_info.form</field>
             <field name="model">expresso.sync_info</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Información de Sincronización">
                     <group colspan="4" col="4">
@@ -128,9 +120,7 @@
 
 	    <record id="view_expresso_sync_info_tree" model="ir.ui.view">
             <field name="name">expresso.sync_info.tree</field>
-            <field name="model">expresso.sync_info</field>
-            <field name="type">tree</field>
-            <field name="arch" type="xml">
+            <field name="model">expresso.sync_info</field><field name="arch" type="xml">
                 <tree string="Información de Sincronización">
                     <field name="datetime"/>
                     <field name="clase"/>
@@ -142,7 +132,6 @@
         <record id="view_expresso_sync_info_search" model="ir.ui.view">
             <field name="name">expresso.sync_info.search</field>
             <field name="model">expresso.sync_info</field>
-            <field name="type">search</field>
             <field name="arch" type="xml">
                 <search string="Información de Sincronización" >
                     <field name="datetime"/>
@@ -156,7 +145,6 @@
 	    <record id="view_expresso_info_corresponsal_form" model="ir.ui.view">
             <field name="name">expresso.info_corresponsal.form</field>
             <field name="model">expresso.info_corresponsal</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Información de los Corresponsales">
                     <field name="corresponsal"/>
@@ -172,9 +160,7 @@
 
 	    <record id="view_expresso_info_corresponsal_tree" model="ir.ui.view">
             <field name="name">expresso.info_corresponsal.tree</field>
-            <field name="model">expresso.info_corresponsal</field>
-            <field name="type">tree</field>
-            <field name="arch" type="xml">
+            <field name="model">expresso.info_corresponsal</field><field name="arch" type="xml">
                 <tree string="Información de los Corresponsales">
                     <field name="corresponsal"/>
                 </tree>
@@ -186,7 +172,6 @@
 	    <record id="view_expresso_sync_log_entry_form" model="ir.ui.view">
             <field name="name">expresso.sync_log_entry.form</field>
             <field name="model">expresso.sync_log_entry</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Log de Sincronización">
                     <group colspan="4" col="4">
@@ -207,9 +192,7 @@
 
 	    <record id="view_expresso_sync_log_entry_tree" model="ir.ui.view">
             <field name="name">expresso.sync_log_entry.tree</field>
-            <field name="model">expresso.sync_log_entry</field>
-            <field name="type">tree</field>
-            <field name="arch" type="xml">
+            <field name="model">expresso.sync_log_entry</field><field name="arch" type="xml">
                 <tree string="Log de Sincronización">
                     <field name="datetime"/>
                     <field name="objeto"/>
@@ -221,7 +204,6 @@
         <record id="view_expresso_sync_log_entry_search" model="ir.ui.view">
             <field name="name">expresso.sync_log_entry.search</field>
             <field name="model">expresso.sync_log_entry</field>
-            <field name="type">search</field>
             <field name="arch" type="xml">
                 <search string="Log de Sincronización" >
                     <filter name="filter_procesado" string="Erroneos" icon="terp-document-new"

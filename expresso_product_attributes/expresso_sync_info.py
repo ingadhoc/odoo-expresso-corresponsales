@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from openerp import models, fields
+from openerp import models, fields, api
+# import datetime
 from openerp import pooler
-import datetime
-# from actualizador.facade_actualizacion import Facade_Actualizacion
+from actualizador.facade_actualizacion import Facade_Actualizacion
 
 
 class expresso_info_corresponsal(models.Model):
@@ -16,39 +16,30 @@ class expresso_info_corresponsal(models.Model):
     corresponsal = fields.Char(
         'Corresponsale',
         size=50,
-        required=True)
+        required=True
+        )
     user = fields.Char(
         'User',
         size=50,
-        required=True)
+        required=True
+        )
     contrasenia = fields.Char(
         'Password',
         size=50,
-        required=True)
+        required=True
+        )
     partner_ids = fields.One2many(
         'res.partner',
         'info_corresponsal_id',
         u'Partner',
-        readonly=True)
+        readonly=True
+        )
 
-    def get_users_from_info_corresponsal(self, cr, uid, ids, context=None):
-        if not isinstance(ids, list):
-            ids = [ids]
-
-        users_obj = pooler.get_pool(cr.dbname).get('res.users')
-        user_ids = []
-        for info_corresponsal in self.browse(cr, uid, ids, context=context):
-            search_ids = users_obj.search(
-                cr, uid, [('login', '=', info_corresponsal.user)], context=context)
-
-            if not search_ids:
-                continue
-
-            if isinstance(search_ids, list):
-                user_ids += search_ids
-            else:
-                user_ids.append(search_ids)
-        return user_ids
+    @api.multi
+    def get_users_from_info_corresponsal(self):
+        users = self.env['res.users'].search(
+            [('login', 'in', self.mapped('user'))])
+        return users
 
 
 class info_objeto_remoto(models.Model):
@@ -62,74 +53,67 @@ class info_objeto_remoto(models.Model):
         'Identificador Remoto',
         size=30,
         required=True,
-        readonly=True)
-
+        readonly=True,
+        copy=False,
+        )
     clase = fields.Char(
         'Class',
         size=50,
         required=True,
-        readonly=True)
+        readonly=True
+        )
     corresponsal = fields.Many2one(
         'expresso.info_corresponsal',
-        u'Corresponsal')
+        'Corresponsal'
+        )
     sincronizacion_objeto_remoto_ids = fields.One2many(
         'expresso.sincronizacion_objeto_remoto',
         'info_objeto_remoto_id',
         'Sincronización Objeto Remoto',
-        readonly=True)
+        readonly=True
+        )
     error_al_procesar = fields.Boolean(
         'Se encontro un error al procesar el Registro',
-        readonly=True, default=False)
-    procesado = fields.Boolean('Procesado', readonly=True, default=False)
+        readonly=True,
+        default=False
+        )
+    procesado = fields.Boolean(
+        'Procesado',
+        readonly=True,
+        default=False
+        )
     datetime = fields.Datetime(
         'Fecha última actualización',
-        readonly=True)
+        readonly=True
+        )
     datetime_creation = fields.Datetime(
         'Fecha de creación',
         readonly=True,
-        default='datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")')
+        default=fields.Datetime.now,
+        )
 
-    def marcar_para_procesar(self, cr, uid, ids, context=None):
-        if not ids:
-            return False
-
-        info_objeto_remoto_list = self.browse(cr, uid, ids, context=context)
-        if not isinstance(info_objeto_remoto_list, list):
-            info_objeto_remoto_list = [info_objeto_remoto_list]
-
-        for info_objeto_remoto in info_objeto_remoto_list:
-            if not info_objeto_remoto.procesado:
-                continue
-
-            sinc_obj = self.pool.get('expresso.sincronizacion_objeto_remoto')
-
-            vals = {}
-            now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            vals['datetime_creation'] = now
-            vals['info_objeto_remoto_id'] = info_objeto_remoto.id
-            sinc_obj.create(cr, uid, vals, context=context)
+    @api.multi
+    def marcar_para_procesar(self):
+        for info_objeto_remoto in self.filtered('procesado'):
+            vals = {
+                'datetime_creation': fields.Datetime.now(),
+                'info_objeto_remoto_id': info_objeto_remoto.id
+                }
+            self.env['expresso.sincronizacion_objeto_remoto'].create(vals)
         return True
 
-    def procesar(self, cr, uid, ids, context=None):
-        if not ids:
-            return False
-        info_objeto_remoto = self.browse(cr, uid, ids, context=context)
-        if not info_objeto_remoto:
-            return False
-        if isinstance(info_objeto_remoto, list):
-            info_objeto_remoto = info_objeto_remoto[0]
-        if info_objeto_remoto.procesado:
+    @api.multi
+    def procesar(self):
+        self.ensure_one()
+        if self.procesado:
             return False
         facade_actualizacion = Facade_Actualizacion(pooler)
-        if info_objeto_remoto['class'] == 'product.product':
-            facade_actualizacion.actualizar_un_titulo(
-                cr, uid, info_objeto_remoto.id, context=context)
-        elif info_objeto_remoto['class'] == 'account.invoice':
-            facade_actualizacion.actualizar_una_factura(
-                cr, uid, info_objeto_remoto.id, context=context)
-        elif info_objeto_remoto['class'] == 'expresso.packing':
-            facade_actualizacion.actualizar_un_packing(
-                cr, uid, info_objeto_remoto.id, context=context)
+        if self['class'] == 'product.product':
+            facade_actualizacion.actualizar_un_titulo(self.id)
+        elif self['class'] == 'account.invoice':
+            facade_actualizacion.actualizar_una_factura(self.id)
+        elif self['class'] == 'expresso.packing':
+            facade_actualizacion.actualizar_un_packing(self.id)
         else:
             return False
         return True
@@ -145,37 +129,48 @@ class sincronizacion_objeto_remoto(models.Model):
     _rec_name = 'info_objeto_remoto_id'
     _order = 'datetime_creation desc'
 
-    datetime_creation = fields.Datetime(u'Fecha de creación')
+    datetime_creation = fields.Datetime(
+        'Fecha de creación'
+        )
     datetime = fields.Datetime(
-        'Fecha de actualización')
-    procesado = fields.Boolean('Procesado', default=False)
+        'Fecha de actualización'
+        )
+    procesado = fields.Boolean(
+        'Procesado',
+        default=False
+        )
     error_al_procesar = fields.Boolean(
-        'Se encontro un error al procesar el Registro', default=False)
-    mensaje_error = fields.Text(u'Mensaje del error')
+        'Se encontro un error al procesar el Registro',
+        default=False
+        )
+    mensaje_error = fields.Text(
+        'Mensaje del error'
+        )
     info_objeto_remoto_id = fields.Many2one(
         'expresso.info_objeto_remoto',
-        u'Info Objeto Remoto',
+        'Info Objeto Remoto',
         required=True,
-        ondelete='cascade')
+        ondelete='cascade'
+        )
 
-    def create(self, cr, uid, vals, context=None):
+    @api.model
+    def create(self, vals):
         info_objeto_remoto_id = vals.get('info_objeto_remoto_id')
         if info_objeto_remoto_id:
-            info_objeto_obj = self.pool.get('expresso.info_objeto_remoto')
-
-            info_vals = {}
-            info_vals['error_al_procesar'] = vals.get(
-                'error_al_procesar', False)
-            info_vals['procesado'] = vals.get('procesado', False)
+            info_vals = {
+                'error_al_procesar': vals.get('error_al_procesar', False),
+                'procesado': vals.get('procesado', False),
+                }
             if 'datetime' in vals:
                 info_vals['datetime'] = vals['datetime']
 
-            info_objeto_obj.write(
-                cr, uid, info_objeto_remoto_id, info_vals, context=context)
+            self.env['expresso.info_objeto_remoto'].browse(
+                info_objeto_remoto_id).write(info_vals)
 
-        return super(sincronizacion_objeto_remoto, self).create(cr, uid, vals, context=context)
+        return super(sincronizacion_objeto_remoto, self).create(vals)
 
-    def write(self, cr, uid, ids, vals, context=None):
+    @api.multi
+    def write(self, vals):
         info_vals = {}
         if 'procesado' in vals:
             info_vals['procesado'] = vals['procesado']
@@ -185,22 +180,16 @@ class sincronizacion_objeto_remoto(models.Model):
             info_vals['datetime'] = vals['datetime']
 
         if info_vals:
-            info_objeto_obj = self.pool.get('expresso.info_objeto_remoto')
             info_objeto_remoto_id = vals.get('info_objeto_remoto_id', False)
 
             if info_objeto_remoto_id:
-                info_objeto_obj.write(
-                    cr, uid, info_objeto_remoto_id, info_vals, context=context)
+                self.env['expresso.info_objeto_remoto'].browse(
+                    info_objeto_remoto_id).write(info_vals)
             else:
-                sinc_obj = self.pool.get(
-                    'expresso.sincronizacion_objeto_remoto')
-                if not isinstance(ids, list):
-                    ids = [ids]
-                for sincronizacion in sinc_obj.browse(cr, uid, ids, context=context):
-                    info_objeto_obj.write(
-                        cr, uid, sincronizacion.info_objeto_remoto_id.id, info_vals, context=context)
+                for sync in self:
+                    self.info_objeto_remoto_id.write(info_vals)
 
-        return super(sincronizacion_objeto_remoto, self).write(cr, uid, ids, vals, context=context)
+        return super(sincronizacion_objeto_remoto, self).write(vals)
 
 
 class expresso_sync_info(models.Model):
@@ -214,10 +203,18 @@ class expresso_sync_info(models.Model):
 
     datetime = fields.Datetime(
         'Fecha de actualización',
-        required=True, readonly=True)
-    informacion = fields.Text(u'Information')
-
-    clase = fields.Char('Class', size=50, required=True, readonly=True)
+        required=True,
+        readonly=True
+        )
+    informacion = fields.Text(
+        'Information'
+        )
+    clase = fields.Char(
+        'Class',
+        size=50,
+        required=True,
+        readonly=True
+        )
 
 
 class expresso_sync_log_entry(models.Model):
@@ -230,18 +227,33 @@ class expresso_sync_log_entry(models.Model):
     _order = 'datetime desc'
 
     datetime = fields.Datetime(
-        u'Fecha de actualización', required=True, readonly=True)
+        'Fecha de actualización',
+        required=True,
+        readonly=True
+        )
     error_al_procesar = fields.Boolean(
-        'Error encontrado', readonly=True, default=False)
-    mensaje_error = fields.Text(u'Mensaje del error', readonly=True)
-    informacion = fields.Text(u'Información', readonly=True)
+        'Error encontrado',
+        readonly=True,
+        default=False
+        )
+    mensaje_error = fields.Text(
+        'Mensaje del error',
+        readonly=True
+        )
+    informacion = fields.Text(
+        'Información',
+        readonly=True
+        )
     objeto = fields.Selection(
-        (('clientes', u'Clientes'),
-         ('titulos', u'Titulos'),
-         ('atributos', u'Atributos de los Titulos'),
-         ('facturas', u'Facturas'),
-         ('packings', u'Packings'),
-         ('n_clientes', u'Clientes de Nickel'),
-         ('n_facturas', u'Facturas de Nickel'),
-         ('n_stock', u'Stock de Nickel'),),
-        u'Objeto Actualizado', required=True, readonly=True)
+        [('clientes', 'Clientes'),
+         ('titulos', 'Titulos'),
+         ('atributos', 'Atributos de los Titulos'),
+         ('facturas', 'Facturas'),
+         ('packings', 'Packings'),
+         ('n_clientes', 'Clientes de Nickel'),
+         ('n_facturas', 'Facturas de Nickel'),
+         ('n_stock', 'Stock de Nickel')],
+        'Objeto Actualizado',
+        required=True,
+        readonly=True
+        )

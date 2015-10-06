@@ -4,7 +4,6 @@
         <record id="view_generar_pedidos_pendientes" model="ir.ui.view">
             <field name="name">Generar Pedidos Pendientes</field>
             <field name="model">expresso.generador_productos_pendientes</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Generar Pedidos Pendientes">
                     <group col="4" colspan="4">
