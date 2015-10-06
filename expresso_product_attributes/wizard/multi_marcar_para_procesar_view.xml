@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_multi_marcar_para_procesar_wizard" model="ir.ui.view">
+            <field name="name">multi_marcar_para_procesar_form</field>
+            <field name="model">multi_marcar_para_procesar</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Marcar para Procesar">
+                    <label colspan="4"
+                           string="Va a marcar para procesar ciertos registros remotos."/>
+                    <separator colspan="4"/>
+                    <group col="4" colspan="4">
+                        <button icon='gtk-cancel' special="cancel"
+                                string="Cancel" />
+                        <button name="multi_marcar_para_procesar" string="Marcar para Procesar"
+                                type="object" icon="gtk-ok" />
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <act_window name="Marcar para Procesar"
+            id="action_multi_marcar_para_procesar_variants"
+            multi="True"
+            src_model="expresso.info_objeto_remoto"
+            res_model="multi_marcar_para_procesar"
+            view_mode="form" target="new" view_type="form"
+            view_id="view_multi_marcar_para_procesar_wizard"/>
+        
+    </data>
+</openerp>

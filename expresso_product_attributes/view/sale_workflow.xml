@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="wkf_sale_order" model="workflow">
+            <field name="name">sale.order.state.wkf</field>
+            <field name="osv">sale.order</field>
+            <field name="on_create">True</field>
+        </record>
+        
+        <!-- Activity -->
+        <record model="workflow.activity" id="sale_order_borrador">
+            <field name="wkf_id" ref="wkf_sale_order" />
+            <field name="flow_start">True</field>
+            <field name="name">borrador</field>
+            <field name="kind">function</field>
+            <field name="action">order_state_borrador()</field>
+        </record>
+        
+        <record model="workflow.activity" id="sale_order_hacia_borrador">
+            <field name="wkf_id" ref="wkf_sale_order" />
+            <field name="name">hacia_borrador</field>
+            <field name="kind">function</field>
+            <field name="action">order_state_hacia_borrador()</field>
+        </record>
+        
+        <record model="workflow.activity" id="sale_order_pendiente_expresso">
+            <field name="wkf_id" ref="wkf_sale_order" />
+            <field name="name">pendiente_expresso</field>
+            <field name="kind">function</field>
+            <field name="action">order_state_pendiente_expresso()</field>
+        </record>
+        
+        <record model="workflow.activity" id="sale_order_pendiente_corresponsal">
+            <field name="wkf_id" ref="wkf_sale_order" />
+            <field name="name">pendiente_corresponsal</field>
+            <field name="kind">function</field>
+            <field name="action">order_state_pendiente_corresponsal()</field>
+        </record>
+        
+        <record model="workflow.activity" id="sale_order_pedido">
+            <field name="wkf_id" ref="wkf_sale_order" />
+            <field name="name">pedido</field>
+            <field name="kind">function</field>
+            <field name="action">order_state_pedido()</field>
+        </record>
+        
+        <record model="workflow.activity" id="sale_order_cerrado">
+            <field name="wkf_id" ref="wkf_sale_order" />
+            <field name="name">cerrado</field>
+            <field name="kind">function</field>
+            <field name="action">order_state_cerrado()</field>
+        </record>
+        
+        <record model="workflow.activity" id="sale_order_despachado">
+            <field name="wkf_id" ref="wkf_sale_order" />
+            <field name="name">despachado</field>
+            <field name="kind">function</field>
+            <field name="action">order_state_despachado()</field>
+        </record>
+        
+        <record model="workflow.activity" id="sale_order_recibido">
+            <field name="wkf_id" ref="wkf_sale_order" />
+            <field name="flow_stop">True</field>
+            <field name="name">recibido</field>
+            <field name="kind">function</field>
+            <field name="action">order_state_recibido()</field>
+        </record>
+        
+        <!-- Transitions -->
+        <record model="workflow.transition" id="order_hacia_borrador_2_borrador">
+            <field name="act_from" ref="sale_order_hacia_borrador" />
+            <field name="act_to" ref="sale_order_borrador" />
+            <field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales" />
+            <field name="condition">True</field>
+        </record>
+        
+        <record model="workflow.transition" id="order_borrador_2_pendiente_expresso">
+            <field name="act_from" ref="sale_order_borrador" />
+            <field name="act_to" ref="sale_order_pendiente_expresso" />
+            <field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales" />
+            <field name="signal">order_borrador_2_pendiente_expresso</field>
+        </record>
+        
+        <record model="workflow.transition" id="order_pendiente_expresso_2_pendiente_corresponsal">
+            <field name="act_from" ref="sale_order_pendiente_expresso" />
+            <field name="act_to" ref="sale_order_pendiente_corresponsal" />
+            <field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso" />
+            <field name="signal">order_pendiente_expresso_2_pendiente_corresponsal</field>
+        </record>
+        
+        <record model="workflow.transition" id="order_pendiente_expresso_2_borrador">
+            <field name="act_from" ref="sale_order_pendiente_expresso" />
+            <field name="act_to" ref="sale_order_hacia_borrador" />
+            <field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales" />
+            <field name="signal">order_pendiente_expresso_2_borrador</field>
+        </record>
+        
+        <record model="workflow.transition" id="order_pendiente_corresponsal_2_borrador">
+            <field name="act_from" ref="sale_order_pendiente_corresponsal" />
+            <field name="act_to" ref="sale_order_hacia_borrador" />
+            <field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales" />
+            <field name="signal">order_pendiente_corresponsales_2_borrador</field>
+        </record>
+        
+        <record model="workflow.transition" id="order_pendiente_corresponsal_2_pedido">
+            <field name="act_from" ref="sale_order_pendiente_corresponsal" />
+            <field name="act_to" ref="sale_order_pedido" />
+            <field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales" />
+            <field name="signal">order_pendiente_corresponsales_2_pedido</field>
+        </record>
+        
+        <record model="workflow.transition" id="order_pedido_2_cerrado">
+            <field name="act_from" ref="sale_order_pedido" />
+            <field name="act_to" ref="sale_order_cerrado" />
+            <field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso" />
+            <field name="signal">order_pedido_2_cerrado</field>
+        </record>
+        
+        <record model="workflow.transition" id="order_cerrado_2_despachado">
+            <field name="act_from" ref="sale_order_cerrado" />
+            <field name="act_to" ref="sale_order_despachado" />
+            <field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso" />
+            <field name="signal">order_cerrado_2_despachado</field>
+        </record>
+        
+        <record model="workflow.transition" id="order_despachado_2_recibido">
+            <field name="act_from" ref="sale_order_despachado" />
+            <field name="act_to" ref="sale_order_recibido" />
+            <field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales" />
+            <field name="signal">order_despachado_2_recibido</field>
+        </record>
+        
+    </data>
+</openerp>

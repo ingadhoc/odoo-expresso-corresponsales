@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="view_expresso_res_partner_form" model="ir.ui.view">
+            <field name="name">expresso.res.partner.form</field>
+            <field name="priority" eval="40"/>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="active" position="replace"/>
+                    
+                    <field name="lang" position="after">
+                        <field name="active"/>
+                    </field>
+                </data>
+            </field>
+        </record>
+        
+        <record id="view_expresso_res_partner_search" model="ir.ui.view">
+            <field name="name">expresso.res.partner.search</field>
+            <field name="priority" eval="40"/>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="user_id" position="after">
+                        <separator orientation="vertical"/>
+                        <filter string="Inactivo" name="inactivo" icon="terp-personal" domain="[('active','=',False)]" />
+                    </field>
+                </data>
+            </field>
+        </record>
+    </data>
+</openerp>
