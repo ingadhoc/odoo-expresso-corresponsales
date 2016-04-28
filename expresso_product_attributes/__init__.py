@@ -9,5 +9,4 @@ from . import partner
 from . import expresso_sync_info
 from . import expresso_packing
 from . import wizard
-from . import report
 from . import actualizador_osv

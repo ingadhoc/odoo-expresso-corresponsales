@@ -36,11 +36,11 @@ class pre_cerrar_pedido(models.TransientModel):
 
 
 class sale_order(models.Model):
-    _name = 'sale.order'
     _inherit = 'sale.order'
     # We change the order for name desc to id desc because SO1xxx is ordered
     # after SOxxx
-    _order = 'id desc'
+    # TODO remove this, it gives an error on portal_sale update
+    # _order = 'id desc'
 
     @api.model
     def get_user_corresponsal(self):
@@ -101,30 +101,26 @@ class sale_order(models.Model):
         'sale.empresa_logistica',
         'Empresa de Logística'
         )
-    # Campos para Corresponsales
+    # copias readonly o para vista para corresponsaes
     fecha_salida_corresponsales = fields.Date(
         related='fecha_salida',
-        string="Fecha de Salida",
-        store=False,
-        help="Fecha en la que se estima que el pedido va a estar listo"
-        )
-    forma_envio_id_corresponsales = fields.Many2one(
-        'expresso.forma_envio',
-        'Forma de Envío'
         )
     fecha_estimada_entrega_corresponsales = fields.Date(
         related='fecha_estimada_entrega',
-        string="Fecha Estimada de Entrega",
-        store=False)
+        )
     embarque_corresponsales = fields.Char(
         related='embarque',
-        string="Embarque",
-        store=False
         )
     empresa_logistica_id_corresponsales = fields.Many2one(
         related="empresa_logistica_id",
-        string='Empresa de Logística',
-        store=False
+        )
+    user_expresso_id_corresponsal = fields.Many2one(
+        related='user_expresso_id_expresso',
+        )
+    # otros campos corresponsales
+    forma_envio_id_corresponsales = fields.Many2one(
+        'expresso.forma_envio',
+        'Forma de Envío'
         )
     state_expresso = fields.Selection([
         ('borrador', 'Borrador'),
@@ -135,7 +131,8 @@ class sale_order(models.Model):
         ('despachado', 'Despachado'),
         ('recibido', 'Recibido')],
         'Estado',
-        readonly=True)
+        readonly=True
+        )
     producto_pendiente_ids = fields.One2many(
         'product.producto_pendiente',
         'order_id',
@@ -163,13 +160,8 @@ class sale_order(models.Model):
     user_expresso_id_expresso = fields.Many2one(
         'res.users',
         'Usuario Expresso',
-        default=get_user_expresso,
-        )
-    user_expresso_id_corresponsal = fields.Many2one(
-        'res.users',
-        string="Usuario Expresso",
-        store=False,
-        default=get_user_corresponsal,
+        # TODO habilitar
+        # default=get_user_expresso,
         )
     invoice_ids = fields.Many2many(
         'account.invoice',
