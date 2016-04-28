@@ -22,7 +22,7 @@
 
 {
     'name': 'Atributos para Productos de Expresso Bibliográfico',
-    'version': '1.0',
+    'version': '9.0.0.0.0',
     'category': 'Tools',
     'description': """
 Atributos para Productos de Expresso Bibliográfico.

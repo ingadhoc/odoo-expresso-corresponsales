@@ -22,7 +22,7 @@
 
 {
     'name': 'Nickel connection to the system Expresso Bibliográfico',
-    'version': '1.0',
+    'version': '9.0.0.0.0',
     'category': 'Tools',
     'description': """
     Nickel connection with Expresso Bibliográfico server to upgrade

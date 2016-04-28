@@ -22,7 +22,7 @@
 
 {
     'name': 'Gestion de conexión y actualización con el erp de expresso',
-    'version': '1.0',
+    'version': '9.0.0.0.0',
     'category': 'Tools',
     'description': """
     Gestion de conexión y actualización con el erp de expresso.
