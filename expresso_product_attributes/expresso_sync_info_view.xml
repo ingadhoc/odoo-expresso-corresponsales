@@ -1,0 +1,295 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <!-- Info Objeto Remoto -->
+	    <record id="view_info_objeto_remoto_form" model="ir.ui.view">
+            <field name="name">expresso.info_objeto_remoto.form</field>
+            <field name="model">expresso.info_objeto_remoto</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Info Objeto Remoto">
+                    <group colspan="4" col="4">
+                        <field name="id_remoto"/>
+                        <field name="procesado"/>
+                        <field name="class"/>
+                        <field name="error_al_procesar"/>
+                        <field name="corresponsal"/>
+                        <field name="datetime"/>
+                        <field name="datetime_creation"/>
+                    </group>
+                    
+                    <group colspan="4" col="2">
+                        <separator string="Sincronización Objeto Remoto" colspan="2" />
+                        <field name="sincronizacion_objeto_remoto_ids" colspan="2" nolabel="1" />
+                    </group>
+                    
+                    <button name="marcar_para_procesar" string="Marcar para Procesar"
+                                icon="gtk-go-forward" type="object" colspan="2"/>
+                    <button name="procesar" string="Procesar"
+                                icon="gtk-go-forward" type="object" colspan="2"/>
+                </form>
+            </field>
+        </record>
+
+	    <record id="view_info_objeto_remoto_tree" model="ir.ui.view">
+            <field name="name">expresso.info_objeto_remoto.tree</field>
+            <field name="model">expresso.info_objeto_remoto</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Info Objeto Remoto">
+                    <field name="id_remoto"/>
+                    <field name="class"/>
+                    <field name="procesado"/>
+                    <field name="error_al_procesar"/>
+                    <field name="datetime"/>
+                    <field name="datetime_creation"/>
+                    <field name="corresponsal"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_info_objeto_remoto_search" model="ir.ui.view">
+            <field name="name">expresso.info_objeto_remoto.search</field>
+            <field name="model">expresso.info_objeto_remoto</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Información de Sincronización" >
+                    <filter name="filter_procesado" string="Procesado" icon="terp-document-new"
+                            domain="[('procesado','=',True)]"/>
+                    <filter name="filter_procesado" string="No Procesado" icon="terp-document-new"
+                            domain="[('procesado','=',False)]"/>
+                    <separator orientation="vertical"/>
+                    <filter name="filter_procesado" string="Erroneos" icon="terp-document-new"
+                            domain="[('error_al_procesar','=',True)]"/>
+                    <filter name="filter_procesado" string="Correctos" icon="terp-document-new"
+                            domain="[('error_al_procesar','=',False)]"/>
+                    <separator orientation="vertical"/>
+                    <field name="id_remoto"/>
+                    <field name="class"/>
+                    <field name="datetime"/>
+                </search>
+            </field>
+        </record>
+        
+        <!-- Info Objeto Remoto -->
+	    <record id="view_sincronizacion_objeto_remoto_form" model="ir.ui.view">
+            <field name="name">expresso.sincronizacion_objeto_remoto.form</field>
+            <field name="model">expresso.sincronizacion_objeto_remoto</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Info Objeto Remoto">
+                    <group colspan="4" col="4">
+                        <field name="datetime"/>
+                        <field name="procesado"/>
+                        <field name="error_al_procesar"/>
+                    </group>
+                    
+                    <group colspan="4" col="2">
+                        <separator string="Mensaje del error" colspan="2" />
+                        <field name="mensaje_error" colspan="2" nolabel="1" />
+                    </group>
+                </form>
+            </field>
+        </record>
+
+	    <record id="view_sincronizacion_objeto_remoto_tree" model="ir.ui.view">
+            <field name="name">expresso.sincronizacion_objeto_remoto.tree</field>
+            <field name="model">expresso.sincronizacion_objeto_remoto</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Info Objeto Remoto">
+                    <field name="datetime"/>
+                    <field name="procesado"/>
+                    <field name="error_al_procesar"/>
+                </tree>
+            </field>
+        </record>
+        
+        
+        <!-- Información de Sincronización -->
+	    <record id="view_expresso_sync_info_form" model="ir.ui.view">
+            <field name="name">expresso.sync_info.form</field>
+            <field name="model">expresso.sync_info</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Información de Sincronización">
+                    <group colspan="4" col="4">
+                        <field name="datetime"/>
+                        <field name="class"/>
+                    </group>
+                    
+                    <group colspan="4" col="2">
+                        <separator string="Informacion" colspan="2" />
+                        <field name="informacion" colspan="2" nolabel="1" />
+                    </group>
+                </form>
+            </field>
+        </record>
+
+	    <record id="view_expresso_sync_info_tree" model="ir.ui.view">
+            <field name="name">expresso.sync_info.tree</field>
+            <field name="model">expresso.sync_info</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Información de Sincronización">
+                    <field name="datetime"/>
+                    <field name="class"/>
+                    <field name="informacion"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_expresso_sync_info_search" model="ir.ui.view">
+            <field name="name">expresso.sync_info.search</field>
+            <field name="model">expresso.sync_info</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Información de Sincronización" >
+                    <field name="datetime"/>
+                    <field name="class"/>
+                </search>
+            </field>
+        </record>
+        
+        
+        <!-- Información de los Corresponsales -->
+	    <record id="view_expresso_info_corresponsal_form" model="ir.ui.view">
+            <field name="name">expresso.info_corresponsal.form</field>
+            <field name="model">expresso.info_corresponsal</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Información de los Corresponsales">
+                    <field name="corresponsal"/>
+                    <field name="usuario"/>
+                    <field name="contrasenia"/>
+                    
+                    <newline/>
+                    <separator colspan="4" string="Partners"/>
+                    <field name="partner_ids" nolabel="1" colspan="4"/>
+                </form>
+            </field>
+        </record>
+
+	    <record id="view_expresso_info_corresponsal_tree" model="ir.ui.view">
+            <field name="name">expresso.info_corresponsal.tree</field>
+            <field name="model">expresso.info_corresponsal</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Información de los Corresponsales">
+                    <field name="corresponsal"/>
+                </tree>
+            </field>
+        </record>
+        
+        
+        <!-- Log de Sincronización -->
+	    <record id="view_expresso_sync_log_entry_form" model="ir.ui.view">
+            <field name="name">expresso.sync_log_entry.form</field>
+            <field name="model">expresso.sync_log_entry</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Log de Sincronización">
+                    <group colspan="4" col="4">
+                        <field name="objeto" colspan="4"/>
+                        <field name="datetime" colspan="4"/>
+                        <field name="error_al_procesar" colspan="4"/>
+                    </group>
+                    
+                    <group colspan="4" col="2">
+                        <separator string="Información" colspan="2" />
+                        <field name="informacion" colspan="2" nolabel="1" />
+                        <separator string="Mensaje del error" colspan="2" />
+                        <field name="mensaje_error" colspan="2" nolabel="1" />
+                    </group>
+                </form>
+            </field>
+        </record>
+
+	    <record id="view_expresso_sync_log_entry_tree" model="ir.ui.view">
+            <field name="name">expresso.sync_log_entry.tree</field>
+            <field name="model">expresso.sync_log_entry</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Log de Sincronización">
+                    <field name="datetime"/>
+                    <field name="objeto"/>
+                    <field name="error_al_procesar"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_expresso_sync_log_entry_search" model="ir.ui.view">
+            <field name="name">expresso.sync_log_entry.search</field>
+            <field name="model">expresso.sync_log_entry</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Log de Sincronización" >
+                    <filter name="filter_procesado" string="Erroneos" icon="terp-document-new"
+                            domain="[('error_al_procesar','=',True)]"/>
+                    <filter name="filter_procesado" string="Correctos" icon="terp-document-new"
+                            domain="[('error_al_procesar','=',False)]"/>
+                    <separator orientation="vertical"/>
+                    
+                    <field name="datetime"/>
+                    <field name="objeto"/>
+                </search>
+            </field>
+        </record>
+        
+        
+        <!-- Acciones -->
+        <record id="action_info_objeto_remoto" model="ir.actions.act_window">
+            <field name="name">Info Objeto Remoto</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">expresso.info_objeto_remoto</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <record id="action_expresso_sync_info" model="ir.actions.act_window">
+            <field name="name">Información de Sincronización</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">expresso.sync_info</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <record id="action_expresso_info_corresponsal" model="ir.actions.act_window">
+            <field name="name">Información de los Corresponsales</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">expresso.info_corresponsal</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <record id="action_expresso_sync_log_entry" model="ir.actions.act_window">
+            <field name="name">Log de Sincronización</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">expresso.sync_log_entry</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <!-- Menu -->
+        <!-- Administración -->
+        <menuitem
+            id="menu_administracion_expresso"
+	        name="Expresso Bibliografico"
+	        parent="base.menu_administration"
+	        sequence="50"/>
+        
+        <!-- Administración / Expresso Bibliografico -->
+        <menuitem
+            id="menu_expresso_sync_info_administracion"
+	        action="action_expresso_sync_info"
+	        parent="menu_administracion_expresso"
+	        sequence="1"/>
+	        
+        <menuitem
+            id="menu_info_objeto_remoto_administracion"
+	        action="action_info_objeto_remoto"
+	        parent="menu_administracion_expresso"
+	        sequence="2"/>
+        
+    </data>
+</openerp>

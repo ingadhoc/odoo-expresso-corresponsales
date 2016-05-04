@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Linea Pedido Multiple de Titulos -->
+	    <record id="view_pedido_multi_titulo_linea_form" model="ir.ui.view">
+            <field name="name">pedido_multi_titulo.linea.form</field>
+            <field name="model">pedido_multi_titulo.linea</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Linea Pedido Multiple de Titulos">
+                    <field name="product_id"/>
+                    <field name="cantidad"/>
+                </form>
+            </field>
+        </record>
+
+	    <record id="view_pedido_multi_titulo_linea_tree" model="ir.ui.view">
+            <field name="name">pedido_multi_titulo.linea.tree</field>
+            <field name="model">pedido_multi_titulo.linea</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Linea Pedido Multiple de Titulos">
+                    <field name="product_id"/>
+                    <field name="cantidad"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Pedir Multiples Titulos 1 -->
+        <record id="view_pedir_multi_titulos_wizard" model="ir.ui.view">
+            <field name="name">pedir_multi_titulos.1</field>
+            <field name="model">pedir_multi_titulos</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Pedir Multiples Titulos">
+                    <label colspan="4"
+                           string="Ingrese la cantidad ejemplares de cada titulos que desea pedir."/>
+                           
+                    <field name="linea_ids" colspan="4" nolabel="1">
+                        <tree string="Linea Pedido Multiple de Titulos" editable="top">
+                            <field name="product_id"/>
+                            <field name="cantidad"/>
+                        </tree>
+                    </field>
+                    <newline/>
+                    
+                    <group col="4" colspan="4">
+                        <button icon='gtk-cancel' special="cancel"
+                                string="Cancelar" />
+                        <button name="a_nuevo_pedido" string="Agregar a nuevo pedido"
+                                type="object" icon="gtk-ok" />
+                    </group>
+                    
+                    <separator colspan="4"/>
+                    
+                    <label colspan="4"
+                           string="Puede también agregar estos titulos a un pedido ya realizado."/>
+                    
+                    <field name="order_id" colspan="2"/>
+                    <button name="a_pedido_existente" string="Agregar a pedido existente"
+                            type="object" icon="gtk-ok" />
+                </form>
+            </field>
+        </record>
+        
+        <!-- Pedir Multiples Titulos 2 -->
+        <record id="view_pedir_multi_titulos_wizard_2" model="ir.ui.view">
+            <field name="name">pedir_multi_titulos.2</field>
+            <field name="model">pedir_multi_titulos</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Pedir Multiples Titulos">
+                    <label colspan="4"
+                           string="Se creo correctamente el pedido con los titulos seleccionados."/>
+                    <separator colspan="4"/>
+                    <group col="4" colspan="4">
+                        <button name="ir_al_pedido" string="Ir al pedido"
+                                type="object" icon="gtk-ok" />
+                        <button icon='gtk-ok' special="cancel"
+                                string="Volver" />
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <!-- Pedir Multiples Titulos 3 -->
+        <record id="view_pedir_multi_titulos_wizard_3" model="ir.ui.view">
+            <field name="name">pedir_multi_titulos.3</field>
+            <field name="model">pedir_multi_titulos</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Pedir Multiples Titulos">
+                    <label colspan="4"
+                           string="Se agregaron correctamente los titulos seleccionados al pedido ."/>
+                    <separator colspan="4"/>
+                    <group col="4" colspan="4">
+                        <button name="ir_al_pedido" string="Ir al pedido"
+                                type="object" icon="gtk-ok" />
+                        <button icon='gtk-ok' special="cancel"
+                                string="Volver" />
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <act_window name="Agregar a Pedido"
+            id="action_pedir_multi_titulos"
+            multi="True"
+            src_model="product.product"
+            res_model="pedir_multi_titulos"
+            view_mode="form" target="new" view_type="form"
+            view_id="view_pedir_multi_titulos_wizard"/>
+        
+        
+        
+        
+    </data>
+</openerp>

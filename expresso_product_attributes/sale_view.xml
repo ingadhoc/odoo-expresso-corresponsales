@@ -1,0 +1,461 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <!-- Pre cerrar pedido-->
+        <record id="view_pre_cerrar_pedido" model="ir.ui.view">
+            <field name="name">view_pre_cerrar_pedido</field>
+            <field name="model">pre_cerrar_pedido</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Antes de cerrar el pedido">
+                    <separator colspan="4" string="Antes de cerrar el pedido"/>
+                    <newline/>
+                    <label colspan="4" width="500" string="Esta por cerrar el pedido pero antes de hacerlo recuerde que debe:"/>
+                    <label colspan="4" width="500" string="- Anexar como archivo adjunto la factura."/>
+                    <label colspan="4" width="500" string="- Anexar como archivo adjunto el packing list."/>
+                    <label colspan="4" width="500" string="- Asociar a este pedido las facturas correspondientes dentro del sistema."/>
+                    <newline/>
+                    <separator colspan="4"/>
+                    <group col="2" colspan="2"></group>
+                    <group col="2" colspan="2">
+                        <button icon="gtk-cancel" special="cancel" string="Cancel accion y completar el pedido"/>
+                        <button icon="gtk-ok" name="cerrar_pedido" string="Continuar cerrando el pedido" type="object"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_pre_cerrar_pedido" model="ir.actions.act_window">
+            <field name="name">Antes de cerrar el pedido</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pre_cerrar_pedido</field>
+            <field name="view_id" ref="view_pre_cerrar_pedido"/>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        
+        <!-- Form -->
+        <record id="view_order_expresso_form" model="ir.ui.view">
+            <field name="name">sale.order.expresso.form</field>
+            <field name="priority" eval="30"/>
+            <field name="model">sale.order</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <!-- Agrega Usuarios Corresponsal y Expresso -->
+                    <xpath expr="//form[@string='Sales Order']/group[1]/group[1]/field[@name='date_order']"
+                           position="after">
+                        <field name="current_partner_id_for_filtering" invisible="True" />
+                        
+                        <field name="user_corresponsal_id_expresso"
+                               groups="expresso_product_attributes.expresso_grupo_expresso"
+                               on_change="onchange_user_corresponsal_id_expresso(user_corresponsal_id_expresso)"/>
+                        <field name="user_corresponsal_id_corresponsales"
+                               groups="expresso_product_attributes.expresso_grupo_corresponsales"
+                               on_change="onchange_user_corresponsal_id_corresponsales(user_corresponsal_id_corresponsales)"/>
+                        
+                        <field name="user_expresso_id_expresso"
+                               groups="expresso_product_attributes.expresso_grupo_expresso" />
+                        <field name="user_expresso_id_corresponsal" readonly="True"
+                               groups="expresso_product_attributes.expresso_grupo_corresponsales" />
+                        <field name="id_remoto" readonly="1"/>
+                    </xpath>
+                    
+                    <!-- Elimina Contacto del pedido -->
+                    <xpath expr="//form[@string='Sales Order']/notebook[1]/page[@string='Sales Order']/field[@name='partner_order_id']"
+                           position="replace">
+                        <field domain="[('partner_id','=',partner_id)]"
+                               name="partner_order_id"
+                               on_change="onchange_partner_order_id(partner_order_id, partner_invoice_id, partner_shipping_id)" 
+                               options='{"quick_create": false}'
+                               invisible="True"/>
+                    </xpath>
+                    
+                    <!-- Eliminar el campo Tienda -->
+                    <field name="shop_id" position="replace">
+                        <field name="shop_id" invisible="True" />
+                    </field>
+                    
+                    <!-- Elimina invoiced y shipped -->
+                    <field name="invoiced" position="replace">
+                        <field name="invoiced" invisible="True"/>
+                    </field>
+                    <field name="shipped" position="replace">
+                        <field name="shipped" invisible="True"/>
+                    </field>
+                    
+                    <!-- Elimina el page Historial -->
+                    <xpath expr="//form[@string='Sales Order']/notebook/page[@string='History']" position="replace"/>
+                    
+                    <!-- Redefine pricelist_id -->
+                    <field name="pricelist_id" position="replace" >
+                        <field domain="[('type','=','sale')]" name="pricelist_id"
+                               invisible="True"/>
+                    </field>
+                    
+                    <!-- Información envio -->
+                    <xpath expr="//page[@string='Other Information']/group[4]" position="replace"/>
+                    <xpath expr="//page[@string='Other Information']/group[3]" position="replace"/>
+                    <xpath expr="//page[@string='Other Information']/group[2]" position="replace"/>
+                    <xpath expr="//page[@string='Other Information']/group[1]" position="replace"/>
+                    
+                    <xpath expr="//page[@string='Other Information']/separator" position="before">
+                        <group colspan="2" col="2" groups="expresso_product_attributes.expresso_grupo_expresso">
+                            <separator string="Información de envio" colspan="2"/>
+                            <field name="fecha_salida" readonly="False"/>
+                            <field name="forma_envio_id_expresso" readonly="False"/>
+                            <field name="fecha_estimada_entrega" readonly="False"/>
+                            <field name="embarque" readonly="False"/>
+                            <field name="empresa_logistica_id" readonly="False"/>
+                        </group>
+                        
+                        <group colspan="2" col="2" groups="expresso_product_attributes.expresso_grupo_corresponsales">
+                            <separator string="Información de envio" colspan="2"/>
+                            <field name="fecha_salida_corresponsales" readonly="True"/>
+                            <field name="forma_envio_id_corresponsales" readonly="False"/>
+                            <field name="fecha_estimada_entrega_corresponsales" readonly="True"/>
+                            <field name="embarque_corresponsales" readonly="True"/>
+                            <field name="empresa_logistica_id_corresponsales" readonly="True"/>
+                        </group>
+                        
+                        <group colspan="2" col="2">
+                            <separator string="Dates" colspan="2"/>
+                            <field name="create_date" widget="datetime"/>
+                            <field name="fecha_confirmado_corresponsal" readonly="True"/>
+                            <field name="fecha_valido_expresso" readonly="True"/>
+                            <field name="fecha_valido_corresponsal" readonly="True"/>
+                            <field name="fecha_cerrado_expresso" readonly="True"/>
+                            <field name="fecha_despachado_expresso" readonly="True"/>
+                            <field name="fecha_recibido_corresponsal" readonly="True"/>
+                        </group>
+                    </xpath>
+                    
+                    <!-- Modificaciones de la vista form de sale.order.line -->
+                    <xpath expr="//page[@string='Sales Order']//form[@string='Sales Order Lines']//field[@name='product_id']"
+                           position="replace">
+                        <field name="product_id"
+                               on_change="product_id_change_inherited(parent.pricelist_id,product_id,parent.partner_id,product_uom_qty)"
+                               colspan="5"/>
+                    </xpath>
+                    
+                    <xpath expr="//page[@string='Sales Order']//form[@string='Sales Order Lines']//field[@name='name']"
+                           position="replace">
+                        <field name="name" colspan="5"/>
+                    </xpath>
+                    
+                    <xpath expr="//page[@string='Sales Order']//form[@string='Sales Order Lines']//field[@name='product_uom']"
+                           position="replace">
+                        <field name="product_uom" string="UoM" invisible="True" />
+                    </xpath>
+                    
+                    <xpath expr="//page[@string='Sales Order']//form[@string='Sales Order Lines']//field[@name='product_packaging']"
+                           position="replace">
+                        <field name="product_packaging"
+                               context="{'partner_id':parent.partner_id, 'quantity':product_uom_qty, 'pricelist':parent.pricelist_id, 'shop':parent.shop_id, 'uom':product_uom}" on_change="product_packaging_change(parent.pricelist_id, product_id, product_uom_qty, product_uom, parent.partner_id, product_packaging, True, context)"
+                               domain="[('product_id','=',product_id)]" groups="base.group_extended"
+                               invisible="True" />
+                    </xpath>
+                    
+                    <xpath expr="//page[@string='Sales Order']//form[@string='Sales Order Lines']//field[@name='product_uom_qty']"
+                           position="replace">
+                        <field context="{'partner_id':parent.partner_id, 'quantity':product_uom_qty, 'pricelist':parent.pricelist_id, 'shop':parent.shop_id, 'uom':product_uom}"
+                               name="product_uom_qty"
+                               on_change="product_id_change_inherited(parent.pricelist_id,product_id,parent.partner_id,product_uom_qty)"
+                               widget="integer"
+                               string="Cantidad"/>
+                    </xpath>
+                    
+                    <xpath expr="//page[@string='Sales Order']//form[@string='Sales Order Lines']//field[@name='discount']"
+                           position="replace">
+                        <field name="discount" invisible="True" />
+                    </xpath>
+                    
+                    <xpath expr="//page[@string='Sales Order']//form[@string='Sales Order Lines']//field[@name='type']"
+                           position="replace">
+                        <field name="type" groups="base.group_extended" invisible="True"/>
+                    </xpath>
+                    
+                    <xpath expr="//page[@string='Sales Order']//form[@string='Sales Order Lines']//field[@name='delay']"
+                           position="replace">
+                        <field name="delay" groups="base.group_extended" invisible="True"/>
+                    </xpath>
+                    
+                    <xpath expr="//page[@string='Sales Order']//form[@string='Sales Order Lines']//field[@name='price_unit']"
+                           position="replace">
+                        <group groups="expresso_product_attributes.expresso_grupo_expresso">
+                            <field name="price_unit" string="Precio Unidad" colspan="2" />
+                        </group>
+                        
+                        <group groups="expresso_product_attributes.expresso_grupo_corresponsales">
+                            <field name="price_unit_corresponsales" string="Precio Unidad" readonly="True" colspan="2"/>
+                        </group>
+                    </xpath>
+                    
+                    <xpath expr="//page[@string='Sales Order']//form[@string='Sales Order Lines']//separator[@string='Taxes']"
+                           position="replace"/>
+                    
+                    <xpath expr="//page[@string='Sales Order']//form[@string='Sales Order Lines']//field[@name='tax_id']"
+                           position="replace">
+                        <field colspan="5" name="tax_id" nolabel="1"
+                               domain="[('parent_id','=',False),('type_tax_use','&lt;&gt;','purchase')]"
+                               invisible="True"/>
+                    </xpath>
+                    
+                    <xpath expr="//page[@string='Sales Order']//form[@string='Sales Order Lines']//page[@string='Extra Info']"
+                           position="replace"/>
+                    <xpath expr="//page[@string='Sales Order']//form[@string='Sales Order Lines']//page[@string='History']"
+                           position="replace"/>
+                    
+                    
+                    <xpath expr="//form[@string='Sales Order Lines']//page[@string='Order Line']/group[1]//separator[@string='States']"
+                           position="replace"/>
+                    <xpath expr="//form[@string='Sales Order Lines']//page[@string='Order Line']/group[1]//field[@name='state']"
+                           position="replace">
+                        <field name="state" invisible="True"/>
+                    </xpath>
+                    <xpath expr="//form[@string='Sales Order Lines']//page[@string='Order Line']/group[1]//field[@name='invoiced']"
+                           position="replace">
+                        <field name="invoiced" invisible="True"/>
+                    </xpath>
+                    <xpath expr="//form[@string='Sales Order Lines']//page[@string='Order Line']/group[1]//button[@string='Make Invoices']"
+                           position="replace"/>
+                    
+                    
+                    
+                    <!-- Modificaciones de la vista tree de sale.order.line -->
+                    <xpath expr="//tree[@string='Sales Order Lines']/field[@name='product_uom_qty']"
+                           position="replace">
+                        <field name="product_uom_qty" widget="integer" label="Cantidad"/>
+                    </xpath>
+                    
+                    <!-- Modificaciones de la vista tree de sale.order.line -->
+                    <xpath expr="//page[@string='Sales Order']//tree[@string='Sales Order Lines']/field[@name='product_uom']"
+                           position="replace"/>
+                    <xpath expr="//page[@string='Sales Order']//tree[@string='Sales Order Lines']/field[@name='discount']"
+                           position="replace"/>
+                    
+                    <!-- Botones de cambio de estado -->
+                    <xpath expr="//page[@string='Sales Order']/group[2]" position="replace">
+                        <group col="8" colspan="2">
+                            <field name="state_expresso" widget="statusbar"/>
+                            
+                            <button name="order_borrador_2_pendiente_expresso"
+                                    string="Confirmar Pedido" icon="gtk-apply"
+                                    groups="expresso_product_attributes.expresso_grupo_corresponsales"
+                                    attrs="{'invisible':[('state_expresso','!=','borrador')]}" />
+                                    
+                            <button name="order_pendiente_expresso_2_pendiente_corresponsal"
+                                    string="Validar Pedido" icon="gtk-apply"
+                                    groups="expresso_product_attributes.expresso_grupo_expresso"
+                                    attrs="{'invisible':[('state_expresso','!=','pendiente_e')]}" />
+                            
+                            <button name="order_pendiente_corresponsales_2_pedido"
+                                    string="Validar Pedido" icon="gtk-apply"
+                                    groups="expresso_product_attributes.expresso_grupo_corresponsales"
+                                    attrs="{'invisible':[('state_expresso','!=','pendiente_c')]}" />
+                            
+                            <!--<button name="order_pedido_2_cerrado"
+                                    string="Cerrar Pedido" icon="gtk-apply"
+                                    groups="expresso_product_attributes.expresso_grupo_expresso"
+                                    attrs="{'invisible':[('state_expresso','!=','pedido')]}" />
+                            -->
+                            <button name="%(expresso_product_attributes.action_pre_cerrar_pedido)d"
+                                    type="action"
+                                    string="Cerrar Pedido" icon="gtk-apply"
+                                    groups="expresso_product_attributes.expresso_grupo_expresso"
+                                    attrs="{'invisible':[('state_expresso','!=','pedido')]}"/>
+                            
+                            <button name="order_cerrado_2_despachado"
+                                    string="Despachar" icon="gtk-apply"
+                                    groups="expresso_product_attributes.expresso_grupo_expresso"
+                                    attrs="{'invisible':[('state_expresso','!=','cerrado')]}" />
+                            
+                            <button name="order_despachado_2_recibido"
+                                    string="Recibido" icon="gtk-apply"
+                                    groups="expresso_product_attributes.expresso_grupo_corresponsales"
+                                    attrs="{'invisible':[('state_expresso','!=','despachado')]}" />
+                            
+                            <field name="state" invisible="1"/>
+                            <!--<newline/>-->
+                            
+                        </group>
+                    </xpath>
+                    
+                    <!-- Eliminar botón Avanzar Factura -->
+                    <xpath expr="//page[@string='Sales Order']//button[@string='Advance Invoice']"
+                           position="replace" />
+                    
+                    <!-- Agrega los titulos pendientes -->
+                    <xpath expr="//notebook/page[@string='Other Information']" position="after">
+                        <page string="Títulos Pendientes">
+                            <field name="producto_pendiente_ids" nolabel="1" mode="tree" readonly="1"/>
+                        </page>
+                    </xpath>
+                    
+                    <!-- Agrega las facturas -->
+                    <xpath expr="//notebook/page[@string='Títulos Pendientes']" position="before">
+                        <page string="Facturas">
+                            <field name="invoice_ids" nolabel="1" mode="tree"/>
+                        </page>
+                    </xpath>
+                    
+                    <!-- Agrega los mensajes de comunicacion -->
+                    <xpath expr="//notebook/page[@string='Other Information']" position="after">
+                        <page string="Comunicación">
+                            <group colspan="4" col="4"></group>
+                            <field name="order_message_ids" colspan="4" nolabel="1" mode="tree" readonly="1">
+                                <tree string="Mensajes">
+                                    <field name="display_text" string="Mensaje"/>
+                                </tree>
+                            </field>
+                            <button string="Agregar Mensaje"
+                                    name="%(expresso_product_attributes.action_order_add_message)d"
+                                    icon="terp-document-new" type="action" />
+                        </page>
+                    </xpath>
+                     
+                    <!-- Eliminar el campo amount_untaxed (Base imponible) -->
+                    <xpath expr="//form[@string='Sales Order']/notebook[1]//field[@name='amount_untaxed']"
+                           position="replace"/>
+                    <!-- Eliminar el campo amount_tax (Impuestos) -->
+                    <xpath expr="//form[@string='Sales Order']/notebook[1]//field[@name='amount_tax']"
+                           position="replace"/>
+                     
+                </data>
+            </field>
+        </record>
+        
+        <!-- Tree -->
+        <record id="view_order_expresso_tree" model="ir.ui.view">
+            <field name="name">sale.order.expresso.tree</field>
+            <field name="priority" eval="30"/>
+            <field name="model">sale.order</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="sale.view_order_tree"/>
+            <field name="arch" type="xml">
+                <tree string="Sales Orders" position="replace">
+                    <tree string="Sales Orders" colors="grey:state_expresso=='recibido'">
+                        <field name="name"/>
+                        <field name="date_order"/>
+                        <field name="client_order_ref" groups="base.group_extended"/>
+                        <field name="partner_id"/>
+                        <field name="user_id" invisible="True"/>
+                        <field name="user_corresponsal_id_corresponsales" />
+                        <field name="user_expresso_id_expresso" />
+                        <field name="amount_untaxed" sum="Total Tax Excluded"/>
+                        <field name="amount_total" sum="Total Tax Included"/>
+                        <field name="state_expresso"/>
+                    </tree>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Search -->
+        <record id="view_order_expresso_search" model="ir.ui.view">
+            <field name="name">sale.order.expresso.search</field>
+            <field name="model">sale.order</field>
+            <field name="type">search</field>
+            <field name="priority" eval="30"/>
+            <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+            <field name="arch" type="xml">
+                <data>
+                    <filter string="Quotations" position="replace">
+                        <filter icon="terp-document-new"
+                                string="Borrador"
+                                domain="[('state_expresso','=','borrador')]"
+                                help="Pedidos en estado Borrador"/>
+                        <separator orientation="vertical"/>
+                    </filter>
+                    
+                    <filter string="Sales" position="replace">
+                        <filter icon="terp-personal"
+                                string="Expresso"
+                                domain="[('state_expresso','=','pendiente_e')]"
+                                help="Pedidos en estado Pendiente Expresso"/>
+                        
+                        <filter icon="terp-personal"
+                                string="Corresponsal"
+                                domain="[('state_expresso','=','pendiente_c')]"
+                                help="Pedidos en estado Pendiente Corresponsal"/>
+                        <separator orientation="vertical"/>
+                    </filter>
+                    <xpath expr="//search[@string='Search Sales Order']/separator[1]" position="replace"/>
+                    <filter string="To Invoice" position="replace" />
+                </data>
+            </field>
+        </record>
+        
+        
+        <!-- Empresa de Lógistica -->
+	    <record id="view_sale_empresa_logistica_form" model="ir.ui.view">
+            <field name="name">sale.empresa_logistica.form</field>
+            <field name="model">sale.empresa_logistica</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Empresa de Lógistica">
+                    <field name="name"/>
+                </form>
+            </field>
+        </record>
+
+	    <record id="view_sale_empresa_logistica_tree" model="ir.ui.view">
+            <field name="name">sale.empresa_logistica.tree</field>
+            <field name="model">sale.empresa_logistica</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Empresa de Lógistica">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Mensaje de Pedido -->
+	    <record id="view_sale_order_message_form" model="ir.ui.view">
+            <field name="name">sale.order.message.form</field>
+            <field name="model">sale.order.message</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Empresa de Lógistica">
+                    <field name="user_id"/>
+                    <field name="creation_date"/>
+                    <separator string="Mensaje" colspan="4"/>
+                    <field name="message" nolabel="1" colspan="4"/>
+                </form>
+            </field>
+        </record>
+
+	    <record id="view_sale_order_message_tree" model="ir.ui.view">
+            <field name="name">sale.order.message.tree</field>
+            <field name="model">sale.order.message</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Empresa de Lógistica">
+                    <field name="user_id"/>
+                    <field name="creation_date"/>
+                    <field name="message"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Acciones -->
+        <record id="action_sale_empresa_logistica" model="ir.actions.act_window">
+            <field name="name">Empresa de Lógistica</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.empresa_logistica</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <record id="action_sale_order_message" model="ir.actions.act_window">
+            <field name="name">Mensaje de Pedido</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.order.message</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        
+    </data>
+</openerp>

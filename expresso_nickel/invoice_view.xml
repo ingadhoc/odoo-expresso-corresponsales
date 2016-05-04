@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <!-- Form -->
+        <record id="view_invoice_expresso_nickel_form" model="ir.ui.view">
+            <field name="name">account.invoice.expresso.nickel.form</field>
+            <field name="priority" eval="40"/>
+            <field name="model">account.invoice</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//form[@string='Supplier Invoice']/notebook[1]/page[@string='Invoice']" position="after">
+                        <page string="Vencimientos">
+                            <field name="nickel_factura_ids" nolabel="1">
+                                <tree colors="blue: pagado == False; gray:pagado == True" string="Factura de Nickel">
+                                    <field name="fecha_vencimiento"/>
+                                    <field name="importe"/>
+                                    <field name="pagado"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </xpath>
+
+                    <xpath expr="//form[@string='Supplier Invoice']/group[1]/field[@name='address_invoice_id']"
+                           position="after">
+                        <field name="fecha_vencimiento"/>
+                    </xpath>
+                    
+                    <xpath expr="//form[@string='Supplier Invoice']//field[@name='reconciled']" position="replace">
+                        <field name="pagado"/>
+                    </xpath>
+                    
+                    <xpath expr="//form[@string='Supplier Invoice']//field[@name='residual']" position="replace">
+                        <field name="residual_2" />
+                        <field name="residual" invisible="1"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+        
+        <!-- Tree -->
+        <record id="view_invoice_expresso_nickel_tree" model="ir.ui.view">
+            <field name="name">account.invoice.expresso.nickel.tree</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_tree"/>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="residual" position="replace">
+                        <field name="residual_2"/>
+                        <field name="residual" invisible="1"/>
+                        <field name="fecha_vencimiento"/>
+                    </field>
+                </data>
+            </field>
+        </record>
+        
+        <!-- Search -->
+        <record id="view_invoice_expresso_nickel_search" model="ir.ui.view">
+            <field name="name">account.invoice.expresso.nickel.search</field>
+            <field name="model">account.invoice</field>
+            <field name="priority" eval="20"/>
+            <field name="inherit_id" ref="expresso_product_attributes.view_invoice_expresso_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search[@string='Facturas']//field[@name='numero_factura']" position="before">
+                    <!--<filter icon="terp-personal" string="Pagado" domain="[('pagado','=',True)]"/>-->
+                    <filter icon="terp-dolar_ok!" string="No Pagado" domain="[('pagado','=',False)]"/>
+                    <separator orientation="vertical"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>

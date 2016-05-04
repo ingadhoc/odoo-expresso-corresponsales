@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <!-- Form -->
+        <record id="view_product_expresso_nickel_form" model="ir.ui.view">
+            <field name="name">product.expresso.nickel.form</field>
+            <field name="priority" eval="40"/>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//form[@string='Product']//field[@name='autor']" position="after">
+                        <field name="qty_available" widget="integer"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+        
+        <!-- Tree -->
+        <record id="view_product_expresso_nickel_tree" model="ir.ui.view">
+            <field name="name">product.expresso.nickel.tree</field>
+            <field name="model">product.product</field>
+            <field name="priority" eval="40"/>
+            <field name="inherit_id" ref="product.product_product_tree_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree[@string='Títulos']//field[@name='autor']" position="after">
+                    <field name="qty_available" widget="integer"/>
+                    <!--<field name="qty_available_2" widget="integer"/>-->
+                </xpath>
+            </field>
+        </record>
+        
+        <!-- Search 
+        <record id="view_product_expresso_nickel_search" model="ir.ui.view">
+            <field name="name">product.expresso.nickel.search</field>
+            <field name="model">product.product</field>
+            <field name="priority" eval="40"/>
+            <field name="inherit_id" ref="product.product_search_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search[@string='Título']//filter[@name='disponible']" position="after">
+                    <filter name="stock_casals" string="Stock en Casals 2" icon="terp-check"
+                            domain="[('qty_available_2','!=',False)]"/>
+                </xpath>
+            </field>
+        </record>-->
+    </data>
+</openerp>

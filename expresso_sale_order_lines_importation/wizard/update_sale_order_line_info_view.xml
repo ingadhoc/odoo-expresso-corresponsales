@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="view_update_sale_order_line_info_line_wizard" model="ir.ui.view">
+            <field name="name">update_sale_order_line_info_line_wizard</field>
+            <field name="model">update_sale_order_line_info_line</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Update Order Line Information">
+                    <label colspan="4"
+                           string="You are about to update the information in the sale order lines."/>
+                    <separator colspan="4"/>
+                    <group col="4" colspan="4">
+                        <button icon='gtk-cancel' special="cancel"
+                                string="Cancel" />
+                        <button name="update_information" string="Update Information"
+                                type="object" icon="gtk-ok" />
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <act_window name="Update Order Line Information"
+            id="action_update_sale_order_line_info_line_wizard"
+            multi="True"
+            src_model="sale.order.line"
+            res_model="update_sale_order_line_info_line"
+            view_mode="form" target="new" view_type="form"
+            view_id="view_update_sale_order_line_info_line_wizard"/>
+        
+        
+        <record id="view_update_sale_order_line_info_order_wizard" model="ir.ui.view">
+            <field name="name">update_sale_order_line_info_order_wizard</field>
+            <field name="model">update_sale_order_line_info_order</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Update Order Line Information">
+                    <label colspan="4"
+                           string="You are about to update the information in the order lines of the sale orders."/>
+                    <separator colspan="4"/>
+                    <group col="4" colspan="4">
+                        <button icon='gtk-cancel' special="cancel"
+                                string="Cancel" />
+                        <button name="update_information" string="Update Information"
+                                type="object" icon="gtk-ok" />
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <act_window name="Update Order Line Information"
+            id="action_update_sale_order_line_info_order_wizard"
+            multi="True"
+            src_model="sale.order"
+            res_model="update_sale_order_line_info_order"
+            view_mode="form" target="new" view_type="form"
+            view_id="view_update_sale_order_line_info_order_wizard"/>
+        
+    </data>
+</openerp>

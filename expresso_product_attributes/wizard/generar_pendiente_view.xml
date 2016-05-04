@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="view_generar_pedidos_pendientes" model="ir.ui.view">
+            <field name="name">Generar Pedidos Pendientes</field>
+            <field name="model">expresso.generador_productos_pendientes</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Generar Pedidos Pendientes">
+                    <group col="4" colspan="4">
+                        <separator colspan="4" string="Generar Pedidos Pendientes"/>
+                        
+                        <newline/>
+                        
+                        <label colspan="4" width="500"
+                               string="Se van a remover estos títulos del Pedido y a generar Títulos Pendientes a partir de los mismos. Si presiona en 'Todos a Pendiente' se eliminaran todos los títulos de la linea seleccionada del pedido."/>
+                        <newline/>
+                        
+                        <field name="situacion_id" colspan="4" />
+                        <newline/>
+                        <label colspan="4" width="500" string="Notas"/>
+                        <field name="notas" nolabel="1" colspan="4" />
+                        
+                        <separator colspan="4"/>
+                        <button name="linea_entera_a_pendientes" string="Todos a Pendiente"
+                                icon="gtk-go-forward" type="object" colspan="2" />
+                        <button string="Cancel" colspan="2" special="cancel" icon="gtk-cancel" />
+                        
+                        <separator colspan="4"/>
+                        
+                        <label colspan="4" width="500"
+                               string="Si no se quieren pasar todos los títulos pedidos a pendientes seleccione la cantidad disponible para dejar en el pedido."/>
+                        <newline/>
+                        
+                        <field name="cantidad_disponible" colspan="2"/>
+                        <button name="linea_parcial_a_pendientes" string="Diferencia a Pendientes"
+                                icon="gtk-go-forward" type="object" colspan="2"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_generar_pedidos_pendientes" model="ir.actions.act_window">
+            <field name="name">Generar Pedidos Pendientes</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">expresso.generador_productos_pendientes</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        
+        <record id="view_order_expresso_pendientes_form" model="ir.ui.view">
+            <field name="name">sale.order.expresso.pendientes.form</field>
+            <field name="priority" eval="30"/>
+            <field name="model">sale.order</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//page[@string='Sales Order']//tree[@string='Sales Order Lines']/field[@name='price_subtotal']"
+                           position="after">
+                        <button name="%(expresso_product_attributes.action_generar_pedidos_pendientes)d"
+                                type="action"
+                                string="Generar Pedidos Pendientes"
+                                groups="expresso_product_attributes.expresso_grupo_expresso"
+                                icon="terp-gtk-jump-to-ltr" />
+                    </xpath>
+                </data>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

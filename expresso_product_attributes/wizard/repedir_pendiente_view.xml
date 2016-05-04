@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="view_repedir_pendiente_pedido_existente" model="ir.ui.view">
+            <field name="name">Repedir Título en Pedido Existente</field>
+            <field name="model">expresso.repedir_pendiente_pedido_existente</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Repedir Título en Pedido Existente">
+                    <separator colspan="4" string="Repedir Título en Pedido Existente"/>
+                    <newline/>
+                    <label colspan="4" width="500"
+                           string="Seleccione el Pedido al cual desea anexarle el Título Pendiente."/>
+                    <newline/>
+                    <field name="order_id"/>
+                    <separator colspan="4"/>
+                    <group col="2" colspan="2">
+                        <button icon="gtk-cancel" special="cancel" string="Cancel"/>
+                        <button icon="gtk-ok" name="repedir_pendiente" string="Repedir" type="object"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_repedir_pendiente_pedido_existente" model="ir.actions.act_window">
+            <field name="name">Repedir Título en Pedido Existente</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">expresso.repedir_pendiente_pedido_existente</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        
+        <record id="view_producto_pendiente_con_repedir_form" model="ir.ui.view">
+            <field name="name">product.producto_pendiente.repedir.form</field>
+            <field name="priority" eval="30"/>
+            <field name="model">product.producto_pendiente</field>
+            <field name="inherit_id" ref="view_producto_pendiente_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//form[@string='Título Pendiente']/group[1]" position="after">
+                        <group colspan="4" col="9">
+                            <field name="state"/>
+                            <button name="%(expresso_product_attributes.action_repedir_pendiente_pedido_existente)d"
+                                    string="Repedir Título en Pedido Existente" type="action"
+                                    states="activo" icon="gtk-go-forward" />
+                            <button name="pendiente_a_nuevo_pedido"
+                                    string="Repedir Título en Pedido Nuevo" type="object"
+                                    states="activo" icon="gtk-go-forward" />
+                            <button name="producto_pendiente_activo_2_cancelado"
+                                    string="Cancelar Título Pendiente" type="workflow"
+                                    states="activo" icon="gtk-cancel" />
+                        </group>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

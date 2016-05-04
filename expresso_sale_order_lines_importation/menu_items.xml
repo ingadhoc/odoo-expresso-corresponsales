@@ -1,0 +1,17 @@
+<openerp>
+    <data>
+        <record id="action_expresso_sale_line_importation_form" model="ir.actions.act_window">
+            <field name="name">Sale Order Line</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.order.line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <menuitem action="action_expresso_sale_line_importation_form"
+                  id="menu_expresso_sale_line_importation"
+                  parent="expresso_product_attributes.menu_corresponsales_pedidos"
+                  string="Sale Order Line"
+                  sequence="10" />
+    </data>
+</openerp>

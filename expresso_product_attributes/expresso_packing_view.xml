@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <!-- packing -->
+	    <record id="view_expresso_packing_form" model="ir.ui.view">
+            <field name="name">expresso.packing.form</field>
+            <field name="model">expresso.packing</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Packing">
+                    <field name="partner_id"/>
+                    <field name="address_id"/>
+                    
+                    <group colspan="4" col="8">
+                        <field name="id_remoto" colspan="2" string="Packing"/>
+                        <field name="number_of_packages" colspan="2"/>
+                        <field name="date" colspan="4"/>
+                    </group>
+                    
+                    <notebook colspan="4">
+                        <page string="Cajas">
+                            <field name="packing_box_ids" colspan="4" nolabel="1"/>
+                        </page>
+                        <page string="Facturas">
+                            <field name="invoice_ids" colspan="4" nolabel="1"/>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+	    <record id="view_expresso_packing_tree" model="ir.ui.view">
+            <field name="name">expresso.packing.tree</field>
+            <field name="model">expresso.packing</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Packing">
+                    <field name="date"/>
+                    <field name="number_of_packages"/>
+                    <field name="partner_id"/>
+                    <field name="address_id"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_expresso_packing_search" model="ir.ui.view">
+            <field name="name">expresso.packing.search</field>
+            <field name="model">expresso.packing</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Packing" >
+                    <field name="date"/>
+                    <field name="partner_id"/>
+                    <field name="address_id"/>
+                </search>
+            </field>
+        </record>
+        
+        <!-- packing.box -->
+	    <record id="view_expresso_packing_box_form" model="ir.ui.view">
+            <field name="name">expresso.packing.box.form</field>
+            <field name="model">expresso.packing.box</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Caja">
+                    <field name="name"/>
+                    <field name="weight"/>
+                    
+                    <separator string="Detalles" colspan="4"/>
+                    <field name="packing_detail_ids" colspan="4" nolabel="1"/>
+                </form>
+            </field>
+        </record>
+
+	    <record id="view_expresso_packing_box_tree" model="ir.ui.view">
+            <field name="name">expresso.packing.box.tree</field>
+            <field name="model">expresso.packing.box</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Caja">
+                    <field name="name"/>
+                    <field name="weight"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- packing.detail -->
+	    <record id="view_expresso_packing_detail_form" model="ir.ui.view">
+            <field name="name">expresso.packing.detail.form</field>
+            <field name="model">expresso.packing.detail</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Detalle">
+                    <field name="name" colspan="4"/>
+                    <field name="product_id" colspan="2" />
+                    <field name="product_qty" colspan="2"/>
+                    <field name="weight" colspan="2"/>
+                </form>
+            </field>
+        </record>
+
+	    <record id="view_expresso_packing_detail_tree" model="ir.ui.view">
+            <field name="name">expresso.packing.detail.tree</field>
+            <field name="model">expresso.packing.detail</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Detalle">
+                    <field name="name"/>
+                    <field name="product_id"/>
+                    <field name="product_qty"/>
+                    <field name="weight"/>
+                    <field name="box_id"/>
+                </tree>
+            </field>
+        </record>
+        
+        
+        <!-- Acciones -->
+        <record id="action_expresso_packing_list" model="ir.actions.act_window">
+            <field name="name">Packing List</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">expresso.packing</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</openerp>

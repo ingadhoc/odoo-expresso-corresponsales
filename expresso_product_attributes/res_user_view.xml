@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <!-- Form -->
+        <record id="view_users_expresso_form" model="ir.ui.view">
+            <field name="name">base.users.expresso.form</field>
+            <field name="priority" eval="30"/>
+            <field name="model">res.users</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="new_password" position="after">
+                        <field name="partner_id"/>
+                    </field>
+                </data>
+            </field>
+        </record>
+        
+        <record id="view_users_expresso_search" model="ir.ui.view">
+            <field name="name">base.users.expresso.search</field>
+            <field name="priority" eval="30"/>
+            <field name="model">res.users</field>
+            <field name="type">search</field>
+            <field name="inherit_id" ref="base.view_users_search"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="name" position="before">
+                        <filter string="Inactivo" name="inactivo" icon="terp-personal" domain="[('active','=',False)]" />
+                        <separator orientation="vertical"/>
+                    </field>
+                </data>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

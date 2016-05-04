@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="view_nickel_factura_form" model="ir.ui.view">
+            <field name="name">nickel_factura.form</field>
+            <field name="model">nickel_factura</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Factura de Nickel">
+                    <field name="id_remoto"/>
+                    <field name="codigo_cliente"/>
+                    <field name="partner_id"/>
+                    <field name="numero_factura"/>
+                    <field name="factura_id"/>
+                    <field name="serie"/>
+                    <field name="fecha_factura"/>
+                    <field name="fecha_vencimiento"/>
+                    <field name="importe"/>
+                    <field name="codigo_divisa"/>
+                    <field name="pagado"/>
+                </form>
+            </field>
+        </record>
+
+	    <record id="view_nickel_factura_tree" model="ir.ui.view">
+            <field name="name">nickel_factura.tree</field>
+            <field name="model">nickel_factura</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Factura de Nickel">
+                    <field name="id_remoto"/>
+                    <field name="partner_id"/>
+                    <field name="factura_id"/>
+                    <field name="fecha_factura"/>
+                    <field name="fecha_vencimiento"/>
+                    <field name="pagado"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_nickel_factura_search" model="ir.ui.view">
+            <field name="name">nickel_factura.search</field>
+            <field name="model">nickel_factura</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Factura de Nickel">
+                    <filter icon="terp-personal" string="Pagado" domain="[('pagado','=',True)]"/>
+                    <filter icon="terp-personal" string="No Pagado" domain="[('pagado','=',False)]"/>
+                    <field name="partner_id"/>
+                    <field name="id_remoto"/>
+                    <field name="numero_factura"/>
+                    <field name="fecha_factura"/>
+                    <field name="fecha_vencimiento"/>
+                </search>
+            </field>
+        </record>
+        
+        <!-- Acciones -->
+        <record id="action_nickel_factura_form" model="ir.actions.act_window">
+            <field name="name">Factura de Nickel</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">nickel_factura</field>
+            <field name="view_type">form</field>
+        </record>
+        
+        <!-- Expresso / Administracion -->
+        <menuitem
+            id="expresso_menu_nickel_factura"
+            name="Factura de Nickel"
+            action="action_nickel_factura_form"
+            parent="menu_expresso_administracion_nickel"
+            sequence="2"/>
+            
+
+    </data>
+</openerp>
