@@ -7,13 +7,13 @@
             <field name="model">product.product</field>
             <field name="inherit_id" ref="product.product_normal_form_view"/>
             <field name="arch" type="xml">                
-                <field name="ean13" position="attributes">
-                    <attribute name="invisible">1</attribute>
-                </field>
-                <field name="ean13" position="after">
-                    <field name="isbn" string="ISBN" />
-                    <field name="autor"/>
-                </field>
+                <!--<field name="ean13" position="attributes">-->
+                    <!--<attribute name="invisible">1</attribute>-->
+                <!--</field>-->
+                <!--<field name="ean13" position="after">-->
+                    <!--<field name="isbn" string="ISBN" />-->
+                    <!--<field name="autor"/>-->
+                <!--</field>-->
                 <notebook position="inside">
                     <page string="Ficha">
                         <group colspan="2" col="2">
@@ -84,13 +84,13 @@
             <field name="priority" eval="20"/>
             <field name="inherit_id" ref="product.product_search_form_view"/>
             <field name="arch" type="xml">
-                <search string="Product" position="replace" >
-                    <search string="Título" >
+                <search  position="replace" >
+                    <search  >
                         <filter name="disponible" string="Disponible" icon="terp-check"
                                 domain="[('situacion_id','=','DISPONIBLE')]"/>
                         <separator orientation="vertical"/>
                         
-                        <field name="name" string="Título" />
+                        <field name="name" string="Titulo" />
                         <field name="autor" />
                         <field name="editorial" />
                         <separator orientation="vertical"/>
@@ -111,9 +111,9 @@
             <field name="model">product.product</field>
             <field name="inherit_id" ref="product.product_product_tree_view"/>
             <field name="arch" type="xml">
-                <tree string="Product Variants" position="replace">
+                <tree  position="replace">
                     <tree string="Títulos">
-                        <field name="name" string="Título" />
+                        <field name="name" string="Titulo" />
                         <field name="autor" />
                         <field name="editorial" />
                         <field name="situacion_id" />
@@ -131,7 +131,7 @@
             <field name="name">product.producto_pendiente.form</field>
             <field name="model">product.producto_pendiente</field>
             <field name="arch" type="xml">
-                <form string="Título Pendiente">
+                <form string="Titulo Pendiente">
                     <field name="name"/>
                     <field name="product_id"/>
                     <field name="quantity"/>

@@ -37,7 +37,7 @@
             <field name="inherit_id" ref="view_producto_pendiente_form"/>
             <field name="arch" type="xml">
                 <data>
-                    <xpath expr="//form[@string='Título Pendiente']/group[1]" position="after">
+                    <xpath expr="//form/group[1]" position="after">
                         <group colspan="4" col="9">
                             <field name="state"/>
                             <button name="%(expresso_product_attributes.action_repedir_pendiente_pedido_existente)d"

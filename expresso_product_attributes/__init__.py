@@ -10,3 +10,4 @@ from . import expresso_sync_info
 from . import expresso_packing
 from . import wizard
 from . import actualizador_osv
+from . import actualizador

@@ -6,9 +6,9 @@
             id="menu_corresponsales"
             name="Corresponsales"
             groups="expresso_grupo_corresponsales"
-            sequence="1"
-            web_icon="images/menu_express.png"
-            web_icon_hover="images/menu_express_hover.png"/>
+            sequence="1"/>
+            <!--web_icon="images/menu_express.png"-->
+            <!--web_icon_hover="images/menu_express_hover.png"/>-->
             
             <!-- Corresponsales / Títulos -->
             <menuitem

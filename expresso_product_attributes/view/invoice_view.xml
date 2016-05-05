@@ -16,14 +16,14 @@
                         <field name="quantity" widget="integer"/>
                     </xpath> -->
                     
-                    <field name="invoice_line_tax_id" position="replace">
-                        <field name="invoice_line_tax_id" view_mode="2" context="{'type':parent.type}"
-                               domain="[('parent_id','=',False)]" invisible="True"/>
-                    </field>
+                    <!--<field name="invoice_line_tax_id" position="replace">-->
+                        <!--<field name="invoice_line_tax_id" view_mode="2" context="{'type':parent.type}"-->
+                               <!--domain="[('parent_id','=',False)]" invisible="True"/>-->
+                    <!--</field>-->
                     
-                    <field name="tax_line" position="replace"/>
+                    <!--<field name="tax_line" position="replace"/>-->
                     
-                    <button name="button_reset_taxes" position="replace"/>
+                    <!--<button name="button_reset_taxes" position="replace"/>-->
                     
                     <field name="amount_tax" position="replace">
                         <field name="amount_tax" invisible="True"/>
@@ -46,13 +46,13 @@
                         <field name="journal_id" on_change="onchange_journal_id(journal_id)" widget="selection" invisible="True"/>
                     </field>
                     
-                    <field name="fiscal_position" position="replace">
-                        <field name="fiscal_position" groups="base.group_extended" widget="selection" invisible="True" />
-                    </field>
+                    <!--<field name="fiscal_position" position="replace">-->
+                        <!--<field name="fiscal_position" groups="base.group_extended" widget="selection" invisible="True" />-->
+                    <!--</field>-->
                     
-                    <field name="reference_type" position="replace">
-                        <field name="reference_type" nolabel="1" size="0" invisible="True"/>
-                    </field>
+                    <!--<field name="reference_type" position="replace">-->
+                        <!--<field name="reference_type" nolabel="1" size="0" invisible="True"/>-->
+                    <!--</field>-->
                     
                     <field name="reference" position="replace">
                         <field name="reference" nolabel="1" invisible="True"/>
@@ -149,11 +149,11 @@
             <field name="arch" type="xml">
                     <!-- <xpath expr="//form[@string='Invoice Line']/separator[@string='Taxes']"
                            position="replace"/> -->
-                    <field name="invoice_line_tax_id" position="replace">
-                        <field colspan="4" name="invoice_line_tax_id" context="{'type':parent.type}"
-                               domain="[('parent_id','=',False),('company_id', '=', parent.company_id)]" nolabel="1"
-                               invisible="True"/>
-                    </field>
+                    <!--<field name="invoice_line_tax_id" position="replace">-->
+                        <!--<field colspan="4" name="invoice_line_tax_id" context="{'type':parent.type}"-->
+                               <!--domain="[('parent_id','=',False),('company_id', '=', parent.company_id)]" nolabel="1"-->
+                               <!--invisible="True"/>-->
+                    <!--</field>-->
                     
                     <field name="discount" position="replace">
                         <field name="discount" groups="base.group_extended" invisible="True"/>

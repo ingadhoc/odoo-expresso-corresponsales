@@ -213,15 +213,15 @@
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record> -->
 		
-		<record id="access_account_journal_period_corresponsales" model="ir.model.access">
-			<field name="model_id" ref="account.model_account_journal_period"/>
-			<field name="name">account.journal.period.corresponsales</field>
-			<field eval="1" name="perm_read"/>
-			<field eval="0" name="perm_write"/>
-			<field eval="0" name="perm_create"/>
-			<field eval="0" name="perm_unlink"/>
-			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
-		</record>
+		<!--<record id="access_account_journal_period_corresponsales" model="ir.model.access">-->
+			<!--<field name="model_id" ref="account.model_account_journal_period"/>-->
+			<!--<field name="name">account.journal.period.corresponsales</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="0" name="perm_write"/>-->
+			<!--<field eval="0" name="perm_create"/>-->
+			<!--<field eval="0" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
 		
 		<!-- base -->
 		<record id="access_res_partner_corresponsales" model="ir.model.access">
@@ -234,15 +234,15 @@
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
 		
-		<record id="access_res_partner_address_corresponsales" model="ir.model.access">
-			<field name="model_id" ref="payment_transfer.model_payment_transaction"/>
-			<field name="name">res.partner.address.corresponsales</field>
-			<field eval="1" name="perm_read"/>
-			<field eval="0" name="perm_write"/>
-			<field eval="0" name="perm_create"/>
-			<field eval="0" name="perm_unlink"/>
-			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
-		</record>
+		<!--<record id="access_res_partner_address_corresponsales" model="ir.model.access">-->
+			<!--<field name="model_id" ref="payment_transfer.model_payment_transaction"/>-->
+			<!--<field name="name">res.partner.address.corresponsales</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="0" name="perm_write"/>-->
+			<!--<field eval="0" name="perm_create"/>-->
+			<!--<field eval="0" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
 		
 		<!-- expresso_product_attributes -->
 		<record id="access_sale_empresa_logistica_corresponsales" model="ir.model.access">
@@ -487,15 +487,15 @@
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
 		
-		<record id="access_product_pricelist_version_corresponsales" model="ir.model.access">
-			<field name="model_id" ref="product.model_product_pricelist_version"/>
-			<field name="name">product.pricelist.version.corresponsal</field>
-			<field eval="1" name="perm_read"/>
-			<field eval="0" name="perm_write"/>
-			<field eval="0" name="perm_create"/>
-			<field eval="0" name="perm_unlink"/>
-			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
-		</record>
+		<!--<record id="access_product_pricelist_version_corresponsales" model="ir.model.access">-->
+			<!--<field name="model_id" ref="product.model_product_pricelist_version"/>-->
+			<!--<field name="name">product.pricelist.version.corresponsal</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="0" name="perm_write"/>-->
+			<!--<field eval="0" name="perm_create"/>-->
+			<!--<field eval="0" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
 		
 		<record id="access_product_category_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="product.model_product_category"/>
@@ -507,15 +507,15 @@
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
 		
-		<record id="access_product_price_type_corresponsales" model="ir.model.access">
-			<field name="model_id" ref="product.model_product_price_type"/>
-			<field name="name">product.price.type.corresponsal</field>
-			<field eval="1" name="perm_read"/>
-			<field eval="0" name="perm_write"/>
-			<field eval="0" name="perm_create"/>
-			<field eval="0" name="perm_unlink"/>
-			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
-		</record>
+		<!--<record id="access_product_price_type_corresponsales" model="ir.model.access">-->
+			<!--<field name="model_id" ref="product.model_product_price_type"/>-->
+			<!--<field name="name">product.price.type.corresponsal</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="0" name="perm_write"/>-->
+			<!--<field eval="0" name="perm_create"/>-->
+			<!--<field eval="0" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
 		
 		<record id="access_product_supplierinfo_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="product.model_product_supplierinfo"/>
@@ -569,15 +569,15 @@
 		</record> -->
 		
 		<!-- stock -->
-		<record id="access_stock_picking_corresponsales" model="ir.model.access">
-			<field name="model_id" ref="stock_account.model_stock_picking"/>
-			<field name="name">stock.picking.corresponsales</field>
-			<field eval="1" name="perm_read"/>
-			<field eval="0" name="perm_write"/>
-			<field eval="0" name="perm_create"/>
-			<field eval="0" name="perm_unlink"/>
-			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
-		</record>
+		<!--<record id="access_stock_picking_corresponsales" model="ir.model.access">-->
+			<!--<field name="model_id" ref="stock_account.model_stock_picking"/>-->
+			<!--<field name="name">stock.picking.corresponsales</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="0" name="perm_write"/>-->
+			<!--<field eval="0" name="perm_create"/>-->
+			<!--<field eval="0" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
 		
 	</data>
 </openerp>
