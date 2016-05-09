@@ -41,6 +41,7 @@
         <field name="groups" eval="[(4, ref('expresso_product_attributes.expresso_grupo_corresponsales'))]"/>
     </record>
     
+    <!--test-->
     <!--<record model="ir.rule" id="corresponsales_partner">-->
         <!--<field name="name">Partners de los Corresponsales</field>-->
         <!--<field name="model_id" ref="base.model_res_partner"/>-->
