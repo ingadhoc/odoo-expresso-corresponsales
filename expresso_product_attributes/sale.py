@@ -102,26 +102,26 @@ class sale_order(models.Model):
         'Empresa de Logística'
         )
     # copias readonly o para vista para corresponsaes
-    fecha_salida_corresponsales = fields.Date(
-        related='fecha_salida',
-        )
-    fecha_estimada_entrega_corresponsales = fields.Date(
-        related='fecha_estimada_entrega',
-        )
-    embarque_corresponsales = fields.Char(
-        related='embarque',
-        )
-    empresa_logistica_id_corresponsales = fields.Many2one(
-        related="empresa_logistica_id",
-        )
-    user_expresso_id_corresponsal = fields.Many2one(
-        related='user_expresso_id_expresso',
-        )
-    # otros campos corresponsales
-    forma_envio_id_corresponsales = fields.Many2one(
-        'expresso.forma_envio',
-        'Forma de Envío'
-        )
+    # fecha_salida_corresponsales = fields.Date(
+    #     related='fecha_salida',
+    #     )
+    # fecha_estimada_entrega_corresponsales = fields.Date(
+    #     related='fecha_estimada_entrega',
+    #     )
+    # embarque_corresponsales = fields.Char(
+    #     related='embarque',
+    #     )
+    # empresa_logistica_id_corresponsales = fields.Many2one(
+    #     related="empresa_logistica_id",
+    #     )
+    # user_expresso_id_corresponsal = fields.Many2one(
+    #     related='user_expresso_id_expresso',
+    #     )
+    # # otros campos corresponsales
+    # forma_envio_id_corresponsales = fields.Many2one(
+    #     'expresso.forma_envio',
+    #     'Forma de Envío'
+    #     )
     state_expresso = fields.Selection([
         ('borrador', 'Borrador'),
         ('pendiente_e', 'Pendiente Expresso'),
@@ -138,58 +138,58 @@ class sale_order(models.Model):
         'order_id',
         'Títulos Pendientes'
         )
-    current_partner_id_for_filtering = fields.Many2one(
-        'res.partner',
-        'Current Partner id for Filtering',
-        default=lambda self: self.env.user.customer_partner_id,
-        )
-    user_corresponsal_id_corresponsales = fields.Many2one(
-        'res.users',
-        'Usuario Corresponsal',
-        required=True,
-        domain="[('partner_id', '=', current_partner_id_for_filtering)]",
-        )
-    user_corresponsal_id_expresso = fields.Many2one(
-        'res.users',
-        'Usuario Corresponsal',
-        required=True,
-        # TODO habilitar este default que me da error al instalar y entender
-        # estos campos "user bla bla bla"
-        default=get_user_corresponsal,
-        )
-    user_expresso_id_expresso = fields.Many2one(
-        'res.users',
-        'Usuario Expresso',
-        # TODO habilitar
-        default=get_user_expresso,
-        )
-    invoice_ids = fields.Many2many(
-        'account.invoice',
-        'expresso_order_invoice_rel',
-        'order_id',
-        'invoice_id',
-        'Facturas'
-        )
-    partner_id = fields.Many2one(
-        default=lambda self: self.env.user.customer_partner_id
-        )
+    # current_partner_id_for_filtering = fields.Many2one(
+    #     'res.partner',
+    #     'Current Partner id for Filtering',
+    #     default=lambda self: self.env.user.customer_partner_id,
+    #     )
+    # user_corresponsal_id_corresponsales = fields.Many2one(
+    #     'res.users',
+    #     'Usuario Corresponsal',
+    #     required=True,
+    #     domain="[('partner_id', '=', current_partner_id_for_filtering)]",
+    #     )
+    # user_corresponsal_id_expresso = fields.Many2one(
+    #     'res.users',
+    #     'Usuario Corresponsal',
+    #     required=True,
+    #     # TODO habilitar este default que me da error al instalar y entender
+    #     # estos campos "user bla bla bla"
+    #     default=get_user_corresponsal,
+    #     )
+    # user_expresso_id_expresso = fields.Many2one(
+    #     'res.users',
+    #     'Usuario Expresso',
+    #     # TODO habilitar
+    #     default=get_user_expresso,
+    #     )
+    # invoice_ids = fields.Many2many(
+    #     'account.invoice',
+    #     'expresso_order_invoice_rel',
+    #     'order_id',
+    #     'invoice_id',
+    #     'Facturas'
+    #     )
+    # partner_id = fields.Many2one(
+    #     default=lambda self: self.env.user.customer_partner_id
+    #     )
     # property_product_pricelist = fields.Many2one(
     #     default=lambda self: (
     #         self.env.user.customer_partner_id.property_product_pricelist)
     #     )
 
     # TODO entender porque estos dos onchange
-    @api.one
-    @api.onchange('user_corresponsal_id_corresponsales')
-    def onchange_user_corresponsal_id_corresponsales(self):
-        self.user_corresponsal_id_expresso = (
-            self.user_corresponsal_id_corresponsales)
-
-    @api.one
-    @api.onchange('user_corresponsal_id_expresso')
-    def onchange_user_corresponsal_id_expresso(self):
-        self.user_corresponsal_id_corresponsales = (
-            self.user_corresponsal_id_expresso)
+    # @api.one
+    # @api.onchange('user_corresponsal_id_corresponsales')
+    # def onchange_user_corresponsal_id_corresponsales(self):
+    #     self.user_corresponsal_id_expresso = (
+    #         self.user_corresponsal_id_corresponsales)
+    #
+    # @api.one
+    # @api.onchange('user_corresponsal_id_expresso')
+    # def onchange_user_corresponsal_id_expresso(self):
+    #     self.user_corresponsal_id_corresponsales = (
+    #         self.user_corresponsal_id_expresso)
 
     # def write(self, cr, uid, ids, vals, context=None):
     #     if not isinstance(ids, list):
