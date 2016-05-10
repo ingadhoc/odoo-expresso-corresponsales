@@ -38,7 +38,7 @@ y que en 'Modo de vista' figure 'form,tree'.
     'depends': ['sale', 'stock'],
     'data': [
             'security/expresso_security.xml',
-            # 'security/ir.model.access.csv',
+            'security/ir.model.access.csv',
             'security/permisos_corresponsales.xml',
             'security/permisos_expresso.xml',
             'view/expresso_product_view.xml',
