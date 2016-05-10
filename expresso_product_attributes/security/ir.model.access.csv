@@ -30,5 +30,7 @@
 "access_account_analytic_accountant","account.analytic.account accountant","analytic.model_account_analytic_account","expresso_product_attributes.expresso_grupo_corresponsales",1,1,1,1
 "access_report_account_receivable_user","report.account.receivable.user","account.model_report_account_receivable","expresso_product_attributes.expresso_grupo_corresponsales",1,1,1,1
 
+"access_expresso_actualizador","access_expresso_actualizador","model_expresso_actualizador",,1,0,0,0
+
 
 
