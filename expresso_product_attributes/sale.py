@@ -173,10 +173,10 @@ class sale_order(models.Model):
     partner_id = fields.Many2one(
         default=lambda self: self.env.user.customer_partner_id
         )
-    property_product_pricelist = fields.Many2one(
-        default=lambda self: (
-            self.env.user.customer_partner_id.property_product_pricelist)
-        )
+    # property_product_pricelist = fields.Many2one(
+    #     default=lambda self: (
+    #         self.env.user.customer_partner_id.property_product_pricelist)
+    #     )
 
     # TODO entender porque estos dos onchange
     @api.one
