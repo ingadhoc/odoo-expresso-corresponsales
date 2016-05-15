@@ -159,7 +159,7 @@ class sale_order(models.Model):
         'res.users',
         'Usuario Expresso',
         # TODO habilitar
-        default=get_user_expresso,
+        # default=get_user_expresso,
         )
     # user_expresso_id_corresponsal = fields.Many2one(
     #     related='user_expresso_id_expresso',
