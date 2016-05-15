@@ -53,7 +53,7 @@ class sale_order(models.Model):
     @api.model
     def get_user_expresso(self):
         user = self.env.user
-        if self.user_in_group_with_name(user, "Expresso / Corresponsales"):
+        if self.user_in_group_with_name(user, "Expresso / Expresso"):
             if user.customer_partner_id and user.customer_partner_id.user_id:
                 return user.customer_partner_id.user_id
         return False
@@ -102,26 +102,24 @@ class sale_order(models.Model):
         'Empresa de Logística'
         )
     # copias readonly o para vista para corresponsaes
-    # fecha_salida_corresponsales = fields.Date(
-    #     related='fecha_salida',
-    #     )
-    # fecha_estimada_entrega_corresponsales = fields.Date(
-    #     related='fecha_estimada_entrega',
-    #     )
-    # embarque_corresponsales = fields.Char(
-    #     related='embarque',
-    #     )
-    # empresa_logistica_id_corresponsales = fields.Many2one(
-    #     related="empresa_logistica_id",
-    #     )
-    # user_expresso_id_corresponsal = fields.Many2one(
-    #     related='user_expresso_id_expresso',
-    #     )
+    fecha_salida_corresponsales = fields.Date(
+        related='fecha_salida',
+        )
+    fecha_estimada_entrega_corresponsales = fields.Date(
+        related='fecha_estimada_entrega',
+        )
+    embarque_corresponsales = fields.Char(
+        related='embarque',
+        )
+    empresa_logistica_id_corresponsales = fields.Many2one(
+        related="empresa_logistica_id",
+        )
+
     # # otros campos corresponsales
-    # forma_envio_id_corresponsales = fields.Many2one(
-    #     'expresso.forma_envio',
-    #     'Forma de Envío'
-    #     )
+    forma_envio_id_corresponsales = fields.Many2one(
+        'expresso.forma_envio',
+        'Forma de Envío'
+        )
     state_expresso = fields.Selection([
         ('borrador', 'Borrador'),
         ('pendiente_e', 'Pendiente Expresso'),
@@ -138,30 +136,33 @@ class sale_order(models.Model):
         'order_id',
         'Títulos Pendientes'
         )
-    # current_partner_id_for_filtering = fields.Many2one(
-    #     'res.partner',
-    #     'Current Partner id for Filtering',
-    #     default=lambda self: self.env.user.customer_partner_id,
-    #     )
+    current_partner_id_for_filtering = fields.Many2one(
+        'res.partner',
+        'Current Partner id for Filtering',
+        default=lambda self: self.env.user.customer_partner_id,
+        )
     # user_corresponsal_id_corresponsales = fields.Many2one(
     #     'res.users',
     #     'Usuario Corresponsal',
     #     required=True,
     #     domain="[('partner_id', '=', current_partner_id_for_filtering)]",
     #     )
-    # user_corresponsal_id_expresso = fields.Many2one(
-    #     'res.users',
-    #     'Usuario Corresponsal',
-    #     required=True,
-    #     # TODO habilitar este default que me da error al instalar y entender
-    #     # estos campos "user bla bla bla"
-    #     default=get_user_corresponsal,
-    #     )
-    # user_expresso_id_expresso = fields.Many2one(
-    #     'res.users',
-    #     'Usuario Expresso',
-    #     # TODO habilitar
-    #     default=get_user_expresso,
+    user_corresponsal_id_expresso = fields.Many2one(
+        'res.users',
+        'Usuario Corresponsal',
+        required=True,
+        # TODO habilitar este default que me da error al instalar y entender
+        # estos campos "user bla bla bla"
+        default=get_user_corresponsal,
+        )
+    user_expresso_id_expresso = fields.Many2one(
+        'res.users',
+        'Usuario Expresso',
+        # TODO habilitar
+        default=get_user_expresso,
+        )
+    # user_expresso_id_corresponsal = fields.Many2one(
+    #     related='user_expresso_id_expresso',
     #     )
     # invoice_ids = fields.Many2many(
     #     'account.invoice',
@@ -170,26 +171,26 @@ class sale_order(models.Model):
     #     'invoice_id',
     #     'Facturas'
     #     )
-    # partner_id = fields.Many2one(
-    #     default=lambda self: self.env.user.customer_partner_id
-    #     )
+    partner_id = fields.Many2one(
+        default=lambda self: self.env.user.customer_partner_id
+        )
     # property_product_pricelist = fields.Many2one(
     #     default=lambda self: (
     #         self.env.user.customer_partner_id.property_product_pricelist)
     #     )
 
     # TODO entender porque estos dos onchange
-    # @api.one
-    # @api.onchange('user_corresponsal_id_corresponsales')
-    # def onchange_user_corresponsal_id_corresponsales(self):
-    #     self.user_corresponsal_id_expresso = (
-    #         self.user_corresponsal_id_corresponsales)
-    #
-    # @api.one
-    # @api.onchange('user_corresponsal_id_expresso')
-    # def onchange_user_corresponsal_id_expresso(self):
-    #     self.user_corresponsal_id_corresponsales = (
-    #         self.user_corresponsal_id_expresso)
+    @api.one
+    @api.onchange('user_corresponsal_id_corresponsales')
+    def onchange_user_corresponsal_id_corresponsales(self):
+        self.user_corresponsal_id_expresso = (
+            self.user_corresponsal_id_corresponsales)
+
+    @api.one
+    @api.onchange('user_corresponsal_id_expresso')
+    def onchange_user_corresponsal_id_expresso(self):
+        self.user_corresponsal_id_corresponsales = (
+            self.user_corresponsal_id_expresso)
 
     # def write(self, cr, uid, ids, vals, context=None):
     #     if not isinstance(ids, list):
@@ -287,12 +288,12 @@ class sale_order(models.Model):
                 vals['forma_envio_id_expresso'] = vals['forma_envio_id_corresponsales']
 
         # Sincronizamos user_corresponsal_id_expresso y user_corresponsal_id_corresponsales
-        if 'user_corresponsal_id_expresso' in vals and vals['user_corresponsal_id_expresso']:
-            if 'user_corresponsal_id_corresponsales' not in vals or not vals['user_corresponsal_id_corresponsales']:
-                vals['user_corresponsal_id_corresponsales'] = vals['user_corresponsal_id_expresso']
-        elif 'user_corresponsal_id_corresponsales' in vals and vals['user_corresponsal_id_corresponsales']:
-            if 'user_corresponsal_id_expresso' not in vals or not vals['user_corresponsal_id_expresso']:
-                vals['user_corresponsal_id_expresso'] = vals['user_corresponsal_id_corresponsales']
+        # if 'user_corresponsal_id_expresso' in vals and vals['user_corresponsal_id_expresso']:
+        #     if 'user_corresponsal_id_corresponsales' not in vals or not vals['user_corresponsal_id_corresponsales']:
+        #         vals['user_corresponsal_id_corresponsales'] = vals['user_corresponsal_id_expresso']
+        # elif 'user_corresponsal_id_corresponsales' in vals and vals['user_corresponsal_id_corresponsales']:
+        #     if 'user_corresponsal_id_expresso' not in vals or not vals['user_corresponsal_id_expresso']:
+        #         vals['user_corresponsal_id_expresso'] = vals['user_corresponsal_id_corresponsales']
         return vals
 
     # Cambios de estado
@@ -424,7 +425,6 @@ class sale_order(models.Model):
     def crear_pedido_remoto(self):
         facade_actualizacion = Facade_Actualizacion(pooler)
         facade_actualizacion.crear_pedido_remoto()
-
 
 class sale_order_line(models.Model):
     _name = 'sale.order.line'

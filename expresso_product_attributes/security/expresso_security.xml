@@ -1,17 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 <data noupdate="0">
+
+
     <record id="expresso_product_attributes.expresso_grupo_expresso" model="res.groups">
         <field name="name">Expresso / Expresso</field>
         <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
-        <field name="implied_ids" eval="[(4, ref('base.group_system'))]"/>
+        <!--<field name="implied_ids" eval="[(4, ref('base.group_system'))]"/>-->
     </record>
     
     <record id="expresso_product_attributes.expresso_grupo_corresponsales" model="res.groups">
         <field name="name">Expresso / Corresponsales</field>
         <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
-        <field name="implied_ids" eval="[(4, ref('base.group_system'))]"/>
+        <!--<field name="implied_ids" eval="[(4, ref('base.group_system'))]"/>-->
     </record>
+
+    <!-- Data users  -->
+    <record id="partner_corresponsale" model="res.partner">
+            <field name="name">Corresponsale User</field>
+            <!--<field name="company_id" ref="main_company"/>-->
+            <field name="customer" eval="False"/>
+            <field name="email">corresponsale@yourcompany.example.com</field>
+            <field name="street">Example</field>
+            <field name="city">Argentina</field>
+            <field name="zip">5101</field>
+            <!--<field name="country_id" ref="ar"/>-->
+    </record>
+    <record id="user_corresponsale" model="res.users">
+            <field name="partner_id" ref="expresso_product_attributes.partner_corresponsale"/>
+            <field name="login">corresponsale</field>
+            <field name="password">corresponsale</field>
+            <field name="signature">Corresponsale</field>
+            <!--<field name="company_id" ref="main_company"/>-->
+            <!--<field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager'),ref('expresso_product_attributes.expresso_grupo_corresponsales')])]"/>-->
+            <field name="groups_id" eval="[(6,0,[ref('base.group_partner_manager'),ref('expresso_product_attributes.expresso_grupo_corresponsales')])]"/>
+    </record>
+
+    <record id="partner_expresso" model="res.partner">
+            <field name="name">Expresso User</field>
+            <!--<field name="company_id" ref="main_company"/>-->
+            <field name="customer" eval="False"/>
+            <field name="email">expresso@yourcompany.example.com</field>
+            <field name="street">Example</field>
+            <field name="city">Argentina</field>
+            <field name="zip">5101</field>
+            <!--<field name="country_id" ref="ar"/>-->
+    </record>
+    <record id="user_expresso" model="res.users">
+            <field name="partner_id" ref="expresso_product_attributes.partner_expresso"/>
+            <field name="login">expresso</field>
+            <field name="password">expresso</field>
+            <field name="signature">Expresso</field>
+            <!--<field name="company_id" ref="main_company"/>-->
+            <!--<field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager'),ref('expresso_product_attributes.expresso_grupo_expresso')])]"/>-->
+            <field name="groups_id" eval="[(6,0,[ref('base.group_partner_manager'),ref('expresso_product_attributes.expresso_grupo_expresso')])]"/>
+    </record>
+
     
     <record model="ir.rule" id="corresponsales_order">
         <field name="name">Pedidos de los Corresponsales</field>

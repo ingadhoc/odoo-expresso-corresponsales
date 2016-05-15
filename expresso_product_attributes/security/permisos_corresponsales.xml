@@ -11,7 +11,7 @@
 			<field eval="1" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
 		</record>
-		
+
 		<record id="access_account_journal_view_expresso" model="ir.model.access">
 			<field name="model_id" ref="account.model_account_journal_view"/>
 			<field name="name">account.journal.view.expresso</field>
@@ -21,7 +21,7 @@
 			<field eval="1" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
 		</record>
-		
+
 		<record id="access_account_journal_column_expresso" model="ir.model.access">
 			<field name="model_id" ref="account.model_account_journal_column"/>
 			<field name="name">account.journal.column.expresso</field>
@@ -31,7 +31,7 @@
 			<field eval="1" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
 		</record>
-		
+
 		<record id="access_account_journal_period_expresso" model="ir.model.access">
 			<field name="model_id" ref="account.model_account_journal_period"/>
 			<field name="name">account.journal.period.expresso</field>
@@ -41,7 +41,7 @@
 			<field eval="1" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
 		</record>
-		
+
 		<record id="access_account_payment_term_expresso" model="ir.model.access">
 			<field name="model_id" ref="account.model_account_payment_term"/>
 			<field name="name">account.payment.term.expresso</field>
@@ -51,7 +51,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
 		</record>
-		
+
 		<record id="access_account_payment_term_line_expresso" model="ir.model.access">
 			<field name="model_id" ref="account.model_account_payment_term_line"/>
 			<field name="name">account.payment.term.line.expresso</field>
@@ -61,7 +61,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
 		</record>
-		
+
 		<record id="access_account_account_type_expresso" model="ir.model.access">
 			<field name="model_id" ref="account.model_account_account_type"/>
 			<field name="name">account.account.type.expresso</field>
@@ -71,7 +71,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
 		</record>
-		
+
 		<record id="access_account_tax_expresso" model="ir.model.access">
 			<field name="model_id" ref="account.model_account_tax"/>
 			<field name="name">account.tax.expresso</field>
@@ -81,7 +81,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
 		</record>
-		
+
 		<record id="access_account_account_expresso" model="ir.model.access">
 			<field name="model_id" ref="account.model_account_account"/>
 			<field name="name">account.account.expresso</field>
@@ -91,7 +91,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
 		</record>
-		
+
 		<record id="access_account_period_expresso" model="ir.model.access">
 			<field name="model_id" ref="account.model_account_period"/>
 			<field name="name">account.period.expresso</field>
@@ -101,7 +101,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
 		</record>
-		
+
 		<record id="access_account_move_expresso" model="ir.model.access">
 			<field name="model_id" ref="account.model_account_move"/>
 			<field name="name">account.move.expresso</field>
@@ -111,7 +111,7 @@
 			<field eval="1" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
 		</record>
-		
+
 		<record id="access_account_move_line_expresso" model="ir.model.access">
 			<field name="model_id" ref="account.model_account_move_line"/>
 			<field name="name">account.move.line.expresso</field>
@@ -121,7 +121,7 @@
 			<field eval="1" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
 		</record>
-		
+
 		<record id="access_account_move_reconcile_expresso" model="ir.model.access">
 			<field name="model_id" ref="account.model_account_move_reconcile"/>
 			<field name="name">account.move.reconcile.expresso</field>
@@ -131,7 +131,7 @@
 			<field eval="1" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
 		</record>
-		
+
 		<record id="access_account_model_expresso" model="ir.model.access">
 			<field name="model_id" ref="account.model_account_model"/>
 			<field name="name">account.model.expresso</field>
@@ -141,7 +141,7 @@
 			<field eval="1" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
 		</record>
-		
+
 		<record id="access_account_model_line_expresso" model="ir.model.access">
 			<field name="model_id" ref="account.model_account_model_line"/>
 			<field name="name">account.model.line.expresso</field>
@@ -151,7 +151,7 @@
 			<field eval="1" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
 		</record>
-		
+
 		<record id="access_account_subscription_expresso" model="ir.model.access">
 			<field name="model_id" ref="account.model_account_subscription"/>
 			<field name="name">account.subscription.expresso</field>
@@ -161,7 +161,7 @@
 			<field eval="1" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
 		</record>
-		
+
 		<record id="access_account_subscription_line_expresso" model="ir.model.access">
 			<field name="model_id" ref="account.model_account_subscription_line"/>
 			<field name="name">account.subscription.line.expresso</field>
@@ -177,12 +177,12 @@
 			<field name="model_id" ref="account.model_account_invoice"/>
 			<field name="name">account.invoice.corresponsales</field>
 			<field eval="1" name="perm_read"/>
-			<field eval="0" name="perm_write"/>
-			<field eval="0" name="perm_create"/>
+			<field eval="1" name="perm_write"/>
+			<field eval="1" name="perm_create"/>
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
-		
+
 		<record id="access_account_journal_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="account.model_account_journal"/>
 			<field name="name">account.journal.corresponsales</field>
@@ -192,7 +192,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
-		
+
 		<!-- <record id="access_account_journal_view_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="account.model_account_journal_view"/>
 			<field name="name">account.journal.view.corresponsales</field>
@@ -212,7 +212,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record> -->
-		
+
 		<!--<record id="access_account_journal_period_corresponsales" model="ir.model.access">-->
 			<!--<field name="model_id" ref="account.model_account_journal_period"/>-->
 			<!--<field name="name">account.journal.period.corresponsales</field>-->
@@ -222,7 +222,7 @@
 			<!--<field eval="0" name="perm_unlink"/>-->
 			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
 		<!--</record>-->
-		
+
 		<!-- base -->
 		<record id="access_res_partner_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="base.model_res_partner"/>
@@ -233,7 +233,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
-		
+
 		<!--<record id="access_res_partner_address_corresponsales" model="ir.model.access">-->
 			<!--<field name="model_id" ref="payment_transfer.model_payment_transaction"/>-->
 			<!--<field name="name">res.partner.address.corresponsales</field>-->
@@ -243,7 +243,7 @@
 			<!--<field eval="0" name="perm_unlink"/>-->
 			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
 		<!--</record>-->
-		
+
 		<!-- expresso_product_attributes -->
 		<record id="access_sale_empresa_logistica_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="expresso_product_attributes.model_sale_empresa_logistica"/>
@@ -254,7 +254,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
-		
+
 		<record id="access_expresso_idioma_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="expresso_product_attributes.model_expresso_idioma"/>
 			<field name="name">expresso.idioma.corresponsales</field>
@@ -264,7 +264,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
-		
+
 		<record id="access_expresso_forma_envio_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="expresso_product_attributes.model_expresso_forma_envio"/>
 			<field name="name">expresso.forma_envio.corresponsales</field>
@@ -274,7 +274,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
-		
+
 		<record id="access_expresso_encuadernacion_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="expresso_product_attributes.model_expresso_encuadernacion"/>
 			<field name="name">expresso.encuadernacion.corresponsales</field>
@@ -284,7 +284,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
-		
+
 		<record id="access_expresso_coleccion_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="expresso_product_attributes.model_expresso_coleccion"/>
 			<field name="name">expresso.coleccion.corresponsales</field>
@@ -294,7 +294,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
-		
+
 		<record id="access_expresso_director_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="expresso_product_attributes.model_expresso_director"/>
 			<field name="name">expresso.director.corresponsales</field>
@@ -304,7 +304,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
-		
+
 		<record id="access_expresso_proyecto_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="expresso_product_attributes.model_expresso_proyecto"/>
 			<field name="name">expresso.proyecto.corresponsales</field>
@@ -314,7 +314,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
-		
+
 		<record id="access_expresso_materia_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="expresso_product_attributes.model_expresso_materia"/>
 			<field name="name">expresso.materia.corresponsales</field>
@@ -324,7 +324,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
-		
+
 		<record id="access_expresso_situacion_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="expresso_product_attributes.model_expresso_situacion"/>
 			<field name="name">expresso.situacion.corresponsales</field>
@@ -334,7 +334,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
-		
+
 		<record id="access_expresso_ciclo_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="expresso_product_attributes.model_expresso_ciclo"/>
 			<field name="name">expresso.ciclo.corresponsales</field>
@@ -344,7 +344,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
-		
+
 		<record id="access_expresso_curso_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="expresso_product_attributes.model_expresso_curso"/>
 			<field name="name">expresso.curso.corresponsales</field>
@@ -354,7 +354,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
-		
+
 		<record id="access_expresso_tipo_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="expresso_product_attributes.model_expresso_tipo"/>
 			<field name="name">expresso.tipo.corresponsales</field>
@@ -364,7 +364,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
-		
+
 		<record id="access_expresso_publico_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="expresso_product_attributes.model_expresso_publico"/>
 			<field name="name">expresso.publico.corresponsales</field>
@@ -374,7 +374,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
-		
+
 		<record id="access_expresso_seleccion_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="expresso_product_attributes.model_expresso_seleccion"/>
 			<field name="name">expresso.seleccion.corresponsales</field>
@@ -384,7 +384,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
-		
+
 		<record id="access_expresso_valor_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="expresso_product_attributes.model_expresso_valor"/>
 			<field name="name">expresso.valor.corresponsales</field>
@@ -394,7 +394,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
-		
+
 		<record id="access_pedido_multi_titulo_linea_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="expresso_product_attributes.model_pedido_multi_titulo_linea"/>
 			<field name="name">pedido_multi_titulo.linea.corresponsales</field>
@@ -404,7 +404,7 @@
 			<field eval="1" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
-		
+
 		<!-- expresso_packing -->
 		<record id="access_expresso_packing_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="expresso_product_attributes.model_expresso_packing"/>
@@ -415,7 +415,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
-		
+
 		<record id="access_expresso_packing_box_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="expresso_product_attributes.model_expresso_packing_box"/>
 			<field name="name">expresso.packing.box.corresponsales</field>
@@ -425,7 +425,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
-		
+
 		<record id="access_expresso_packing_detail_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="expresso_product_attributes.model_expresso_packing_detail"/>
 			<field name="name">expresso.packing.detail.corresponsales</field>
@@ -435,7 +435,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
-		
+
 		<!-- product -->
 		<record id="access_product_product_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="product.model_product_product"/>
@@ -446,7 +446,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
-		
+
 		<record id="access_product_template_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="product.model_product_template"/>
 			<field name="name">product.template.corresponsales</field>
@@ -456,7 +456,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
-		
+
 		<record id="access_product_pricelist_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="product.model_product_pricelist"/>
 			<field name="name">product.pricelist.corresponsal</field>
@@ -466,7 +466,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
-		
+
 		<record id="access_product_packaging_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="product.model_product_packaging"/>
 			<field name="name">product.packaging.corresponsal</field>
@@ -476,7 +476,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
-		
+
 		<record id="access_product_uom_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="product.model_product_uom"/>
 			<field name="name">product.uom.corresponsal</field>
@@ -486,7 +486,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
-		
+
 		<!--<record id="access_product_pricelist_version_corresponsales" model="ir.model.access">-->
 			<!--<field name="model_id" ref="product.model_product_pricelist_version"/>-->
 			<!--<field name="name">product.pricelist.version.corresponsal</field>-->
@@ -496,7 +496,7 @@
 			<!--<field eval="0" name="perm_unlink"/>-->
 			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
 		<!--</record>-->
-		
+
 		<record id="access_product_category_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="product.model_product_category"/>
 			<field name="name">product.category.corresponsal</field>
@@ -506,7 +506,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
-		
+
 		<!--<record id="access_product_price_type_corresponsales" model="ir.model.access">-->
 			<!--<field name="model_id" ref="product.model_product_price_type"/>-->
 			<!--<field name="name">product.price.type.corresponsal</field>-->
@@ -516,7 +516,7 @@
 			<!--<field eval="0" name="perm_unlink"/>-->
 			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
 		<!--</record>-->
-		
+
 		<record id="access_product_supplierinfo_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="product.model_product_supplierinfo"/>
 			<field name="name">product.supplierinfo.corresponsal</field>
@@ -526,7 +526,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
-		
+
 		<record id="access_product_producto_pendiente_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="expresso_product_attributes.model_product_producto_pendiente"/>
 			<field name="name">product.producto_pendiente.corresponsal</field>
@@ -536,7 +536,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
-		
+
         <!-- sale -->
 		<record id="access_sale_order_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="sale.model_sale_order"/>
@@ -547,7 +547,7 @@
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
-		
+
 		<record id="access_sale_order_line_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="sale.model_sale_order_line"/>
 			<field name="name">sale.order.line.corresponsales</field>
@@ -557,7 +557,7 @@
 			<field eval="1" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
-		
+
 		<!-- <record id="access_sale_shop_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="sale.model_sale_shop"/>
 			<field name="name">sale.shop.corresponsales</field>
@@ -567,7 +567,7 @@
 			<field eval="1" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record> -->
-		
+
 		<!-- stock -->
 		<!--<record id="access_stock_picking_corresponsales" model="ir.model.access">-->
 			<!--<field name="model_id" ref="stock_account.model_stock_picking"/>-->
@@ -578,6 +578,6 @@
 			<!--<field eval="0" name="perm_unlink"/>-->
 			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
 		<!--</record>-->
-		
+
 	</data>
 </openerp>
