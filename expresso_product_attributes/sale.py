@@ -180,17 +180,17 @@ class sale_order(models.Model):
     #     )
 
     # TODO entender porque estos dos onchange
-    @api.one
-    @api.onchange('user_corresponsal_id_corresponsales')
-    def onchange_user_corresponsal_id_corresponsales(self):
-        self.user_corresponsal_id_expresso = (
-            self.user_corresponsal_id_corresponsales)
-
-    @api.one
-    @api.onchange('user_corresponsal_id_expresso')
-    def onchange_user_corresponsal_id_expresso(self):
-        self.user_corresponsal_id_corresponsales = (
-            self.user_corresponsal_id_expresso)
+    # @api.one
+    # @api.onchange('user_corresponsal_id_corresponsales')
+    # def onchange_user_corresponsal_id_corresponsales(self):
+    #     self.user_corresponsal_id_expresso = (
+    #         self.user_corresponsal_id_corresponsales)
+    #
+    # @api.one
+    # @api.onchange('user_corresponsal_id_expresso')
+    # def onchange_user_corresponsal_id_expresso(self):
+    #     self.user_corresponsal_id_corresponsales = (
+    #         self.user_corresponsal_id_expresso)
 
     # def write(self, cr, uid, ids, vals, context=None):
     #     if not isinstance(ids, list):
