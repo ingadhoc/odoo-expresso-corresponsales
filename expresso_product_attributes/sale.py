@@ -153,7 +153,7 @@ class sale_order(models.Model):
         required=True,
         # TODO habilitar este default que me da error al instalar y entender
         # estos campos "user bla bla bla"
-        default=get_user_corresponsal,
+        # default=get_user_corresponsal,
         )
     user_expresso_id_expresso = fields.Many2one(
         'res.users',
