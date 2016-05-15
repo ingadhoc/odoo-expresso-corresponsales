@@ -150,7 +150,7 @@ class sale_order(models.Model):
     user_corresponsal_id_expresso = fields.Many2one(
         'res.users',
         'Usuario Corresponsal',
-        required=True,
+        # required=True,
         # TODO habilitar este default que me da error al instalar y entender
         # estos campos "user bla bla bla"
         # default=get_user_corresponsal,
