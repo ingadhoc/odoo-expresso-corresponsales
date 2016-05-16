@@ -48,7 +48,7 @@ class sale_order(models.Model):
         if self.user_in_group_with_name(user, "Expresso / Corresponsales"):
             return user
         else:
-            return False
+            return self.user_id
 
     @api.model
     def get_user_expresso(self):
@@ -56,7 +56,7 @@ class sale_order(models.Model):
         if self.user_in_group_with_name(user, "Expresso / Expresso"):
             if user.customer_partner_id and user.customer_partner_id.user_id:
                 return user.customer_partner_id.user_id
-        return False
+        return self.user_id
 
     remote_id = fields.Char(
         'Remote ID',
@@ -153,13 +153,13 @@ class sale_order(models.Model):
         # required=True,
         # TODO habilitar este default que me da error al instalar y entender
         # estos campos "user bla bla bla"
-        # default=get_user_corresponsal,
+        default=get_user_corresponsal,
         )
     user_expresso_id_expresso = fields.Many2one(
         'res.users',
         'Usuario Expresso',
         # TODO habilitar
-        # default=get_user_expresso,
+        default=get_user_expresso,
         )
     # user_expresso_id_corresponsal = fields.Many2one(
     #     related='user_expresso_id_expresso',

@@ -20,6 +20,7 @@
 "access_account_analytic_accountant","account.analytic.account accountant","analytic.model_account_analytic_account","expresso_product_attributes.expresso_grupo_corresponsales",1,1,1,1
 "access_sale_order","sale_order corresponsales","sale.model_sale_order","expresso_product_attributes.expresso_grupo_corresponsales",1,1,1,0
 "access_sale_order1","sale_order corresponsales1","expresso_product_attributes.model_sale_order","expresso_product_attributes.expresso_grupo_corresponsales",1,1,1,0
+"access_res_partner","res_partner corresponsales1","base.model_res_partner","expresso_product_attributes.expresso_grupo_corresponsales",1,0,0,0
 
 
 

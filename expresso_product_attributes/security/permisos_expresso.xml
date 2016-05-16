@@ -547,6 +547,15 @@
 			<!--<field eval="1" name="perm_unlink"/>-->
 			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>-->
 		<!--</record>-->
+		<record id="access_stock_move_expresso" model="ir.model.access">
+			<field name="model_id" ref="stock.model_stock_move"/>
+			<field name="name">stock.move.expressos</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
+		</record>
 		
 	</data>
 </openerp>
