@@ -21,7 +21,6 @@ class expresso_ciclo(models.Model):
         'Denominación',
         size=30,
         required=True,
-        readonly=True
         )
 
     _sql_constraints = [
@@ -46,8 +45,7 @@ class expresso_coleccion(models.Model):
     denomination = fields.Char(
         'Denominación',
         size=50,
-        required=True,
-        readonly=True)
+        required=True)
 
     _sql_constraints = [
         ('remote_id_no_uniq',
@@ -71,7 +69,6 @@ class expresso_curso(models.Model):
     denomination = fields.Char(
         'Denominación',
         size=30,
-        readonly=True
         )
 
     _sql_constraints = [
@@ -96,8 +93,7 @@ class expresso_encuadernacion(models.Model):
     denomination = fields.Char(
         'Denominación',
         size=30,
-        required=True,
-        readonly=True
+        required=True
         )
 
     _sql_constraints = [
@@ -122,8 +118,7 @@ class expresso_forma_envio(models.Model):
     denomination = fields.Char(
         'Denominación',
         size=30,
-        required=True,
-        readonly=True)
+        required=True)
 
     _sql_constraints = [
         ('remote_id_no_uniq',
@@ -147,8 +142,7 @@ class expresso_idioma(models.Model):
     denomination = fields.Char(
         'Denominación',
         size=20,
-        required=True,
-        readonly=True
+        required=True
         )
     idioma_amigo = fields.Boolean('Idioma Amigo')
 
@@ -174,8 +168,7 @@ class expresso_proyecto(models.Model):
     denomination = fields.Char(
         'Denominación',
         size=30,
-        required=True,
-        readonly=True
+        required=True
         )
 
     _sql_constraints = [
@@ -188,7 +181,7 @@ class expresso_publico(models.Model):
     # Público Objetivo de los productos de Expresso Bibliogáfico
 
     _name = 'expresso.publico'
-    _description = 'Público Objetivo'
+    _description = 'Publico Objetivo'
     _rec_name = 'denomination'
 
     remote_id = fields.Char(
@@ -200,8 +193,7 @@ class expresso_publico(models.Model):
     denomination = fields.Char(
         'Denominación',
         size=50,
-        required=True,
-        readonly=True
+        required=True
         )
 
     _sql_constraints = [
@@ -214,7 +206,7 @@ class expresso_situacion(models.Model):
     # Situacion de los productos de Expresso Bibliogáfico
 
     _name = 'expresso.situacion'
-    _description = 'Situación'
+    _description = 'Situacion'
     _rec_name = 'denomination'
 
     remote_id = fields.Char(
@@ -227,7 +219,6 @@ class expresso_situacion(models.Model):
         'Denominación',
         size=30,
         required=True,
-        readonly=True
         )
     permite_pedido = fields.Boolean(
         'Permite Pedido'
@@ -256,8 +247,7 @@ class expresso_tipo(models.Model):
     denomination = fields.Char(
         'Denominación',
         size=30,
-        required=True,
-        readonly=True
+        required=True
         )
 
     _sql_constraints = [
@@ -282,8 +272,7 @@ class expresso_valor(models.Model):
     denomination = fields.Char(
         'Denominación',
         size=20,
-        required=True,
-        readonly=True
+        required=True
         )
 
     _sql_constraints = [
@@ -311,8 +300,7 @@ class expresso_director(models.Model):
     denomination = fields.Char(
         'Denominación',
         size=50,
-        required=True,
-        readonly=True
+        required=True
         )
 
     _sql_constraints = [
@@ -337,8 +325,7 @@ class expresso_materia(models.Model):
     denomination = fields.Char(
         'Denominación',
         size=50,
-        required=True,
-        readonly=True
+        required=True
         )
     director_id = fields.Many2one(
         'expresso.director',
@@ -371,8 +358,7 @@ class expresso_seleccion(models.Model):
     denomination = fields.Char(
         'Denominación',
         size=50,
-        required=True,
-        readonly=True
+        required=True
         )
     matter_id = fields.Many2one(
         'expresso.materia',

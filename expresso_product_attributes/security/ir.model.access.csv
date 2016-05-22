@@ -1,27 +1,16 @@
-"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
-
-
-"access_expresso_actualizador","access_expresso_actualizador","model_expresso_actualizador",,1,0,0,0
-
-"access_account_payment_term_line","account.payment.term.line","account.model_account_payment_term_line","expresso_product_attributes.expresso_grupo_corresponsales",1,0,0,0
-"access_account_account_type","account.account.type","account.model_account_account_type","expresso_product_attributes.expresso_grupo_corresponsales",1,0,0,0
-"access_account_tax","account.tax","account.model_account_tax","expresso_product_attributes.expresso_grupo_corresponsales",1,0,0,0
-"access_account_account","account.account","account.model_account_account","expresso_product_attributes.expresso_grupo_corresponsales",1,0,0,0
-"access_account_move","account.move","account.model_account_move","expresso_product_attributes.expresso_grupo_corresponsales",1,1,1,1
-"access_account_move_line","account.move.line","account.model_account_move_line","expresso_product_attributes.expresso_grupo_corresponsales",1,1,1,1
-"access_account_bank_statement","account.bank.statement","account.model_account_bank_statement","expresso_product_attributes.expresso_grupo_corresponsales",1,1,1,1
-"access_account_bank_statement_line","account.bank.statement.line","account.model_account_bank_statement_line","expresso_product_attributes.expresso_grupo_corresponsales",1,1,1,1
-"access_account_analytic_line","account.analytic.line","account.model_account_analytic_line","expresso_product_attributes.expresso_grupo_corresponsales",1,1,1,1
-"access_account_invoice_accountant","account.invoice accountant","account.model_account_invoice","expresso_product_attributes.expresso_grupo_corresponsales",1,0,0,0
-"access_account_cashbox_line","account.cashbox.line","account.model_account_cashbox_line","expresso_product_attributes.expresso_grupo_corresponsales",1,1,1,1
-"access_account_invoice_tax_accountant","account.invoice.tax accountant","account.model_account_invoice_tax","expresso_product_attributes.expresso_grupo_corresponsales",1,0,0,0
-"access_account_invoice_line_accountant","account.invoice.line accountant","account.model_account_invoice_line","expresso_product_attributes.expresso_grupo_corresponsales",1,0,0,0
-
-"access_account_analytic_accountant","account.analytic.account accountant","analytic.model_account_analytic_account","expresso_product_attributes.expresso_grupo_corresponsales",1,1,1,1
-"access_sale_order","sale_order corresponsales","sale.model_sale_order","expresso_product_attributes.expresso_grupo_corresponsales",1,1,1,0
-"access_sale_order1","sale_order corresponsales1","expresso_product_attributes.model_sale_order","expresso_product_attributes.expresso_grupo_corresponsales",1,1,1,0
-"access_res_partner","res_partner corresponsales1","base.model_res_partner","expresso_product_attributes.expresso_grupo_corresponsales",1,0,0,0
-
-
-
-
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_account_fiscal_position_corresponsale,account.fiscal.position.portal.corresponsale,account.model_account_fiscal_position,expresso_product_attributes.expresso_grupo_corresponsales,1,0,0,0
+access_product_product_corresponsale,product.product.portal.corresponsale,product.model_product_product,expresso_product_attributes.expresso_grupo_corresponsales,1,0,0,0
+access_product_template_corresponsale,product.template.portal.corresponsale,product.model_product_template,expresso_product_attributes.expresso_grupo_corresponsales,1,0,0,0
+access_product_category_corresponsale,product.category.portal.corresponsale,product.model_product_category,expresso_product_attributes.expresso_grupo_corresponsales,1,0,0,0
+access_product_uom_corresponsale,product.uom.portal.corresponsale,product.model_product_uom,expresso_product_attributes.expresso_grupo_corresponsales,1,0,0,0
+access_product_attribute_value_corresponsale,product.attribute.value.portal.corresponsale,product.model_product_attribute_value,expresso_product_attributes.expresso_grupo_corresponsales,1,0,0,0
+access_product_attribute_line_corresponsale,product.attribute.line.portal.corresponsale,product.model_product_attribute_line,expresso_product_attributes.expresso_grupo_corresponsales,1,0,0,0
+access_product_attribute_price_corresponsale,product.attribute.price.portal.corresponsale,product.model_product_attribute_price,expresso_product_attributes.expresso_grupo_corresponsales,1,0,0,0
+access_product_procurement_corresponsale,procurement.order.portal.corresponsale,procurement.model_procurement_order,expresso_product_attributes.expresso_grupo_corresponsales,1,0,0,0
+access_product_packaging_corresponsale,product_packaging.corresponsale,product.model_product_packaging,expresso_product_attributes.expresso_grupo_corresponsales,1,0,0,0
+access_ir_sequence_corresponsale,ir_sequence.corresponsale,base.model_ir_sequence,expresso_product_attributes.expresso_grupo_corresponsales,1,0,0,0
+access_account_move_line_distributor_corresponsale,account.move.line.corresponsale,account.model_account_move_line,expresso_product_attributes.expresso_grupo_corresponsales,1,0,0,0
+access_account_move_distributor_corresponsale,account.move.corresponsale,account.model_account_move,expresso_product_attributes.expresso_grupo_corresponsales,1,0,0,0
+access_account_payment_term_distributor_corresponsale,account.account.payment.term.corresponsale,account.model_account_payment_term,expresso_product_attributes.expresso_grupo_corresponsales,1,0,0,0
+access_account_payment_term_line_distributor_corresponsale,account.account.payment.term.line.corresponsale,account.model_account_payment_term_line,expresso_product_attributes.expresso_grupo_corresponsales,1,0,0,0

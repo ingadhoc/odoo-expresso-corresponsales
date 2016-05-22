@@ -37,18 +37,18 @@
             <field name="inherit_id" ref="view_producto_pendiente_form"/>
             <field name="arch" type="xml">
                 <data>
-                    <xpath expr="//form/group[1]" position="after">
+                    <xpath expr="//form/sheet/group[1]" position="after">
                         <group colspan="4" col="9">
-                            <field name="state"/>
-                            <button name="%(expresso_product_attributes.action_repedir_pendiente_pedido_existente)d"
-                                    string="Repedir Título en Pedido Existente" type="action"
-                                    states="activo" icon="gtk-go-forward" />
-                            <button name="pendiente_a_nuevo_pedido"
-                                    string="Repedir Título en Pedido Nuevo" type="object"
-                                    states="activo" icon="gtk-go-forward" />
-                            <button name="producto_pendiente_activo_2_cancelado"
-                                    string="Cancelar Título Pendiente" type="workflow"
-                                    states="activo" icon="gtk-cancel" />
+                            <!--<field name="state"/>-->
+                            <!--<button name="%(expresso_product_attributes.action_repedir_pendiente_pedido_existente)d"-->
+                                    <!--string="Repedir Título en Pedido Existente" type="action"-->
+                                    <!--states="activo" icon="gtk-go-forward" />-->
+                            <!--<button name="pendiente_a_nuevo_pedido"-->
+                                    <!--string="Repedir Título en Pedido Nuevo" type="object"-->
+                                    <!--states="activo" icon="gtk-go-forward" />-->
+                            <!--<button name="producto_pendiente_activo_2_cancelado"-->
+                                    <!--string="Cancelar Título Pendiente" type="workflow"-->
+                                    <!--states="activo" icon="gtk-cancel" />-->
                         </group>
                     </xpath>
                 </data>

@@ -40,7 +40,11 @@
             <field name="model">sale.empresa_logistica</field>
             <field name="arch" type="xml">
                 <form string="Empresa de Lógistica">
-                    <field name="name"/>
+                    <sheet>
+                    <group col="2">
+                        <field name="name"/>
+                    </group>
+                    </sheet>
                 </form>
             </field>
         </record>

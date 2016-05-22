@@ -11,7 +11,7 @@ _logger = logging.getLogger(__name__)
 class sale_empresa_logistica(models.Model):
 
     _name = 'sale.empresa_logistica'
-    _description = 'Empresa de Lógistica'
+    _description = 'Empresa de Logistica'
     _rec_name = 'name'
 
     name = fields.Char(

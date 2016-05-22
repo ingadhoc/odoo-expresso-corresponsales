@@ -121,6 +121,7 @@
                         <field name="default_code" string="EAN" />
                         <field name="precio_dolares" />
                         <field name="price"/>
+                        <field name="state" invisible="1"/>
                     </tree>
                 </tree>
             </field>
@@ -132,17 +133,29 @@
             <field name="model">product.producto_pendiente</field>
             <field name="arch" type="xml">
                 <form string="Titulo Pendiente">
-                    <field name="name"/>
-                    <field name="product_id"/>
-                    <field name="quantity"/>
-                    <field name="partner_id"/>
-                    <field name="order_id"/>
-                    <field name="situacion_id"/>
-                    <field name="price_unit"/>
+                    <header>
+                        <button string="Activo" name="action_action_pendiente_state_repedido" states="cancelado,repedido" type="object" class="oe_highlight"/>
+                        <button string="Cancelado" name="action_pendiente_state_cancelado" states="activo,repedido" type="object" class="oe_highlight"/>
+                        <button string="Repedido" name="action_pendiente_state_repedido" states="activo,cancelado" type="object" class="oe_highlight"/>
+                        <!--<button string="Alta" name="alta" states="grave,coma,terapia" type="object" class="oe_highlight" groups="clinical_medical.group_medical,base.group_user"/>-->
+                        <field name="state" widget="statusbar" statusbar_visible="activo,cancelado,repedido" statusbar_colors='{"activo":"red","cancelado":"blue","repedido":"blue"}'/>
+
+                    </header>
+                    <sheet>
+                        <group col="4">
+                            <field name="name"/>
+                            <field name="product_id"/>
+                            <field name="quantity"/>
+                            <field name="partner_id"/>
+                            <field name="order_id"/>
+                            <field name="situacion_id"/>
+                            <field name="price_unit"/>
+                        </group>
                     <group colspan="4" col="2">
                         <separator string="Información" colspan="2"/>
                         <field name="notas" nolabel="1" colspan="2"/>
                     </group>
+                   </sheet>
                 </form>
             </field>
         </record>
@@ -156,7 +169,7 @@
                     <field name="quantity"/>
                     <field name="partner_id"/>
                     <field name="situacion_id"/>
-                   <!--  <field name="state"/> -->
+                    <field name="state"/>
                 </tree>
             </field>
         </record>
