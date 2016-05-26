@@ -190,7 +190,7 @@
 			<field name="name">account.invoice.corresponsales</field>
 			<field eval="1" name="perm_read"/>
 			<field eval="0" name="perm_write"/>
-			<field eval="0" name="perm_create"/>
+			<field eval="1" name="perm_create"/>
 			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
 		</record>
@@ -606,6 +606,16 @@
 		<record id="access_procurement_rule_corresponsales" model="ir.model.access">
 			<field name="model_id" ref="procurement.model_procurement_rule"/>
 			<field name="name">procurement.rule.corresponsales</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
+		</record>
+
+		<record id="access_expresso_forma_envio_corresponsal" model="ir.model.access">
+			<field name="model_id" ref="expresso_product_attributes.model_expresso_forma_envio"/>
+			<field name="name">corresponsal.forma_envio.expresso</field>
 			<field eval="1" name="perm_read"/>
 			<field eval="0" name="perm_write"/>
 			<field eval="0" name="perm_create"/>

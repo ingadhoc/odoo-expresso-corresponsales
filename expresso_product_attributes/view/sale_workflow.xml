@@ -29,7 +29,7 @@
             <field name="kind">function</field>
             <field name="action">order_state_pendiente_expresso()</field>
         </record>
-        
+
         <record model="workflow.activity" id="sale_order_pendiente_corresponsal">
             <field name="wkf_id" ref="wkf_sale_order" />
             <field name="name">pendiente_corresponsal</field>

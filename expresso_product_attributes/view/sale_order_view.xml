@@ -24,19 +24,18 @@
                     <field name="remote_id" readonly="1"/>
                 </field>
 
-                <field name="qty_invoiced" position="replace">
-                  <field name="qty_invoiced" invisible="True"/>
-                </field>
+                <!--<field name="qty_invoiced" position="replace">-->
+                  <!--<field name="qty_invoiced" invisible="True"/>-->
+                <!--</field>-->
 
                 <field name="pricelist_id" position="replace">
                   <field domain="[('type','=','sale')]" name="pricelist_id"
                                invisible="True"/>
                 </field>
 
-
-                <xpath expr="//notebook/page['Other Information']" position="before">
-                    <group colspan="2" col="2">
-                        <separator string="Información de envio" colspan="2"/>
+                <xpath expr="//notebook/page[2]/group/group[@name='sales_person']" position="after">
+                    <group colspan="4" col="4">
+                        <!--<separator string="Información de envio" colspan="2"/>-->
                         <field name="fecha_salida" readonly="False"/>
                         <field name="forma_envio_id_expresso" readonly="False"/>
                         <field name="fecha_estimada_entrega" readonly="False"/>
@@ -99,12 +98,11 @@
 
                     <field name="product_uom" position="replace"/>
                     <field name="discount" position="replace"/>
-                    <field name="state" position="replace">
 
-
-                        <button name="order_pendiente_expresso_2_pendiente_corresponsal"
+                     <xpath expr="//header/field[@name='state']" position="before">
+                         <button name="order_pendiente_expresso_2_pendiente_corresponsal"
                                     string="Validar Pedido" icon="gtk-apply"
-                                    attrs="{'invisible':[('state_expresso','!=','pendiente_e')]}" />
+                                    attrs="{'invisible':[('state_expresso','!=','pendiente_e')]}"/>
 
 
                         <button name="%(expresso_product_attributes.action_pre_cerrar_pedido)d"
@@ -115,22 +113,30 @@
                         <button name="order_cerrado_2_despachado"
                                     string="Despachar" icon="gtk-apply"
                                     attrs="{'invisible':[('state_expresso','!=','cerrado')]}" />
+                      </xpath>
 
 
+                <field name="state" position="replace">
                         <field name="state" invisible="1"/>
                         <field name="state_expresso" widget="statusbar"/>
+                 </field>
 
-                    </field>
-
-                    <!--<page String="Other Information" position="after">-->
+                    <!--Agregando pendientes y facturas-->
                      <xpath expr="//notebook/page['Other Information']" position="after">
                         <page string="Títulos Pendientes">
                             <field name="producto_pendiente_ids" nolabel="1" readonly="1"/>
                         </page>
+                         <page string="Facturas">
+                            <!--<field name="invoice_ids" nolabel="1" readonly="1"/>-->
+                            <!--<field name="invoice_ids" />-->
+                             <field name="invoice_expresso_ids" nolabel="1" mode="tree" />
+                        </page>
                        </xpath>
+
+
                     <!--</page>-->
-                <field name="amount_untaxed" position="replace"/>
-                <field name="amount_tax" position="replace"/>
+                    <field name="amount_untaxed" position="replace"/>
+                    <field name="amount_tax" position="replace"/>
 
                  <!--<xpath expr="//tree/field['@name=name']" position="before">-->
                      <!--<field name="product_id" />-->
@@ -177,15 +183,26 @@
                 </field>
 
 
-                <xpath expr="//notebook/page['Other Information']" position="before">
-                    <group colspan="2" col="2" >
-                        <separator string="Información de envio" colspan="2"/>
-                        <field name="fecha_salida_corresponsales" readonly="True"/>
-                        <field name="forma_envio_id_corresponsales" readonly="False"/>
-                        <field name="fecha_estimada_entrega_corresponsales" readonly="True"/>
-                        <field name="embarque_corresponsales" readonly="True"/>
-                        <field name="empresa_logistica_id_corresponsales" readonly="True"/>
+                <!--<xpath expr="//notebook/page['Other Information']" position="before">-->
+                    <!--<group colspan="2" col="2" >-->
+                        <!--<separator string="Información de envio" colspan="2"/>-->
+                        <!--<field name="fecha_salida_corresponsales" readonly="True"/>-->
+                        <!--<field name="forma_envio_id_corresponsales" readonly="False"/>-->
+                        <!--<field name="fecha_estimada_entrega_corresponsales" readonly="True"/>-->
+                        <!--<field name="embarque_corresponsales" readonly="True"/>-->
+                        <!--<field name="empresa_logistica_id_corresponsales" readonly="True"/>-->
+                    <!--</group>-->
+
+                    <xpath expr="//notebook/page[2]/group/group[@name='sales_person']" position="after">
+                    <group colspan="4" col="4">
+                        <!--<separator string="Información de envio" colspan="2"/>-->
+                        <field name="fecha_salida" readonly="True"/>
+                        <field name="forma_envio_id_expresso" readonly="False"/>
+                        <field name="fecha_estimada_entrega" readonly="True"/>
+                        <field name="embarque" readonly="True"/>
+                        <field name="empresa_logistica_id" readonly="True"/>
                     </group>
+
 
                     <group colspan="2" col="2">
                         <separator string="Dates" colspan="2"/>
@@ -241,7 +258,8 @@
 
                     <field name="product_uom" position="replace"/>
                     <field name="discount" position="replace"/>
-                    <field name="state" position="replace">
+
+                       <xpath expr="//header" position="after">
                         <button name="order_borrador_2_pendiente_expresso"
                                     string="Confirmar Pedido" icon="gtk-apply"
                                     attrs="{'invisible':[('state_expresso','!=','borrador')]}" />
@@ -255,8 +273,10 @@
                         <button name="order_despachado_2_recibido"
                                     string="Recibido" icon="gtk-apply"
                                     attrs="{'invisible':[('state_expresso','!=','despachado')]}" />
-
-                        <field name="state" invisible="1"/>
+                           <field name="state_expresso" widget="statusbar"/>
+                        </xpath>
+                        <field name="state" position="replace">
+                            <field name="state" invisible="1"/>
                         <field name="state_expresso" widget="statusbar"/>
 
                     </field>
@@ -265,6 +285,11 @@
                      <xpath expr="//notebook/page['Other Information']" position="after">
                         <page string="Títulos Pendientes">
                             <field name="producto_pendiente_ids" nolabel="1" readonly="1"/>
+                        </page>
+                         <page string="Facturas">
+                            <!--<field name="invoice_ids" nolabel="1" readonly="1"/>-->
+                            <!--<field name="invoice_ids" />-->
+                             <field name="invoice_expresso_ids" nolabel="1" mode="tree" />
                         </page>
                        </xpath>
                     <!--</page>-->

@@ -32,7 +32,9 @@ class pre_cerrar_pedido(models.TransientModel):
     @api.multi
     def cerrar_pedido(self):
         self.signal_workflow('order_pedido_2_cerrado')
+        self.env['sale.order']
         return {'type': 'ir.actions.act_window_close'}
+
 
 
 class sale_order(models.Model):
@@ -41,6 +43,15 @@ class sale_order(models.Model):
     # after SOxxx
     # TODO remove this, it gives an error on portal_sale update
     # _order = 'id desc'
+
+
+    @api.one
+    @api.onchange('fecha_estimada_entrega')
+    def onchange_fecha_entrega(self):
+        if self.fecha_salida and self.fecha_estimada_entrega:
+            if self.fecha_salida > self.fecha_estimada_entrega:
+                self.fecha_estimada_entrega = None
+                raise Warning('La fecha de entrega debe ser mayor que la de salida')
 
     @api.model
     def get_user_corresponsal(self):
@@ -174,6 +185,13 @@ class sale_order(models.Model):
     partner_id = fields.Many2one(
         default=lambda self: self.env.user.customer_partner_id
         )
+
+    # Facturas asociadas
+    invoice_expresso_ids = fields.Many2many('account.invoice',
+                                   'expresso_order_invoice_rel',
+                                   'order_id', 'invoice_id',
+                                   'Facturas', required=False,
+                                    readonly=False)
     # property_product_pricelist = fields.Many2one(
     #     default=lambda self: (
     #         self.env.user.customer_partner_id.property_product_pricelist)
@@ -287,6 +305,13 @@ class sale_order(models.Model):
             if 'forma_envio_id_expresso' not in vals or not vals['forma_envio_id_expresso']:
                 vals['forma_envio_id_expresso'] = vals['forma_envio_id_corresponsales']
 
+        if 'fecha_salida' in vals and 'fecha_estimada_entrega' in vals:
+            if vals['fecha_salida'] > vals['fecha_estimada_entrega']:
+                raise Warning('La fecha de entrega debe ser mayor que la de salida')
+
+
+
+
         # Sincronizamos user_corresponsal_id_expresso y user_corresponsal_id_corresponsales
         # if 'user_corresponsal_id_expresso' in vals and vals['user_corresponsal_id_expresso']:
         #     if 'user_corresponsal_id_corresponsales' not in vals or not vals['user_corresponsal_id_corresponsales']:
@@ -341,7 +366,7 @@ class sale_order(models.Model):
     @api.multi
     def order_state_pendiente_corresponsal(self):
         now = fields.Datetime.now()
-        for order in self():
+        for order in self:
             if not order.fecha_salida:
                 raise Warning(
                     'Fecha de Salida incompleta!\n'
@@ -370,7 +395,8 @@ class sale_order(models.Model):
             'fecha_valido_corresponsal': now,
             'fecha_cerrado_expresso': False,
             'fecha_despachado_expresso': False,
-            'fecha_recibido_corresponsal': 'pedido',
+            'fecha_recibido_corresponsal': False,
+            'state_expresso': 'pedido',
         }
         self.write(vals)
         return True
