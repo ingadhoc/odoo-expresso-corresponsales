@@ -69,6 +69,8 @@ class sale_order(models.Model):
                 return user.customer_partner_id.user_id
         return self.user_id
 
+
+
     remote_id = fields.Char(
         'Remote ID',
         size=126,
@@ -152,6 +154,7 @@ class sale_order(models.Model):
         'Current Partner id for Filtering',
         default=lambda self: self.env.user.customer_partner_id,
         )
+
     # user_corresponsal_id_corresponsales = fields.Many2one(
     #     'res.users',
     #     'Usuario Corresponsal',
@@ -172,19 +175,19 @@ class sale_order(models.Model):
         # TODO habilitar
         default=get_user_expresso,
         )
+
     # user_expresso_id_corresponsal = fields.Many2one(
     #     related='user_expresso_id_expresso',
     #     )
-    # invoice_ids = fields.Many2many(
-    #     'account.invoice',
-    #     'expresso_order_invoice_rel',
-    #     'order_id',
-    #     'invoice_id',
-    #     'Facturas'
+
+
+    # Facturas asociadas
+    # invoice_ids = fields.Many2many("account.invoice", string='Invoices', compute="_get_invoiced", readonly=False)
+
+    # partner_id = fields.Many2one(
+    #     default=lambda self: self.env.user.partner_id.id,
+    #     string = "ClineteMio",
     #     )
-    partner_id = fields.Many2one(
-        default=lambda self: self.env.user.customer_partner_id
-        )
 
     # Facturas asociadas
     invoice_expresso_ids = fields.Many2many('account.invoice',
@@ -192,6 +195,13 @@ class sale_order(models.Model):
                                    'order_id', 'invoice_id',
                                    'Facturas', required=False,
                                     readonly=False)
+
+    sale_note = fields.Text(string='Notas', translate=True)
+
+
+
+
+
     # property_product_pricelist = fields.Many2one(
     #     default=lambda self: (
     #         self.env.user.customer_partner_id.property_product_pricelist)
@@ -345,7 +355,8 @@ class sale_order(models.Model):
         now = fields.Datetime.now()
 
         for order in self:
-            if not order.forma_envio_id_corresponsales:
+            # if not order.forma_envio_id_corresponsales:
+            if not order.forma_envio_id_expresso:
                 raise Warning(
                     'Forma de Envío incompleta!\n'
                     'Para confirmar el pedido debe completar el campo Forma de'
@@ -400,6 +411,24 @@ class sale_order(models.Model):
         }
         self.write(vals)
         return True
+
+    @api.multi
+    def sale_order_cerrado(self):
+        now = fields.Datetime.now()
+        if not self.invoice_expresso_ids:
+            raise Warning(
+                    'Debe poner una factura')
+        else:
+            vals = {
+                'fecha_valido_corresponsal': now,
+                'fecha_cerrado_expresso': False,
+                'fecha_despachado_expresso': False,
+                'fecha_recibido_corresponsal': False,
+                'state_expresso': 'cerrado',
+            }
+            self.write(vals)
+            return True
+
 
     @api.multi
     def order_state_cerrado(self):

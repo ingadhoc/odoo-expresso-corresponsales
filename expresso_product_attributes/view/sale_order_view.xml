@@ -3,8 +3,7 @@
     <data>
 
 
-
-       <record model="ir.ui.view" id="view_order_expresso_form">
+        <record model="ir.ui.view" id="view_order_expresso_form">
             <field name="name">sale.order.expresso.view</field>
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="model">sale.order</field>
@@ -14,6 +13,7 @@
                     <field name="current_partner_id_for_filtering" invisible="True"/>
 
                     <!--<field name="user_corresponsal_id_expresso" eval="[('groups_id', 'in', 1]"/>-->
+
                     <field name="user_corresponsal_id_expresso"/>
                            <!--groups="expresso_product_attributes.expresso_grupo_corresponsales,base.group_system"/>-->
                     <!--<field name="user_corresponsal_id_corresponsales"/>-->
@@ -33,8 +33,15 @@
                                invisible="True"/>
                 </field>
 
-                <xpath expr="//notebook/page[2]/group/group[@name='sales_person']" position="after">
-                    <group colspan="4" col="4">
+                <!-- Información envio -->
+                <!--<xpath expr="//group[@name='sale_shipping']" position="replace"/>-->
+                <xpath expr="//notebook/page[2]/group/group[3]" position="replace"/>
+                <!--<xpath expr="//notebook/page[2]/group/group[2]" position="replace"/>-->
+
+
+
+                <xpath expr="//notebook/page[2]/group" position="before">
+                    <group colspan="4" col="4" string="Información">
                         <!--<separator string="Información de envio" colspan="2"/>-->
                         <field name="fecha_salida" readonly="False"/>
                         <field name="forma_envio_id_expresso" readonly="False"/>
@@ -53,8 +60,37 @@
                         <field name="fecha_cerrado_expresso" readonly="True"/>
                         <field name="fecha_despachado_expresso" readonly="True"/>
                         <field name="fecha_recibido_corresponsal" readonly="True"/>
+
+                    </group>
+                    <group colspan="2" col="2">
+                        <separator string="Notas" colspan="2"/>
+
+                        <field name="sale_note" />
+                    </group>
+
+                </xpath>
+                <!--<xpath expr="//field[@name='incoterm']" position="attributes">-->
+                     <!--<attribute name="invisible">True</attribute>-->
+                <!--</xpath>-->
+                <xpath expr="//notebook/page[2]/group/group[@name='sale_pay']" position="replace">
+                     <field name="fiscal_position_id" invisible="True" options="{'no_create': True}"/>
+                    <field name="invoice_status" invisible="True"/>
+                 </xpath>
+
+                <xpath expr="//notebook/page[2]/group/group[@name='sales_person']" position="replace">
+                    <group string="" name="sales_person">
+                         <field name="user_id" invisible="True"  context="{'default_groups_ref': ['base.group_user', 'base.group_partner_manager', 'account.group_account_invoice', 'base.group_sale_salesman_all_leads']}"/>
+                         <field name="team_id" invisible="True" options="{'no_create': True}"/>
+                        <field name="client_order_ref" invisible="True" />
+                        <field name="company_id" invisible="True" options="{'no_create': True}" groups="base.group_multi_company"/>
+
                     </group>
                 </xpath>
+
+
+
+
+
 
                     <field name="product_id" position="replace">
                         <field name="product_id"
@@ -105,8 +141,9 @@
                                     attrs="{'invisible':[('state_expresso','!=','pendiente_e')]}"/>
 
 
-                        <button name="%(expresso_product_attributes.action_pre_cerrar_pedido)d"
-                                    type="action"
+                        <!--<button name="%(expresso_product_attributes.action_pre_cerrar_pedido)d"-->
+                         <!--type="action"-->
+                         <button name="order_pedido_2_cerrado"
                                     string="Cerrar Pedido" icon="gtk-apply"
                                     attrs="{'invisible':[('state_expresso','!=','pedido')]}"/>
 
@@ -127,7 +164,9 @@
                             <field name="producto_pendiente_ids" nolabel="1" readonly="1"/>
                         </page>
                          <page string="Facturas">
-                            <!--<field name="invoice_ids" nolabel="1" readonly="1"/>-->
+                             <!--<field name="invoice_ids" nolabel="1" position="replace">-->
+                                <!--<field name="invoice_ids" readonly="False" nolabel="1" mode="tree"/>-->
+                             <!--</field>-->
                             <!--<field name="invoice_ids" />-->
                              <field name="invoice_expresso_ids" nolabel="1" mode="tree" />
                         </page>
@@ -161,7 +200,8 @@
                   </xpath>
 
 
-                <field name="partner_id" position="after">
+                <field name="partner_id" position="replace">
+                    <field name="partner_id" />
                     <field name="current_partner_id_for_filtering" invisible="True"/>
 
                     <!--<field name="user_corresponsal_id_expresso" eval="[('groups_id', 'in', 1]"/>-->
@@ -192,10 +232,16 @@
                         <!--<field name="embarque_corresponsales" readonly="True"/>-->
                         <!--<field name="empresa_logistica_id_corresponsales" readonly="True"/>-->
                     <!--</group>-->
+                <!-- Información envio -->
+                <!-- Información envio -->
+                <xpath expr="//notebook/page[2]/group/group[3]" position="replace"/>
+                <!--<xpath expr="//notebook/page[2]/group/group[2]" position="replace"/>-->
+                <!--<xpath expr="//notebook/page[2]/group/group[1]" position="replace"/>-->
 
-                    <xpath expr="//notebook/page[2]/group/group[@name='sales_person']" position="after">
+
+                <xpath expr="//notebook/page[2]/group" position="before">
                     <group colspan="4" col="4">
-                        <!--<separator string="Información de envio" colspan="2"/>-->
+                        <separator string="Información" colspan="2"/>
                         <field name="fecha_salida" readonly="True"/>
                         <field name="forma_envio_id_expresso" readonly="False"/>
                         <field name="fecha_estimada_entrega" readonly="True"/>
@@ -213,6 +259,25 @@
                         <field name="fecha_cerrado_expresso" readonly="True"/>
                         <field name="fecha_despachado_expresso" readonly="True"/>
                         <field name="fecha_recibido_corresponsal" readonly="True"/>
+                    </group>
+                     <group colspan="2" col="2">
+                        <separator string="Notas" colspan="2"/>
+
+                        <field name="sale_note" />
+                    </group>
+                </xpath>
+                <xpath expr="//notebook/page[2]/group/group[@name='sale_pay']" position="replace">
+                     <field name="fiscal_position_id" invisible="True" options="{'no_create': True}"/>
+                    <field name="invoice_status" invisible="True"/>
+                 </xpath>
+
+                <xpath expr="//notebook/page[2]/group/group[@name='sales_person']" position="replace">
+                    <group string="" name="sales_person">
+                         <field name="user_id" invisible="True"  context="{'default_groups_ref': ['base.group_user', 'base.group_partner_manager', 'account.group_account_invoice', 'base.group_sale_salesman_all_leads']}"/>
+                         <field name="team_id" invisible="True" options="{'no_create': True}"/>
+                        <field name="client_order_ref" invisible="True" />
+                        <field name="company_id" invisible="True" options="{'no_create': True}" groups="base.group_multi_company"/>
+
                     </group>
                 </xpath>
 
@@ -287,7 +352,9 @@
                             <field name="producto_pendiente_ids" nolabel="1" readonly="1"/>
                         </page>
                          <page string="Facturas">
-                            <!--<field name="invoice_ids" nolabel="1" readonly="1"/>-->
+                            <!--<field name="invoice_ids" nolabel="1" position="replace">-->
+                               <!--<field name="invoice_ids" readonly="False" nolabel="1" mode="tree"/>-->
+                             <!--</field>-->
                             <!--<field name="invoice_ids" />-->
                              <field name="invoice_expresso_ids" nolabel="1" mode="tree" />
                         </page>

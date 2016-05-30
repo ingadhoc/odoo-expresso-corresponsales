@@ -148,6 +148,21 @@ class product_product(models.Model):
         readonly=False
         )
 
+    valuation = fields.Char(
+        'Valuation',
+        size=300)
+
+    #
+    # @api.one
+    # def get_valuation_type(self):
+    #
+    #     if self.product.property_valuation:
+    #         self.valuation = product.property_valuation
+    #     else:
+    #         self.valuation = self.product.categ_id.property_valuation
+    #
+
+
     @api.one
     @api.onchange('matter_id')
     def onchange_product_materia(self):

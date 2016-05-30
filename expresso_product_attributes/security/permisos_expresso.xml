@@ -429,9 +429,9 @@
 			<field name="model_id" ref="product.model_product_product"/>
 			<field name="name">product.product.expresso</field>
 			<field eval="1" name="perm_read"/>
-			<field eval="1" name="perm_write"/>
-			<field eval="1" name="perm_create"/>
-			<field eval="1" name="perm_unlink"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
 		</record>
 		<record id="access_product_price_history_expresso" model="ir.model.access">
@@ -585,6 +585,17 @@
 			<field eval="1" name="perm_unlink"/>
 			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
 		</record>
+		<record id="access_stock_warehouse_orderpoint_expresso" model="ir.model.access">
+			<field name="model_id" ref="stock.model_stock_warehouse_orderpoint"/>
+			<field name="name">stock.warehouse.orderpoint.expresso</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
+		</record>
+
+
 		
 	</data>
 </openerp>
