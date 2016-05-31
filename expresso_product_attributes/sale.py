@@ -198,6 +198,34 @@ class sale_order(models.Model):
 
     sale_note = fields.Text(string='Notas', translate=True)
 
+    dir_envio = fields.Many2one('res.partner',
+                                'Dirección del envio',
+                                readonly=True)
+    dir_factura = fields.Many2one('res.partner',
+                                'Dirección de la factura',
+                                readonly=True)
+
+
+
+    @api.multi
+    @api.onchange('partner_id')
+    def change_dir_envio(self):
+        if self.partner_id:
+            addr = self.partner_id.address_get(['delivery', 'invoice'])
+            values = {
+            # 'partner_invoice_id': addr['invoice'],
+            'dir_envio': addr['delivery'],
+            'dir_factura': addr['invoice'],
+        }
+        else:
+            values = {
+            # 'partner_invoice_id': addr['invoice'],
+            'dir_envio': False,
+            'dir_factura': False,
+        }
+
+        self.update(values)
+
 
 
 

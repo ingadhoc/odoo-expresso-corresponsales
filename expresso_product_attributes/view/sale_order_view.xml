@@ -10,7 +10,11 @@
             <field name="groups_id" eval="[(4, ref('expresso_product_attributes.expresso_grupo_expresso'))]"/>
             <field name="arch" type="xml">
                 <field name="partner_id" position="after">
-                    <field name="current_partner_id_for_filtering" invisible="True"/>
+
+                        <field name="dir_envio"/>
+                        <field name="dir_factura"/>
+                        <field name="current_partner_id_for_filtering" invisible="True"/>
+
 
                     <!--<field name="user_corresponsal_id_expresso" eval="[('groups_id', 'in', 1]"/>-->
 
@@ -201,8 +205,11 @@
 
 
                 <field name="partner_id" position="replace">
-                    <field name="partner_id" />
-                    <field name="current_partner_id_for_filtering" invisible="True"/>
+
+                        <field name="partner_id" />
+                        <field name="dir_envio"/>
+                        <field name="dir_factura"/>
+                        <field name="current_partner_id_for_filtering" invisible="True"/>
 
                     <!--<field name="user_corresponsal_id_expresso" eval="[('groups_id', 'in', 1]"/>-->
                     <field name="user_corresponsal_id_expresso"/>
@@ -371,35 +378,36 @@
         </record>
         
         <!-- Tree -->
-        <!-- <record id="view_order_expresso_tree" model="ir.ui.view">
+       <record id="view_order_expresso_tree" model="ir.ui.view">
             <field name="name">sale.order.expresso.tree</field>
             <field name="inherit_id" ref="sale.view_order_tree"/>
             <field name="model">sale.order</field>
             <field name="arch" type="xml">
-                <tree string="Sales Orders" position="replace">
+                <tree  position="replace">
                     <tree string="Sales Orders" colors="grey:state_expresso=='recibido'">
                         <field name="name"/>
                         <field name="date_order"/>
                         <field name="client_order_ref" groups="base.group_extended"/>
                         <field name="partner_id"/>
                         <field name="user_id" invisible="True"/>
-                        <field name="user_corresponsal_id_corresponsales" />
+                        <field name="user_corresponsal_id_expresso" />
                         <field name="user_expresso_id_expresso" />
                         <field name="amount_untaxed" sum="Total Tax Excluded"/>
                         <field name="amount_total" sum="Total Tax Included"/>
                         <field name="state_expresso"/>
+                        <field name="state" invisible="True"/>
                     </tree>
                 </tree>
             </field>
-        </record> -->
+        </record>
         
         <!-- Search -->
-        <!-- <record id="view_order_expresso_search" model="ir.ui.view">
+         <record id="view_order_expresso_search" model="ir.ui.view">
             <field name="name">sale.order.expresso.search</field>
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_sales_order_filter"/>
             <field name="arch" type="xml">
-                    <filter string="Quotations" position="replace">
+                    <filter name="draft" position="replace">
                         <filter icon="terp-document-new"
                                 string="Borrador"
                                 domain="[('state_expresso','=','borrador')]"
@@ -407,7 +415,7 @@
                         <separator orientation="vertical"/>
                     </filter>
                     
-                    <filter string="Sales" position="replace">
+                    <filter name="sales" position="replace">
                         <filter icon="terp-personal"
                                 string="Expresso"
                                 domain="[('state_expresso','=','pendiente_e')]"
@@ -419,11 +427,11 @@
                                 help="Pedidos en estado Pendiente Corresponsal"/>
                         <separator orientation="vertical"/>
                     </filter>
-                    <xpath expr="//search[@string='Search Sales Order']/separator[1]" position="replace"/>
-                    <filter string="To Invoice" position="replace" />
+                    <xpath expr="//search/separator[1]" position="replace"/>
+                     <xpath expr="//search/filter[4]" position="replace"/>
             </field>
         </record>
-         -->
+
 
     </data>
 </openerp>
