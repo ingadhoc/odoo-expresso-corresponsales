@@ -49,6 +49,6 @@
             'wizard/panel_control_actualizacion_view.xml'],
     'demo': [],
     'test': [],
-    'installable': False,
+    'installable': True,
     'active': False,
 }

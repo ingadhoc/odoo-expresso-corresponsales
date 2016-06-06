@@ -3,9 +3,11 @@
 import MySQLdb
 # import time
 import traceback
+from openerp import models, pooler, api
 
 import logging
 _logger = logging.getLogger(__name__)
+
 
 
 # db_host = '144.76.16.237'
@@ -19,10 +21,15 @@ class Conector_Nickel:
     # Actualizar Clientes
 
     def update_clients(self, cr, uid, context=None):
-        db_host = self.env['ir.config_parameter'].get_param('db_host')
-        db_user = self.env['ir.config_parameter'].get_param('db_user')
-        db_password = self.env['ir.config_parameter'].get_param('db_password')
-        db_name = self.env['ir.config_parameter'].get_param('db_name')
+        db_host = pooler.get_pool(cr.dbname).get('ir.config_parameter').get_param(cr, uid, 'db_host')
+        db_user = pooler.get_pool(cr.dbname).get('ir.config_parameter').get_param(cr, uid, 'db_user')
+        db_password = pooler.get_pool(cr.dbname).get('ir.config_parameter').get_param(cr, uid, 'db_password')
+        db_name = pooler.get_pool(cr.dbname).get('ir.config_parameter').get_param(cr, uid, 'db_name')
+
+        # db_host = self.pool['ir.config_parameter'].get_param('db_host')
+        # db_user = self.pool['ir.config_parameter'].get_param('db_user')
+        # db_password = self.pool['ir.config_parameter'].get_param('db_password')
+        # db_name = self.pool['ir.config_parameter'].get_param('db_name')
         try:
             db = MySQLdb.connect(
                 host=db_host, user=db_user, passwd=db_password, db=db_name)
@@ -66,10 +73,14 @@ class Conector_Nickel:
 
     # Actualizar Facturas
     def update_invoices(self, cr, uid, context=None):
-        db_host = self.env['ir.config_parameter'].get_param('db_host')
-        db_user = self.env['ir.config_parameter'].get_param('db_user')
-        db_password = self.env['ir.config_parameter'].get_param('db_password')
-        db_name = self.env['ir.config_parameter'].get_param('db_name')
+        # db_host = self.env['ir.config_parameter'].get_param('db_host')
+        # db_user = self.env['ir.config_parameter'].get_param('db_user')
+        # db_password = self.env['ir.config_parameter'].get_param('db_password')
+        # db_name = self.env['ir.config_parameter'].get_param('db_name')
+        db_host = pooler.get_pool(cr.dbname).get('ir.config_parameter').get_param(cr, uid, 'db_host')
+        db_user = pooler.get_pool(cr.dbname).get('ir.config_parameter').get_param(cr, uid, 'db_user')
+        db_password = pooler.get_pool(cr.dbname).get('ir.config_parameter').get_param(cr, uid, 'db_password')
+        db_name = pooler.get_pool(cr.dbname).get('ir.config_parameter').get_param(cr, uid, 'db_name')
         try:
             db = MySQLdb.connect(
                 host=db_host, user=db_user, passwd=db_password, db=db_name)
@@ -100,7 +111,7 @@ class Conector_Nickel:
                 code_currency = row[7]
 
                 nickel_cliente_obj = self.pool.get('nickel_partner')
-                partner_id = nickel_partner_obj.get_partner_desde_id_remoto(
+                partner_id = nickel_cliente_obj.get_partner_desde_id_remoto(
                     cr, uid, customer_code, context=context)
 
                 invoice_id = invoice_obj.search(
@@ -175,10 +186,14 @@ class Conector_Nickel:
 
     # Actualizar Stock
     def update_stock(self, cr, uid, context=None):
-        db_host = self.env['ir.config_parameter'].get_param('db_host')
-        db_user = self.env['ir.config_parameter'].get_param('db_user')
-        db_password = self.env['ir.config_parameter'].get_param('db_password')
-        db_name = self.env['ir.config_parameter'].get_param('db_name')
+        # db_host = self.env['ir.config_parameter'].get_param('db_host')
+        # db_user = self.env['ir.config_parameter'].get_param('db_user')
+        # db_password = self.env['ir.config_parameter'].get_param('db_password')
+        # db_name = self.env['ir.config_parameter'].get_param('db_name')
+        db_host = pooler.get_pool(cr.dbname).get('ir.config_parameter').get_param(cr, uid, 'db_host')
+        db_user = pooler.get_pool(cr.dbname).get('ir.config_parameter').get_param(cr, uid, 'db_user')
+        db_password = pooler.get_pool(cr.dbname).get('ir.config_parameter').get_param(cr, uid, 'db_password')
+        db_name = pooler.get_pool(cr.dbname).get('ir.config_parameter').get_param(cr, uid, 'db_name')
         try:
             db = MySQLdb.connect(
                 host=db_host, user=db_user, passwd=db_password, db=db_name)
@@ -254,10 +269,14 @@ class Conector_Nickel:
 
     # Consultar Stock
     def check_stock(self, cr, uid, product_id, context=None):
-        db_host = self.env['ir.config_parameter'].get_param('db_host')
-        db_user = self.env['ir.config_parameter'].get_param('db_user')
-        db_password = self.env['ir.config_parameter'].get_param('db_password')
-        db_name = self.env['ir.config_parameter'].get_param('db_name')
+        # db_host = self.env['ir.config_parameter'].get_param('db_host')
+        # db_user = self.env['ir.config_parameter'].get_param('db_user')
+        # db_password = self.env['ir.config_parameter'].get_param('db_password')
+        # db_name = self.env['ir.config_parameter'].get_param('db_name')
+        db_host = pooler.get_pool(cr.dbname).get('ir.config_parameter').get_param(cr, uid, 'db_host')
+        db_user = pooler.get_pool(cr.dbname).get('ir.config_parameter').get_param(cr, uid, 'db_user')
+        db_password = pooler.get_pool(cr.dbname).get('ir.config_parameter').get_param(cr, uid, 'db_password')
+        db_name = pooler.get_pool(cr.dbname).get('ir.config_parameter').get_param(cr, uid, 'db_name')
         if not product_id:
             return False
         try:

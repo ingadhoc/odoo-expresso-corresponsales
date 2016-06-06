@@ -60,7 +60,8 @@ class Facade_Actualizacion:
         Dado
         '''
         sync_info_obj = self.pooler.get_pool(cr.dbname).get('expresso.sync_info')
-        filtro = [('class', '=', obj_class)]
+        # filtro = [('class', '=', obj_class)]
+        filtro = [('clase', '=', obj_class)]
         sync_info_ids = sync_info_obj.search(cr, uid, filtro, limit=1, order='datetime desc', context=context)
         
         if not sync_info_ids:
@@ -83,14 +84,19 @@ class Facade_Actualizacion:
         log_entry_obj = self.pooler.get_pool(cr.dbname).get('expresso.sync_log_entry')
         now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         
-        log_entry = {}
-        log_entry['datetime'] = now
-        log_entry['objeto'] = objeto
-        log_entry['informacion'] = informacion
-        log_entry['error_al_procesar'] = error_al_procesar
-        log_entry['mensaje_error'] = mensaje_error
+        # log_entry = {}
+        # log_entry['datetime'] = now
+        # log_entry['objeto'] = objeto
+        # log_entry['informacion'] = informacion
+        # log_entry['error_al_procesar'] = error_al_procesar
+        # log_entry['mensaje_error'] = mensaje_error
+        sync_info_value = {'datetime': now,
+                           'informacion': informacion,
+                           'objeto': objeto,
+                           'error_al_procesar': error_al_procesar,
+                           'mensaje_error': mensaje_error}
         
-        log_entry_obj.create(cr, uid, log_entry, context=context)
+        log_entry_obj.create(self, sync_info_value)
         
     '''
     Clientes

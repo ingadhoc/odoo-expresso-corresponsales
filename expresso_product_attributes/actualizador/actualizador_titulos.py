@@ -89,7 +89,7 @@ class Actualizador_Titulos(Actualizador_Generico):
             info_objeto_obj = self.pooler.get_pool(cr.dbname).get('expresso.info_objeto_remoto')
             sinc_obj = self.pooler.get_pool(cr.dbname).get('expresso.sincronizacion_objeto_remoto')
             
-            filtros = [('id_remoto', '=', isbn), ('class', '=', 'product.product')]
+            filtros = [('id_remoto', '=', isbn), ('clase', '=', 'product.product')]
             info_objeto_ids = info_objeto_obj.search(cr, uid, filtros, context=context)
             
             if not info_objeto_ids:
@@ -334,7 +334,8 @@ class Actualizador_Titulos(Actualizador_Generico):
     
     def actualizar_imagenes(self, cr, uid, context=None):
         product_obj = self.pooler.get_pool(cr.dbname).get('product.product')
-        filtros = [('caratula', '!=', False),('caratula', '!=', ''),('product_image', '=', False)]
+        # filtros = [('caratula', '!=', False),('caratula', '!=', ''),('product_image', '=', False)]
+        filtros = [('caratula', '!=', False),('caratula', '!=', ''),('imagen', '=', False)]
         product_ids = product_obj.search(cr, uid, filtros, context=context)
         
         if not isinstance(product_ids, list):
@@ -416,7 +417,7 @@ class Actualizador_Titulos(Actualizador_Generico):
             info_objeto_obj = self.pooler.get_pool(cr.dbname).get('expresso.info_objeto_remoto')
             sinc_obj = self.pooler.get_pool(cr.dbname).get('expresso.sincronizacion_objeto_remoto')
             
-            filtros = [('id_remoto', '=', isbn), ('class', '=', 'product.product')]
+            filtros = [('id_remoto', '=', isbn), ('clase', '=', 'product.product')]
             info_objeto_ids = info_objeto_obj.search(cr, uid, filtros, context=context)
             
             if not info_objeto_ids:
@@ -456,7 +457,7 @@ class Actualizador_Titulos(Actualizador_Generico):
         info_objeto_obj = self.pooler.get_pool(cr.dbname).get('expresso.info_objeto_remoto')
         sinc_obj = self.pooler.get_pool(cr.dbname).get('expresso.sincronizacion_objeto_remoto')
         
-        filters = [('class', '=', 'product.product')]
+        filters = [('clase', '=', 'product.product')]
         if datetime:
             filters.append(('datetime_creation',  '<=', datetime))
         
@@ -490,7 +491,7 @@ class Actualizador_Titulos(Actualizador_Generico):
         info_objeto_obj = self.pooler.get_pool(cr.dbname).get('expresso.info_objeto_remoto')
         sinc_obj = self.pooler.get_pool(cr.dbname).get('expresso.sincronizacion_objeto_remoto')
         
-        all_info_objeto_remoto_ids = info_objeto_obj.search(cr, uid, [('class', '=', 'product.product')], context=context)
+        all_info_objeto_remoto_ids = info_objeto_obj.search(cr, uid, [('clase', '=', 'product.product')], context=context)
         
         isbns_agregados = 0
         iteracion = 0

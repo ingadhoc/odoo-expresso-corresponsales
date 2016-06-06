@@ -89,6 +89,11 @@
                         <field name="company_id" invisible="True" options="{'no_create': True}" groups="base.group_multi_company"/>
 
                     </group>
+                    <group string="" name="sale_shipping">
+                            <field name="warehouse_id" invisible="True" options="{'no_create': True}" groups="stock.group_locations"/>
+                            <field name="incoterm" widget="selection" invisible="True" groups="base.group_user"/>
+                            <field name="picking_policy" invisible="True" required="True"/>
+                     </group>
                 </xpath>
 
 
@@ -286,6 +291,11 @@
                         <field name="company_id" invisible="True" options="{'no_create': True}" groups="base.group_multi_company"/>
 
                     </group>
+                    <group string="" name="sale_shipping">
+                            <field name="warehouse_id" invisible="True" options="{'no_create': True}" groups="stock.group_locations"/>
+                            <field name="incoterm" widget="selection" invisible="True" groups="base.group_user"/>
+                            <field name="picking_policy" invisible="True" required="True"/>
+                     </group>
                 </xpath>
 
                     <field name="product_id" position="replace">

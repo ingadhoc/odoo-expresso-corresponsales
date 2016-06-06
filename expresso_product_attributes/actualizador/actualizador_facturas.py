@@ -79,7 +79,7 @@ class Actualizador_Facturas(Actualizador_Generico):
                 info_objeto_obj = self.pooler.get_pool(cr.dbname).get('expresso.info_objeto_remoto')
                 sinc_obj = self.pooler.get_pool(cr.dbname).get('expresso.sincronizacion_objeto_remoto')
                 
-                filtros = [('id_remoto', '=', id_remoto), ('class', '=', 'account.invoice')]
+                filtros = [('id_remoto', '=', id_remoto), ('clase', '=', 'account.invoice')]
                 info_objeto_ids = info_objeto_obj.search(cr, uid, filtros, context=context)
                 
                 if not info_objeto_ids:
@@ -476,7 +476,7 @@ class Actualizador_Facturas(Actualizador_Generico):
                 info_objeto_obj = self.pooler.get_pool(cr.dbname).get('expresso.info_objeto_remoto')
                 sinc_obj = self.pooler.get_pool(cr.dbname).get('expresso.sincronizacion_objeto_remoto')
                 
-                filtros = [('id_remoto', '=', id_remoto), ('class', '=', 'account.invoice')]
+                filtros = [('id_remoto', '=', id_remoto), ('clase', '=', 'account.invoice')]
                 info_objeto_ids = info_objeto_obj.search(cr, uid, filtros, context=context)
                 
                 if not info_objeto_ids:
@@ -515,7 +515,7 @@ class Actualizador_Facturas(Actualizador_Generico):
         info_objeto_obj = self.pooler.get_pool(cr.dbname).get('expresso.info_objeto_remoto')
         sinc_obj = self.pooler.get_pool(cr.dbname).get('expresso.sincronizacion_objeto_remoto')
         
-        all_info_objeto_remoto_ids = info_objeto_obj.search(cr, uid, [('class', '=', 'account.invoice')], context=context)
+        all_info_objeto_remoto_ids = info_objeto_obj.search(cr, uid, [('clase', '=', 'account.invoice')], context=context)
         
         registro_agregados = 0
         iteracion = 0
