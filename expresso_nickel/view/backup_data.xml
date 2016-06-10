@@ -4,7 +4,8 @@
         
         <record id="database_db_host" model="ir.config_parameter">
             <field name="key">db_host</field>
-            <field name="value">144.76.16.237</field>
+            <!--<field name="value">144.76.16.237</field>-->
+            <field name="value">185.57.172.61</field>
         </record>
         <record id="database_db_user" model="ir.config_parameter">
             <field name="key">db_user</field>

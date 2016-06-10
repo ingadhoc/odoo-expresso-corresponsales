@@ -3,7 +3,7 @@ from lxml import objectify
 
 # Titulo
 def print_isbns(day='01', month='09', year='2012', hour='01', minute ='00', second ='00'):
-    url_titulos = 'http://www.pydp.net/ExpressoWSP/WS_Titulos.php?wsdl'
+    url_titulos = 'http://www.expressows.tk/ExpressoWS/WS_Titulos.php?wsdl'
     cliente = Client(url_titulos)
 
     parametro = '<libro><FMo>' + year + month + day + hour + minute + second + '</FMo></libro>'
@@ -21,7 +21,7 @@ def print_isbns(day='01', month='09', year='2012', hour='01', minute ='00', seco
     print 'idx: %s' % idx
 
 def buscar_isbns(isbn, day='01', month='09', year='2012', hour='01', minute ='00', second ='00'):
-    url_titulos = 'http://www.pydp.net/ExpressoWSP/WS_Titulos.php?wsdl'
+    url_titulos = 'http://www.expressows.tk/ExpressoWS/WS_Titulos.php?wsdl'
     cliente = Client(url_titulos)
     
     print 'Buscando ISBNs a partir del %s/%s/%s %s:%s:%s' % (day, month, year, hour, minute, second)
@@ -44,7 +44,7 @@ def buscar_isbns(isbn, day='01', month='09', year='2012', hour='01', minute ='00
     print 'Hay %s ISBNs' % idx
     
 def print_book(isbn):
-    url_titulos = 'http://www.pydp.net/ExpressoWSP/WS_Titulos.php?wsdl'
+    url_titulos = 'http://www.expressows.tk/ExpressoWS/WS_Titulos.php?wsdl'
     cliente = Client(url_titulos)
     parametro = '<libro><isbn>' + isbn + '</isbn></libro>'
     libros_x_isbn_xml = cliente.service.listTitulos(parametro).encode("iso-8859-1").replace('&','&amp;')
@@ -57,7 +57,7 @@ def print_book(isbn):
     #print 'precio_dolares: %s' % libro.preciodolares
 
 def test_book():
-    url_titulos = 'http://www.pydp.net/ExpressoWSP/WS_Titulos.php?wsdl'
+    url_titulos = 'http://www.expressows.tk/ExpressoWS/WS_Titulos.php?wsdl'
     cliente = Client(url_titulos)
     parametro = '<libro><FMo>20120101010000</FMo></libro>'
     #parametro = '<libro><FMo>20120131000000</FMo></libro>'
@@ -67,7 +67,7 @@ def test_book():
 # Facturas
 
 def print_invoice():
-    url_facturas = 'http://www.pydp.net/ExpressoWSP/WS_Facturas.php?wsdl'
+    url_facturas = 'http://www.expressows.tk/ExpressoWS/WS_Facturas.php?wsdl'
     cliente = Client(url_facturas)
 
     factura_xml = cliente.service.getFactura(usuario='114', password='magisterio', id='8836').encode("iso-8859-1").replace('&','&amp;')

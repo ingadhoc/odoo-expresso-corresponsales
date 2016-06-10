@@ -1,6 +1,6 @@
 from suds.client import Client
 
-url_ws = 'http://www.pydp.net/ExpressoWSP/WS_Titulos.php?wsdl'
+url_ws = 'http://www.expressows.tk/ExpressoWS/WS_Titulos.php?wsdl'
 cliente = Client(url_ws)
 
 isbn = '84-614-2701-7'
