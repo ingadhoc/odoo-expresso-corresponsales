@@ -66,7 +66,7 @@ class Actualizador_Pedidos(Actualizador_Generico):
         for order in order_obj.browse(cr, uid, ids, context=context):
             if not order.partner_id.info_corresponsal_id:
                 titulo = u'Imposible procesar'
-                mensaje = u'No se tiene información del cliente %s sobre el usuario remoto para actualizar el pedido en el sistema.'
+                mensaje = u'No se tiene informacion del cliente %s sobre el usuario remoto para actualizar el pedido en el sistema.'
                 mensaje = mensaje % order.partner_id.name
                 raise osv.except_osv(titulo, mensaje)
             info_corresponsal = order.partner_id.info_corresponsal_id
@@ -281,7 +281,7 @@ class Actualizador_Pedidos(Actualizador_Generico):
         if product_ids:
             product_id = product_ids[0]
             if len(product_ids) > 1:
-                _logger.warning('Hay más de un producto con ISBN %s. Los productos son: %s',
+                _logger.warning('Hay mas de un producto con ISBN %s. Los productos son: %s',
                                     str(linea.isbn), str([p.name for p in product_ids]))
         #TODO: remover esto
         if not product_id:

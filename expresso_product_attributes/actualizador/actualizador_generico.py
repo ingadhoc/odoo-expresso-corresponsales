@@ -58,7 +58,7 @@ class Actualizador_Generico:
         '''
         Dado el nombre de una clase y un id_remoto retorna el id correspondiente del objeto en OpenERP
         '''
-        obj_ids = self.pooler.get_pool(cr.dbname).get(clase).search(cr, uid, [('id_remoto', '=', id_remoto)], context=context)
+        obj_ids = self.pooler.get_pool(cr.dbname).get(clase).search(cr, uid, [('remote_id', '=', id_remoto)], context=context)
         if obj_ids:
             return obj_ids
         else:
@@ -68,7 +68,7 @@ class Actualizador_Generico:
         '''
         Dado el nombre de una clase y una denominación retorna el id correspondiente del objeto en OpenERP
         '''
-        obj_ids = self.pooler.get_pool(cr.dbname).get(clase).search(cr, uid, [('denominacion', '=', denominacion)], context=context)
+        obj_ids = self.pooler.get_pool(cr.dbname).get(clase).search(cr, uid, [('denomination', '=', denominacion)], context=context)
         if obj_ids:
             return obj_ids
         else:
@@ -78,6 +78,7 @@ class Actualizador_Generico:
         ''' Retorna el cliente para llamar a los Web Services de Expresso '''
         if not self.cliente:
             try:
+                # self.cliente = Client(self.url_ws)
                 self.cliente = Client(self.url_ws)
             except:
                 e = traceback.format_exc()

@@ -85,7 +85,7 @@ class Actualizador_Facturas(Actualizador_Generico):
                 if not info_objeto_ids:
                     vals = {}
                     vals['id_remoto'] = id_remoto
-                    vals['class'] = 'account.invoice'
+                    vals['clase'] = 'account.invoice'
                     vals['corresponsal'] = info_corresponsal.id
                     info_objeto_ids = info_objeto_obj.create(cr, uid, vals, context=context)
                 else:
@@ -190,7 +190,7 @@ class Actualizador_Facturas(Actualizador_Generico):
             return None
         
         sinc_obj = self.pooler.get_pool(cr.dbname).get('expresso.sincronizacion_objeto_remoto')
-        filtros = [('procesado', '=', False), ('info_objeto_remoto_id.class', '=', 'account.invoice')]
+        filtros = [('procesado', '=', False), ('info_objeto_remoto_id.clase', '=', 'account.invoice')]
         sinc_a_procesar = sinc_obj.search(cr, uid, filtros, context=context)
         
         # Cantidad de facturas procesadas correctamente
@@ -299,7 +299,7 @@ class Actualizador_Facturas(Actualizador_Generico):
             if address_invoice_ids:
                 address_invoice_id = address_invoice_ids[0]
             if not address_invoice_id:
-                error = 'Tratando de guardar una factura [id_remoto: %s] no se encontro ningún res.partner.address del res.partner %s.' % (str(id_remoto), factura.nombre.text)
+                error = 'Tratando de guardar una factura [id_remoto: %s] no se encontro ningun res.partner.address del res.partner %s.' % (str(id_remoto), factura.nombre.text)
                 #_logger.error(error)
                 now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 vals = {}
@@ -377,7 +377,7 @@ class Actualizador_Facturas(Actualizador_Generico):
         if product_ids:
             product_id = product_ids[0]
             if len(product_ids) > 1:
-                _logger.warning('Hay más de un producto con ISBN %s. Los productos son: %s',
+                _logger.warning('Hay mas de un producto con ISBN %s. Los productos son: %s',
                                     str(linea.isbn), str([p.name for p in product_ids]))
         
         if not product_id:
@@ -482,7 +482,7 @@ class Actualizador_Facturas(Actualizador_Generico):
                 if not info_objeto_ids:
                     vals = {}
                     vals['id_remoto'] = id_remoto
-                    vals['class'] = 'account.invoice'
+                    vals['clase'] = 'account.invoice'
                     vals['corresponsal'] = info_corresponsal.id
                     info_objeto_ids = info_objeto_obj.create(cr, uid, vals, context=context)
                     

@@ -82,7 +82,7 @@ class Actualizador_Packing(Actualizador_Generico):
                 if not info_objeto_ids:
                     vals = {}
                     vals['id_remoto'] = id_remoto
-                    vals['class'] = 'expresso.packing'
+                    vals['clase'] = 'expresso.packing'
                     vals['corresponsal'] = info_corresponsal.id
                     info_objeto_ids = info_objeto_obj.create(cr, uid, vals, context=context)
                 else:
@@ -188,7 +188,7 @@ class Actualizador_Packing(Actualizador_Generico):
             return None
         
         sinc_obj = self.pooler.get_pool(cr.dbname).get('expresso.sincronizacion_objeto_remoto')
-        filtros = [('procesado', '=', False), ('info_objeto_remoto_id.class', '=', 'expresso.packing')]
+        filtros = [('procesado', '=', False), ('info_objeto_remoto_id.clase', '=', 'expresso.packing')]
         sinc_a_procesar = sinc_obj.search(cr, uid, filtros, context=context)
         
         _logger.info('Hay %s packings para procesar' % len(sinc_a_procesar))
@@ -319,7 +319,7 @@ class Actualizador_Packing(Actualizador_Generico):
         if product_ids:
             product_id = product_ids[0]
             if len(product_ids) > 1:
-                _logger.warning('Hay más de un producto con ISBN %s. Los productos son: %s',
+                _logger.warning('Hay mas de un producto con ISBN %s. Los productos son: %s',
                                     str(linea.isbn), str([p.name for p in product_ids]))
         
         if product_id:
@@ -383,7 +383,7 @@ class Actualizador_Packing(Actualizador_Generico):
                 if not info_objeto_ids:
                     vals = {}
                     vals['id_remoto'] = id_remoto
-                    vals['class'] = 'expresso.packing'
+                    vals['clase'] = 'expresso.packing'
                     vals['corresponsal'] = info_corresponsal.id
                     info_objeto_ids = info_objeto_obj.create(cr, uid, vals, context=context)
                     
@@ -415,7 +415,7 @@ class Actualizador_Packing(Actualizador_Generico):
         info_objeto_obj = self.pooler.get_pool(cr.dbname).get('expresso.info_objeto_remoto')
         sinc_obj = self.pooler.get_pool(cr.dbname).get('expresso.sincronizacion_objeto_remoto')
         
-        all_info_objeto_remoto_ids = info_objeto_obj.search(cr, uid, [('class', '=', 'expresso.packing')], context=context)
+        all_info_objeto_remoto_ids = info_objeto_obj.search(cr, uid, [('clase', '=', 'expresso.packing')], context=context)
         
         registro_agregados = 0
         iteracion = 0
