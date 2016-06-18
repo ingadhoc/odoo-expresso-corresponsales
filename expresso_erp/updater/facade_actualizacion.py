@@ -24,7 +24,7 @@ import traceback
 import logging
 import threading
 
-from costumers_updater import Customers_updater
+from costumers_updater import Actualizador_Clientes
 from actualizador_titulos import Actualizador_Titulos
 from invoices_updater import Actualizador_Facturas
 from actualizador_packing import Actualizador_Packing
@@ -46,11 +46,12 @@ from actualizador_titulos_atributos import Actualizador_Titulos_Atributos_Selecc
 
 _logger = logging.getLogger(__name__)
 
+
 class Facade_Actualizacion:
-    
+
     def __init__(self, pooler):
         self.pooler = pooler
-        
+
     '''
     Funciones Generales
     '''
@@ -59,43 +60,49 @@ class Facade_Actualizacion:
         Dado
         '''
         sync_info_obj = self.pooler.get_pool(cr.dbname).get('expresso.sync_info')
-        filtro = [('class', '=', obj_class)]
+        # filtro = [('class', '=', obj_class)]
+        filtro = [('clase', '=', obj_class)]
         sync_info_ids = sync_info_obj.search(cr, uid, filtro, limit=1, order='datetime desc', context=context)
-        
+
         if not sync_info_ids:
             return None
-        
+
         sync_info = sync_info_obj.browse(cr, uid, sync_info_ids[0], context=context)
         if not sync_info or len(sync_info.datetime) < 19:
             return None
-        
+
         return sync_info
-    
+
     def insertar_info_actualizacion(self, cr, uid, informacion, obj_class, context=None):
         sync_info_obj = self.pooler.get_pool(cr.dbname).get('expresso.sync_info')
-        
+
         now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        sync_info_value = {'datetime': now, 'informacion': informacion, 'class': obj_class}
+        sync_info_value = {'datetime': now, 'informacion': informacion, 'clase': obj_class}
         sync_info_obj.create(cr, uid, sync_info_value, context=context)
-    
+
     def insertar_log_entry(self, cr, uid, objeto, informacion='', error_al_procesar=False, mensaje_error='', context=None):
         log_entry_obj = self.pooler.get_pool(cr.dbname).get('expresso.sync_log_entry')
         now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        
-        log_entry = {}
-        log_entry['datetime'] = now
-        log_entry['objeto'] = objeto
-        log_entry['informacion'] = informacion
-        log_entry['error_al_procesar'] = error_al_procesar
-        log_entry['mensaje_error'] = mensaje_error
-        
-        log_entry_obj.create(cr, uid, log_entry, context=context)
-        
+
+        # log_entry = {}
+        # log_entry['datetime'] = now
+        # log_entry['objeto'] = objeto
+        # log_entry['informacion'] = informacion
+        # log_entry['error_al_procesar'] = error_al_procesar
+        # log_entry['mensaje_error'] = mensaje_error
+        sync_info_value = {'datetime': now,
+                           'informacion': informacion,
+                           'objeto': objeto,
+                           'error_al_procesar': error_al_procesar,
+                           'mensaje_error': mensaje_error}
+
+        log_entry_obj.create(cr, uid, sync_info_value,None)
+
     '''
     Clientes
     '''
     def actualizar_clientes(self, cr, uid, context=None):
-        actualizador = Customers_updater(self.pooler)
+        actualizador = Actualizador_Clientes(self.pooler)
         error_al_procesar = False
         mensaje_error = ''
         try:
@@ -107,7 +114,7 @@ class Facade_Actualizacion:
             mensaje_error = e
         self.insertar_log_entry(cr, uid, 'clientes', informacion='', error_al_procesar=error_al_procesar,
                                 mensaje_error=mensaje_error, context=context)
-    
+
     '''
     Titulos
     '''
@@ -124,8 +131,8 @@ class Facade_Actualizacion:
             mensaje_error = e
         if actualizado:
             self.insertar_info_actualizacion(cr, uid, informacion, 'product.product', context=context)
-        
-        
+
+
     def actualizar_un_titulo(self, cr, uid, info_objeto_id, context=None):
         actualizador = Actualizador_Titulos(self.pooler)
         try:
@@ -133,7 +140,7 @@ class Facade_Actualizacion:
         except:
             e = traceback.format_exc()
             _logger.error('Ocurrio un error actualizando el Titulos. Error: %s', e)
-    
+
     def actualizar_titulos(self, cr, uid, context=None):
         actualizador = Actualizador_Titulos(self.pooler)
         error_al_procesar = False
@@ -147,7 +154,7 @@ class Facade_Actualizacion:
             mensaje_error = e
         self.insertar_log_entry(cr, uid, 'titulos', informacion='', error_al_procesar=error_al_procesar,
                                 mensaje_error=mensaje_error, context=context)
-        
+
     def actualizar_imagenes(self, cr, uid, context=None):
         actualizador = Actualizador_Titulos(self.pooler)
         try:
@@ -155,7 +162,7 @@ class Facade_Actualizacion:
         except:
             e = traceback.format_exc()
             _logger.error('Ocurrio un error actualizando las imagenes de los Titulos. Error: %s', e)
-    
+
     def obtener_info_objeto_remoto_si_no_presente_titulos(self, cr, uid, informacion='', context=None):
         actualizador = Actualizador_Titulos(self.pooler)
         actualizado = False
@@ -166,7 +173,7 @@ class Facade_Actualizacion:
             _logger.error('Ocurrio un error al obtener los registros ISBN insertados si no presentes. Error: %s', e)
             error_al_procesar = True
             mensaje_error = e
-    
+
     def marcar_todos_isbns_para_actualizar(self, cr, uid, informacion='', context=None):
         actualizador = Actualizador_Titulos(self.pooler)
         actualizado = False
@@ -177,7 +184,7 @@ class Facade_Actualizacion:
             _logger.error('Ocurrio un error al querer marcar todos los registros ISBN para actualizar. Error: %s', e)
             error_al_procesar = True
             mensaje_error = e
-    
+
     '''
     Facturas
     '''
@@ -192,7 +199,7 @@ class Facade_Actualizacion:
             _logger.error('Ocurrio un error actualizando los registros de Facturas. Error: %s', e)
         if actualizado:
             self.insertar_info_actualizacion(cr, uid, informacion, 'account.invoice', context=context)
-    
+
     def obtener_info_objeto_remoto_si_no_presente_facturas(self, cr, uid, informacion='', context=None):
         actualizador = Actualizador_Facturas(self.pooler)
         actualizado = False
@@ -203,7 +210,7 @@ class Facade_Actualizacion:
             _logger.error('Ocurrio un error actualizando los registros de Facturas. Error: %s', e)
             error_al_procesar = True
             mensaje_error = e
-    
+
     def marcar_info_objeto_remoto_para_actualizar_facturas(self, cr, uid, informacion='', context=None):
         actualizador = Actualizador_Facturas(self.pooler)
         actualizado = False
@@ -214,11 +221,11 @@ class Facade_Actualizacion:
             _logger.error('Ocurrio un error al querer marcar todos los registros de Factura para actualizar. Error: %s', e)
             error_al_procesar = True
             mensaje_error = e
-    
-    
-    
-    
-    
+
+
+
+
+
     def actualizar_una_factura(self, cr, uid, info_objeto_id, context=None):
         actualizador = Actualizador_Facturas(self.pooler)
         try:
@@ -226,7 +233,7 @@ class Facade_Actualizacion:
         except:
             e = traceback.format_exc()
             _logger.error('Ocurrio un error actualizando la Factura. Error: %s', e)
-            
+
     def actualizar_facturas(self, cr, uid, context=None):
         actualizador = Actualizador_Facturas(self.pooler)
         error_al_procesar = False
@@ -254,7 +261,7 @@ class Facade_Actualizacion:
             _logger.error('Ocurrio un error actualizando los registros de Packing. Error: %s', e)
         if actualizado:
             self.insertar_info_actualizacion(cr, uid, informacion, 'expresso.packing', context=context)
-    
+
     def obtener_info_objeto_remoto_si_no_presente_packing(self, cr, uid, informacion='', context=None):
         actualizador = Actualizador_Packing(self.pooler)
         actualizado = False
@@ -265,7 +272,7 @@ class Facade_Actualizacion:
             _logger.error('Ocurrio un error actualizando los registros de Packing. Error: %s', e)
             error_al_procesar = True
             mensaje_error = e
-    
+
     def marcar_info_objeto_remoto_para_actualizar_packing(self, cr, uid, informacion='', context=None):
         actualizador = Actualizador_Packing(self.pooler)
         actualizado = False
@@ -276,11 +283,11 @@ class Facade_Actualizacion:
             _logger.error('Ocurrio un error al querer marcar todos los registros de Packing para actualizar. Error: %s', e)
             error_al_procesar = True
             mensaje_error = e
-    
-    
-    
-    
-    
+
+
+
+
+
     def actualizar_un_packing(self, cr, uid, info_objeto_id, context=None):
         actualizador = Actualizador_Packing(self.pooler)
         try:
@@ -288,7 +295,7 @@ class Facade_Actualizacion:
         except:
             e = traceback.format_exc()
             _logger.error('Ocurrio un error actualizando el Packing. Error: %s', e)
-    
+
     def actualizar_packing(self, cr, uid, context=None):
         actualizador = Actualizador_Packing(self.pooler)
         error_al_procesar = False
@@ -302,14 +309,14 @@ class Facade_Actualizacion:
             mensaje_error = e
         self.insertar_log_entry(cr, uid, 'packings', informacion='', error_al_procesar=error_al_procesar,
                                 mensaje_error=mensaje_error, context=context)
-    
+
     '''
     Pedidos
     '''
     def crear_pedido_remoto(self, cr, uid, ids, context=None):
         actualizador = Actualizador_Pedidos(self.pooler)
         actualizador.crear_pedido_remoto(cr, uid, ids, context=context)
-    
+
     '''
     Atributos
     '''
@@ -329,7 +336,7 @@ class Facade_Actualizacion:
         self.actualizar_materias(cr, uid, informacion=informacion, context=context)
         self.actualizar_selecciones(cr, uid, informacion=informacion, context=context)
         self.insertar_log_entry(cr, uid, 'atributos', informacion='', error_al_procesar=False, mensaje_error='', context=context)
-    
+
     def actualizar_registro_generico(self, cr, uid, clase, actualizador, informacion='', context=None):
         sync_info = self.obtener_ultima_actualizacion(cr, uid, clase, context=context)
         actualizado = False
@@ -424,19 +431,19 @@ class Facade_Actualizacion:
     def actualizar_selecciones(self, cr, uid, informacion='', context=None):
         actualizador = Actualizador_Titulos_Atributos_Seleccion(self.pooler)
         self.actualizar_registro_generico(cr, uid, 'expresso.seleccion', actualizador, informacion=informacion, context=context)
-    
-    
-    
+
+
+
     '''
     Threading
     '''
     def actualizar_todo_threading(self, cr, uid, informacion='', continuation=None, context=None):
-        _logger.info('Iniciando actualización asincrona.')
+        _logger.info('Iniciando actualizacion asincrona.')
         #thread = threading.Thread(target=self.threading_actualizar_clientes, args=(cr.dbname, uid, informacion, continuation, context))
         thread = threading.Thread(target=self.threading_actualizar_clientes, args=(cr.dbname, uid, informacion, continuation, context))
         thread.start()
         return True
-    
+
     def threading_actualizar_clientes(self, db_name, uid, informacion='', continuation=None, context=None):
         db, pool = self.pooler.get_db_and_pool(db_name)
         cr = db.cursor()
@@ -445,7 +452,7 @@ class Facade_Actualizacion:
         cr.commit()
         cr.close()
         thread.start()
-    
+
     def threading_actualizar_atributos_titulos(self, db_name, uid, informacion='', continuation=None, context=None):
         db, pool = self.pooler.get_db_and_pool(db_name)
         cr = db.cursor()
@@ -454,7 +461,7 @@ class Facade_Actualizacion:
         cr.commit()
         cr.close()
         thread.start()
-        
+
     def threading_actualizar_titulos(self, db_name, uid, informacion='', continuation=None, context=None):
         db, pool = self.pooler.get_db_and_pool(db_name)
         cr = db.cursor()
@@ -464,7 +471,7 @@ class Facade_Actualizacion:
         cr.commit()
         cr.close()
         thread.start()
-    
+
     def threading_actualizar_facturas(self, db_name, uid, informacion='', continuation=None, context=None):
         db, pool = self.pooler.get_db_and_pool(db_name)
         cr = db.cursor()
@@ -474,14 +481,14 @@ class Facade_Actualizacion:
         cr.commit()
         cr.close()
         thread.start()
-    
+
     def threading_actualizar_packing(self, db_name, uid, informacion='', continuation=None, context=None):
         db, pool = self.pooler.get_db_and_pool(db_name)
         cr = db.cursor()
         self.obtener_info_objeto_remoto_packing(cr, uid, informacion=informacion, context=context)
         self.actualizar_packing(cr, uid, context=context)
         cr.commit()
-        _logger.info('Terminada la actualización asincrona.')
+        _logger.info('Terminada la actualizacion asincrona.')
         if continuation:
             continuation(cr, uid, informacion=informacion, context=context)
 

@@ -21,23 +21,22 @@
 
 import time
 import datetime
-import sys
 import traceback
 
 import logging
-from suds.client import Client
-from lxml import objectify # http://lxml.de/objectify.html
+from lxml import objectify  # http://lxml.de/objectify.html
 
 from generic_updater import Actualizador_Generico
 import configuracion_actualizacion
 
 _logger = logging.getLogger(__name__)
 
+
 class Actualizador_Packing(Actualizador_Generico):
-    
+
     def __init__(self, pooler):
         Actualizador_Generico.__init__(self, pooler, configuracion_actualizacion.url_packing)
-    
+
     def obtener_info_objeto_remoto(self, cr, uid, sync_info, context=None):
         _logger.info('Obteniendo nuevos registros de Packings.')
         cliente = self.get_cliente()
@@ -53,11 +52,11 @@ class Actualizador_Packing(Actualizador_Generico):
             info_corresponsal = info_corresponsal_obj.browse(cr, uid, info_corresponsal_id, context=context)
             try:
                 if from_date:
-                    packing_xml = cliente.service.listPacking(usuario=info_corresponsal.usuario, 
+                    packing_xml = cliente.service.listPacking(usuario=info_corresponsal.user,
                                                               password=info_corresponsal.contrasenia,
                                                               updated=from_date).encode("iso-8859-1").replace('&','&amp;')
                 else:
-                    packing_xml = cliente.service.listPacking(usuario=info_corresponsal.usuario, 
+                    packing_xml = cliente.service.listPacking(usuario=info_corresponsal.user,
                                                               password=info_corresponsal.contrasenia).encode(
                                                                                 "iso-8859-1").replace('&','&amp;')
                 packings = objectify.fromstring(packing_xml)
@@ -77,13 +76,13 @@ class Actualizador_Packing(Actualizador_Generico):
                 info_objeto_obj = self.pooler.get_pool(cr.dbname).get('expresso.info_objeto_remoto')
                 sinc_obj = self.pooler.get_pool(cr.dbname).get('expresso.sincronizacion_objeto_remoto')
                 
-                filtros = [('id_remoto', '=', id_remoto), ('class', '=', 'expresso.packing')]
+                filtros = [('id_remoto', '=', id_remoto), ('clase', '=', 'expresso.packing')]
                 info_objeto_ids = info_objeto_obj.search(cr, uid, filtros, context=context)
                 
                 if not info_objeto_ids:
                     vals = {}
                     vals['id_remoto'] = id_remoto
-                    vals['class'] = 'expresso.packing'
+                    vals['clase'] = 'expresso.packing'
                     vals['corresponsal'] = info_corresponsal.id
                     info_objeto_ids = info_objeto_obj.create(cr, uid, vals, context=context)
                 else:
@@ -124,8 +123,8 @@ class Actualizador_Packing(Actualizador_Generico):
         if not cliente:
             return False
             
-        info_corresponsal_obj = self.pool.get('expresso.info_corresponsal')
-        sinc_obj = self.pool.get('expresso.sincronizacion_objeto_remoto')
+        info_corresponsal_obj = self.pooler.get_pool(cr.dbname).get('expresso.info_corresponsal')
+        sinc_obj = self.pooler.get_pool(cr.dbname).get('expresso.sincronizacion_objeto_remoto')
         # Se obtiene los packing desde el WS y se convierte en objeto
         id_remoto = sincronizacion.info_objeto_remoto_id.id_remoto
         
@@ -141,7 +140,7 @@ class Actualizador_Packing(Actualizador_Generico):
         info_corresponsal = info_corresponsal_obj.browse(cr, uid, sincronizacion.info_objeto_remoto_id.corresponsal.id, context=context)
         
         try:
-            packing_xml = cliente.service.getPacking(usuario=info_corresponsal.usuario, 
+            packing_xml = cliente.service.getPacking(usuario=info_corresponsal.user,
                                                      password=info_corresponsal.contrasenia,
                                                      id=id_remoto).encode("iso-8859-1").replace('&','&amp;')
             packing = objectify.fromstring(packing_xml)
@@ -188,8 +187,8 @@ class Actualizador_Packing(Actualizador_Generico):
         if not cliente:
             return None
         
-        sinc_obj = self.pool.get('expresso.sincronizacion_objeto_remoto')
-        filtros = [('procesado', '=', False), ('info_objeto_remoto_id.class', '=', 'expresso.packing')]
+        sinc_obj = self.pooler.get_pool(cr.dbname).get('expresso.sincronizacion_objeto_remoto')
+        filtros = [('procesado', '=', False), ('info_objeto_remoto_id.clase', '=', 'expresso.packing')]
         sinc_a_procesar = sinc_obj.search(cr, uid, filtros, context=context)
         
         _logger.info('Hay %s packings para procesar' % len(sinc_a_procesar))
@@ -219,8 +218,8 @@ class Actualizador_Packing(Actualizador_Generico):
     
     def process_packing(self, cr, uid, packing, info_corresponsal, sincronizacion_id, context=None):
         #_logger.info('Procesando packing [id_remoto: %s]', str(packing.id))
-        # sinc_obj = self.pool.get['expresso.sincronizacion_objeto_remoto']
-        picking_obj = self.pool.get('expresso.packing')
+        sinc_obj = self.pooler.get_pool(cr.dbname).get('expresso.sincronizacion_objeto_remoto')
+        picking_obj = self.pooler.get_pool(cr.dbname).get('expresso.packing')
         
         id_remoto = packing.id
         imprimirpeso = False
@@ -239,13 +238,13 @@ class Actualizador_Packing(Actualizador_Generico):
         
         #partner_id
         partner_id = False
-        partner_ids = self.get_partner_ids_from_user_login(cr, uid, info_corresponsal.usuario, context=None)
+        partner_ids = self.get_partner_ids_from_user_login(cr, uid, info_corresponsal.user, context=None)
         if partner_ids:
             partner_id = partner_ids[0]
         # address_id
         address_id = False
         if partner_id:
-            address_ids = self.pool.get['res.partner.address'].search(cr, uid,
+            address_ids = self.pooler.get_pool(cr.dbname).get('res.partner.address').search(cr, uid,
                                                         [('partner_id', '=', partner_id)], context=context)
             if address_ids:
                 address_id = address_ids[0]
@@ -280,11 +279,11 @@ class Actualizador_Packing(Actualizador_Generico):
         box_obj = self.pooler.get_pool(cr.dbname).get('expresso.packing.box')
         
         id_remoto = caja.id
-        denomination = caja.denomination
+        denominacion = caja.denominacion
         peso = caja.peso
         
         # Save the new values or create a new stock.tracking
-        new_values = {'name': denomination, 'id_remoto': id_remoto,
+        new_values = {'name': denominacion, 'id_remoto': id_remoto,
                       'weight': peso, 'packing_id': packing.id}
         
         stored_caja_ids = self.get_ids_from_id_remoto(cr, uid, 'expresso.packing.box', id_remoto, context=None)
@@ -320,7 +319,7 @@ class Actualizador_Packing(Actualizador_Generico):
         if product_ids:
             product_id = product_ids[0]
             if len(product_ids) > 1:
-                _logger.warning('Hay más de un producto con ISBN %s. Los productos son: %s',
+                _logger.warning('Hay mas de un producto con ISBN %s. Los productos son: %s',
                                     str(linea.isbn), str([p.name for p in product_ids]))
         
         if product_id:
@@ -351,7 +350,7 @@ class Actualizador_Packing(Actualizador_Generico):
         if not cliente:
             return False
         
-        info_corresponsal_obj = self.pool.get('expresso.info_corresponsal')
+        info_corresponsal_obj = self.pooler.get_pool(cr.dbname).get('expresso.info_corresponsal')
         info_corresponsal_ids = info_corresponsal_obj.search(cr, uid, [], context=context)
         
         packing_agregados = 0
@@ -359,7 +358,7 @@ class Actualizador_Packing(Actualizador_Generico):
         for info_corresponsal_id in info_corresponsal_ids:
             info_corresponsal = info_corresponsal_obj.browse(cr, uid, info_corresponsal_id, context=context)
             try:
-                packing_xml = cliente.service.listPacking(usuario=info_corresponsal.usuario, 
+                packing_xml = cliente.service.listPacking(usuario=info_corresponsal.user,
                                                           password=info_corresponsal.contrasenia).encode(
                                                                             "iso-8859-1").replace('&','&amp;')
                 packings = objectify.fromstring(packing_xml)
@@ -375,16 +374,16 @@ class Actualizador_Packing(Actualizador_Generico):
             for packing_it in packings.iterchildren():
                 id_remoto = packing_it.id
                 
-                info_objeto_obj = self.pool.get('expresso.info_objeto_remoto')
-                sinc_obj = self.pool.get('expresso.sincronizacion_objeto_remoto')
+                info_objeto_obj = self.pooler.get_pool(cr.dbname).get('expresso.info_objeto_remoto')
+                sinc_obj = self.pooler.get_pool(cr.dbname).get('expresso.sincronizacion_objeto_remoto')
                 
-                filtros = [('id_remoto', '=', id_remoto), ('class', '=', 'expresso.packing')]
+                filtros = [('id_remoto', '=', id_remoto), ('clase', '=', 'expresso.packing')]
                 info_objeto_ids = info_objeto_obj.search(cr, uid, filtros, context=context)
                 
                 if not info_objeto_ids:
                     vals = {}
                     vals['id_remoto'] = id_remoto
-                    vals['class'] = 'expresso.packing'
+                    vals['clase'] = 'expresso.packing'
                     vals['corresponsal'] = info_corresponsal.id
                     info_objeto_ids = info_objeto_obj.create(cr, uid, vals, context=context)
                     
@@ -413,10 +412,10 @@ class Actualizador_Packing(Actualizador_Generico):
         '''
         _logger.info('Marcando registos de Packings para reprocesar')
         
-        info_objeto_obj = self.pool.get('expresso.info_objeto_remoto')
-        sinc_obj = self.pool.get('expresso.sincronizacion_objeto_remoto')
+        info_objeto_obj = self.pooler.get_pool(cr.dbname).get('expresso.info_objeto_remoto')
+        sinc_obj = self.pooler.get_pool(cr.dbname).get('expresso.sincronizacion_objeto_remoto')
         
-        all_info_objeto_remoto_ids = info_objeto_obj.search(cr, uid, [('class', '=', 'expresso.packing')], context=context)
+        all_info_objeto_remoto_ids = info_objeto_obj.search(cr, uid, [('clase', '=', 'expresso.packing')], context=context)
         
         registro_agregados = 0
         iteracion = 0

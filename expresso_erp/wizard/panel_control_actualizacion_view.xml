@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_panel_control_actualizacion_erp_wizard" model="ir.ui.view">
+            <field name="name">panel_control_actualizacion_erp_wizard</field>
+            <field name="model">expresso_erp.panel_control_actualizacion</field>
+            <field name="arch" type="xml">
+                <form string="Panel de Control de las Actualizaciones">
+                    <label colspan="4"
+                           string="Este panel de control permite actualizar diferentes objetos del sistema."/>
+                    
+                    <separator colspan="4" string="Clientes"/>
+                    <label colspan="2" string="Actualizar los Clientes"/>
+                    <button name="actualizar_clientes" string="Actualizar Clientes"
+                            type="object" icon="gtk-ok" />
+                    
+                    
+                    
+                    
+                    <separator colspan="4" string="Titulos"/>
+                    <label colspan="2" string="Actualizar los atributos de los Titulos"/>
+                    <button name="actualizar_atributos_titulos" string="Actualizar Atributos"
+                            type="object" icon="gtk-ok" />
+                    
+                    <label colspan="2" string="Obtener los ISBNs de los Titulos modificados/agregados ultimamente"/>
+                    <button name="obtener_info_objeto_remoto_titulos" string="Obtener Info. sobre Titulos"
+                            type="object" icon="gtk-ok" />
+                    
+                    <label colspan="2" string="Actualizar los Titulos que estan marcados para procesar"/>
+                    <button name="actualizar_titulos" string="Actualizar Titulos"
+                            type="object" icon="gtk-ok" />
+                    
+                    <label colspan="2" string="Actualizar los imagenes de los Titulos"/>
+                    <button name="actualizar_imagenes" string="Actualizar Imagenes"
+                            type="object" icon="gtk-ok" />
+                    
+                    <label colspan="2" string="Obtener ISBNs si no presentes localmente, de toda la base de datos"/>
+                    <button name="obtener_info_objeto_remoto_si_no_presente_titulos" string="Obtener ISBNs si no presentes"
+                            type="object" icon="gtk-ok" />
+                    
+                    <label colspan="2" string="Marcar todos los ISBNs en la base de datos para actualizar / reprocesar"/>
+                    <button name="marcar_todos_isbns_para_actualizar" string="Marcar ISBNs"
+                            type="object" icon="gtk-ok" />
+                    
+                    
+                    
+                    
+                    <separator colspan="4" string="Facturas"/>
+                    <label colspan="2" string="Obtener los registros de Facturas modificados/agregados ultimamente"/>
+                    <button name="obtener_info_objeto_remoto_facturas" string="Obtener Info. sobre Facturas"
+                            type="object" icon="gtk-ok" />
+                    
+                    <label colspan="2" string="Actualizar las Facturas que estan marcadas para procesar"/>
+                    <button name="actualizar_facturas" string="Actualizar Facturas"
+                            type="object" icon="gtk-ok" />
+                    
+                    <label colspan="2" string="Obtener registros de Facturas si no presentes localmente, de toda la base de datos"/>
+                    <button name="obtener_info_objeto_remoto_si_no_presente_facturas" string="Obtener registros si no presentes"
+                            type="object" icon="gtk-ok" />
+                    
+                    <label colspan="2"
+                           string="Marcar todos los registros de Facturas en la base de datos para actualizar / reprocesar"/>
+                    <button name="marcar_info_objeto_remoto_para_actualizar_facturas" string="Marcar registros"
+                            type="object" icon="gtk-ok" />
+                    
+                    
+                    
+                    
+                    <separator colspan="4" string="Packing"/>
+                    <label colspan="2" string="Obtener los registros de Packing modificados/agregados ultimamente"/>
+                    <button name="obtener_info_objeto_remoto_packing" string="Obtener Info. sobre Packing"
+                            type="object" icon="gtk-ok" />
+                    
+                    <label colspan="2" string="Actualizar los Packing que estan marcados para procesar"/>
+                    <button name="actualizar_packing" string="Actualizar Packing"
+                            type="object" icon="gtk-ok" />
+                    
+                    <label colspan="2" string="Obtener registros de Packing si no presentes localmente, de toda la base de datos"/>
+                    <button name="obtener_info_objeto_remoto_si_no_presente_packing" string="Obtener registros si no presentes"
+                            type="object" icon="gtk-ok" />
+                    
+                    <label colspan="2"
+                           string="Marcar todos los registros de Packing en la base de datos para actualizar / reprocesar"/>
+                    <button name="marcar_info_objeto_remoto_para_actualizar_packing" string="Marcar registros"
+                            type="object" icon="gtk-ok" />
+                    
+                    
+                    
+                    
+                    <separator colspan="4" string="Todo"/>
+                    <label colspan="2" string="Actualizar toda la base de datos lanzando un thread asincrono"/>
+                    <button name="actualizar_todo_threading" string="Iniciar Threading Actualización"
+                            type="object" icon="gtk-ok" />
+                    
+                    <separator colspan="4"/>
+                    <button icon='gtk-cancel' special="cancel" string="Salir" />
+                </form>
+            </field>
+        </record>
+        
+
+        <record id="action_panel_control_actualizacion_erp" model="ir.actions.act_window">
+            <field name="name">Panel de Control de Actualizaciones ERP</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">expresso_erp.panel_control_actualizacion</field>
+            <field name="view_id" ref="view_panel_control_actualizacion_erp_wizard"/>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        
+        <menuitem
+            name="Panel de Control de Actualizaciones ERP"
+            id="menu_panel_control_actualizacion_erp"
+            action="action_panel_control_actualizacion_erp"
+            parent="expresso_product_attributes.menu_administracion_expresso"
+            sequence="4"
+            icon="terp-tools"/>
+        
+        
+        
+        
+    </data>
+</openerp>

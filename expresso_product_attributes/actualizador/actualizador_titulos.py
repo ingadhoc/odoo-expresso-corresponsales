@@ -70,6 +70,7 @@ class Actualizador_Titulos(Actualizador_Generico):
         parametro = '<libro><FMo>' + year + month + day + hour + minute + second + '</FMo></libro>'
         # Se pide la lista de los nuevos ISBNs a través de los WS.
         try:
+            # new_isbns_xml = cliente.service.listTitulos(parametro).encode("iso-8859-1").replace('&','&amp;')
             new_isbns_xml = cliente.service.listTitulos(parametro).encode("iso-8859-1").replace('&','&amp;')
             new_isbns = objectify.fromstring(new_isbns_xml)
         except:

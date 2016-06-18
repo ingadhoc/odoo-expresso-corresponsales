@@ -19,23 +19,5 @@
 #
 ##############################################################################
 
+import panel_control_actualizacion
 
-{
-    'name': 'Gestion de conexión y actualización con el erp de expresso',
-    'version': '9.0.0.0.0',
-    'category': 'Tools',
-    'description': """
-    Gestion de conexión y actualización con el erp de expresso.
-    """,
-    'author': 'ADHOC',
-    'website': 'www.adhoc.com.ar',
-    'depends': ['expresso_product_attributes'],
-    'init_xml': [],
-    'data': [
-        'wizard/panel_control_actualizacion_view.xml',
-    ],
-    'demo': [],
-    'test': [],
-    'installable': True,
-    'active': False,
-}

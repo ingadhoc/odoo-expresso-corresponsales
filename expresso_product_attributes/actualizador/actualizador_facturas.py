@@ -55,11 +55,11 @@ class Actualizador_Facturas(Actualizador_Generico):
             info_corresponsal = info_corresponsal_obj.browse(cr, uid, info_corresponsal_id, context=context)
             try:
                 if from_date:
-                    facturas_xml = cliente.service.listFacturas(usuario=info_corresponsal.usuario, 
+                    facturas_xml = cliente.service.listFacturas(usuario=info_corresponsal.user,
                                                                 password=info_corresponsal.contrasenia,
                                                                 updated=from_date).encode("iso-8859-1").replace('&','&amp;')
                 else:
-                    facturas_xml = cliente.service.listFacturas(usuario=info_corresponsal.usuario, 
+                    facturas_xml = cliente.service.listFacturas(usuario=info_corresponsal.user,
                                                                 password=info_corresponsal.contrasenia).encode(
                                                                                 "iso-8859-1").replace('&','&amp;')
                 facturas = objectify.fromstring(facturas_xml)
@@ -142,7 +142,7 @@ class Actualizador_Facturas(Actualizador_Generico):
         info_corresponsal = info_corresponsal_obj.browse(cr, uid, sincronizacion.info_objeto_remoto_id.corresponsal.id, context=context)
         
         try:
-            factura_xml = cliente.service.getFactura(usuario=info_corresponsal.usuario,
+            factura_xml = cliente.service.getFactura(usuario=info_corresponsal.user,
                                                      password=info_corresponsal.contrasenia,
                                                      id=id_remoto).encode("iso-8859-1").replace('&','&amp;')
             factura = objectify.fromstring(factura_xml)
@@ -271,12 +271,12 @@ class Actualizador_Facturas(Actualizador_Generico):
         
         # partner_id
         partner_id = False
-        partner_ids = self.get_partner_ids_from_user_login(cr, uid, info_corresponsal.usuario, context=None)
+        partner_ids = self.get_partner_ids_from_user_login(cr, uid, info_corresponsal.user, context=None)
         if partner_ids:
             partner_id = partner_ids[0]
         if not partner_id:
             error = 'Tratando de guardar una factura [id_remoto: %s] no se encontro el res.partner %s asociado al usuario %s.' % \
-                    (str(id_remoto), factura.nombre.text, info_corresponsal.usuario)
+                    (str(id_remoto), factura.nombre.text, info_corresponsal.user)
             #_logger.error(error)
             now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             vals = {}
@@ -287,36 +287,37 @@ class Actualizador_Facturas(Actualizador_Generico):
             sinc_obj.write(cr, uid, sincronizacion_id, vals, context=context)
             return None
         # address_invoice_id
-        address_invoice_id = False
-        address_invoice_ids = self.pooler.get_pool(cr.dbname).get('res.partner.address').search(cr, uid,
-                                                        [('partner_id', '=', partner_id), ('street', '=', factura.direccion)],
-                                                        context=context)
-        if address_invoice_ids:
-            address_invoice_id = address_invoice_ids[0]
-        if not address_invoice_id:
-            address_invoice_ids = self.pooler.get_pool(cr.dbname).get('res.partner.address').search(cr, uid,
-                                                        [('partner_id', '=', partner_id)], context=context)
-            if address_invoice_ids:
-                address_invoice_id = address_invoice_ids[0]
-            if not address_invoice_id:
-                error = 'Tratando de guardar una factura [id_remoto: %s] no se encontro ningun res.partner.address del res.partner %s.' % (str(id_remoto), factura.nombre.text)
-                #_logger.error(error)
-                now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                vals = {}
-                vals['datetime'] = now
-                vals['procesado'] = True
-                vals['error_al_procesar'] = True
-                vals['mensaje_error'] = error
-                sinc_obj.write(cr, uid, sincronizacion_id, vals, context=context)
-                return None
+        # address_invoice_id = False
+        # address_invoice_ids = self.pooler.get_pool(cr.dbname).get('res.partner.address').search(cr, uid,
+        #                                                 [('partner_id', '=', partner_id), ('street', '=', factura.direccion)],
+        #                                                 context=context)
+        # if address_invoice_ids:
+        #     address_invoice_id = address_invoice_ids[0]
+        # if not address_invoice_id:
+        #     address_invoice_ids = self.pooler.get_pool(cr.dbname).get('res.partner.address').search(cr, uid,
+        #                                                 [('partner_id', '=', partner_id)], context=context)
+        #     if address_invoice_ids:
+        #         address_invoice_id = address_invoice_ids[0]
+        #     if not address_invoice_id:
+        #         error = 'Tratando de guardar una factura [id_remoto: %s] no se encontro ningun res.partner.address del res.partner %s.' % (str(id_remoto), factura.nombre.text)
+        #         #_logger.error(error)
+        #         now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        #         vals = {}
+        #         vals['datetime'] = now
+        #         vals['procesado'] = True
+        #         vals['error_al_procesar'] = True
+        #         vals['mensaje_error'] = error
+        #         sinc_obj.write(cr, uid, sincronizacion_id, vals, context=context)
+        #         return None
         # account_id
         account_id = False
         if partner_id:
             partner = self.pooler.get_pool(cr.dbname).get('res.partner').browse(cr, uid, partner_id, context=context)
-            account_id = partner.property_account_payable.id
+            if partner.property_account_payable_id:
+                account_id = partner.property_account_payable_id.id
         if not account_id:
-            error = 'Tratando de guardar una factura [id_remoto: %s] no se encontro el account.account (account_payable) ' + \
-                              'del res.partner %s.' % (str(id_remoto), partner.name)
+            error = 'Tratando de guardar una factura [id_remoto: %s] no se encontro el account.account (account_payable)' \
+                    ' del res.partner %s.' % (id_remoto, partner.name)
             #_logger.error(error)
             now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             vals = {}
@@ -334,7 +335,8 @@ class Actualizador_Facturas(Actualizador_Generico):
                 packing_id = packing_ids[0]
         # Persist account.invoice
         new_data = {'id_remoto': id_remoto, 'date_invoice': date_invoice, 'currency_id': currency_id,
-                    'address_invoice_id': address_invoice_id, 'partner_id': partner_id, 'account_id': account_id,
+                    # 'address_invoice_id': address_invoice_id, 'partner_id': partner_id, 'account_id': account_id,
+                    'partner_id': partner_id, 'account_id': account_id,
                     'partida': partida, 'aduana': aduana, 'bultos': bultos, 'pesoneto': pesoneto, 'pesobruto': pesobruto,
                     'origen': origen, 'packing_id': packing_id, 'muestras': muestras, 'numero_factura': numero_factura,
                     'tipo': tipo}
@@ -457,7 +459,7 @@ class Actualizador_Facturas(Actualizador_Generico):
         for info_corresponsal_id in info_corresponsal_ids:
             info_corresponsal = info_corresponsal_obj.browse(cr, uid, info_corresponsal_id, context=context)
             try:
-                facturas_xml = cliente.service.listFacturas(usuario=info_corresponsal.usuario, 
+                facturas_xml = cliente.service.listFacturas(usuario=info_corresponsal.user,
                                                             password=info_corresponsal.contrasenia).encode(
                                                                             "iso-8859-1").replace('&','&amp;')
                 facturas = objectify.fromstring(facturas_xml)

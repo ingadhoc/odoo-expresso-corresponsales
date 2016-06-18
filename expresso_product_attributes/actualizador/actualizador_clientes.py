@@ -50,7 +50,7 @@ class Actualizador_Clientes(Actualizador_Generico):
             info_corresponsal = info_corresponsal_obj.browse(cr, uid, info_corresponsal_id, context=context)
             
             try:
-                cliente_expresso_xml = cliente.service.getCliente(usuario=info_corresponsal.usuario,
+                cliente_expresso_xml = cliente.service.getCliente(usuario=info_corresponsal.user,
                                                         password=info_corresponsal.contrasenia).encode("iso-8859-1").replace('&','&amp;')
                 cliente_expresso = objectify.fromstring(cliente_expresso_xml)
             except:
@@ -116,7 +116,7 @@ class Actualizador_Clientes(Actualizador_Generico):
             groups_id.append((4, corresponsal_group_ids[0]))
         
         # Creación de res.partner
-        new_values_for_partner = {'id_remoto': id_remoto, 'name': name, 'active': active, 'vat': vat, 'comment': comment}
+        new_values_for_partner = {'remote_id': id_remoto, 'name': name, 'active': active, 'vat': vat, 'comment': comment}
         if info_corresponsal:
             new_values_for_partner['info_corresponsal_id'] = info_corresponsal.id
         
@@ -125,7 +125,7 @@ class Actualizador_Clientes(Actualizador_Generico):
         # En dicho caso no se va a actualizar
         if not stored_partner_ids:
             stored_partner_ids = self.pooler.get_pool(cr.dbname).get('res.partner').search(cr, uid,
-                                                                        [('id_remoto', '=', id_remoto),('active', '=', False)],
+                                                                        [('remote_id', '=', id_remoto),('active', '=', False)],
                                                                         context=context)
             if stored_partner_ids:
                 return False
@@ -141,21 +141,25 @@ class Actualizador_Clientes(Actualizador_Generico):
                                   'name': address_name, 'country_id': country_id}
         
         for stored_partner_id in stored_partner_ids:
-            new_values_for_address['partner_id'] = stored_partner_id
-            stored_address_ids = self.pooler.get_pool(cr.dbname).get('res.partner.address').search(cr, uid,
-                                                            [('partner_id', '=', stored_partner_id)], context=context)
-            
-            if not stored_address_ids:
-                self.pooler.get_pool(cr.dbname).get('res.partner.address').create(cr, uid, new_values_for_address, context=context)
-            else:
-                self.pooler.get_pool(cr.dbname).get('res.partner.address').write(cr, uid, stored_address_ids, new_values_for_address, context=context)
-        
+            # new_values_for_address['partner_id'] = stored_partner_id
+            # # stored_address_ids = self.pooler.get_pool(cr.dbname).get('res.partner.address').search(cr, uid,
+            # #                                                 [('partner_id', '=', stored_partner_id)], context=context)
+            # stored_address_ids = self.pooler.get_pool(cr.dbname).get('res.partner').search(cr, uid,
+            #                                                 [('partner_id', '=', stored_partner_id)], context=context)
+            #
+            # if not stored_address_ids:
+            #     # self.pooler.get_pool(cr.dbname).get('res.partner.address').create(cr, uid, new_values_for_address, context=context)
+            #     self.pooler.get_pool(cr.dbname).get('res.partner').create(cr, uid, new_values_for_address, context=context)
+            # else:
+            #     # self.pooler.get_pool(cr.dbname).get('res.partner.address').write(cr, uid, stored_address_ids, new_values_for_address, context=context)
+            self.pooler.get_pool(cr.dbname).get('res.partner').write(cr, uid, stored_partner_id, new_values_for_address, context=context)
+
         # Creación de res.user
         partner_id = False
         if stored_partner_ids:
             partner_id = stored_partner_ids[0]
         
-        new_values_for_user = {'id_remoto': id_remoto, 'login': login, 'new_password': new_password, 'name': name, 'active': active,
+        new_values_for_user = {'remote_id': id_remoto, 'login': login, 'new_password': new_password, 'name': name, 'active': active,
                                'partner_id': partner_id}
         if groups_id:
             new_values_for_user['groups_id'] = groups_id
@@ -164,7 +168,7 @@ class Actualizador_Clientes(Actualizador_Generico):
         # Si no hay ningún res.user con el id_remoto especificado, puede ser que este alamcenado con el campo active igual a False.
         usr_obj = self.pooler.get_pool(cr.dbname).get('res.users')
         if not stored_user_ids:
-            filtros = [('id_remoto', '=', id_remoto),('active', '=', False)]
+            filtros = [('remote_id', '=', id_remoto),('active', '=', False)]
             stored_user_ids = usr_obj.search(cr, uid, filtros, context=context)
             if stored_user_ids:
                 return False

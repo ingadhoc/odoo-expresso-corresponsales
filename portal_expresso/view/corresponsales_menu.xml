@@ -9,11 +9,17 @@
         <delete model="ir.ui.menu" id="portal_sale.portal_invoices" />
 
         <!-- Corresponsales -->
+        <menuitem name="Corresponsal"
+            id="portal_menu"
+            groups="base.group_portal,expresso_product_attributes.expresso_grupo_corresponsales,base.group_system"
+            web_icon="portal,static/description/icon.png"
+            sequence="15"/>
+
         <menuitem
             id="menu_corresponsales"
             name="Corresponsales"
-            groups="expresso_product_attributes.expresso_grupo_corresponsales"
-            parent="portal.portal_menu"
+            groups="expresso_product_attributes.expresso_grupo_corresponsales,base.group_system"
+            parent="portal_menu"
             sequence="1"/>
             <!--web_icon="images/menu_express.png"-->
             <!--web_icon_hover="images/menu_express_hover.png"/>-->

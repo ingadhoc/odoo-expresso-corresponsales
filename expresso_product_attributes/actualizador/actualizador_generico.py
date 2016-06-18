@@ -82,7 +82,7 @@ class Actualizador_Generico:
                 self.cliente = Client(self.url_ws)
             except:
                 e = traceback.format_exc()
-                _logger.error('Ocurrio un error al conectarse al web services %s. Error: %s', self.url_ws, e)
+                _logger.error(u'Ocurrio un error al conectarse al web services %s. Error: %s', self.url_ws, e)
                 return None
         return self.cliente
     

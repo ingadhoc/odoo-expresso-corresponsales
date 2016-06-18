@@ -19,26 +19,26 @@
 #
 ##############################################################################
 
-url_ciclos = 'http://www.expressows.tk/ExpressoWSP/WS_Ciclos.php?wsdl'
-url_colecciones = 'http://www.expressows.tk/ExpressoWSP/WS_Colecciones.php?wsdl'
-url_cursos = 'http://www.expressows.tk/ExpressoWSP/WS_Cursos.php?wsdl'
-url_encuadernaciones = 'http://www.expressows.tk/ExpressoWSP/WS_Encuadernaciones.php?wsdl'
-url_formas_envio = 'http://www.expressows.tk/ExpressoWSP/WS_FormasEnvio.php?wsdl'
-url_idiomas = 'http://www.expressows.tk/ExpressoWSP/WS_Idiomas.php?wsdl'
-url_proyectos = 'http://www.expressows.tk/ExpressoWSP/WS_Proyectos.php?wsdl'
-url_publicos = 'http://www.expressows.tk/ExpressoWSP/WS_Publicos.php?wsdl'
-url_situaciones = 'http://www.expressows.tk/ExpressoWSP/WS_Situaciones.php?wsdl'
-url_tipos = 'http://www.expressows.tk/ExpressoWSP/WS_Tipos.php?wsdl'
-url_valores = 'http://www.expressows.tk/ExpressoWSP/WS_Valores.php?wsdl'
-url_directores = 'http://www.expressows.tk/ExpressoWSP/WS_Directores.php?wsdl'
-url_materias = 'http://www.expressows.tk/ExpressoWSP/WS_Materias.php?wsdl'
-url_selecciones = 'http://www.expressows.tk/ExpressoWSP/WS_Selecciones.php?wsdl'
+url_ciclos = 'http://www.expressobibliografico.com/ExpressoWS/WS_Ciclos.php?wsdl'
+url_colecciones = 'http://www.expressobibliografico.com/ExpressoWS/WS_Colecciones.php?wsdl'
+url_cursos = 'http://www.expressobibliografico.com/ExpressoWS/WS_Cursos.php?wsdl'
+url_encuadernaciones = 'http://www.expressobibliografico.com/ExpressoWS/WS_Encuadernaciones.php?wsdl'
+url_formas_envio = 'http://www.expressobibliografico.com/ExpressoWS/WS_FormasEnvio.php?wsdl'
+url_idiomas = 'http://www.expressobibliografico.com/ExpressoWS/WS_Idiomas.php?wsdl'
+url_proyectos = 'http://www.expressobibliografico.com/ExpressoWS/WS_Proyectos.php?wsdl'
+url_publicos = 'http://www.expressobibliografico.com/ExpressoWS/WS_Publicos.php?wsdl'
+url_situaciones = 'http://www.expressobibliografico.com/ExpressoWS/WS_Situaciones.php?wsdl'
+url_tipos = 'http://www.expressobibliografico.com/ExpressoWS/WS_Tipos.php?wsdl'
+url_valores = 'http://www.expressobibliografico.com/ExpressoWS/WS_Valores.php?wsdl'
+url_directores = 'http://www.expressobibliografico.com/ExpressoWS/WS_Directores.php?wsdl'
+url_materias = 'http://www.expressobibliografico.com/ExpressoWS/WS_Materias.php?wsdl'
+url_selecciones = 'http://www.expressobibliografico.com/ExpressoWS/WS_Selecciones.php?wsdl'
 
-url_titulos = 'http://www.expressows.tk/ExpressoWSP/WS_Titulos.php?wsdl'
-url_clientes = 'http://www.expressows.tk/ExpressoWSP/WS_Clientes.php?wsdl'
-url_facturas = 'http://www.expressows.tk/ExpressoWSP/WS_Facturas.php?wsdl'
-url_packing = 'http://www.expressows.tk/ExpressoWSP/WS_Packing.php?wsdl'
-url_pedidos = 'http://www.expressows.tk/ExpressoWSP/WS_Pedidos.php?wsdl'
+url_titulos = 'http://www.expressobibliografico.com/ExpressoWS/WS_Titulos.php?wsdl'
+url_clientes = 'http://www.expressobibliografico.com/ExpressoWS/WS_Clientes.php?wsdl'
+url_facturas = 'http://www.expressobibliografico.com/ExpressoWS/WS_Facturas.php?wsdl'
+url_packing = 'http://www.expressobibliografico.com/ExpressoWS/WS_Packing.php?wsdl'
+url_pedidos = 'http://www.expressobibliografico.com/ExpressoWS/WS_Pedidos.php?wsdl'
 
 # Esto es después de cuantos registros marcados para procesados se muestra que se sigue trabajando en las funciones
 # en las que se marcan todos los registros de la base de datos para reprocesar.
@@ -78,9 +78,3 @@ invoice_frequency_print_working = 50
 packing_update_quantity = 200
 # Esto es después de cuantos objetos procesados se muestra que se sigue trabajando
 packing_frequency_print_working = 50
-        
-
-
-
-
-

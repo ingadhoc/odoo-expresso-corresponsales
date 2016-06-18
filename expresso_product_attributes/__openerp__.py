@@ -62,7 +62,7 @@ y que en 'Modo de vista' figure 'form,tree'.
             'view/partner_view.xml',
             'view/corresponsale_account_view.xml',
             # TODO borrar si no lo vamos a usar
-            # 'data/expresso_sync_info_data.xml',
+            'data/expresso_sync_info_data.xml',
             ],
     'demo': [],
     'test': [],

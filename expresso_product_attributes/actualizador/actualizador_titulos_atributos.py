@@ -232,7 +232,7 @@ class Actualizador_Titulos_Atributos_Idioma(Actualizador_Titulos_Atributos_Estan
             ids_objetos = self.get_ids_from_id_remoto(cr, uid, 'expresso.idioma', id_remoto, context)
             idioma_obj = self.pooler.get_pool(cr.dbname).get('expresso.idioma')
             if not ids_objetos:
-                vals = {'id_remoto': id_remoto, 'denomination': denominacion, 'idioma_amigo': idioma_amigo}
+                vals = {'remote_id': id_remoto, 'denomination': denominacion, 'idioma_amigo': idioma_amigo}
                 idioma_obj.create(cr, uid, vals, context=context)
             else:
                 vals = {'denomination': denominacion, 'idioma_amigo': idioma_amigo}
@@ -465,7 +465,7 @@ class Actualizador_Titulos_Atributos_Materia(Actualizador_Titulos_Atributos_Esta
             ids_objetos = self.get_ids_from_id_remoto(cr, uid, 'expresso.materia', id_remoto, context)
             materia_obj = self.pooler.get_pool(cr.dbname).get('expresso.materia')
             if not ids_objetos:
-                vals = {'id_remoto': id_remoto, 'denomination': denominacion, 'director_id': id_director, 'proyecto_id': id_proyecto}
+                vals = {'remote_id': id_remoto, 'denomination': denominacion, 'director_id': id_director, 'proyecto_id': id_proyecto}
                 materia_obj.create(cr, uid, vals, context=context)
             else:
                 vals = {'denomination': denominacion, 'director_id': id_director, 'proyecto_id': id_proyecto}
@@ -527,10 +527,10 @@ class Actualizador_Titulos_Atributos_Seleccion(Actualizador_Titulos_Atributos_Es
             ids_objetos = self.get_ids_from_id_remoto(cr, uid, 'expresso.seleccion', id_remoto, context)
             seleccion_obj = self.pooler.get_pool(cr.dbname).get('expresso.seleccion')
             if not ids_objetos:
-                vals = {'remote_id': id_remoto, 'denomination': denominacion, 'materia_id': id_materia, 'proyecto_id': id_proyecto}
+                vals = {'remote_id': id_remoto, 'denomination': denominacion, 'matter_id': id_materia, 'project_id': id_proyecto}
                 seleccion_obj.create(cr, uid, vals, context=context)
             else:
-                vals = {'denomination': denominacion, 'materia_id': id_materia, 'proyecto_id': id_proyecto}
+                vals = {'denomination': denominacion, 'matter_id': id_materia, 'project_id': id_proyecto}
                 seleccion_obj.write(cr, uid, ids_objetos, vals, context=context)
         _logger.info('expresso.seleccion actualizado correctamente')
         return True

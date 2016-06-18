@@ -19,24 +19,21 @@
 #
 ##############################################################################
 
-import time
-import sys
-import traceback
-
 import logging
-from suds.client import Client
-from lxml import objectify # http://lxml.de/objectify.html
+from openerp.osv import osv
+from lxml import objectify  # http://lxml.de/objectify.html
 
 from generic_updater import Actualizador_Generico
 import configuracion_actualizacion
 
 _logger = logging.getLogger(__name__)
 
+
 class Actualizador_Pedidos(Actualizador_Generico):
-    
+
     def __init__(self, pooler):
         Actualizador_Generico.__init__(self, pooler, configuracion_actualizacion.url_pedidos)
-    
+
     def check_order_lines(self, cr, uid, ids, context=None):
         order_obj = self.pooler.get_pool(cr.dbname).get('sale.order')
         
@@ -69,7 +66,7 @@ class Actualizador_Pedidos(Actualizador_Generico):
         for order in order_obj.browse(cr, uid, ids, context=context):
             if not order.partner_id.info_corresponsal_id:
                 titulo = u'Imposible procesar'
-                mensaje = u'No se tiene información del cliente %s sobre el usuario remoto para actualizar el pedido en el sistema.'
+                mensaje = u'No se tiene informacion del cliente %s sobre el usuario remoto para actualizar el pedido en el sistema.'
                 mensaje = mensaje % order.partner_id.name
                 raise osv.except_osv(titulo, mensaje)
             info_corresponsal = order.partner_id.info_corresponsal_id
@@ -79,7 +76,7 @@ class Actualizador_Pedidos(Actualizador_Generico):
             fecha = str(order.date_order)
             forma_envio = ''
             if order.forma_envio_id_corresponsales:
-                forma_envio = order.forma_envio_id_corresponsales.denomination
+                forma_envio = order.forma_envio_id_corresponsales.denominacion
             observaciones = ''
             if order.note:
                 observaciones = order.note
@@ -284,7 +281,7 @@ class Actualizador_Pedidos(Actualizador_Generico):
         if product_ids:
             product_id = product_ids[0]
             if len(product_ids) > 1:
-                _logger.warning('Hay más de un producto con ISBN %s. Los productos son: %s',
+                _logger.warning('Hay mas de un producto con ISBN %s. Los productos son: %s',
                                     str(linea.isbn), str([p.name for p in product_ids]))
         #TODO: remover esto
         if not product_id:
