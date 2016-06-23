@@ -55,7 +55,7 @@ class Facade_Actualizacion:
         conector_nickel.update_invoices(cr, uid, context=context)
         self.insertar_log_entry(cr, uid, 'n_facturas', informacion='',
                                 error_al_procesar=False, mensaje_error='', context=context)
-        _logger.info('Se finalizo la actualización de las Facturas de Nickel')
+        _logger.info(u'Se finalizó la actualización de las Facturas de Nickel')
 
     # Stock
     def update_stock(self, cr, uid, context=None):
@@ -65,11 +65,11 @@ class Facade_Actualizacion:
         conector_nickel.update_stock(cr, uid, context=context)
         self.insertar_log_entry(cr, uid, 'n_stock', informacion='',
                                 error_al_procesar=False, mensaje_error='', context=context)
-        _logger.info('Se finalizo la actualización del Stock desde Nickel')
+        _logger.info(u'Se finalizo la actualización del Stock desde Nickel')
 
     # Threading
     def update_todo_threading(self, cr, uid, context=None):
-        _logger.info('Iniciando actualización asincrona de Nickel.')
+        _logger.info(u'Iniciando actualización asincrona de Nickel.')
         thread = threading.Thread(
             target=self.threading_update_partners, args=(cr.dbname, uid, context))
         cr.commit()
@@ -103,4 +103,4 @@ class Facade_Actualizacion:
         self.update_stock(cr, uid, context=context)
         cr.commit()
         cr.close()
-        _logger.info('Terminada la actualización asincrona de Nickel.')
+        _logger.info(u'Terminada la actualización asincrona de Nickel.')

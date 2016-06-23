@@ -96,7 +96,7 @@ class Facade_Actualizacion:
                            'error_al_procesar': error_al_procesar,
                            'mensaje_error': mensaje_error}
 
-        log_entry_obj.create(cr, uid, sync_info_value,None)
+        # log_entry_obj.create(cr, uid, sync_info_value,None)
 
     '''
     Clientes
@@ -149,7 +149,7 @@ class Facade_Actualizacion:
             actualizador.actualizar_libros(cr, uid, context=context)
         except:
             e = traceback.format_exc()
-            _logger.error('Ocurrio un error actualizando los Titulos. Error: %s', e)
+            _logger.error(u'Ocurrio un error actualizando los Titulos. Error: %s', e)
             error_al_procesar = True
             mensaje_error = e
         self.insertar_log_entry(cr, uid, 'titulos', informacion='', error_al_procesar=error_al_procesar,
@@ -161,7 +161,7 @@ class Facade_Actualizacion:
             actualizador.actualizar_imagenes(cr, uid, context=context)
         except:
             e = traceback.format_exc()
-            _logger.error('Ocurrio un error actualizando las imagenes de los Titulos. Error: %s', e)
+            _logger.error(u'Ocurrio un error actualizando las imagenes de los Titulos. Error: %s', e)
 
     def obtener_info_objeto_remoto_si_no_presente_titulos(self, cr, uid, informacion='', context=None):
         actualizador = Actualizador_Titulos(self.pooler)
@@ -242,7 +242,7 @@ class Facade_Actualizacion:
             actualizador.actualizar_facturas(cr, uid, context=context)
         except:
             e = traceback.format_exc()
-            _logger.error('Ocurrio un error actualizando las Facturas. Error: %s', e)
+            _logger.error(u'Ocurrio un error actualizando las Facturas. Error: %s', e)
             error_al_procesar = True
             mensaje_error = e
         self.insertar_log_entry(cr, uid, 'facturas', informacion='', error_al_procesar=error_al_procesar,

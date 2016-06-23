@@ -242,17 +242,17 @@ class Actualizador_Packing(Actualizador_Generico):
         if partner_ids:
             partner_id = partner_ids[0]
         # address_id
-        address_id = False
-        if partner_id:
-            address_ids = self.pooler.get_pool(cr.dbname).get('res.partner.address').search(cr, uid,
-                                                        [('partner_id', '=', partner_id)], context=context)
-            if address_ids:
-                address_id = address_ids[0]
+        # address_id = False
+        # if partner_id:
+        #     address_ids = self.pooler.get_pool(cr.dbname).get('res.partner.address').search(cr, uid,
+        #                                                 [('partner_id', '=', partner_id)], context=context)
+        #     if address_ids:
+        #         address_id = address_ids[0]
         # Save the new values or create a new stock.tracking
-        new_data = {'id_remoto': id_remoto, 'date': fecha,
+        new_data = {'remote_id': id_remoto, 'date': fecha,
                     'number_of_packages': number_of_packages,
-                    'partner_id': partner_id, 'address_id': address_id,
-                    'imprimirpeso': imprimirpeso}
+                    # 'partner_id': partner_id, 'address_id': address_id,
+                    'partner_id': partner_id, 'imprimirpeso': imprimirpeso}
         stored_packing_ids = self.get_ids_from_id_remoto(cr, uid, 'expresso.packing', id_remoto, context=None)
         if not stored_packing_ids:
             stored_packing_ids = [picking_obj.create(cr, uid, new_data)]
@@ -283,7 +283,7 @@ class Actualizador_Packing(Actualizador_Generico):
         peso = caja.peso
         
         # Save the new values or create a new stock.tracking
-        new_values = {'name': denominacion, 'id_remoto': id_remoto,
+        new_values = {'name': denominacion, 'remote_id': id_remoto,
                       'weight': peso, 'packing_id': packing.id}
         
         stored_caja_ids = self.get_ids_from_id_remoto(cr, uid, 'expresso.packing.box', id_remoto, context=None)
@@ -329,11 +329,11 @@ class Actualizador_Packing(Actualizador_Generico):
             name = 'Producto no encontrado (ISBN: ' + str(linea.isbn) + ')'
             
         # Save the new values or create a new stock.move
-        new_values = {'name': name, 'id_remoto': id_remoto,
+        new_values = {'name': name, 'remote_id': id_remoto,
                       'product_id': product_id, 'product_qty': cantidad,
                       'weight': peso, 'box_id': box.id,}
         
-        stored_detail_id = packing_detail_obj.search(cr, uid, [('id_remoto', '=', id_remoto)], context=context)
+        stored_detail_id = packing_detail_obj.search(cr, uid, [('remote_id', '=', id_remoto)], context=context)
         
         if not stored_detail_id:
             stored_detail_id = packing_detail_obj.create(cr, uid, new_values)

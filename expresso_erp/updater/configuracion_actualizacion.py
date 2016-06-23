@@ -56,14 +56,14 @@ images_update_quantity = 250
 # Esto es después de cuantas imagenes procesadas se muestra que se sigue trabajando
 images_frequency_print_working = 50
 # Momento por defaults para traer los libros si no hay ningún registro
-default_year = '2012'
+default_year = '2016'
 default_month = '01'
 default_day = '01'
 default_hour = '01'
 default_minute = '00'
 default_second = '00'
 # Momento por defaults para traer los libros con la función obtener_info_objeto_remoto_si_no_presente
-default_date_isbn_obtener_si_no_presente = '20120401010000'
+default_date_isbn_obtener_si_no_presente = '20160401010000'
 
 
 ''' Facturas '''
