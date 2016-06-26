@@ -57,7 +57,7 @@ y que en 'Modo de vista' figure 'form,tree'.
             'wizard/repedir_pendiente_view.xml',
             'wizard/generar_pendiente_view.xml',
             'wizard/pedir_multi_titulos_view.xml',
-            'wizard/panel_control_actualizacion_view.xml',
+            # 'wizard/panel_control_actualizacion_view.xml',
             'wizard/multi_marcar_para_procesar_view.xml',
             'view/partner_view.xml',
             'view/corresponsale_account_view.xml',

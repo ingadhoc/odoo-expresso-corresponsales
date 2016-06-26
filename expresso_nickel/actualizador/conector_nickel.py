@@ -26,6 +26,7 @@ class Conector_Nickel:
         db_password = pooler.get_pool(cr.dbname).get('ir.config_parameter').get_param(cr, uid, 'db_password')
         db_name = pooler.get_pool(cr.dbname).get('ir.config_parameter').get_param(cr, uid, 'db_name')
 
+
         # db_host = self.pool['ir.config_parameter'].get_param('db_host')
         # db_user = self.pool['ir.config_parameter'].get_param('db_user')
         # db_password = self.pool['ir.config_parameter'].get_param('db_password')
