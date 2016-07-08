@@ -291,18 +291,6 @@ class product(models.Model):
         self.action_pendiente_state_repedido()
         return lines
 
-    # @api.multi
-    # def action_action_pendiente_state_repedido(self):
-    #     return self.write({'state': 'activo'})
-    #
-    # @api.multi
-    # def action_pendiente_state_cancelado(self):
-    #     return self.write({'state': 'cancelado'})
-    #
-    # @api.multi
-    # def action_pendiente_state_repedido(self):
-    #     return self.write({'state': 'repedido'})
-
     @api.one
     def action_action_pendiente_state_repedido(self):
         self.state = 'activo'
