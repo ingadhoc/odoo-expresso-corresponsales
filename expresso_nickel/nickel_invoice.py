@@ -54,7 +54,7 @@ class nickel_invoice(models.Model):
 
     def get_invoice_asociados(self, cr, uid, ids, context=None):
         invoice_ids = []
-        for nickel_invoice in self.browse(cr, uid, ids, context=context):
+        for nickel_invoice in self.browse(cr, uid, ids, None):
             if nickel_invoice.invoice_id:
                 invoice_ids.append(nickel_invoice.invoice_id.id)
         return invoice_ids

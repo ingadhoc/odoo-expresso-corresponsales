@@ -18,29 +18,26 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-import time
-import datetime
 import traceback
 
 import logging
-from suds.client import Client
-from lxml import objectify # http://lxml.de/objectify.html
+from lxml import objectify  # http://lxml.de/objectify.html
 
 from generic_updater import Actualizador_Generico
 import configuracion_actualizacion
 
 _logger = logging.getLogger(__name__)
 
+
 class Actualizador_Titulos_Atributos_Estandard(Actualizador_Generico):
-    
+
     def __init__(self, pooler, url_ws):
         Actualizador_Generico.__init__(self, pooler, url_ws)
         
     # Funciones para tratamiento de objetos estandar
     def procesar_xml_estandar(self, cr, uid,  clase, xml, context=None):
         '''
-        A partir de un xml que contiene los tags <id/> y <denomination/>, crea un objeto de la clase parametro con
+        A partir de un xml que contiene los tags <id/> y <denominacion/>, crea un objeto de la clase parametro con
         estos atributos.
         '''
         try:
@@ -51,23 +48,23 @@ class Actualizador_Titulos_Atributos_Estandard(Actualizador_Generico):
             return False
         
         if hasattr(registros, 'error'):
-            _logger.info('Ningún %s para procesar', clase)
+            _logger.info('Ningun %s para procesar', clase)
             return False
         for registro in registros.iterchildren():
             id_remoto = registro.id
-            denomination = registro.denomination.text
+            denominacion = registro.denominacion.text
             
             ids_objetos = []
             if id_remoto:
                 ids_objetos = self.get_ids_from_id_remoto(cr, uid, clase, id_remoto, context=context)
-            elif denomination:
-                ids_objetos = self.get_ids_from_denomination(cr, uid, clase, denomination, context=context)
+            elif denominacion:
+                ids_objetos = self.get_ids_from_denominacion(cr, uid, clase, denominacion, context=context)
             
             class_obj = self.pooler.get_pool(cr.dbname).get(clase)
             if not ids_objetos:
-                class_obj.create(cr, uid, {'id_remoto': id_remoto, 'denomination': denomination })
+                class_obj.create(cr, uid, {'remote_id': id_remoto, 'denomination': denominacion })
             else:
-                class_obj.write(cr, uid, ids_objetos, {'denomination': denomination })
+                class_obj.write(cr, uid, ids_objetos, {'denomination': denominacion })
         _logger.info('%s actualizado correctamente', clase)
         return True
 
@@ -215,7 +212,7 @@ class Actualizador_Titulos_Atributos_Idioma(Actualizador_Titulos_Atributos_Estan
             return False
         
         if hasattr(idiomas, 'error'):
-            _logger.info('Ningún expresso.idioma para procesar')
+            _logger.info('Ningun expresso.idioma para procesar')
             return False
         for idioma in idiomas.iterchildren():
             id_remoto = idioma.id
@@ -227,7 +224,7 @@ class Actualizador_Titulos_Atributos_Idioma(Actualizador_Titulos_Atributos_Estan
                 _logger.error('Ocurrio un error al conectarse al web services %s. Error: %s', self.url_ws, e)
                 continue
             
-            denomination = idioma.denomination.text
+            denominacion = idioma.denominacion.text
             idioma_amigo = False
             if idioma.amigo and idioma.amigo.text == 'S':
                 idioma_amigo = True
@@ -235,10 +232,10 @@ class Actualizador_Titulos_Atributos_Idioma(Actualizador_Titulos_Atributos_Estan
             ids_objetos = self.get_ids_from_id_remoto(cr, uid, 'expresso.idioma', id_remoto, context)
             idioma_obj = self.pooler.get_pool(cr.dbname).get('expresso.idioma')
             if not ids_objetos:
-                vals = {'id_remoto': id_remoto, 'denomination': denomination, 'idioma_amigo': idioma_amigo}
+                vals = {'remote_id': id_remoto, 'denomination': denominacion, 'idioma_amigo': idioma_amigo}
                 idioma_obj.create(cr, uid, vals, context=context)
             else:
-                vals = {'denomination': denomination, 'idioma_amigo': idioma_amigo}
+                vals = {'denomination': denominacion, 'idioma_amigo': idioma_amigo}
                 idioma_obj.write(cr, uid, ids_objetos, vals, context=context)
         _logger.info('expresso.idioma actualizado correctamente')
         return True
@@ -315,7 +312,7 @@ class Actualizador_Titulos_Atributos_Situacion(Actualizador_Titulos_Atributos_Es
             return False
         
         if hasattr(situaciones, 'error'):
-            _logger.info('Ningún expresso.situacion para procesar')
+            _logger.info('Ningun expresso.situacion para procesar')
             return False
         for situacion_it in situaciones.iterchildren():
             id_remoto = situacion_it.id
@@ -327,7 +324,7 @@ class Actualizador_Titulos_Atributos_Situacion(Actualizador_Titulos_Atributos_Es
                 _logger.error('Ocurrio un error al conectarse al web services %s. Error: %s', self.url_ws, e)
                 continue
             
-            denomination = situacion.denomination.text
+            denominacion = situacion.denominacion.text
             permite_pedido = False
             if situacion.admitepedidos and situacion.admitepedidos.text == 'S':
                 permite_pedido = True
@@ -335,10 +332,10 @@ class Actualizador_Titulos_Atributos_Situacion(Actualizador_Titulos_Atributos_Es
             ids_situacion = self.get_ids_from_id_remoto(cr, uid, 'expresso.situacion', id_remoto, context)
             situacion_obj = self.pooler.get_pool(cr.dbname).get('expresso.situacion')
             if not ids_situacion:
-                vals = {'id_remoto': id_remoto, 'denomination': denomination, 'permite_pedido': permite_pedido}
+                vals = {'remote_id': id_remoto, 'denomination': denominacion, 'permite_pedido': permite_pedido}
                 situacion_obj.create(cr, uid, vals, context=context)
             else:
-                vals = {'denomination': denomination, 'permite_pedido': permite_pedido}
+                vals = {'denomination': denominacion, 'permite_pedido': permite_pedido}
                 situacion_obj.write(cr, uid, ids_situacion, vals, context=context)
         _logger.info('expresso.situacion actualizado correctamente')
         return True
@@ -439,7 +436,7 @@ class Actualizador_Titulos_Atributos_Materia(Actualizador_Titulos_Atributos_Esta
             return False
         
         if hasattr(materias, 'error'):
-            _logger.info('Ningún expresso.materia para procesar')
+            _logger.info('Ningun expresso.materia para procesar')
             return False
         for materia_it in materias.iterchildren():
             id_remoto = materia_it.id
@@ -451,7 +448,7 @@ class Actualizador_Titulos_Atributos_Materia(Actualizador_Titulos_Atributos_Esta
                 _logger.error('Ocurrio un error al conectarse al web services %s. Error: %s', self.url_ws, e)
                 continue
             
-            denomination = materia.denomination.text
+            denominacion = materia.denominacion.text
             
             id_remoto_director = materia.IDdirector.text
             ids_director = self.get_ids_from_id_remoto(cr, uid, 'expresso.director', id_remoto_director, context=context)
@@ -468,10 +465,10 @@ class Actualizador_Titulos_Atributos_Materia(Actualizador_Titulos_Atributos_Esta
             ids_objetos = self.get_ids_from_id_remoto(cr, uid, 'expresso.materia', id_remoto, context)
             materia_obj = self.pooler.get_pool(cr.dbname).get('expresso.materia')
             if not ids_objetos:
-                vals = {'id_remoto': id_remoto, 'denomination': denomination, 'director_id': id_director, 'proyecto_id': id_proyecto}
+                vals = {'remote_id': id_remoto, 'denomination': denominacion, 'director_id': id_director, 'proyecto_id': id_proyecto}
                 materia_obj.create(cr, uid, vals, context=context)
             else:
-                vals = {'denomination': denomination, 'director_id': id_director, 'proyecto_id': id_proyecto}
+                vals = {'denomination': denominacion, 'director_id': id_director, 'proyecto_id': id_proyecto}
                 materia_obj.write(cr, uid, ids_objetos, vals, context=context)
         
         _logger.info('expresso.materia actualizado correctamente')
@@ -501,7 +498,7 @@ class Actualizador_Titulos_Atributos_Seleccion(Actualizador_Titulos_Atributos_Es
             return False
         
         if hasattr(selecciones, 'error'):
-            _logger.info('Ningún expresso.seleccion para procesar')
+            _logger.info('Ningun expresso.seleccion para procesar')
             return False
         for seleccion_it in selecciones.iterchildren():
             id_remoto = seleccion_it.id
@@ -513,13 +510,13 @@ class Actualizador_Titulos_Atributos_Seleccion(Actualizador_Titulos_Atributos_Es
                 _logger.error('Ocurrio un error al conectarse al web services %s. Error: %s', self.url_ws, e)
                 continue
             
-            denomination = seleccion.denomination.text
+            denominacion = seleccion.denominacion.text
             
             id_remoto_materia = seleccion.IDmateria.text
             ids_materia = self.get_ids_from_id_remoto(cr, uid, 'expresso.materia', id_remoto_materia, context=context)
-            matter_id = False
+            id_materia = False
             if ids_materia:
-                matter_id = ids_materia[0]
+                id_materia = ids_materia[0]
             
             id_remoto_proyecto = seleccion.IDproyecto.text
             ids_proyecto = self.get_ids_from_id_remoto(cr, uid, 'expresso.proyecto', id_remoto_proyecto, context=context)
@@ -530,10 +527,10 @@ class Actualizador_Titulos_Atributos_Seleccion(Actualizador_Titulos_Atributos_Es
             ids_objetos = self.get_ids_from_id_remoto(cr, uid, 'expresso.seleccion', id_remoto, context)
             seleccion_obj = self.pooler.get_pool(cr.dbname).get('expresso.seleccion')
             if not ids_objetos:
-                vals = {'id_remoto': id_remoto, 'denomination': denomination, 'matter_id': matter_id, 'proyecto_id': id_proyecto}
+                vals = {'remote_id': id_remoto, 'denomination': denominacion, 'matter_id': id_materia, 'project_id': id_proyecto}
                 seleccion_obj.create(cr, uid, vals, context=context)
             else:
-                vals = {'denomination': denomination, 'matter_id': matter_id, 'proyecto_id': id_proyecto}
+                vals = {'denomination': denominacion, 'matter_id': id_materia, 'project_id': id_proyecto}
                 seleccion_obj.write(cr, uid, ids_objetos, vals, context=context)
         _logger.info('expresso.seleccion actualizado correctamente')
         return True

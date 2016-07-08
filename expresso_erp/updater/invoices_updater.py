@@ -1,19 +1,38 @@
 # -*- coding: utf-8 -*-
-
+##############################################################################
+#
+#    OpenERP, Open Source Management Solution
+#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
 import time
 import datetime
 import traceback
 
 import logging
-from lxml import objectify # http://lxml.de/objectify.html
+from lxml import objectify  # http://lxml.de/objectify.html
 
 from generic_updater import Actualizador_Generico
 import configuracion_actualizacion
 
 _logger = logging.getLogger(__name__)
 
+
 class Actualizador_Facturas(Actualizador_Generico):
-    
+
     def __init__(self, pooler):
         Actualizador_Generico.__init__(self, pooler, configuracion_actualizacion.url_facturas)
         
@@ -36,11 +55,11 @@ class Actualizador_Facturas(Actualizador_Generico):
             info_corresponsal = info_corresponsal_obj.browse(cr, uid, info_corresponsal_id, context=context)
             try:
                 if from_date:
-                    facturas_xml = cliente.service.listFacturas(usuario=info_corresponsal.usuario, 
+                    facturas_xml = cliente.service.listFacturas(usuario=info_corresponsal.user,
                                                                 password=info_corresponsal.contrasenia,
                                                                 updated=from_date).encode("iso-8859-1").replace('&','&amp;')
                 else:
-                    facturas_xml = cliente.service.listFacturas(usuario=info_corresponsal.usuario, 
+                    facturas_xml = cliente.service.listFacturas(usuario=info_corresponsal.user,
                                                                 password=info_corresponsal.contrasenia).encode(
                                                                                 "iso-8859-1").replace('&','&amp;')
                 facturas = objectify.fromstring(facturas_xml)
@@ -60,13 +79,13 @@ class Actualizador_Facturas(Actualizador_Generico):
                 info_objeto_obj = self.pooler.get_pool(cr.dbname).get('expresso.info_objeto_remoto')
                 sinc_obj = self.pooler.get_pool(cr.dbname).get('expresso.sincronizacion_objeto_remoto')
                 
-                filtros = [('id_remoto', '=', id_remoto), ('class', '=', 'account.invoice')]
+                filtros = [('id_remoto', '=', id_remoto), ('clase', '=', 'account.invoice')]
                 info_objeto_ids = info_objeto_obj.search(cr, uid, filtros, context=context)
                 
                 if not info_objeto_ids:
                     vals = {}
                     vals['id_remoto'] = id_remoto
-                    vals['class'] = 'account.invoice'
+                    vals['clase'] = 'account.invoice'
                     vals['corresponsal'] = info_corresponsal.id
                     info_objeto_ids = info_objeto_obj.create(cr, uid, vals, context=context)
                 else:
@@ -123,7 +142,7 @@ class Actualizador_Facturas(Actualizador_Generico):
         info_corresponsal = info_corresponsal_obj.browse(cr, uid, sincronizacion.info_objeto_remoto_id.corresponsal.id, context=context)
         
         try:
-            factura_xml = cliente.service.getFactura(usuario=info_corresponsal.usuario,
+            factura_xml = cliente.service.getFactura(usuario=info_corresponsal.user,
                                                      password=info_corresponsal.contrasenia,
                                                      id=id_remoto).encode("iso-8859-1").replace('&','&amp;')
             factura = objectify.fromstring(factura_xml)
@@ -171,7 +190,7 @@ class Actualizador_Facturas(Actualizador_Generico):
             return None
         
         sinc_obj = self.pooler.get_pool(cr.dbname).get('expresso.sincronizacion_objeto_remoto')
-        filtros = [('procesado', '=', False), ('info_objeto_remoto_id.class', '=', 'account.invoice')]
+        filtros = [('procesado', '=', False), ('info_objeto_remoto_id.clase', '=', 'account.invoice')]
         sinc_a_procesar = sinc_obj.search(cr, uid, filtros, context=context)
         
         # Cantidad de facturas procesadas correctamente
@@ -202,17 +221,17 @@ class Actualizador_Facturas(Actualizador_Generico):
         sinc_obj = self.pooler.get_pool(cr.dbname).get('expresso.sincronizacion_objeto_remoto')
         
         id_remoto = factura.id
-        departure = factura.departure.text
+        partida = factura.partida.text
         aduana = factura.aduana.text
         bultos = factura.bultos.text
-        net_weight = factura.net_weight.text
-        gross_weight = factura.gross_weight.text
-        origin = factura.origin.text
-        samples = False
-        if factura.samples and factura.samples.text == 'Y':
-            samples = True
+        pesoneto = factura.pesoneto.text
+        pesobruto = factura.pesobruto.text
+        origen = factura.origen.text
+        muestras = False
+        if factura.muestras and factura.muestras.text == 'Y':
+            muestras = True
         total = factura.total
-        invoice_number = factura.numero.text
+        numero_factura = factura.numero.text
         tipo = factura.tipo.text
         
         # date_invoice
@@ -252,12 +271,12 @@ class Actualizador_Facturas(Actualizador_Generico):
         
         # partner_id
         partner_id = False
-        partner_ids = self.get_partner_ids_from_user_login(cr, uid, info_corresponsal.usuario, context=None)
+        partner_ids = self.get_partner_ids_from_user_login(cr, uid, info_corresponsal.user, context=None)
         if partner_ids:
             partner_id = partner_ids[0]
         if not partner_id:
             error = 'Tratando de guardar una factura [id_remoto: %s] no se encontro el res.partner %s asociado al usuario %s.' % \
-                    (str(id_remoto), factura.nombre.text, info_corresponsal.usuario)
+                    (str(id_remoto), factura.nombre.text, info_corresponsal.user)
             #_logger.error(error)
             now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             vals = {}
@@ -268,36 +287,37 @@ class Actualizador_Facturas(Actualizador_Generico):
             sinc_obj.write(cr, uid, sincronizacion_id, vals, context=context)
             return None
         # address_invoice_id
-        address_invoice_id = False
-        address_invoice_ids = self.pooler.get_pool(cr.dbname).get('res.partner.address').search(cr, uid,
-                                                        [('partner_id', '=', partner_id), ('street', '=', factura.direccion)],
-                                                        context=context)
-        if address_invoice_ids:
-            address_invoice_id = address_invoice_ids[0]
-        if not address_invoice_id:
-            address_invoice_ids = self.pooler.get_pool(cr.dbname).get('res.partner.address').search(cr, uid,
-                                                        [('partner_id', '=', partner_id)], context=context)
-            if address_invoice_ids:
-                address_invoice_id = address_invoice_ids[0]
-            if not address_invoice_id:
-                error = 'Tratando de guardar una factura [id_remoto: %s] no se encontro ningún res.partner.address del res.partner %s.' % (str(id_remoto), factura.nombre.text)
-                #_logger.error(error)
-                now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                vals = {}
-                vals['datetime'] = now
-                vals['procesado'] = True
-                vals['error_al_procesar'] = True
-                vals['mensaje_error'] = error
-                sinc_obj.write(cr, uid, sincronizacion_id, vals, context=context)
-                return None
+        # address_invoice_id = False
+        # address_invoice_ids = self.pooler.get_pool(cr.dbname).get('res.partner.address').search(cr, uid,
+        #                                                 [('partner_id', '=', partner_id), ('street', '=', factura.direccion)],
+        #                                                 context=context)
+        # if address_invoice_ids:
+        #     address_invoice_id = address_invoice_ids[0]
+        # if not address_invoice_id:
+        #     address_invoice_ids = self.pooler.get_pool(cr.dbname).get('res.partner.address').search(cr, uid,
+        #                                                 [('partner_id', '=', partner_id)], context=context)
+        #     if address_invoice_ids:
+        #         address_invoice_id = address_invoice_ids[0]
+        #     if not address_invoice_id:
+        #         error = 'Tratando de guardar una factura [id_remoto: %s] no se encontro ningun res.partner.address del res.partner %s.' % (str(id_remoto), factura.nombre.text)
+        #         #_logger.error(error)
+        #         now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        #         vals = {}
+        #         vals['datetime'] = now
+        #         vals['procesado'] = True
+        #         vals['error_al_procesar'] = True
+        #         vals['mensaje_error'] = error
+        #         sinc_obj.write(cr, uid, sincronizacion_id, vals, context=context)
+        #         return None
         # account_id
         account_id = False
         if partner_id:
             partner = self.pooler.get_pool(cr.dbname).get('res.partner').browse(cr, uid, partner_id, context=context)
-            account_id = partner.property_account_payable.id
+            if partner.property_account_payable_id:
+                account_id = partner.property_account_payable_id.id
         if not account_id:
-            error = 'Tratando de guardar una factura [id_remoto: %s] no se encontro el account.account (account_payable) ' + \
-                              'del res.partner %s.' % (str(id_remoto), partner.name)
+            error = 'Tratando de guardar una factura [id_remoto: %s] no se encontro el account.account (account_payable)' \
+                    ' del res.partner %s.' % (id_remoto, partner.name)
             #_logger.error(error)
             now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             vals = {}
@@ -314,10 +334,11 @@ class Actualizador_Facturas(Actualizador_Generico):
             if packing_ids:
                 packing_id = packing_ids[0]
         # Persist account.invoice
-        new_data = {'id_remoto': id_remoto, 'date_invoice': date_invoice, 'currency_id': currency_id,
-                    'address_invoice_id': address_invoice_id, 'partner_id': partner_id, 'account_id': account_id,
-                    'departure': departure, 'aduana': aduana, 'bultos': bultos, 'net_weight': net_weight, 'gross_weight': gross_weight,
-                    'origin': origin, 'packing_id': packing_id, 'samples': samples, 'invoice_number': invoice_number,
+        new_data = {'remote_id': id_remoto, 'date_invoice': date_invoice, 'currency_id': currency_id,
+                    # 'address_invoice_id': address_invoice_id, 'partner_id': partner_id, 'account_id': account_id,
+                    'partner_id': partner_id, 'account_id': account_id,
+                    'partida': partida, 'aduana': aduana, 'bultos': bultos, 'pesoneto': pesoneto, 'pesobruto': pesobruto,
+                    'origen': origen, 'packing_id': packing_id, 'muestras': muestras, 'numero_factura': numero_factura,
                     'tipo': tipo}
         stored_invoice_ids = self.get_ids_from_id_remoto(cr, uid, 'account.invoice', id_remoto, context=context)
         if not stored_invoice_ids:
@@ -358,7 +379,7 @@ class Actualizador_Facturas(Actualizador_Generico):
         if product_ids:
             product_id = product_ids[0]
             if len(product_ids) > 1:
-                _logger.warning('Hay más de un producto con ISBN %s. Los productos son: %s',
+                _logger.warning('Hay mas de un producto con ISBN %s. Los productos son: %s',
                                     str(linea.isbn), str([p.name for p in product_ids]))
         
         if not product_id:
@@ -438,7 +459,7 @@ class Actualizador_Facturas(Actualizador_Generico):
         for info_corresponsal_id in info_corresponsal_ids:
             info_corresponsal = info_corresponsal_obj.browse(cr, uid, info_corresponsal_id, context=context)
             try:
-                facturas_xml = cliente.service.listFacturas(usuario=info_corresponsal.usuario, 
+                facturas_xml = cliente.service.listFacturas(usuario=info_corresponsal.user,
                                                             password=info_corresponsal.contrasenia).encode(
                                                                             "iso-8859-1").replace('&','&amp;')
                 facturas = objectify.fromstring(facturas_xml)
@@ -457,13 +478,13 @@ class Actualizador_Facturas(Actualizador_Generico):
                 info_objeto_obj = self.pooler.get_pool(cr.dbname).get('expresso.info_objeto_remoto')
                 sinc_obj = self.pooler.get_pool(cr.dbname).get('expresso.sincronizacion_objeto_remoto')
                 
-                filtros = [('id_remoto', '=', id_remoto), ('class', '=', 'account.invoice')]
+                filtros = [('id_remoto', '=', id_remoto), ('clase', '=', 'account.invoice')]
                 info_objeto_ids = info_objeto_obj.search(cr, uid, filtros, context=context)
                 
                 if not info_objeto_ids:
                     vals = {}
                     vals['id_remoto'] = id_remoto
-                    vals['class'] = 'account.invoice'
+                    vals['clase'] = 'account.invoice'
                     vals['corresponsal'] = info_corresponsal.id
                     info_objeto_ids = info_objeto_obj.create(cr, uid, vals, context=context)
                     
@@ -496,7 +517,7 @@ class Actualizador_Facturas(Actualizador_Generico):
         info_objeto_obj = self.pooler.get_pool(cr.dbname).get('expresso.info_objeto_remoto')
         sinc_obj = self.pooler.get_pool(cr.dbname).get('expresso.sincronizacion_objeto_remoto')
         
-        all_info_objeto_remoto_ids = info_objeto_obj.search(cr, uid, [('class', '=', 'account.invoice')], context=context)
+        all_info_objeto_remoto_ids = info_objeto_obj.search(cr, uid, [('clase', '=', 'account.invoice')], context=context)
         
         registro_agregados = 0
         iteracion = 0

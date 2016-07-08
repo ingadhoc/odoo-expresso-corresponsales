@@ -19,26 +19,26 @@
 #
 ##############################################################################
 
-url_ciclos = 'http://www.pydp.net/ExpressoWSP/WS_Ciclos.php?wsdl'
-url_colecciones = 'http://www.pydp.net/ExpressoWSP/WS_Colecciones.php?wsdl'
-url_cursos = 'http://www.pydp.net/ExpressoWSP/WS_Cursos.php?wsdl'
-url_encuadernaciones = 'http://www.pydp.net/ExpressoWSP/WS_Encuadernaciones.php?wsdl'
-url_formas_envio = 'http://www.pydp.net/ExpressoWSP/WS_FormasEnvio.php?wsdl'
-url_idiomas = 'http://www.pydp.net/ExpressoWSP/WS_Idiomas.php?wsdl'
-url_proyectos = 'http://www.pydp.net/ExpressoWSP/WS_Proyectos.php?wsdl'
-url_publicos = 'http://www.pydp.net/ExpressoWSP/WS_Publicos.php?wsdl'
-url_situaciones = 'http://www.pydp.net/ExpressoWSP/WS_Situaciones.php?wsdl'
-url_tipos = 'http://www.pydp.net/ExpressoWSP/WS_Tipos.php?wsdl'
-url_valores = 'http://www.pydp.net/ExpressoWSP/WS_Valores.php?wsdl'
-url_directores = 'http://www.pydp.net/ExpressoWSP/WS_Directores.php?wsdl'
-url_materias = 'http://www.pydp.net/ExpressoWSP/WS_Materias.php?wsdl'
-url_selecciones = 'http://www.pydp.net/ExpressoWSP/WS_Selecciones.php?wsdl'
+url_ciclos = 'http://www.expressobibliografico.com/ExpressoWS/WS_Ciclos.php?wsdl'
+url_colecciones = 'http://www.expressobibliografico.com/ExpressoWS/WS_Colecciones.php?wsdl'
+url_cursos = 'http://www.expressobibliografico.com/ExpressoWS/WS_Cursos.php?wsdl'
+url_encuadernaciones = 'http://www.expressobibliografico.com/ExpressoWS/WS_Encuadernaciones.php?wsdl'
+url_formas_envio = 'http://www.expressobibliografico.com/ExpressoWS/WS_FormasEnvio.php?wsdl'
+url_idiomas = 'http://www.expressobibliografico.com/ExpressoWS/WS_Idiomas.php?wsdl'
+url_proyectos = 'http://www.expressobibliografico.com/ExpressoWS/WS_Proyectos.php?wsdl'
+url_publicos = 'http://www.expressobibliografico.com/ExpressoWS/WS_Publicos.php?wsdl'
+url_situaciones = 'http://www.expressobibliografico.com/ExpressoWS/WS_Situaciones.php?wsdl'
+url_tipos = 'http://www.expressobibliografico.com/ExpressoWS/WS_Tipos.php?wsdl'
+url_valores = 'http://www.expressobibliografico.com/ExpressoWS/WS_Valores.php?wsdl'
+url_directores = 'http://www.expressobibliografico.com/ExpressoWS/WS_Directores.php?wsdl'
+url_materias = 'http://www.expressobibliografico.com/ExpressoWS/WS_Materias.php?wsdl'
+url_selecciones = 'http://www.expressobibliografico.com/ExpressoWS/WS_Selecciones.php?wsdl'
 
-url_titulos = 'http://www.pydp.net/ExpressoWSP/WS_Titulos.php?wsdl'
-url_clientes = 'http://www.pydp.net/ExpressoWSP/WS_Clientes.php?wsdl'
-url_facturas = 'http://www.pydp.net/ExpressoWSP/WS_Facturas.php?wsdl'
-url_packing = 'http://www.pydp.net/ExpressoWSP/WS_Packing.php?wsdl'
-url_pedidos = 'http://www.pydp.net/ExpressoWSP/WS_Pedidos.php?wsdl'
+url_titulos = 'http://www.expressobibliografico.com/ExpressoWS/WS_Titulos.php?wsdl'
+url_clientes = 'http://www.expressobibliografico.com/ExpressoWS/WS_Clientes.php?wsdl'
+url_facturas = 'http://www.expressobibliografico.com/ExpressoWS/WS_Facturas.php?wsdl'
+url_packing = 'http://www.expressobibliografico.com/ExpressoWS/WS_Packing.php?wsdl'
+url_pedidos = 'http://www.expressobibliografico.com/ExpressoWS/WS_Pedidos.php?wsdl'
 
 # Esto es después de cuantos registros marcados para procesados se muestra que se sigue trabajando en las funciones
 # en las que se marcan todos los registros de la base de datos para reprocesar.
@@ -56,14 +56,14 @@ images_update_quantity = 250
 # Esto es después de cuantas imagenes procesadas se muestra que se sigue trabajando
 images_frequency_print_working = 50
 # Momento por defaults para traer los libros si no hay ningún registro
-default_year = '2012'
+default_year = '2016'
 default_month = '01'
 default_day = '01'
 default_hour = '01'
 default_minute = '00'
 default_second = '00'
 # Momento por defaults para traer los libros con la función obtener_info_objeto_remoto_si_no_presente
-default_date_isbn_obtener_si_no_presente = '20120401010000'
+default_date_isbn_obtener_si_no_presente = '20160401010000'
 
 
 ''' Facturas '''
@@ -78,9 +78,3 @@ invoice_frequency_print_working = 50
 packing_update_quantity = 200
 # Esto es después de cuantos objetos procesados se muestra que se sigue trabajando
 packing_frequency_print_working = 50
-        
-
-
-
-
-

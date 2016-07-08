@@ -108,11 +108,11 @@ class info_objeto_remoto(models.Model):
         if self.procesado:
             return False
         facade_actualizacion = Facade_Actualizacion(pooler)
-        if self['class'] == 'product.product':
+        if self['clase'] == 'product.product':
             facade_actualizacion.actualizar_un_titulo(self.id)
-        elif self['class'] == 'account.invoice':
+        elif self['clase'] == 'account.invoice':
             facade_actualizacion.actualizar_una_factura(self.id)
-        elif self['class'] == 'expresso.packing':
+        elif self['clase'] == 'expresso.packing':
             facade_actualizacion.actualizar_un_packing(self.id)
         else:
             return False

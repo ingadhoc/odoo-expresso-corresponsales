@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 from openerp import models,pooler
 
-from ..actualizador.facade_actualizacion import Facade_Actualizacion
+from ..updater.facade_actualizacion import Facade_Actualizacion
 
 
 class panel_control_actualizacion(models.Model):
-    _name = 'expresso.panel_control_actualizacion'
+    _name = 'expresso_erp.panel_control_actualizacion'
     _description = 'Panel de Control de las Actualizaciones'
 
     ''' Clientes '''

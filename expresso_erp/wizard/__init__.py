@@ -18,5 +18,6 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from . import facade_actualizacion
+
+import panel_control_actualizacion
 

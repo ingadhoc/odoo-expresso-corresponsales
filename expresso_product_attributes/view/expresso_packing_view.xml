@@ -8,10 +8,10 @@
             <field name="arch" type="xml">
                 <form string="Packing">
                     <field name="partner_id"/>
-                    <field name="partner_address_id"/>
+                    <!--<field name="partner_address_id"/>-->
                     
                     <group colspan="4" col="8">
-                        <field name="id_remoto" colspan="2" string="Packing"/>
+                        <field name="remote_id" colspan="2" string="Packing"/>
                         <field name="number_of_packages" colspan="2"/>
                         <field name="date" colspan="4"/>
                     </group>
@@ -35,7 +35,7 @@
                     <field name="date"/>
                     <field name="number_of_packages"/>
                     <field name="partner_id"/>
-                    <field name="partner_address_id"/>
+                    <!--<field name="partner_address_id"/>-->
                 </tree>
             </field>
         </record>
@@ -47,7 +47,7 @@
                 <search string="Packing" >
                     <field name="date"/>
                     <field name="partner_id"/>
-                    <field name="partner_address_id"/>
+                    <!--<field name="partner_address_id"/>-->
                 </search>
             </field>
         </record>

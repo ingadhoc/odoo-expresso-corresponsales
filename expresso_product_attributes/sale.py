@@ -11,7 +11,7 @@ _logger = logging.getLogger(__name__)
 class sale_empresa_logistica(models.Model):
 
     _name = 'sale.empresa_logistica'
-    _description = 'Empresa de Lógistica'
+    _description = 'Empresa de Logistica'
     _rec_name = 'name'
 
     name = fields.Char(
@@ -32,7 +32,9 @@ class pre_cerrar_pedido(models.TransientModel):
     @api.multi
     def cerrar_pedido(self):
         self.signal_workflow('order_pedido_2_cerrado')
+        self.env['sale.order']
         return {'type': 'ir.actions.act_window_close'}
+
 
 
 class sale_order(models.Model):
@@ -42,21 +44,32 @@ class sale_order(models.Model):
     # TODO remove this, it gives an error on portal_sale update
     # _order = 'id desc'
 
+
+    @api.one
+    @api.onchange('fecha_estimada_entrega')
+    def onchange_fecha_entrega(self):
+        if self.fecha_salida and self.fecha_estimada_entrega:
+            if self.fecha_salida > self.fecha_estimada_entrega:
+                self.fecha_estimada_entrega = None
+                raise Warning('La fecha de entrega debe ser mayor que la de salida')
+
     @api.model
     def get_user_corresponsal(self):
         user = self.env.user
         if self.user_in_group_with_name(user, "Expresso / Corresponsales"):
             return user
         else:
-            return False
+            return self.user_id
 
     @api.model
     def get_user_expresso(self):
         user = self.env.user
-        if self.user_in_group_with_name(user, "Expresso / Corresponsales"):
+        if self.user_in_group_with_name(user, "Expresso / Expresso"):
             if user.customer_partner_id and user.customer_partner_id.user_id:
                 return user.customer_partner_id.user_id
-        return False
+        return self.user_id
+
+
 
     remote_id = fields.Char(
         'Remote ID',
@@ -114,10 +127,8 @@ class sale_order(models.Model):
     empresa_logistica_id_corresponsales = fields.Many2one(
         related="empresa_logistica_id",
         )
-    user_expresso_id_corresponsal = fields.Many2one(
-        related='user_expresso_id_expresso',
-        )
-    # otros campos corresponsales
+
+    # # otros campos corresponsales
     forma_envio_id_corresponsales = fields.Many2one(
         'expresso.forma_envio',
         'Forma de Envío'
@@ -143,53 +154,99 @@ class sale_order(models.Model):
         'Current Partner id for Filtering',
         default=lambda self: self.env.user.customer_partner_id,
         )
-    user_corresponsal_id_corresponsales = fields.Many2one(
-        'res.users',
-        'Usuario Corresponsal',
-        required=True,
-        domain="[('partner_id', '=', current_partner_id_for_filtering)]",
-        )
+
+    # user_corresponsal_id_corresponsales = fields.Many2one(
+    #     'res.users',
+    #     'Usuario Corresponsal',
+    #     required=True,
+    #     domain="[('partner_id', '=', current_partner_id_for_filtering)]",
+    #     )
     user_corresponsal_id_expresso = fields.Many2one(
         'res.users',
         'Usuario Corresponsal',
-        required=True,
+        # required=True,
         # TODO habilitar este default que me da error al instalar y entender
         # estos campos "user bla bla bla"
-        # default=get_user_corresponsal,
+        default=get_user_corresponsal,
         )
     user_expresso_id_expresso = fields.Many2one(
         'res.users',
         'Usuario Expresso',
         # TODO habilitar
-        # default=get_user_expresso,
+        default=get_user_expresso,
         )
-    invoice_ids = fields.Many2many(
-        'account.invoice',
-        'expresso_order_invoice_rel',
-        'order_id',
-        'invoice_id',
-        'Facturas'
-        )
-    partner_id = fields.Many2one(
-        default=lambda self: self.env.user.customer_partner_id
-        )
-    property_product_pricelist = fields.Many2one(
-        default=lambda self: (
-            self.env.user.customer_partner_id.property_product_pricelist)
-        )
+
+    # user_expresso_id_corresponsal = fields.Many2one(
+    #     related='user_expresso_id_expresso',
+    #     )
+
+
+    # Facturas asociadas
+    # invoice_ids = fields.Many2many("account.invoice", string='Invoices', compute="_get_invoiced", readonly=False)
+
+    # partner_id = fields.Many2one(
+    #     default=lambda self: self.env.user.partner_id.id,
+    #     string = "ClineteMio",
+    #     )
+
+    # Facturas asociadas
+    invoice_expresso_ids = fields.Many2many('account.invoice',
+                                   'expresso_order_invoice_rel',
+                                   'order_id', 'invoice_id',
+                                   'Facturas', required=False,
+                                    readonly=False)
+
+    sale_note = fields.Text(string='Notas', translate=True)
+
+    dir_envio = fields.Many2one('res.partner',
+                                'Dirección del envio',
+                                readonly=True)
+    dir_factura = fields.Many2one('res.partner',
+                                'Dirección de la factura',
+                                readonly=True)
+
+
+
+    @api.multi
+    @api.onchange('partner_id')
+    def change_dir_envio(self):
+        if self.partner_id:
+            addr = self.partner_id.address_get(['delivery', 'invoice'])
+            values = {
+            # 'partner_invoice_id': addr['invoice'],
+            'dir_envio': addr['delivery'],
+            'dir_factura': addr['invoice'],
+        }
+        else:
+            values = {
+            # 'partner_invoice_id': addr['invoice'],
+            'dir_envio': False,
+            'dir_factura': False,
+        }
+
+        self.update(values)
+
+
+
+
+
+    # property_product_pricelist = fields.Many2one(
+    #     default=lambda self: (
+    #         self.env.user.customer_partner_id.property_product_pricelist)
+    #     )
 
     # TODO entender porque estos dos onchange
-    @api.one
-    @api.onchange('user_corresponsal_id_corresponsales')
-    def onchange_user_corresponsal_id_corresponsales(self):
-        self.user_corresponsal_id_expresso = (
-            self.user_corresponsal_id_corresponsales)
-
-    @api.one
-    @api.onchange('user_corresponsal_id_expresso')
-    def onchange_user_corresponsal_id_expresso(self):
-        self.user_corresponsal_id_corresponsales = (
-            self.user_corresponsal_id_expresso)
+    # @api.one
+    # @api.onchange('user_corresponsal_id_corresponsales')
+    # def onchange_user_corresponsal_id_corresponsales(self):
+    #     self.user_corresponsal_id_expresso = (
+    #         self.user_corresponsal_id_corresponsales)
+    #
+    # @api.one
+    # @api.onchange('user_corresponsal_id_expresso')
+    # def onchange_user_corresponsal_id_expresso(self):
+    #     self.user_corresponsal_id_corresponsales = (
+    #         self.user_corresponsal_id_expresso)
 
     # def write(self, cr, uid, ids, vals, context=None):
     #     if not isinstance(ids, list):
@@ -286,13 +343,20 @@ class sale_order(models.Model):
             if 'forma_envio_id_expresso' not in vals or not vals['forma_envio_id_expresso']:
                 vals['forma_envio_id_expresso'] = vals['forma_envio_id_corresponsales']
 
+        if 'fecha_salida' in vals and 'fecha_estimada_entrega' in vals:
+            if vals['fecha_salida'] > vals['fecha_estimada_entrega']:
+                raise Warning('La fecha de entrega debe ser mayor que la de salida')
+
+
+
+
         # Sincronizamos user_corresponsal_id_expresso y user_corresponsal_id_corresponsales
-        if 'user_corresponsal_id_expresso' in vals and vals['user_corresponsal_id_expresso']:
-            if 'user_corresponsal_id_corresponsales' not in vals or not vals['user_corresponsal_id_corresponsales']:
-                vals['user_corresponsal_id_corresponsales'] = vals['user_corresponsal_id_expresso']
-        elif 'user_corresponsal_id_corresponsales' in vals and vals['user_corresponsal_id_corresponsales']:
-            if 'user_corresponsal_id_expresso' not in vals or not vals['user_corresponsal_id_expresso']:
-                vals['user_corresponsal_id_expresso'] = vals['user_corresponsal_id_corresponsales']
+        # if 'user_corresponsal_id_expresso' in vals and vals['user_corresponsal_id_expresso']:
+        #     if 'user_corresponsal_id_corresponsales' not in vals or not vals['user_corresponsal_id_corresponsales']:
+        #         vals['user_corresponsal_id_corresponsales'] = vals['user_corresponsal_id_expresso']
+        # elif 'user_corresponsal_id_corresponsales' in vals and vals['user_corresponsal_id_corresponsales']:
+        #     if 'user_corresponsal_id_expresso' not in vals or not vals['user_corresponsal_id_expresso']:
+        #         vals['user_corresponsal_id_expresso'] = vals['user_corresponsal_id_corresponsales']
         return vals
 
     # Cambios de estado
@@ -319,7 +383,8 @@ class sale_order(models.Model):
         now = fields.Datetime.now()
 
         for order in self:
-            if not order.forma_envio_id_corresponsales:
+            # if not order.forma_envio_id_corresponsales:
+            if not order.forma_envio_id_expresso:
                 raise Warning(
                     'Forma de Envío incompleta!\n'
                     'Para confirmar el pedido debe completar el campo Forma de'
@@ -340,7 +405,7 @@ class sale_order(models.Model):
     @api.multi
     def order_state_pendiente_corresponsal(self):
         now = fields.Datetime.now()
-        for order in self():
+        for order in self:
             if not order.fecha_salida:
                 raise Warning(
                     'Fecha de Salida incompleta!\n'
@@ -369,10 +434,29 @@ class sale_order(models.Model):
             'fecha_valido_corresponsal': now,
             'fecha_cerrado_expresso': False,
             'fecha_despachado_expresso': False,
-            'fecha_recibido_corresponsal': 'pedido',
+            'fecha_recibido_corresponsal': False,
+            'state_expresso': 'pedido',
         }
         self.write(vals)
         return True
+
+    @api.multi
+    def sale_order_cerrado(self):
+        now = fields.Datetime.now()
+        if not self.invoice_expresso_ids:
+            raise Warning(
+                    'Debe poner una factura')
+        else:
+            vals = {
+                'fecha_valido_corresponsal': now,
+                'fecha_cerrado_expresso': False,
+                'fecha_despachado_expresso': False,
+                'fecha_recibido_corresponsal': False,
+                'state_expresso': 'cerrado',
+            }
+            self.write(vals)
+            return True
+
 
     @api.multi
     def order_state_cerrado(self):
@@ -424,7 +508,6 @@ class sale_order(models.Model):
     def crear_pedido_remoto(self):
         facade_actualizacion = Facade_Actualizacion(pooler)
         facade_actualizacion.crear_pedido_remoto()
-
 
 class sale_order_line(models.Model):
     _name = 'sale.order.line'

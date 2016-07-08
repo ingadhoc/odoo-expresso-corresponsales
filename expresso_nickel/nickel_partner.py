@@ -64,7 +64,7 @@ class nickel_partner(models.Model):
         return user_id
 
     def get_partner_from_remote_id(self, cr, uid, remote_id, context=None):
-        user_id = self.get_partner_from_remote_id(
+        user_id = self.get_user_desde_id_remoto(
             cr, uid, remote_id, context=context)
         users_obj = self.pool.get('res.users')
         user = users_obj.browse(cr, uid, user_id, context=context)

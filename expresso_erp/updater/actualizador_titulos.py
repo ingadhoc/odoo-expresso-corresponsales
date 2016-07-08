@@ -1,25 +1,40 @@
 # -*- coding: utf-8 -*-
+##############################################################################
+#
+#    OpenERP, Open Source Management Solution
+#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
 
 import time
 import datetime
 import traceback
 import urllib2
-import re
-from os.path import basename
-from urlparse import urlsplit
 import base64
-
 import logging
-from suds.client import Client
-from lxml import objectify # http://lxml.de/objectify.html
+from lxml import objectify  # http://lxml.de/objectify.html
 
 from generic_updater import Actualizador_Generico
 import configuracion_actualizacion
 
 _logger = logging.getLogger(__name__)
 
+
 class Actualizador_Titulos(Actualizador_Generico):
-    
+
     def __init__(self, pooler):
         Actualizador_Generico.__init__(self, pooler, configuracion_actualizacion.url_titulos)
         
@@ -55,6 +70,7 @@ class Actualizador_Titulos(Actualizador_Generico):
         parametro = '<libro><FMo>' + year + month + day + hour + minute + second + '</FMo></libro>'
         # Se pide la lista de los nuevos ISBNs a través de los WS.
         try:
+            # new_isbns_xml = cliente.service.listTitulos(parametro).encode("iso-8859-1").replace('&','&amp;')
             new_isbns_xml = cliente.service.listTitulos(parametro).encode("iso-8859-1").replace('&','&amp;')
             new_isbns = objectify.fromstring(new_isbns_xml)
         except:
@@ -74,13 +90,13 @@ class Actualizador_Titulos(Actualizador_Generico):
             info_objeto_obj = self.pooler.get_pool(cr.dbname).get('expresso.info_objeto_remoto')
             sinc_obj = self.pooler.get_pool(cr.dbname).get('expresso.sincronizacion_objeto_remoto')
             
-            filtros = [('id_remoto', '=', isbn), ('class', '=', 'product.product')]
+            filtros = [('id_remoto', '=', isbn), ('clase', '=', 'product.product')]
             info_objeto_ids = info_objeto_obj.search(cr, uid, filtros, context=context)
             
             if not info_objeto_ids:
                 vals = {}
                 vals['id_remoto'] = isbn
-                vals['class'] = 'product.product'
+                vals['clase'] = 'product.product'
                 info_objeto_ids = info_objeto_obj.create(cr, uid, vals, context=context)
             
             if not isinstance(info_objeto_ids, list):
@@ -167,7 +183,7 @@ class Actualizador_Titulos(Actualizador_Generico):
             return None
         
         sinc_obj = self.pooler.get_pool(cr.dbname).get('expresso.sincronizacion_objeto_remoto')
-        filtros = [('procesado', '=', False), ('info_objeto_remoto_id.class', '=', 'product.product')]
+        filtros = [('procesado', '=', False), ('info_objeto_remoto_id.clase', '=', 'product.product')]
         sinc_a_procesar = sinc_obj.search(cr, uid, filtros, context=context)
         
         # Cantidad de titulos procesados correctamente
@@ -202,7 +218,7 @@ class Actualizador_Titulos(Actualizador_Generico):
         nuevo libro si este no existe en la BD o actualizandolo si existe.
         '''
         isbn = libro.isbn
-        author = libro.author
+        autor = libro.autor
         name = libro.titulo
         editorial = libro.editorial
         default_code = libro.ean
@@ -245,13 +261,13 @@ class Actualizador_Titulos(Actualizador_Generico):
         materia_id = False
         materia_ids = self.get_ids_from_id_remoto(cr, uid, 'expresso.materia', libro.IDmateria, context=context)
         if materia_ids:
-            matter_id = materia_ids[0]
+            materia_id = materia_ids[0]
         
         #proyecto_id
         proyecto_id = False
-        if matter_id:
-            matter = self.pooler.get_pool(cr.dbname).get('expresso.materia').browse(cr, uid, matter_id, context=context)
-            proyecto_id = matter.proyecto_id.id
+        if materia_id:
+            materia = self.pooler.get_pool(cr.dbname).get('expresso.materia').browse(cr, uid, materia_id, context=context)
+            proyecto_id = materia.proyecto_id.id
         
         # situacion_id
         situacion_id = False
@@ -297,18 +313,18 @@ class Actualizador_Titulos(Actualizador_Generico):
                 pass
             
         # Los nuevos valores del titulo.
-        new_values = {'isbn': isbn, 'author': author, 'name': name, 'editorial': editorial, 'default_code': default_code,
+        new_values = {'isbn': isbn, 'autor': autor, 'name': name, 'editorial': editorial, 'default_code': default_code,
                       'idioma_id': idioma_id, 'numero_paginas': numero_paginas, 'anio_edicion': anio_edicion,
                       'numero_edicion': numero_edicion, 'encuadernacion_id': encuadernacion_id, 'coleccion_id': coleccion_id,
-                      'volumen': volumen, 'matter_id': matter_id, 'edad_recomendada_min': edad_recomendada_min,
+                      'volumen': volumen, 'matter_id': materia_id, 'edad_recomendada_min': edad_recomendada_min,
                       'edad_recomendada_max': edad_recomendada_max, 'situacion_id': situacion_id, 'ciclo_id': ciclo_id,
                       'curso_id': curso_id, 'tipo_id': tipo_id, 'alto': alto, 'ancho': ancho, 'espesor': espesor, 'peso': peso,
                       'soporte': soporte, 'publico_id': publico_id, 'sinopsis': sinopsis, 'proyecto_id': proyecto_id,
                       'list_price': list_price, 'precio_dolares': precio_dolares, 'materia_cdu': materia_cdu,
-                      'caratula': caratula, 'product_image': product_image}
+                      'caratula': caratula, 'imagen': product_image}
         
         # Si existe un libro con el isbn en la BD se actualiza, sino se crea uno nuevo.
-        product_obj = self.pool.get['product.product']
+        product_obj = self.pooler.get_pool(cr.dbname).get('product.product')
         stored_product_ids = product_obj.search(cr, uid, [('isbn', '=', isbn)], context=context)
         if not stored_product_ids:
             stored_product_ids = [product_obj.create(cr, uid, new_values)]
@@ -318,8 +334,9 @@ class Actualizador_Titulos(Actualizador_Generico):
         return stored_product_ids
     
     def actualizar_imagenes(self, cr, uid, context=None):
-        product_obj = self.pool.get['product.product']
-        filtros = [('caratula', '!=', False),('caratula', '!=', ''),('product_image', '=', False)]
+        product_obj = self.pooler.get_pool(cr.dbname).get('product.product')
+        # filtros = [('caratula', '!=', False),('caratula', '!=', ''),('product_image', '=', False)]
+        filtros = [('caratula', '!=', False),('caratula', '!=', ''),('imagen', '=', False)]
         product_ids = product_obj.search(cr, uid, filtros, context=context)
         
         if not isinstance(product_ids, list):
@@ -345,7 +362,7 @@ class Actualizador_Titulos(Actualizador_Generico):
             
             try:
                 img_data = urllib2.urlopen(img_url).read()
-                vals = {'product_image': base64.encodestring(img_data)}
+                vals = {'imagen': base64.encodestring(img_data)}
                 product_obj.write(cr, uid, libro.id, vals, context=context)
                 imagenes_procesados += 1
             except:
@@ -401,14 +418,14 @@ class Actualizador_Titulos(Actualizador_Generico):
             info_objeto_obj = self.pooler.get_pool(cr.dbname).get('expresso.info_objeto_remoto')
             sinc_obj = self.pooler.get_pool(cr.dbname).get('expresso.sincronizacion_objeto_remoto')
             
-            filtros = [('id_remoto', '=', isbn), ('class', '=', 'product.product')]
+            filtros = [('id_remoto', '=', isbn), ('clase', '=', 'product.product')]
             info_objeto_ids = info_objeto_obj.search(cr, uid, filtros, context=context)
             
             if not info_objeto_ids:
                 isbns_agregados += 1
                 vals = {}
                 vals['id_remoto'] = isbn
-                vals['class'] = 'product.product'
+                vals['clase'] = 'product.product'
                 info_objeto_ids = info_objeto_obj.create(cr, uid, vals, context=context)
                 lista_isbns_agregados.append(isbn)
                 
@@ -441,7 +458,7 @@ class Actualizador_Titulos(Actualizador_Generico):
         info_objeto_obj = self.pooler.get_pool(cr.dbname).get('expresso.info_objeto_remoto')
         sinc_obj = self.pooler.get_pool(cr.dbname).get('expresso.sincronizacion_objeto_remoto')
         
-        filters = [('class', '=', 'product.product')]
+        filters = [('clase', '=', 'product.product')]
         if datetime:
             filters.append(('datetime_creation',  '<=', datetime))
         
@@ -466,5 +483,34 @@ class Actualizador_Titulos(Actualizador_Generico):
         _logger.info('Se marcaron %s ISBNs para reprocesar', str(isbns_agregados))
         return True
     
-    
+    def marcar_todos_isbns_para_actualizar(self, cr, uid, context=None):
+        '''
+        Marca todos los registros de ISBN de la base de datos para ser procesados.
+        '''
+        _logger.info('Marcando ISBNs para reprocesar')
+        
+        info_objeto_obj = self.pooler.get_pool(cr.dbname).get('expresso.info_objeto_remoto')
+        sinc_obj = self.pooler.get_pool(cr.dbname).get('expresso.sincronizacion_objeto_remoto')
+        
+        all_info_objeto_remoto_ids = info_objeto_obj.search(cr, uid, [('clase', '=', 'product.product')], context=context)
+        
+        isbns_agregados = 0
+        iteracion = 0
+        for info_objeto in info_objeto_obj.browse(cr, uid, all_info_objeto_remoto_ids, context=context):
+            iteracion += 1
+            if iteracion % configuracion_actualizacion.frequency_registro_reprocesar == 0:
+                _logger.info('Marcando ISBNs para reprocesar')
+            
+            isbn = info_objeto.id_remoto
+            if not info_objeto.sincronizacion_objeto_remoto_ids or info_objeto.procesado:
+                isbns_agregados += 1
+                vals = {}
+                now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                vals['datetime_creation'] = now
+                vals['info_objeto_remoto_id'] = info_objeto.id
+                sinc_obj.create(cr, uid, vals, context=context)
+        
+        _logger.info('Se marcaron %s ISBNs para reprocesar', str(isbns_agregados))
+        return True
+
 

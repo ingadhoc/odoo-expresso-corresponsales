@@ -32,6 +32,7 @@
     'depends': ['expresso_product_attributes'],
     'init_xml': [],
     'data': [
+        'wizard/panel_control_actualizacion_view.xml',
     ],
     'demo': [],
     'test': [],

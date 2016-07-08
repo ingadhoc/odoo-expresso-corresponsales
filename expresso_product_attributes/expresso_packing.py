@@ -7,9 +7,9 @@ import openerp.addons.decimal_precision as dp
 class expresso_packing(models.Model):
     _name = 'expresso.packing'
     _description = 'Packing'
-    _rec_name = 'id_remoto'
+    _rec_name = 'remote_id'
 
-    id_remoto = fields.Char(
+    remote_id = fields.Char(
         'Identificador Remoto',
         size=30,
         readonly=True,
@@ -28,12 +28,13 @@ class expresso_packing(models.Model):
         'Corresponsal',
         required=True
         )
-    partner_address_id = fields.Many2one(
-        'payment.transaction',
-        'Address',
-        required=True,
-        domain="[('partner_id','=', partner_id)]"
-        )
+    # partner_address_id = fields.Many2one(
+    #     'payment.transaction',
+    #     'Address',
+    #     required=True,
+    #     domain="[('partner_id','=', partner_id)]"
+    #     )
+
     imprimirpeso = fields.Char(
         'Imprimir Peso',
         size=30

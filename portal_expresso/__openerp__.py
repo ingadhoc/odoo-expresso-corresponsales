@@ -18,5 +18,27 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from . import facade_actualizacion
 
+
+{
+    'name': 'Portal Expresso Bibliográfico',
+    'version': '9.0.0.0.0',
+    'category': 'Tools',
+    'description': """
+Portal para corresponsales  del Expresso Bibliográfico.
+    """,
+    'author': 'ADHOC',
+    'website': 'www.adhoc.com.ar',
+    'depends': ['portal_sale', 'expresso_product_attributes'],
+    'data': [
+            'security/permisos_corresponsales.xml',
+            'security/ir.model.access.csv',
+            'view/corresponsales_menu.xml',
+            'view/portal_sale_view.xml',
+            ],
+    'demo': [],
+    'test': [],
+    'installable': True,
+    'active': False,
+}
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

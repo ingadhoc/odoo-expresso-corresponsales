@@ -75,7 +75,7 @@ class pedir_multi_titulos(models.TransientModel):
 
         if not user.partner_id:
             raise Warning(_('No tiene Cliente asociado',
-                                 'Usted no tiene ningún Cliente asociado y por lo tanto no se puede realizar esta acción' +
+                                 'Usted no tiene ningun Cliente asociado y por lo tanto no se puede realizar esta accion' +
                                  ' por favor asignese un Cliente en el panel de administración de usuarios.'))
 
         partner_id = user.partner_id.id

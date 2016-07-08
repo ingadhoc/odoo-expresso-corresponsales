@@ -48,7 +48,7 @@ class Actualizador_Titulos_Atributos_Estandard(Actualizador_Generico):
             return False
         
         if hasattr(registros, 'error'):
-            _logger.info('Ningún %s para procesar', clase)
+            _logger.info('Ningun %s para procesar', clase)
             return False
         for registro in registros.iterchildren():
             id_remoto = registro.id
@@ -62,9 +62,9 @@ class Actualizador_Titulos_Atributos_Estandard(Actualizador_Generico):
             
             class_obj = self.pooler.get_pool(cr.dbname).get(clase)
             if not ids_objetos:
-                class_obj.create(cr, uid, {'id_remoto': id_remoto, 'denominacion': denominacion })
+                class_obj.create(cr, uid, {'remote_id': id_remoto, 'denomination': denominacion })
             else:
-                class_obj.write(cr, uid, ids_objetos, {'denominacion': denominacion })
+                class_obj.write(cr, uid, ids_objetos, {'denomination': denominacion })
         _logger.info('%s actualizado correctamente', clase)
         return True
 
@@ -212,7 +212,7 @@ class Actualizador_Titulos_Atributos_Idioma(Actualizador_Titulos_Atributos_Estan
             return False
         
         if hasattr(idiomas, 'error'):
-            _logger.info('Ningún expresso.idioma para procesar')
+            _logger.info('Ningun expresso.idioma para procesar')
             return False
         for idioma in idiomas.iterchildren():
             id_remoto = idioma.id
@@ -232,10 +232,10 @@ class Actualizador_Titulos_Atributos_Idioma(Actualizador_Titulos_Atributos_Estan
             ids_objetos = self.get_ids_from_id_remoto(cr, uid, 'expresso.idioma', id_remoto, context)
             idioma_obj = self.pooler.get_pool(cr.dbname).get('expresso.idioma')
             if not ids_objetos:
-                vals = {'id_remoto': id_remoto, 'denominacion': denominacion, 'idioma_amigo': idioma_amigo}
+                vals = {'remote_id': id_remoto, 'denomination': denominacion, 'idioma_amigo': idioma_amigo}
                 idioma_obj.create(cr, uid, vals, context=context)
             else:
-                vals = {'denominacion': denominacion, 'idioma_amigo': idioma_amigo}
+                vals = {'denomination': denominacion, 'idioma_amigo': idioma_amigo}
                 idioma_obj.write(cr, uid, ids_objetos, vals, context=context)
         _logger.info('expresso.idioma actualizado correctamente')
         return True
@@ -312,7 +312,7 @@ class Actualizador_Titulos_Atributos_Situacion(Actualizador_Titulos_Atributos_Es
             return False
         
         if hasattr(situaciones, 'error'):
-            _logger.info('Ningún expresso.situacion para procesar')
+            _logger.info('Ningun expresso.situacion para procesar')
             return False
         for situacion_it in situaciones.iterchildren():
             id_remoto = situacion_it.id
@@ -332,10 +332,10 @@ class Actualizador_Titulos_Atributos_Situacion(Actualizador_Titulos_Atributos_Es
             ids_situacion = self.get_ids_from_id_remoto(cr, uid, 'expresso.situacion', id_remoto, context)
             situacion_obj = self.pooler.get_pool(cr.dbname).get('expresso.situacion')
             if not ids_situacion:
-                vals = {'id_remoto': id_remoto, 'denominacion': denominacion, 'permite_pedido': permite_pedido}
+                vals = {'remote_id': id_remoto, 'denomination': denominacion, 'permite_pedido': permite_pedido}
                 situacion_obj.create(cr, uid, vals, context=context)
             else:
-                vals = {'denominacion': denominacion, 'permite_pedido': permite_pedido}
+                vals = {'denomination': denominacion, 'permite_pedido': permite_pedido}
                 situacion_obj.write(cr, uid, ids_situacion, vals, context=context)
         _logger.info('expresso.situacion actualizado correctamente')
         return True
@@ -436,7 +436,7 @@ class Actualizador_Titulos_Atributos_Materia(Actualizador_Titulos_Atributos_Esta
             return False
         
         if hasattr(materias, 'error'):
-            _logger.info('Ningún expresso.materia para procesar')
+            _logger.info('Ningun expresso.materia para procesar')
             return False
         for materia_it in materias.iterchildren():
             id_remoto = materia_it.id
@@ -465,10 +465,10 @@ class Actualizador_Titulos_Atributos_Materia(Actualizador_Titulos_Atributos_Esta
             ids_objetos = self.get_ids_from_id_remoto(cr, uid, 'expresso.materia', id_remoto, context)
             materia_obj = self.pooler.get_pool(cr.dbname).get('expresso.materia')
             if not ids_objetos:
-                vals = {'id_remoto': id_remoto, 'denominacion': denominacion, 'director_id': id_director, 'proyecto_id': id_proyecto}
+                vals = {'remote_id': id_remoto, 'denomination': denominacion, 'director_id': id_director, 'proyecto_id': id_proyecto}
                 materia_obj.create(cr, uid, vals, context=context)
             else:
-                vals = {'denominacion': denominacion, 'director_id': id_director, 'proyecto_id': id_proyecto}
+                vals = {'denomination': denominacion, 'director_id': id_director, 'proyecto_id': id_proyecto}
                 materia_obj.write(cr, uid, ids_objetos, vals, context=context)
         
         _logger.info('expresso.materia actualizado correctamente')
@@ -498,7 +498,7 @@ class Actualizador_Titulos_Atributos_Seleccion(Actualizador_Titulos_Atributos_Es
             return False
         
         if hasattr(selecciones, 'error'):
-            _logger.info('Ningún expresso.seleccion para procesar')
+            _logger.info('Ningun expresso.seleccion para procesar')
             return False
         for seleccion_it in selecciones.iterchildren():
             id_remoto = seleccion_it.id
@@ -527,10 +527,10 @@ class Actualizador_Titulos_Atributos_Seleccion(Actualizador_Titulos_Atributos_Es
             ids_objetos = self.get_ids_from_id_remoto(cr, uid, 'expresso.seleccion', id_remoto, context)
             seleccion_obj = self.pooler.get_pool(cr.dbname).get('expresso.seleccion')
             if not ids_objetos:
-                vals = {'id_remoto': id_remoto, 'denominacion': denominacion, 'materia_id': id_materia, 'proyecto_id': id_proyecto}
+                vals = {'remote_id': id_remoto, 'denomination': denominacion, 'matter_id': id_materia, 'project_id': id_proyecto}
                 seleccion_obj.create(cr, uid, vals, context=context)
             else:
-                vals = {'denominacion': denominacion, 'materia_id': id_materia, 'proyecto_id': id_proyecto}
+                vals = {'denomination': denominacion, 'matter_id': id_materia, 'project_id': id_proyecto}
                 seleccion_obj.write(cr, uid, ids_objetos, vals, context=context)
         _logger.info('expresso.seleccion actualizado correctamente')
         return True

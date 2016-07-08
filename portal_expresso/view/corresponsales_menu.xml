@@ -1,75 +1,89 @@
 <?xml version="1.0"?>
 <openerp>
     <data>
+
+         <!--Delete menu portal-->
+
+        <delete model="ir.ui.menu" id="portal_sale.portal_quotations" />
+        <delete model="ir.ui.menu" id="portal_sale.portal_sales_orders" />
+        <delete model="ir.ui.menu" id="portal_sale.portal_invoices" />
+
         <!-- Corresponsales -->
+        <menuitem name="Corresponsal"
+            id="portal_menu"
+            groups="base.group_portal,expresso_product_attributes.expresso_grupo_corresponsales,base.group_system"
+            web_icon="portal,static/description/icon.png"
+            sequence="15"/>
+
         <menuitem
             id="menu_corresponsales"
             name="Corresponsales"
-            groups="expresso_grupo_corresponsales"
-            sequence="1"
-            web_icon="images/menu_express.png"
-            web_icon_hover="images/menu_express_hover.png"/>
-            
+            groups="expresso_product_attributes.expresso_grupo_corresponsales,base.group_system"
+            parent="portal_menu"
+            sequence="1"/>
+            <!--web_icon="images/menu_express.png"-->
+            <!--web_icon_hover="images/menu_express_hover.png"/>-->
+
             <!-- Corresponsales / Títulos -->
             <menuitem
                 id="corresponsales_productos"
                 name="Títulos"
                 parent="menu_corresponsales"
                 sequence="3"/>
-            
+
                 <menuitem
                     id="corresponsales_productos_productos"
-                    action="action_expresso_productos"
+                    action="expresso_product_attributes.action_expresso_productos"
                     name="Títulos"
                     parent="corresponsales_productos"
                     sequence="1" />
-                
+
                 <menuitem
                     id="corresponsales_productos_pendientes"
-                    action="action_producto_pendiente"
+                    action="expresso_product_attributes.action_producto_pendiente"
                     name="Títulos Pendiente"
                     parent="corresponsales_productos"
                     sequence="2" />
-            
+
             <!-- Corresponsales / Pedidos -->
             <menuitem
                 id="menu_corresponsales_pedidos"
                 name="Pedidos"
                 parent="menu_corresponsales"
                 sequence="2"/>
-                
+
                 <menuitem
                     id="menu_corresponsales_pedidos_pedidos"
                     name="Pedidos"
-                    action="action_expresso_pedidos"
+                    action="expresso_product_attributes.action_expresso_pedidos"
                     parent="menu_corresponsales_pedidos"
                     sequence="1" />
-                    
+
                 <menuitem
                     id="menu_corresponsales_pedido_nuevo"
                     name="Nuevo Pedido"
-                    action="action_expresso_pedido_nuevo"
+                    action="expresso_product_attributes.action_expresso_pedido_nuevo"
                     parent="menu_corresponsales_pedidos"
                     sequence="2" />
-            
+
             <!-- Corresponsales / Consultas -->
             <menuitem
                 name="Consultas"
                 id="menu_corresponsales_consultas"
                 parent="menu_corresponsales"
                 sequence="3"/>
-                
+
                 <!--<menuitem
                     id="menu_corresponsales_packing_list"
                     name="Packing List"
                     action="action_expresso_packing_list"
                     parent="menu_corresponsales_consultas"
                     sequence="1" />-->
-                
+
                 <menuitem
                     id="menu_corresponsales_invoice"
                     name="Facturas"
-                    action="action_expresso_invoice"
+                    action="expresso_product_attributes.action_expresso_invoice"
                     parent="menu_corresponsales_consultas"
                     sequence="2" />
                     

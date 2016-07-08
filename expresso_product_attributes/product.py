@@ -148,6 +148,21 @@ class product_product(models.Model):
         readonly=False
         )
 
+    valuation = fields.Char(
+        'Valuation',
+        size=300)
+
+    #
+    # @api.one
+    # def get_valuation_type(self):
+    #
+    #     if self.product.property_valuation:
+    #         self.valuation = product.property_valuation
+    #     else:
+    #         self.valuation = self.product.categ_id.property_valuation
+    #
+
+
     @api.one
     @api.onchange('matter_id')
     def onchange_product_materia(self):
@@ -192,13 +207,19 @@ class product(models.Model):
         ('cancelado', 'Cancelado'),
         ('repedido', 'Repedido')],
         'Estado',
-        readonly=True
+        readonly=True,
+        track_visibility='onchange',
+        copy=False
         )
     price_unit = fields.Float(
         'Unit Price',
         required=True,
         digits=dp.get_precision('Sale Price')
         )
+
+    _defaults = {
+        'state' : 'activo',
+    }
 
     @api.multi
     def pendiente_a_nuevo_pedido(self):
@@ -271,14 +292,26 @@ class product(models.Model):
         self.action_pendiente_state_repedido()
         return lines
 
-    @api.multi
+    # @api.multi
+    # def action_action_pendiente_state_repedido(self):
+    #     return self.write({'state': 'activo'})
+    #
+    # @api.multi
+    # def action_pendiente_state_cancelado(self):
+    #     return self.write({'state': 'cancelado'})
+    #
+    # @api.multi
+    # def action_pendiente_state_repedido(self):
+    #     return self.write({'state': 'repedido'})
+
+    @api.one
     def action_action_pendiente_state_repedido(self):
-        return self.write({'state': 'activo'})
+        self.state = 'activo'
 
-    @api.multi
+    @api.one
     def action_pendiente_state_cancelado(self):
-        return self.write({'state': 'cancelado'})
+        self.state = 'cancelado'
 
-    @api.multi
+    @api.one
     def action_pendiente_state_repedido(self):
-        return self.write({'state': 'repedido'})
+        self.state = 'repedido'
