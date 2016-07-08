@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
+#    Copyright (C) 2015  ADHOC SA  (http://www.adhoc.com.ar)
+#    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,24 +18,19 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-
 {
     'name': 'Gestion de conexión y actualización con el erp de expresso',
     'version': '9.0.0.0.0',
     'category': 'Tools',
-    'description': """
-    Gestion de conexión y actualización con el erp de expresso.
-    """,
-    'author': 'ADHOC',
+    'author': 'ADHOC SA',
     'website': 'www.adhoc.com.ar',
     'depends': ['expresso_product_attributes'],
-    'init_xml': [],
     'data': [
         'wizard/panel_control_actualizacion_view.xml',
     ],
     'demo': [],
     'test': [],
     'installable': False,
-    'active': False,
+    'auto_install': False,
+    'application': False,
 }

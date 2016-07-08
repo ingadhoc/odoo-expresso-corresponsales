@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
+#    Copyright (C) 2015  ADHOC SA  (http://www.adhoc.com.ar)
+#    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,27 +18,26 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-
 {
     'name': 'Portal Expresso Bibliográfico',
     'version': '9.0.0.0.0',
     'category': 'Tools',
-    'description': """
-Portal para corresponsales  del Expresso Bibliográfico.
-    """,
     'author': 'ADHOC',
     'website': 'www.adhoc.com.ar',
-    'depends': ['portal_sale', 'expresso_product_attributes'],
+    'depends': [
+        'portal_sale',
+        'expresso_product_attributes'
+    ],
     'data': [
-            'security/permisos_corresponsales.xml',
-            'security/ir.model.access.csv',
-            'view/corresponsales_menu.xml',
-            'view/portal_sale_view.xml',
-            ],
+        'security/permisos_corresponsales.xml',
+        'security/ir.model.access.csv',
+        'view/corresponsales_menu.xml',
+        'view/portal_sale_view.xml',
+    ],
     'demo': [],
     'test': [],
     'installable': True,
-    'active': False,
+    'auto_install': True,
+    'application': False,
 }
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

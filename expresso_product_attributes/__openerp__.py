@@ -55,6 +55,8 @@
     ],
     'demo': [],
     'test': [],
-    'installable': True,
+    'installable': False,
+    'auto_install': False,
+    'application': False,
 }
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

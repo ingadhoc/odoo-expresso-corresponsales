@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
+#    Copyright (C) 2015  ADHOC SA  (http://www.adhoc.com.ar)
+#    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,23 +18,11 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-
 {
     'name': 'Nickel connection to the system Expresso Bibliográfico',
     'version': '9.0.0.0.0',
     'category': 'Tools',
-    'description': """
-    Nickel connection with Expresso Bibliográfico server to upgrade
-     information.
-     MySQLdb installed (sudo apt-get install python-mysqldb)
-    
-     To make it work you need to link users Nickel with Expresso.
-     To do this go to "Expresso / Administration / Info. Sync. Correspondents" and once
-     Nickel users have been loaded, enter each record and add
-     Nickel corresponding user.
-    """,
-    'author': 'ADHOC',
+    'author': 'ADHOC SA',
     'website': 'www.adhoc.com.ar',
     'depends': ['expresso_product_attributes'],
     'data': [
@@ -50,5 +38,6 @@
     'demo': [],
     'test': [],
     'installable': False,
-    'active': False,
+    'auto_install': False,
+    'application': False,
 }
