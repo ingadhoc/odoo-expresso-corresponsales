@@ -17,23 +17,23 @@ class expresso_info_corresponsal(models.Model):
         'Corresponsale',
         size=50,
         required=True
-        )
+    )
     user = fields.Char(
         'User',
         size=50,
         required=True
-        )
+    )
     contrasenia = fields.Char(
         'Password',
         size=50,
         required=True
-        )
+    )
     partner_ids = fields.One2many(
         'res.partner',
         'info_corresponsal_id',
         u'Partner',
         readonly=True
-        )
+    )
 
     @api.multi
     def get_users_from_info_corresponsal(self):
@@ -55,42 +55,42 @@ class info_objeto_remoto(models.Model):
         required=True,
         readonly=True,
         copy=False,
-        )
+    )
     clase = fields.Char(
         'Class',
         size=50,
         required=True,
         readonly=True
-        )
+    )
     corresponsal = fields.Many2one(
         'expresso.info_corresponsal',
         'Corresponsal'
-        )
+    )
     sincronizacion_objeto_remoto_ids = fields.One2many(
         'expresso.sincronizacion_objeto_remoto',
         'info_objeto_remoto_id',
         'Sincronización Objeto Remoto',
         readonly=True
-        )
+    )
     error_al_procesar = fields.Boolean(
         'Se encontro un error al procesar el Registro',
         readonly=True,
         default=False
-        )
+    )
     procesado = fields.Boolean(
         'Procesado',
         readonly=True,
         default=False
-        )
+    )
     datetime = fields.Datetime(
         'Fecha última actualización',
         readonly=True
-        )
+    )
     datetime_creation = fields.Datetime(
         'Fecha de creación',
         readonly=True,
         default=fields.Datetime.now,
-        )
+    )
 
     @api.multi
     def marcar_para_procesar(self):
@@ -98,7 +98,7 @@ class info_objeto_remoto(models.Model):
             vals = {
                 'datetime_creation': fields.Datetime.now(),
                 'info_objeto_remoto_id': info_objeto_remoto.id
-                }
+            }
             self.env['expresso.sincronizacion_objeto_remoto'].create(vals)
         return True
 
@@ -131,27 +131,27 @@ class sincronizacion_objeto_remoto(models.Model):
 
     datetime_creation = fields.Datetime(
         'Fecha de creación'
-        )
+    )
     datetime = fields.Datetime(
         'Fecha de actualización'
-        )
+    )
     procesado = fields.Boolean(
         'Procesado',
         default=False
-        )
+    )
     error_al_procesar = fields.Boolean(
         'Se encontro un error al procesar el Registro',
         default=False
-        )
+    )
     mensaje_error = fields.Text(
         'Mensaje del error'
-        )
+    )
     info_objeto_remoto_id = fields.Many2one(
         'expresso.info_objeto_remoto',
         'Info Objeto Remoto',
         required=True,
         ondelete='cascade'
-        )
+    )
 
     @api.model
     def create(self, vals):
@@ -160,7 +160,7 @@ class sincronizacion_objeto_remoto(models.Model):
             info_vals = {
                 'error_al_procesar': vals.get('error_al_procesar', False),
                 'procesado': vals.get('procesado', False),
-                }
+            }
             if 'datetime' in vals:
                 info_vals['datetime'] = vals['datetime']
 
@@ -205,16 +205,16 @@ class expresso_sync_info(models.Model):
         'Fecha de actualización',
         required=True,
         readonly=True
-        )
+    )
     informacion = fields.Text(
         'Information'
-        )
+    )
     clase = fields.Char(
         'Class',
         size=50,
         required=True,
         readonly=True
-        )
+    )
 
 
 class expresso_sync_log_entry(models.Model):
@@ -230,20 +230,20 @@ class expresso_sync_log_entry(models.Model):
         'Fecha de actualización',
         required=True,
         readonly=True
-        )
+    )
     error_al_procesar = fields.Boolean(
         'Error encontrado',
         readonly=True,
         default=False
-        )
+    )
     mensaje_error = fields.Text(
         'Mensaje del error',
         readonly=True
-        )
+    )
     informacion = fields.Text(
         'Información',
         readonly=True
-        )
+    )
     objeto = fields.Selection(
         [('clientes', 'Clientes'),
          ('titulos', 'Titulos'),
@@ -256,4 +256,4 @@ class expresso_sync_log_entry(models.Model):
         'Objeto Actualizado',
         required=True,
         readonly=True
-        )
+    )

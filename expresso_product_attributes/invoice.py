@@ -11,46 +11,46 @@ class account_invoice(models.Model):
     remote_id = fields.Integer(
         'Remote ID',
         copy=False,
-        )
+    )
     departure = fields.Char(
         'Departure',
         size=50
-        )
+    )
     aduana = fields.Char(
         'Aduana',
         size=50
-        )
+    )
     bultos = fields.Integer(
         'Número de bultos'
-        )
+    )
     net_weight = fields.Float(
         'Net Weight'
-        )
+    )
     gross_weight = fields.Float(
         'Gross Weight'
-        )
+    )
     origin = fields.Char(
         'Origin',
         size=50
-        )
+    )
     samples = fields.Boolean(
         'Samples'
-        )
+    )
     invoice_number = fields.Char(
         'Invoice Number',
         size=50
-        )
+    )
     packing_id = fields.Many2one(
         'expresso.packing',
         'Packing'
-        )
+    )
 
     # TODO: Ver que hacemos con esto
     invoice_type = fields.Char(
         'Invoice Type',
         size=100,
         required=False
-        )
+    )
 
 
 class account_invoice_line(models.Model):
@@ -60,4 +60,4 @@ class account_invoice_line(models.Model):
     remote_id = fields.Integer(
         'Remote ID',
         copy=False,
-        )
+    )
