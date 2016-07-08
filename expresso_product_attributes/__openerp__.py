@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
+#    Copyright (C) 2015  ADHOC SA  (http://www.adhoc.com.ar)
+#    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,24 +18,13 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-
 {
     'name': 'Atributos para Productos de Expresso Bibliográfico',
-    'version': '9.0.0.0.0',
+    'version': '9.0.1.0.0',
     'category': 'Tools',
-    'description': """
-Atributos para Productos de Expresso Bibliográfico.
-Requiere instalar python-suds 4.1+
-- Una vez instalado probar de ir a Corresponsales -> Pedidos -> Nuevo Pedido, si
-abre un pedido en vista de formulario esta bien. Sino, ir a Administración ->
-Personalización -> Objetos de bajo nivel -> Acciones -> Acciones de Ventana, buscar
-'Nuevo Pedido', abrirlo y checkear que en 'Tipo de vista' este asignado 'Formulario'
-y que en 'Modo de vista' figure 'form,tree'.
-    """,
-    'author': 'ADHOC',
+    'author': 'ADHOC SA',
     'website': 'www.adhoc.com.ar',
-    'depends': ['sale', 'stock','portal'],
+    'depends': ['sale', 'stock'],
     'data': [
             'security/expresso_security.xml',
             'security/ir.model.access.csv',
@@ -63,10 +52,9 @@ y que en 'Modo de vista' figure 'form,tree'.
             'view/corresponsale_account_view.xml',
             # TODO borrar si no lo vamos a usar
             'data/expresso_sync_info_data.xml',
-            ],
+    ],
     'demo': [],
     'test': [],
     'installable': True,
-    'active': False,
 }
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
