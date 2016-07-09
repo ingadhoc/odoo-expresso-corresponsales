@@ -37,13 +37,6 @@ class expresso_info_corresponsal(models.Model):
         readonly=True
     )
 
-    @api.multi
-    def get_users_from_info_corresponsal(self):
-        # TODO reemplazar esta funcion por algo mas prolijo
-        users = self.env['res.users'].search(
-            [('login', 'in', self.mapped('user'))])
-        return users
-
 
 class info_objeto_remoto(models.Model):
     # Info Objeto Remoto

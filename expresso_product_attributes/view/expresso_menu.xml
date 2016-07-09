@@ -205,12 +205,12 @@
                     parent="expresso_administracion"
                     sequence="2"/>
                 
-<!--                 <menuitem
+                <menuitem
                     id="expresso_info_corresponsal"
                     name="Info. Sync. Corresponsales"
 	                action="action_expresso_info_corresponsal"
 	                parent="expresso_administracion"
-	                sequence="3"/> -->
+	                sequence="3"/>
 	                
                 <menuitem
                     id="expresso_res_currency"
@@ -219,14 +219,11 @@
 	                parent="expresso_administracion"
 	                sequence="4"/>
                 
-<!--                 <menuitem
+                <menuitem
                     id="menu_sync_log_entry"
 	                action="action_expresso_sync_log_entry"
 	                parent="expresso_administracion"
-	                sequence="5"/> -->
-                
-                
-                
+	                sequence="5"/>
                 
     </data>
 </openerp>
