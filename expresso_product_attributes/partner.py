@@ -12,11 +12,7 @@ class res_partner(models.Model):
         'Remote ID',
         copy=False
     )
-    associated_user_ids = fields.One2many(
-        'res.users',
-        'partner_id',
-        'Associate Members'
-    )
+    # TODO ver si borramos este campo y en realidad usamos el padre
     info_corresponsal_id = fields.Many2one(
         'expresso.info_corresponsal',
         'User Info'

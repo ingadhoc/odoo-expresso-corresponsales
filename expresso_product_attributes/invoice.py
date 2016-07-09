@@ -45,13 +45,6 @@ class account_invoice(models.Model):
         'Packing'
     )
 
-    # TODO: Ver que hacemos con esto
-    invoice_type = fields.Char(
-        'Invoice Type',
-        size=100,
-        required=False
-    )
-
 
 class account_invoice_line(models.Model):
     _name = "account.invoice.line"

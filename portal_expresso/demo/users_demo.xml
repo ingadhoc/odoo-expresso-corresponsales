@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+    <!--USER CORRESPONSAL-->
+     <record id="partner_corresponsal" model="res.partner">
+            <field name="name">Demo Corresponsal</field>
+            <field name="email">demo.corresponsal@yourcompany.example.com</field>
+            <field name="supplier" eval="False"/>
+            <field name="customer" eval="True"/>
+            <field name="notify_email">none</field>
+            <field name="city">Argentina</field>
+            <field name="zip">4683</field>
+        </record>
+
+        <record id="demo_corresponsal_user" model="res.users" context="{'no_reset_password': True}">
+            <field name="partner_id" ref="partner_corresponsal"/>
+            <field name="login">corresponsal</field>
+            <field name="password">corresponsal</field>
+            <field name="signature">Corresponsal</field>
+            <!-- Avoid auto-including this user in any default group -->
+            <field name="groups_id" eval="[(5,),(6,0,[ref('base.group_portal')])]"/>
+        </record>
+    </data>
+</openerp>

@@ -28,13 +28,6 @@ class expresso_packing(models.Model):
         'Corresponsal',
         required=True
     )
-    # partner_address_id = fields.Many2one(
-    #     'payment.transaction',
-    #     'Address',
-    #     required=True,
-    #     domain="[('partner_id','=', partner_id)]"
-    #     )
-
     imprimirpeso = fields.Char(
         'Imprimir Peso',
         size=30

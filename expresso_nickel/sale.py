@@ -6,9 +6,9 @@ from actualizador.conector_nickel import Conector_Nickel
 class sale_order(models.Model):
     _inherit = 'sale.order'
 
-    product_warning = fields.Boolean(
-        'Product Warning',
-        readonly=True, default=False)
+    # product_warning = fields.Boolean(
+    #     'Product Warning',
+    #     readonly=True, default=False)
 
     @api.one
     def update_product_warning(self):

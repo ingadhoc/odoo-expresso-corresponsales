@@ -34,7 +34,9 @@
         'view/corresponsales_menu.xml',
         'view/portal_sale_view.xml',
     ],
-    'demo': [],
+    'demo': [
+        'demo/users_demo.xml',
+    ],
     'test': [],
     'installable': True,
     'auto_install': True,

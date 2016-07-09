@@ -1,0 +1,451 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+
+        <record model="ir.ui.view" id="view_order_expresso_form">
+            <field name="name">sale.order.expresso.view</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="model">sale.order</field>
+            <field name="groups_id" eval="[(4, ref('expresso_product_attributes.expresso_grupo_expresso'))]"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+
+                        <!-- TODO borrar, usariamos los campos nativos de odoo -->
+                        <!-- <field name="dir_envio"/> -->
+                        <!-- <field name="dir_factura"/> -->
+                        <!-- <field name="current_partner_id_for_filtering" invisible="True"/> -->
+
+
+                    <!--<field name="user_corresponsal_id_expresso" eval="[('groups_id', 'in', 1]"/>-->
+
+                    <field name="user_corresponsal_id_expresso"/>
+                           <!--groups="expresso_product_attributes.expresso_grupo_corresponsales,base.group_system"/>-->
+                    <!--<field name="user_corresponsal_id_corresponsales"/>-->
+
+                    <field name="user_expresso_id_expresso"
+                            groups="expresso_product_attributes.expresso_grupo_expresso,base.group_system"/>
+                    <!--<field name="user_expresso_id_corresponsal" readonly="True"/>-->
+                    <field name="remote_id" readonly="1"/>
+                </field>
+
+                <!--<field name="qty_invoiced" position="replace">-->
+                  <!--<field name="qty_invoiced" invisible="True"/>-->
+                <!--</field>-->
+
+                <field name="pricelist_id" position="replace">
+                  <field domain="[('type','=','sale')]" name="pricelist_id"
+                               invisible="True"/>
+                </field>
+
+                <!-- Información envio -->
+                <!--<xpath expr="//group[@name='sale_shipping']" position="replace"/>-->
+                <xpath expr="//notebook/page[2]/group/group[3]" position="replace"/>
+                <!--<xpath expr="//notebook/page[2]/group/group[2]" position="replace"/>-->
+
+
+
+                <xpath expr="//notebook/page[2]/group" position="before">
+                    <group colspan="4" col="4" string="Información">
+                        <!--<separator string="Información de envio" colspan="2"/>-->
+                        <field name="fecha_salida" readonly="False"/>
+                        <field name="forma_envio_id_expresso" readonly="False"/>
+                        <field name="fecha_estimada_entrega" readonly="False"/>
+                        <field name="embarque" readonly="False"/>
+                        <field name="empresa_logistica_id" readonly="False"/>
+                    </group>
+
+
+                    <group colspan="2" col="2">
+                        <separator string="Dates" colspan="2"/>
+                        <field name="create_date" widget="datetime"/>
+                        <field name="fecha_confirmado_corresponsal" readonly="True"/>
+                        <field name="fecha_valido_expresso" readonly="True"/>
+                        <field name="fecha_valido_corresponsal" readonly="True"/>
+                        <field name="fecha_cerrado_expresso" readonly="True"/>
+                        <field name="fecha_despachado_expresso" readonly="True"/>
+                        <field name="fecha_recibido_corresponsal" readonly="True"/>
+
+                    </group>
+                    <group colspan="2" col="2">
+                        <separator string="Notas" colspan="2"/>
+
+                        <field name="sale_note" />
+                    </group>
+
+                </xpath>
+                <!--<xpath expr="//field[@name='incoterm']" position="attributes">-->
+                     <!--<attribute name="invisible">True</attribute>-->
+                <!--</xpath>-->
+                <xpath expr="//notebook/page[2]/group/group[@name='sale_pay']" position="replace">
+                     <field name="fiscal_position_id" invisible="True" options="{'no_create': True}"/>
+                    <field name="invoice_status" invisible="True"/>
+                 </xpath>
+
+                <xpath expr="//notebook/page[2]/group/group[@name='sales_person']" position="replace">
+                    <group string="" name="sales_person">
+                         <field name="user_id" invisible="True"  context="{'default_groups_ref': ['base.group_user', 'base.group_partner_manager', 'account.group_account_invoice', 'base.group_sale_salesman_all_leads']}"/>
+                         <field name="team_id" invisible="True" options="{'no_create': True}"/>
+                        <field name="client_order_ref" invisible="True" />
+                        <field name="company_id" invisible="True" options="{'no_create': True}" groups="base.group_multi_company"/>
+
+                    </group>
+                    <group string="" name="sale_shipping">
+                            <field name="warehouse_id" invisible="True" options="{'no_create': True}" groups="stock.group_locations"/>
+                            <field name="incoterm" widget="selection" invisible="True" groups="base.group_user"/>
+                            <field name="picking_policy" invisible="True" required="True"/>
+                     </group>
+                </xpath>
+
+
+
+
+
+
+                    <field name="product_id" position="replace">
+                        <field name="product_id"
+                               on_change="product_id_change_inherited(parent.pricelist_id,product_id,parent.partner_id,product_uom_qty)"
+                               colspan="5"/>
+                    </field>
+                    <field name="name" position="replace">
+                        <field name="name" colspan="5"/>
+                    </field>
+                    <field name="product_uom" position="replace">
+                        <field name="product_uom" string="UoM" invisible="True" />
+                    </field>
+                    <!--<field name="price_unit" position="replace">-->
+                        <!--<group groups="expresso_product_attributes.expresso_grupo_expresso">-->
+                          <!--<field name="price_unit" string="Precio Unidad" colspan="2"/>-->
+                        <!--</group>-->
+
+                        <!--<group groups="expresso_product_attributes.expresso_grupo_corresponsales">-->
+                            <!--<field name="price_unit_corresponsales" string="Precio Unidad" readonly="True" colspan="2"/>-->
+                        <!--</group>-->
+                    <!--</field>-->
+
+
+                    <field name="tax_id" position="replace">
+                        <field colspan="5" name="tax_id" nolabel="1"
+                               domain="[('parent_id','=',False),('type_tax_use','&lt;&gt;','purchase')]"
+                               invisible="True"/>
+                    </field>
+
+
+                    <field name="state" position="replace">
+                        <field name="state" invisible="True"/>
+                    </field>
+                    <field name="qty_invoiced" position="attributes">
+                        <attribute name="invisible">True</attribute>
+                    </field>
+
+                    <field name="product_uom_qty" position="replace">
+                        <field name="product_uom_qty" widget="integer" label="Quantity"/>
+                    </field>
+
+                    <field name="product_uom" position="replace"/>
+                    <field name="discount" position="replace"/>
+
+                     <xpath expr="//header/field[@name='state']" position="before">
+                         <button name="order_pendiente_expresso_2_pendiente_corresponsal"
+                                    string="Validar Pedido" icon="gtk-apply"
+                                    attrs="{'invisible':[('state_expresso','!=','pendiente_e')]}"/>
+
+
+                        <!--<button name="%(expresso_product_attributes.action_pre_cerrar_pedido)d"-->
+                         <!--type="action"-->
+                         <button name="order_pedido_2_cerrado"
+                                    string="Cerrar Pedido" icon="gtk-apply"
+                                    attrs="{'invisible':[('state_expresso','!=','pedido')]}"/>
+
+                        <button name="order_cerrado_2_despachado"
+                                    string="Despachar" icon="gtk-apply"
+                                    attrs="{'invisible':[('state_expresso','!=','cerrado')]}" />
+                      </xpath>
+
+
+                <field name="state" position="replace">
+                        <field name="state" invisible="1"/>
+                        <field name="state_expresso" widget="statusbar"/>
+                 </field>
+
+                    <!--Agregando pendientes y facturas-->
+                     <xpath expr="//notebook/page['Other Information']" position="after">
+                        <page string="Títulos Pendientes">
+                            <field name="producto_pendiente_ids" nolabel="1" readonly="1"/>
+                        </page>
+                         <page string="Facturas">
+                             <!--<field name="invoice_ids" nolabel="1" position="replace">-->
+                                <!--<field name="invoice_ids" readonly="False" nolabel="1" mode="tree"/>-->
+                             <!--</field>-->
+                            <!--<field name="invoice_ids" />-->
+                             <field name="invoice_expresso_ids" nolabel="1" mode="tree" />
+                        </page>
+                       </xpath>
+
+
+                    <!--</page>-->
+                    <field name="amount_untaxed" position="replace"/>
+                    <field name="amount_tax" position="replace"/>
+
+                 <!--<xpath expr="//tree/field['@name=name']" position="before">-->
+                     <!--<field name="product_id" />-->
+                  <!--</xpath>-->
+
+
+            </field>
+        </record>
+
+
+
+        <record id="view_order_form_corresponsal_sale" model="ir.ui.view">
+            <field name="name">sale.order.form.corresponsal_sale</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="groups_id" eval="[(4, ref('expresso_product_attributes.expresso_grupo_corresponsales'))]"/>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="remote_id" readonly="1"/>
+                </form>
+<!--                 <xpath expr="//tree/field['@name=name']" position="before">
+                     <field name="qty_invoiced" invisible="True" />
+                     <field name="procurement_ids" invisible="True" />
+                    <field name="product_id" />
+                  </xpath> -->
+
+
+                <!-- <field name="partner_id" position="replace"> -->
+
+                        <!-- <field name="partner_id" /> -->
+                        <!-- TODO borrar, usariamos los campos nativos de odoo -->
+                        <!-- <field name="dir_envio"/> -->
+                        <!-- <field name="dir_factura"/> -->
+                        <!-- <field name="current_partner_id_for_filtering" invisible="True"/> -->
+
+                    <!--<field name="user_corresponsal_id_expresso" eval="[('groups_id', 'in', 1]"/>-->
+                    <!-- <field name="user_corresponsal_id_expresso"/> -->
+                           <!--groups="expresso_product_attributes.expresso_grupo_corresponsales,base.group_system"/>-->
+                    <!--<field name="user_corresponsal_id_corresponsales"/>-->
+
+                    <!--<field name="user_expresso_id_corresponsal" readonly="True"/>-->
+                    <!-- <field name="remote_id" readonly="1"/> -->
+                <!-- </field> -->
+
+                <field name="qty_invoiced" position="replace">
+                  <field name="qty_invoiced" invisible="True"/>
+                </field>
+
+                <field name="pricelist_id" position="replace">
+                  <field domain="[('type','=','sale')]" name="pricelist_id"
+                               invisible="True"/>
+                </field>
+
+
+                <!--<xpath expr="//notebook/page['Other Information']" position="before">-->
+                    <!--<group colspan="2" col="2" >-->
+                        <!--<separator string="Información de envio" colspan="2"/>-->
+                        <!--<field name="fecha_salida_corresponsales" readonly="True"/>-->
+                        <!--<field name="forma_envio_id_corresponsales" readonly="False"/>-->
+                        <!--<field name="fecha_estimada_entrega_corresponsales" readonly="True"/>-->
+                        <!--<field name="embarque_corresponsales" readonly="True"/>-->
+                        <!--<field name="empresa_logistica_id_corresponsales" readonly="True"/>-->
+                    <!--</group>-->
+                <!-- Información envio -->
+                <!-- Información envio -->
+                <xpath expr="//notebook/page[2]/group/group[3]" position="replace"/>
+                <!--<xpath expr="//notebook/page[2]/group/group[2]" position="replace"/>-->
+                <!--<xpath expr="//notebook/page[2]/group/group[1]" position="replace"/>-->
+
+
+                <xpath expr="//notebook/page[2]/group" position="before">
+                    <group colspan="4" col="4">
+                        <separator string="Información" colspan="2"/>
+                        <field name="fecha_salida" readonly="True"/>
+                        <field name="forma_envio_id_expresso" readonly="False"/>
+                        <field name="fecha_estimada_entrega" readonly="True"/>
+                        <field name="embarque" readonly="True"/>
+                        <field name="empresa_logistica_id" readonly="True"/>
+                    </group>
+
+
+                    <group colspan="2" col="2">
+                        <separator string="Dates" colspan="2"/>
+                        <field name="create_date" widget="datetime"/>
+                        <field name="fecha_confirmado_corresponsal" readonly="True"/>
+                        <field name="fecha_valido_expresso" readonly="True"/>
+                        <field name="fecha_valido_corresponsal" readonly="True"/>
+                        <field name="fecha_cerrado_expresso" readonly="True"/>
+                        <field name="fecha_despachado_expresso" readonly="True"/>
+                        <field name="fecha_recibido_corresponsal" readonly="True"/>
+                    </group>
+                     <group colspan="2" col="2">
+                        <separator string="Notas" colspan="2"/>
+
+                        <field name="sale_note" />
+                    </group>
+                </xpath>
+                <xpath expr="//notebook/page[2]/group/group[@name='sale_pay']" position="replace">
+                     <field name="fiscal_position_id" invisible="True" options="{'no_create': True}"/>
+                    <field name="invoice_status" invisible="True"/>
+                 </xpath>
+
+                <xpath expr="//notebook/page[2]/group/group[@name='sales_person']" position="replace">
+                    <group string="" name="sales_person">
+                         <field name="user_id" invisible="True"  context="{'default_groups_ref': ['base.group_user', 'base.group_partner_manager', 'account.group_account_invoice', 'base.group_sale_salesman_all_leads']}"/>
+                         <field name="team_id" invisible="True" options="{'no_create': True}"/>
+                        <field name="client_order_ref" invisible="True" />
+                        <field name="company_id" invisible="True" options="{'no_create': True}" groups="base.group_multi_company"/>
+
+                    </group>
+                    <group string="" name="sale_shipping">
+                            <field name="warehouse_id" invisible="True" options="{'no_create': True}" groups="stock.group_locations"/>
+                            <field name="incoterm" widget="selection" invisible="True" groups="base.group_user"/>
+                            <field name="picking_policy" invisible="True" required="True"/>
+                     </group>
+                </xpath>
+
+                    <field name="product_id" position="replace">
+                        <field name="product_id"
+                               on_change="product_id_change_inherited(parent.pricelist_id,product_id,parent.partner_id,product_uom_qty)"
+                               colspan="5"/>
+                    </field>
+                    <field name="name" position="replace">
+                        <field name="name" colspan="5"/>
+                    </field>
+                    <field name="product_uom" position="replace">
+                        <field name="product_uom" string="UoM" invisible="True" />
+                    </field>
+                    <!--<field name="price_unit" position="replace">-->
+                        <!--<group groups="expresso_product_attributes.expresso_grupo_expresso">-->
+                          <!--<field name="price_unit" string="Precio Unidad" colspan="2"/>-->
+                        <!--</group>-->
+
+                        <!--<group groups="expresso_product_attributes.expresso_grupo_corresponsales">-->
+                            <!--<field name="price_unit_corresponsales" string="Precio Unidad" readonly="True" colspan="2"/>-->
+                        <!--</group>-->
+                    <!--</field>-->
+
+
+                    <field name="tax_id" position="replace">
+                        <field colspan="5" name="tax_id" nolabel="1"
+                               domain="[('parent_id','=',False),('type_tax_use','&lt;&gt;','purchase')]"
+                               invisible="True"/>
+                    </field>
+
+
+                    <field name="state" position="replace">
+                        <field name="state" invisible="True"/>
+                    </field>
+                    <field name="qty_invoiced" position="attributes">
+                        <attribute name="invisible">True</attribute>
+                    </field>
+
+                    <field name="product_uom_qty" position="replace">
+                        <field name="product_uom_qty" widget="integer" label="Quantity"/>
+                    </field>
+
+                    <field name="product_uom" position="replace"/>
+                    <field name="discount" position="replace"/>
+
+                       <xpath expr="//header" position="after">
+                        <button name="order_borrador_2_pendiente_expresso"
+                                    string="Confirmar Pedido" icon="gtk-apply"
+                                    attrs="{'invisible':[('state_expresso','!=','borrador')]}" />
+
+
+                        <button name="order_pendiente_corresponsales_2_pedido"
+                                    string="Validar Pedido" icon="gtk-apply"
+                                    attrs="{'invisible':[('state_expresso','!=','pendiente_c')]}" />
+
+
+                        <button name="order_despachado_2_recibido"
+                                    string="Recibido" icon="gtk-apply"
+                                    attrs="{'invisible':[('state_expresso','!=','despachado')]}" />
+                           <field name="state_expresso" widget="statusbar"/>
+                        </xpath>
+                        <field name="state" position="replace">
+                            <field name="state" invisible="1"/>
+                        <field name="state_expresso" widget="statusbar"/>
+
+                    </field>
+
+                    <!--<page String="Other Information" position="after">-->
+                     <xpath expr="//notebook/page['Other Information']" position="after">
+                        <page string="Títulos Pendientes">
+                            <field name="producto_pendiente_ids" nolabel="1" readonly="1"/>
+                        </page>
+                         <page string="Facturas">
+                            <!--<field name="invoice_ids" nolabel="1" position="replace">-->
+                               <!--<field name="invoice_ids" readonly="False" nolabel="1" mode="tree"/>-->
+                             <!--</field>-->
+                            <!--<field name="invoice_ids" />-->
+                             <field name="invoice_expresso_ids" nolabel="1" mode="tree" />
+                        </page>
+                       </xpath>
+                    <!--</page>-->
+                <field name="amount_untaxed" position="replace"/>
+                <field name="amount_tax" position="replace"/>
+
+                 <!--<xpath expr="//tree/field['@name=name']" position="before">-->
+                     <!--<field name="product_id" />-->
+                  <!--</xpath>-->
+
+            </field>
+        </record>
+        
+        <!-- Tree -->
+       <record id="view_order_expresso_tree" model="ir.ui.view">
+            <field name="name">sale.order.expresso.tree</field>
+            <field name="inherit_id" ref="sale.view_order_tree"/>
+            <field name="model">sale.order</field>
+            <field name="arch" type="xml">
+                <tree  position="replace">
+                    <tree string="Sales Orders" colors="grey:state_expresso=='recibido'">
+                        <field name="name"/>
+                        <field name="date_order"/>
+                        <field name="client_order_ref" groups="base.group_extended"/>
+                        <field name="partner_id"/>
+                        <field name="user_id" invisible="True"/>
+                        <field name="user_corresponsal_id_expresso" />
+                        <field name="user_expresso_id_expresso" />
+                        <field name="amount_total" sum="Total"/>
+                        <field name="state_expresso"/>
+                        <field name="state" invisible="True"/>
+                    </tree>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Search -->
+         <record id="view_order_expresso_search" model="ir.ui.view">
+            <field name="name">sale.order.expresso.search</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+            <field name="arch" type="xml">
+                    <filter name="draft" position="replace">
+                        <filter icon="terp-document-new"
+                                string="Borrador"
+                                domain="[('state_expresso','=','borrador')]"
+                                help="Pedidos en estado Borrador"/>
+                        <separator orientation="vertical"/>
+                    </filter>
+                    
+                    <filter name="sales" position="replace">
+                        <filter icon="terp-personal"
+                                string="Expresso"
+                                domain="[('state_expresso','=','pendiente_e')]"
+                                help="Pedidos en estado Pendiente Expresso"/>
+                        
+                        <filter icon="terp-personal"
+                                string="Corresponsal"
+                                domain="[('state_expresso','=','pendiente_c')]"
+                                help="Pedidos en estado Pendiente Corresponsal"/>
+                        <separator orientation="vertical"/>
+                    </filter>
+                    <xpath expr="//search/separator[1]" position="replace"/>
+                     <xpath expr="//search/filter[4]" position="replace"/>
+            </field>
+        </record>
+
+
+    </data>
+</openerp>

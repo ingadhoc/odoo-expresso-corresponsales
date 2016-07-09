@@ -9,13 +9,6 @@ import logging
 _logger = logging.getLogger(__name__)
 
 
-
-# db_host = '144.76.16.237'
-# db_user = 'mydataro'
-# db_password = 'NewCall02'
-# db_name = 'data_sync'
-
-
 class Conector_Nickel:
 
     # Actualizar Clientes
@@ -110,9 +103,11 @@ class Conector_Nickel:
                 amount = amount / 100
                 code_currency = row[7]
 
-                nickel_cliente_obj = pooler.get_pool(cr.dbname).get('nickel_partner')
-                partner_id = nickel_cliente_obj.get_partner_from_remote_id(
-                    cr, uid, customer_code, None)
+                # nickel_cliente_obj = pooler.get_pool(cr.dbname).get('nickel_partner')
+                # TODO arreglar esto! deberiamos traer un solo partner, el partner principal
+                partner_id = self.env['expresso.info_corresponsal'].search(
+                    [('nickel_customer_id.remote_id', '=', customer_code)],
+                    limit=1).partner_ids[0]
 
                 invoice_id = invoice_obj.search(
                     cr, uid, [('invoice_number', '=', invoice_number)], None)

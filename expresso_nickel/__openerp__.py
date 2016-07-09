@@ -26,18 +26,21 @@
     'website': 'www.adhoc.com.ar',
     'depends': ['expresso_product_attributes'],
     'data': [
-            'security/ir.model.access.csv',
+            # 'security/ir.model.access.csv',
             'view/nickel_cliente_view.xml',
             'view/nickel_factura_view.xml',
             'view/invoice_view.xml',
             'view/expresso_sync_info_view.xml',
-            # 'view/product_view.xml',
             # 'view/sale_view.xml',
-            'view/backup_data.xml',
-            'wizard/panel_control_actualizacion_view.xml'],
+            # 'view/backup_data.xml',
+            # 'wizard/panel_control_actualizacion_view.xml'
+    ],
+    # 'external_dependencies': {
+    #     'python': ['MySQLdb'],
+    # },
     'demo': [],
     'test': [],
-    'installable': False,
+    'installable': True,
     'auto_install': False,
     'application': False,
 }

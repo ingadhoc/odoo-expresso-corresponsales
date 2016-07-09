@@ -151,16 +151,11 @@ class product_product(models.Model):
     valuation = fields.Char(
         'Valuation',
         size=300)
-
-    #
-    # @api.one
-    # def get_valuation_type(self):
-    #
-    #     if self.product.property_valuation:
-    #         self.valuation = product.property_valuation
-    #     else:
-    #         self.valuation = self.product.categ_id.property_valuation
-    #
+    # nickel stock
+    qty_available_2 = fields.Float(
+        related='qty_available',
+        string="Quantity Available 2"
+    )
 
     @api.one
     @api.onchange('matter_id')

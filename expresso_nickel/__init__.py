@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
-import actualizador
-import nickel_partner
-import nickel_invoice
-import expresso_sync_info
-import invoice
-import product
-import sale
-import wizard
-import actualizador_osv
+from. import actualizador
+from. import nickel_partner
+from. import nickel_invoice
+from. import expresso_sync_info
+from. import invoice
+# from. import sale
+# from. import wizard
+# from. import actualizador_osv

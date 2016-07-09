@@ -14,29 +14,32 @@ class expresso_info_corresponsal(models.Model):
     _rec_name = 'corresponsal'
 
     corresponsal = fields.Char(
-        'Corresponsale',
+        'Corresponsal',
         size=50,
         required=True
     )
     user = fields.Char(
         'User',
         size=50,
-        required=True
+        required=True,
+        help='Usuario en ERP expresso',
     )
     contrasenia = fields.Char(
         'Password',
         size=50,
-        required=True
+        required=True,
+        help='Contrasena en ERP expresso',
     )
     partner_ids = fields.One2many(
         'res.partner',
         'info_corresponsal_id',
-        u'Partner',
+        'Partner',
         readonly=True
     )
 
     @api.multi
     def get_users_from_info_corresponsal(self):
+        # TODO reemplazar esta funcion por algo mas prolijo
         users = self.env['res.users'].search(
             [('login', 'in', self.mapped('user'))])
         return users

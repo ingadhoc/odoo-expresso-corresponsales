@@ -6,3 +6,7 @@ Nickel connection with Expresso Bibliográfico server to upgrade
      To do this go to "Expresso / Administration / Info. Sync. Correspondents" and once
      Nickel users have been loaded, enter each record and add
      Nickel corresponding user.
+
+Yo tuve que instalar tambien
+sudo apt-get install libmysqlclient-dev
+MySQL-python
