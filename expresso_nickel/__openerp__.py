@@ -20,7 +20,7 @@
 ##############################################################################
 {
     'name': 'Nickel connection to the system Expresso Bibliográfico',
-    'version': '9.0.0.0.0',
+    'version': '9.0.1.0.0',
     'category': 'Tools',
     'author': 'ADHOC SA',
     'website': 'www.adhoc.com.ar',
@@ -40,7 +40,7 @@
     # },
     'demo': [],
     'test': [],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': False,
 }
