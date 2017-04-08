@@ -1,0 +1,1978 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * expresso_product_attributes
+# 
+# Translators:
+# Nicolas Mac Rouillon <nmr@ingadhoc.com>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-07-08 15:14+0000\n"
+"PO-Revision-Date: 2016-07-08 15:14+0000\n"
+"Last-Translator: Nicolas Mac Rouillon <nmr@ingadhoc.com>, 2017\n"
+"Language-Team: Spanish (https://www.transifex.com/adhoc/teams/46451/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_sale_order_count
+msgid "# of Sales Order"
+msgstr "# de Pedidos de Venta"
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pre_cerrar_pedido
+msgid "- Anexar como archivo adjunto el packing list."
+msgstr "- Anexar como archivo adjunto el packing list."
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pre_cerrar_pedido
+msgid "- Anexar como archivo adjunto la factura."
+msgstr "- Anexar como archivo adjunto la factura."
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pre_cerrar_pedido
+msgid ""
+"- Asociar a este pedido las facturas correspondientes dentro del sistema."
+msgstr ""
+"- Asociar a este pedido las facturas correspondientes dentro del sistema."
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_property_account_payable_id
+msgid "Account Payable"
+msgstr "Cuenta a pagar"
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_property_account_receivable_id
+msgid "Account Receivable"
+msgstr "Cuenta a cobrar"
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_producto_pendiente_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_producto_pendiente_search
+#: selection:product.producto_pendiente,state:0
+msgid "Activo"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_expresso_actualizador
+msgid "Actualizador"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.menu,name:expresso_product_attributes.expresso_administracion
+msgid "Administración"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_account_invoice_aduana
+msgid "Aduana"
+msgstr "Aduana"
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_pedir_multi_titulos
+msgid "Agregar a Pedido"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedir_multi_titulos_wizard
+msgid "Agregar a nuevo pedido"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedir_multi_titulos_wizard
+msgid "Agregar a pedido existente"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_alto
+msgid "Alto"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_ancho
+msgid "Ancho"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_pre_cerrar_pedido
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pre_cerrar_pedido
+msgid "Antes de cerrar el pedido"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_partner_associated_user_ids
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_associated_user_ids
+msgid "Associate Members"
+msgstr "Miembros asociados"
+
+#. module: expresso_product_attributes
+#: model:ir.ui.menu,name:expresso_product_attributes.expresso_productos_atributos
+msgid "Atributos"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: selection:expresso.sync_log_entry,objeto:0
+msgid "Atributos de los Titulos"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_autor
+msgid "Autor"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_anio_edicion
+msgid "Año de Edición"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_bank_account_count
+msgid "Bank"
+msgstr "Banco"
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_expresso_search
+#: selection:sale.order,state_expresso:0
+msgid "Borrador"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_detail_box_id
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_packing_box_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_packing_box_tree
+msgid "Caja"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_packing_box_ids
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_packing_form
+msgid "Cajas"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_expresso_packing_box
+msgid "Cajas de Packing"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_generar_pedidos_pendientes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_multi_marcar_para_procesar_wizard
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_repedir_pendiente_pedido_existente
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pre_cerrar_pedido
+msgid "Cancel accion y completar el pedido"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_producto_pendiente_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_producto_pendiente_search
+#: selection:product.producto_pendiente,state:0
+msgid "Cancelado"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedir_multi_titulos_wizard
+msgid "Cancelar"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_detail_product_qty
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedido_multi_titulo_linea_cantidad
+msgid "Cantidad"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_generador_productos_pendientes_cantidad_disponible
+msgid "Cantidad Disponible"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: code:addons/expresso_product_attributes/wizard/generar_pendiente.py:42
+#, python-format
+msgid "Cantidad disponible muy grande"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: code:addons/expresso_product_attributes/wizard/generar_pendiente.py:45
+#, python-format
+msgid "Cantidad disponible negativa"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_caratula
+msgid "Caratula"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: selection:sale.order,state_expresso:0
+msgid "Cerrado"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_expresso_form
+msgid "Cerrar Pedido"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_expresso_ciclo
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_ciclo_id
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_ciclo_form
+msgid "Ciclo"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_expresso_ciclo_form
+#: model:ir.ui.menu,name:expresso_product_attributes.menu_expresso_ciclo_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_ciclo_tree
+msgid "Ciclos"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_info_objeto_remoto_clase
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sync_info_clase
+msgid "Class"
+msgstr "Clase"
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_customer_partner_id
+msgid "Client"
+msgstr "Cliente"
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_producto_pendiente_partner_id
+msgid "Cliente"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: selection:expresso.sync_log_entry,objeto:0
+msgid "Clientes"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: selection:expresso.sync_log_entry,objeto:0
+msgid "Clientes de Nickel"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_expresso_coleccion
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_coleccion_id
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_coleccion_form
+msgid "Coleccion"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_expresso_coleccion_form
+#: model:ir.ui.menu,name:expresso_product_attributes.menu_expresso_coleccion_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_coleccion_tree
+msgid "Colecciones"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_ref_company_ids
+msgid "Companies that refers to partner"
+msgstr "Compañías que se refieren a Partner"
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_form_corresponsal_sale
+msgid "Confirmar Pedido"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.menu,name:expresso_product_attributes.expresso_consultas
+msgid "Consultas"
+msgstr "Consultas"
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pre_cerrar_pedido
+msgid "Continuar cerrando el pedido"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_contract_ids
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_contracts_count
+msgid "Contracts"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_sync_log_entry_search
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_info_objeto_remoto_search
+msgid "Correctos"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_info_objeto_remoto_corresponsal
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_partner_id
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_expresso_search
+msgid "Corresponsal"
+msgstr "Corresponsal"
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_info_corresponsal_corresponsal
+msgid "Corresponsale"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_expresso_res_partner
+#: model:ir.ui.menu,name:expresso_product_attributes.expresso_corresponsales
+msgid "Corresponsales"
+msgstr "Corresponsales"
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_payment_method_count
+msgid "Count Payment Method"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_actualizador_create_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_ciclo_create_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_coleccion_create_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_curso_create_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_director_create_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_encuadernacion_create_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_forma_envio_create_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_generador_productos_pendientes_create_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_idioma_create_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_info_corresponsal_create_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_info_objeto_remoto_create_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_materia_create_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_box_create_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_create_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_detail_create_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_panel_control_actualizacion_create_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_proyecto_create_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_publico_create_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_repedir_pendiente_pedido_existente_create_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_seleccion_create_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sincronizacion_objeto_remoto_create_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_situacion_create_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sync_info_create_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sync_log_entry_create_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_tipo_create_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_valor_create_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_multi_marcar_para_procesar_create_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedido_multi_titulo_linea_create_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedir_multi_titulos_create_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_pre_cerrar_pedido_create_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_producto_pendiente_create_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_empresa_logistica_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_actualizador_create_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_ciclo_create_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_coleccion_create_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_curso_create_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_director_create_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_encuadernacion_create_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_forma_envio_create_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_generador_productos_pendientes_create_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_idioma_create_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_info_corresponsal_create_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_info_objeto_remoto_create_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_materia_create_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_box_create_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_create_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_detail_create_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_panel_control_actualizacion_create_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_proyecto_create_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_publico_create_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_repedir_pendiente_pedido_existente_create_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_seleccion_create_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sincronizacion_objeto_remoto_create_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_situacion_create_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sync_info_create_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sync_log_entry_create_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_tipo_create_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_valor_create_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_multi_marcar_para_procesar_create_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedido_multi_titulo_linea_create_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedir_multi_titulos_create_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_pre_cerrar_pedido_create_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_producto_pendiente_create_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_empresa_logistica_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_current_partner_id_for_filtering
+msgid "Current Partner id for Filtering"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_expresso_curso
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_curso_id
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_curso_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_curso_tree
+msgid "Curso"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_expresso_curso_form
+#: model:ir.ui.menu,name:expresso_product_attributes.menu_expresso_curso_form
+msgid "Cursos"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_property_stock_customer
+msgid "Customer Location"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_property_payment_term_id
+msgid "Customer Payment Term"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_product_expresso_form
+msgid "Código"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_fecha_cerrado_expresso
+msgid "Date Closed - Expresso"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_fecha_confirmado_corresponsal
+msgid "Date Confirm - Correspondent"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_fecha_recibido_corresponsal
+msgid "Date Received - Correspondent"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_expresso_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_form_corresponsal_sale
+msgid "Dates"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_product_expresso_form
+msgid "Datos"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_ciclo_denomination
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_coleccion_denomination
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_curso_denomination
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_director_denomination
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_encuadernacion_denomination
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_forma_envio_denomination
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_idioma_denomination
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_materia_denomination
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_proyecto_denomination
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_publico_denomination
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_seleccion_denomination
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_situacion_denomination
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_tipo_denomination
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_valor_denomination
+msgid "Denominación"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_account_invoice_departure
+msgid "Departure"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_producto_pendiente_name
+msgid "Descripcion"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: selection:sale.order,state_expresso:0
+msgid "Despachado"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_expresso_form
+msgid "Despachar"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_packing_detail_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_packing_detail_tree
+msgid "Detalle"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_expresso_packing_detail
+msgid "Detalle de Packing"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_box_packing_detail_ids
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_packing_box_form
+msgid "Detalles"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_generar_pedidos_pendientes
+msgid "Diferencia a Pendientes"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_dir_factura
+msgid "Dirección de la factura"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_dir_envio
+msgid "Dirección del envio"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_expresso_director
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_materia_director_id
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_director_form
+msgid "Director"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_expresso_director_form
+#: model:ir.ui.menu,name:expresso_product_attributes.menu_expresso_director_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_director_tree
+msgid "Directores"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_fecha_despachado_expresso
+msgid "Dispatched Date - Expresso"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_actualizador_display_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_ciclo_display_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_coleccion_display_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_curso_display_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_director_display_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_encuadernacion_display_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_forma_envio_display_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_generador_productos_pendientes_display_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_idioma_display_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_info_corresponsal_display_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_info_objeto_remoto_display_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_materia_display_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_box_display_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_detail_display_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_display_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_panel_control_actualizacion_display_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_proyecto_display_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_publico_display_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_repedir_pendiente_pedido_existente_display_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_seleccion_display_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sincronizacion_objeto_remoto_display_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_situacion_display_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sync_info_display_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sync_log_entry_display_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_tipo_display_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_valor_display_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_multi_marcar_para_procesar_display_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedido_multi_titulo_linea_display_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedir_multi_titulos_display_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_pre_cerrar_pedido_display_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_producto_pendiente_display_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_empresa_logistica_display_name
+msgid "Display Name"
+msgstr "Nombre Mostrado "
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_product_expresso_search
+msgid "Disponible"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_product_expresso_search
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_product_expresso_tree
+msgid "EAN"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_edad_recomendada_max
+msgid "Edad Máxima Recomendada"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_edad_recomendada_min
+msgid "Edad Mínima Recomendada"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_product_expresso_form
+msgid "Edad recomendada, desde"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_editorial
+msgid "Editorial"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: sql_constraint:expresso.ciclo:0 sql_constraint:expresso.coleccion:0
+#: sql_constraint:expresso.curso:0 sql_constraint:expresso.director:0
+#: sql_constraint:expresso.encuadernacion:0
+#: sql_constraint:expresso.forma_envio:0 sql_constraint:expresso.idioma:0
+#: sql_constraint:expresso.materia:0 sql_constraint:expresso.proyecto:0
+#: sql_constraint:expresso.publico:0 sql_constraint:expresso.seleccion:0
+#: sql_constraint:expresso.situacion:0 sql_constraint:expresso.tipo:0
+#: sql_constraint:expresso.valor:0
+msgid "El Identificador Remoto debe ser unico!"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: sql_constraint:sale.empresa_logistica:0
+msgid "El nombre debe ser unico!"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_embarque
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_embarque_corresponsales
+msgid "Embarque"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_sale_empresa_logistica
+msgid "Empresa de Logistica"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_empresa_logistica_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_empresa_logistica_id_corresponsales
+msgid "Empresa de Logística"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_sale_empresa_logistica
+#: model:ir.ui.menu,name:expresso_product_attributes.expresso_atributos_empresa_logistica_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_sale_empresa_logistica_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_sale_empresa_logistica_tree
+msgid "Empresa de Lógistica"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_expresso_encuadernacion
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_encuadernacion_id
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_encuadernacion_form
+msgid "Encuadernacion"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_expresso_encuadernacion_form
+#: model:ir.ui.menu,name:expresso_product_attributes.menu_expresso_encuadernacion_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_encuadernacion_tree
+msgid "Encuadernaciones"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_sync_log_entry_search
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_info_objeto_remoto_search
+msgid "Erroneos"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sync_log_entry_error_al_procesar
+msgid "Error encontrado"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_espesor
+msgid "Espesor"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pre_cerrar_pedido
+msgid "Esta por cerrar el pedido pero antes de hacerlo recuerde que debe:"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_producto_pendiente_state
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_state_expresso
+msgid "Estado"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_expresso_estado_de_cuenta
+msgid "Estado de cuenta"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.menu,name:expresso_product_attributes.expresso
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_expresso_search
+msgid "Expresso"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:res.groups,name:expresso_product_attributes.expresso_grupo_corresponsales
+msgid "Expresso / Corresponsales"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:res.groups,name:expresso_product_attributes.expresso_grupo_expresso
+msgid "Expresso / Expresso"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.menu,name:expresso_product_attributes.menu_administracion_expresso
+msgid "Expresso Bibliografico"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: selection:expresso.sync_log_entry,objeto:0
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_invoice_ids
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_invoice_expresso_ids
+#: model:ir.ui.menu,name:expresso_product_attributes.expresso_consultas_invoice
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_packing_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_expresso_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_form_corresponsal_sale
+msgid "Facturas"
+msgstr "Facturas"
+
+#. module: expresso_product_attributes
+#: selection:expresso.sync_log_entry,objeto:0
+msgid "Facturas de Nickel"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_fecha_estimada_entrega
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_fecha_estimada_entrega_corresponsales
+msgid "Fecha Estimada de Entrega"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_date
+msgid "Fecha Orden"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_fecha_salida
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_fecha_salida_corresponsales
+msgid "Fecha de Salida"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sincronizacion_objeto_remoto_datetime
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sync_info_datetime
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sync_log_entry_datetime
+msgid "Fecha de actualización"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_info_objeto_remoto_datetime_creation
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sincronizacion_objeto_remoto_datetime_creation
+msgid "Fecha de creación"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,help:expresso_product_attributes.field_expresso_packing_date
+msgid "Fecha de la Orden"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,help:expresso_product_attributes.field_sale_order_fecha_salida
+#: model:ir.model.fields,help:expresso_product_attributes.field_sale_order_fecha_salida_corresponsales
+msgid "Fecha en la que se estima que el pedido va a estar listo"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_info_objeto_remoto_datetime
+msgid "Fecha última actualización"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_product_expresso_form
+msgid "Ficha"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_property_account_position_id
+msgid "Fiscal Position"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_expresso_forma_envio
+msgid "Forma de Envio"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_forma_envio_id_corresponsales
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_forma_envio_id_expresso
+msgid "Forma de Envío"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_expresso_forma_envio_form
+#: model:ir.ui.menu,name:expresso_product_attributes.menu_expresso_forma_envio_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_forma_envio_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_forma_envio_tree
+msgid "Formas de Envío"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_generar_pedidos_pendientes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_generar_pedidos_pendientes
+msgid "Generar Pedidos Pendientes"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_expresso_generador_productos_pendientes
+msgid "Generar Títulos Pendientes."
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_account_invoice_gross_weight
+msgid "Gross Weight"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_expresso_grupos
+msgid "Grupos"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_has_unreconciled_entries
+msgid "Has unreconciled entries"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_actualizador_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_ciclo_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_coleccion_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_curso_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_director_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_encuadernacion_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_forma_envio_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_generador_productos_pendientes_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_idioma_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_info_corresponsal_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_info_objeto_remoto_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_materia_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_box_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_detail_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_panel_control_actualizacion_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_proyecto_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_publico_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_repedir_pendiente_pedido_existente_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_seleccion_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sincronizacion_objeto_remoto_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_situacion_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sync_info_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sync_log_entry_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_tipo_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_valor_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_multi_marcar_para_procesar_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedido_multi_titulo_linea_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedir_multi_titulos_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_pre_cerrar_pedido_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_producto_pendiente_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_empresa_logistica_id
+msgid "ID"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_isbn
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_product_expresso_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_product_expresso_search
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_product_expresso_tree
+msgid "ISBN"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_ciclo_remote_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_coleccion_remote_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_curso_remote_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_director_remote_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_encuadernacion_remote_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_forma_envio_remote_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_idioma_remote_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_info_objeto_remoto_id_remoto
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_materia_remote_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_box_remote_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_detail_remote_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_remote_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_proyecto_remote_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_publico_remote_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_seleccion_remote_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_situacion_remote_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_tipo_remote_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_valor_remote_id
+msgid "Identificador Remoto"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_expresso_idioma
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_idioma_id
+msgid "Idioma"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_idioma_idioma_amigo
+msgid "Idioma Amigo"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_expresso_idioma_form
+#: model:ir.ui.menu,name:expresso_product_attributes.menu_expresso_idioma_form
+msgid "Idiomas"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_idioma_form
+msgid "Idiomas de Títulos"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_imagen
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_product_expresso_form
+msgid "Imagen"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_imprimirpeso
+msgid "Imprimir Peso"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_res_partner_search
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_users_expresso_search
+msgid "Inactivo"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_info_objeto_remoto
+#: model:ir.model,name:expresso_product_attributes.model_expresso_info_objeto_remoto
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sincronizacion_objeto_remoto_info_objeto_remoto_id
+#: model:ir.ui.menu,name:expresso_product_attributes.menu_info_objeto_remoto_administracion
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_info_objeto_remoto_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_info_objeto_remoto_tree
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_sincronizacion_objeto_remoto_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_sincronizacion_objeto_remoto_tree
+msgid "Info Objeto Remoto"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.menu,name:expresso_product_attributes.expresso_info_corresponsal
+msgid "Info. Sync. Corresponsales"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_sync_info_form
+msgid "Informacion"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sync_log_entry_informacion
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_sync_log_entry_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_expresso_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_form_corresponsal_sale
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_product_expresso_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_producto_pendiente_form
+msgid "Información"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_expresso_sync_info
+#: model:ir.model,name:expresso_product_attributes.model_expresso_sync_info
+#: model:ir.ui.menu,name:expresso_product_attributes.menu_expresso_sync_info_administracion
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_sync_info_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_sync_info_search
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_sync_info_tree
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_info_objeto_remoto_search
+msgid "Información de Sincronización"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_expresso_info_corresponsal
+msgid "Información de Usuario"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_expresso_info_corresponsal
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_info_corresponsal_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_info_corresponsal_tree
+msgid "Información de los Corresponsales"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sync_info_informacion
+msgid "Information"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedir_multi_titulos_wizard
+msgid "Ingrese la cantidad ejemplares de cada titulos que desea pedir."
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_expresso_invoice
+#: model:ir.model,name:expresso_product_attributes.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_account_invoice_line
+msgid "Invoice Line"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_account_invoice_invoice_number
+msgid "Invoice Number"
+msgstr "Número de Factura"
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_account_invoice_invoice_type
+msgid "Invoice Type"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_invoice_ids
+msgid "Invoices"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedir_multi_titulos_wizard_2
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedir_multi_titulos_wizard_3
+msgid "Ir al pedido"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,help:expresso_product_attributes.field_res_users_customer_partner_id
+msgid "It would be the customer wich with this user will operate"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_issued_total
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_journal_item_count
+msgid "Journal Items"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_actualizador___last_update
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_ciclo___last_update
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_coleccion___last_update
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_curso___last_update
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_director___last_update
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_encuadernacion___last_update
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_forma_envio___last_update
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_generador_productos_pendientes___last_update
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_idioma___last_update
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_info_corresponsal___last_update
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_info_objeto_remoto___last_update
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_materia___last_update
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing___last_update
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_box___last_update
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_detail___last_update
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_panel_control_actualizacion___last_update
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_proyecto___last_update
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_publico___last_update
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_repedir_pendiente_pedido_existente___last_update
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_seleccion___last_update
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sincronizacion_objeto_remoto___last_update
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_situacion___last_update
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sync_info___last_update
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sync_log_entry___last_update
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_tipo___last_update
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_valor___last_update
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_multi_marcar_para_procesar___last_update
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedido_multi_titulo_linea___last_update
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedir_multi_titulos___last_update
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_pre_cerrar_pedido___last_update
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_producto_pendiente___last_update
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_empresa_logistica___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_actualizador_write_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_ciclo_write_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_coleccion_write_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_curso_write_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_director_write_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_encuadernacion_write_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_forma_envio_write_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_generador_productos_pendientes_write_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_idioma_write_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_info_corresponsal_write_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_info_objeto_remoto_write_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_materia_write_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_box_write_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_detail_write_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_write_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_panel_control_actualizacion_write_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_proyecto_write_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_publico_write_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_repedir_pendiente_pedido_existente_write_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_seleccion_write_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sincronizacion_objeto_remoto_write_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_situacion_write_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sync_info_write_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sync_log_entry_write_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_tipo_write_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_valor_write_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_multi_marcar_para_procesar_write_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedido_multi_titulo_linea_write_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedir_multi_titulos_write_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_pre_cerrar_pedido_write_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_producto_pendiente_write_uid
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_empresa_logistica_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_actualizador_write_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_ciclo_write_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_coleccion_write_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_curso_write_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_director_write_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_encuadernacion_write_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_forma_envio_write_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_generador_productos_pendientes_write_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_idioma_write_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_info_corresponsal_write_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_info_objeto_remoto_write_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_materia_write_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_box_write_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_detail_write_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_write_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_panel_control_actualizacion_write_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_proyecto_write_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_publico_write_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_repedir_pendiente_pedido_existente_write_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_seleccion_write_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sincronizacion_objeto_remoto_write_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_situacion_write_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sync_info_write_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sync_log_entry_write_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_tipo_write_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_valor_write_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_multi_marcar_para_procesar_write_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedido_multi_titulo_linea_write_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedir_multi_titulos_write_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_pre_cerrar_pedido_write_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_producto_pendiente_write_date
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_empresa_logistica_write_date
+msgid "Last Updated on"
+msgstr "Ultima Actualización en"
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,help:expresso_product_attributes.field_res_users_last_time_entries_checked
+msgid ""
+"Last time the invoices & payments matching was performed for this partner. "
+"It is set either if there's not at least an unreconciled debit and an "
+"unreconciled credit or if you click the \"Done\" button."
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_last_time_entries_checked
+msgid "Latest Invoices & Payments Matching Date"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedido_multi_titulo_linea_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedido_multi_titulo_linea_tree
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedir_multi_titulos_wizard
+msgid "Linea Pedido Multiple de Titulos"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_pedido_multi_titulo_linea
+msgid "Linea Pedido Multiple de Títulos"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_expresso_sync_log_entry
+#: model:ir.model,name:expresso_product_attributes.model_expresso_sync_log_entry
+#: model:ir.ui.menu,name:expresso_product_attributes.menu_sync_log_entry
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_sync_log_entry_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_sync_log_entry_search
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_sync_log_entry_tree
+msgid "Log de Sincronización"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_multi_marcar_para_procesar
+msgid "Marca multiples entradas para reprocesar"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_multi_marcar_para_procesar_variants
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_info_objeto_remoto_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_multi_marcar_para_procesar_wizard
+msgid "Marcar para Procesar"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_expresso_materia
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_matter_id
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_materia_form
+msgid "Materia"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_materia_cdu
+msgid "Materia CDU"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_expresso_materia_form
+#: model:ir.ui.menu,name:expresso_product_attributes.menu_expresso_materia_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_materia_tree
+msgid "Materias"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_seleccion_matter_id
+msgid "Matter"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sincronizacion_objeto_remoto_mensaje_error
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sync_log_entry_mensaje_error
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_sync_log_entry_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_sincronizacion_objeto_remoto_form
+msgid "Mensaje del error"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_expresso_res_currency
+#: model:ir.ui.menu,name:expresso_product_attributes.expresso_res_currency
+msgid "Monedas"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_product_expresso_form
+msgid "Más Datos"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_account_invoice_net_weight
+msgid "Net Weight"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_info_objeto_remoto_search
+msgid "No Procesado"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: code:addons/expresso_product_attributes/wizard/generar_pendiente.py:21
+#, python-format
+msgid "No puede modificar el pedido"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: code:addons/expresso_product_attributes/wizard/generar_pendiente.py:23
+#, python-format
+msgid ""
+"No se pueden eliminar Titulos del pedido cuando este esta en el estado %s."
+msgstr ""
+
+#. module: expresso_product_attributes
+#: code:addons/expresso_product_attributes/wizard/pedir_multi_titulos.py:77
+#, python-format
+msgid "No tiene Cliente asociado"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_box_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_detail_name
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_empresa_logistica_name
+msgid "Nombre"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_generador_productos_pendientes_notas
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_producto_pendiente_notas
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_sale_note
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_generar_pedidos_pendientes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_expresso_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_form_corresponsal_sale
+msgid "Notas"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_expresso_pedido_nuevo
+#: model:ir.ui.menu,name:expresso_product_attributes.expresso_pedidos_nuevo
+msgid "Nuevo Pedido"
+msgstr "Nuevo Pedido"
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_number_of_packages
+msgid "Numero de paquetes"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_numero_edicion
+msgid "Número de Edición"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_numero_paginas
+msgid "Número de Páginas"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_account_invoice_bultos
+msgid "Número de bultos"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sync_log_entry_objeto
+msgid "Objeto Actualizado"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_repedir_pendiente_pedido_existente_order_id
+msgid "Order"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_expresso_packing
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_account_invoice_packing_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_box_packing_id
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_packing_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_packing_search
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_packing_tree
+msgid "Packing"
+msgstr "Empaquetado"
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_expresso_packing_list
+msgid "Packing List"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: selection:expresso.sync_log_entry,objeto:0
+msgid "Packings"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_expresso_panel_control_actualizacion
+msgid "Panel de Control de las Actualizaciones"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_res_partner
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_info_corresponsal_partner_ids
+msgid "Partner"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_idioma_tree
+msgid "Partner Addresses"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_info_corresponsal_form
+msgid "Partners"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_info_corresponsal_contrasenia
+msgid "Password"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_debit_limit
+msgid "Payable Limit"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_payment_method_ids
+msgid "Payment Methods"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedir_multi_titulos_order_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_producto_pendiente_order_id
+#: selection:sale.order,state_expresso:0
+msgid "Pedido"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: code:addons/expresso_product_attributes/wizard/repedir_pendiente.py:30
+#, python-format
+msgid "Pedido en estado incorrecto"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: code:addons/expresso_product_attributes/wizard/pedir_multi_titulos.py:47
+#, python-format
+msgid "Pedido no especificado"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_expresso_pedidos
+#: model:ir.ui.menu,name:expresso_product_attributes.expresso_pedidos
+#: model:ir.ui.menu,name:expresso_product_attributes.expresso_pedidos_pedidos
+msgid "Pedidos"
+msgstr "Pedidos"
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_expresso_search
+msgid "Pedidos en estado Borrador"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_expresso_search
+msgid "Pedidos en estado Pendiente Corresponsal"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_expresso_search
+msgid "Pedidos en estado Pendiente Expresso"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_pedir_multi_titulos
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedir_multi_titulos_wizard
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedir_multi_titulos_wizard_2
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedir_multi_titulos_wizard_3
+msgid "Pedir Multiples Titulos"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: selection:sale.order,state_expresso:0
+msgid "Pendiente Corresponsal"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: selection:sale.order,state_expresso:0
+msgid "Pendiente Expresso"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_situacion_permite_pedido
+msgid "Permite Pedido"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_box_weight
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_detail_weight
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_peso
+msgid "Peso"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_pre_cerrar_pedido
+msgid "Pre cerrar pedido"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_precio_dolares
+msgid "Precio en Dolares"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_line_price_unit_corresponsales
+msgid "Precio unidad"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_info_objeto_remoto_procesado
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sincronizacion_objeto_remoto_procesado
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_info_objeto_remoto_search
+msgid "Procesado"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_info_objeto_remoto_form
+msgid "Procesar"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_product_product
+msgid "Product"
+msgstr "Producto"
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_detail_product_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedido_multi_titulo_linea_product_id
+msgid "Producto"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_seleccion_project_id
+msgid "Project"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_expresso_proyecto
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_materia_proyecto_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_proyecto_id
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_proyecto_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_proyecto_tree
+msgid "Proyecto"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_expresso_proyecto_form
+#: model:ir.ui.menu,name:expresso_product_attributes.menu_expresso_proyecto_form
+msgid "Proyectos"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_expresso_publico
+msgid "Publico Objetivo"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedir_multi_titulos_wizard
+msgid "Puede también agregar estos titulos a un pedido ya realizado."
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_expresso_publico_form
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_publico_id
+#: model:ir.ui.menu,name:expresso_product_attributes.menu_expresso_publico_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_publico_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_publico_tree
+msgid "Público Objetivo"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_producto_pendiente_quantity
+msgid "Quantity"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_form_corresponsal_sale
+#: selection:sale.order,state_expresso:0
+msgid "Recibido"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_recomendado
+msgid "Recomendado"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_account_invoice_line_remote_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_account_invoice_remote_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_partner_remote_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_remote_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_line_remote_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_remote_id
+msgid "Remote ID"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_producto_pendiente_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_producto_pendiente_search
+#: selection:product.producto_pendiente,state:0
+msgid "Repedido"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_repedir_pendiente_pedido_existente
+msgid "Repedir"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_expresso_repedir_pendiente_pedido_existente
+msgid "Repedir Pendiente en pedido_existente."
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_repedir_pendiente_pedido_existente
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_repedir_pendiente_pedido_existente
+msgid "Repedir Título en Pedido Existente"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_sale_order
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_sale_order_ids
+msgid "Sales Order"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_sale_order_line
+msgid "Sales Order Line"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_expresso_tree
+msgid "Sales Orders"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_account_invoice_samples
+msgid "Samples"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedir_multi_titulos_wizard_3
+msgid "Se agregaron correctamente los titulos seleccionados al pedido ."
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedir_multi_titulos_wizard_2
+msgid "Se creo correctamente el pedido con los titulos seleccionados."
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_info_objeto_remoto_error_al_procesar
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sincronizacion_objeto_remoto_error_al_procesar
+msgid "Se encontro un error al procesar el Registro"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_generar_pedidos_pendientes
+msgid ""
+"Se van a remover estos títulos del Pedido y a generar Títulos Pendientes a "
+"partir de los mismos. Si presiona en 'Todos a Pendiente' se eliminaran todos"
+" los títulos de la linea seleccionada del pedido."
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_expresso_seleccion
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_seleccion_form
+msgid "Seleccion"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_repedir_pendiente_pedido_existente
+msgid "Seleccione el Pedido al cual desea anexarle el Título Pendiente."
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_expresso_seleccion_form
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_seleccion_ids
+#: model:ir.ui.menu,name:expresso_product_attributes.menu_expresso_seleccion_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_seleccion_tree
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_product_expresso_form
+msgid "Selecciones"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_generar_pedidos_pendientes
+msgid ""
+"Si no se quieren pasar todos los títulos pedidos a pendientes seleccione la "
+"cantidad disponible para dejar en el pedido."
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_expresso_sincronizacion_objeto_remoto
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_info_objeto_remoto_sincronizacion_objeto_remoto_ids
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_info_objeto_remoto_form
+msgid "Sincronización Objeto Remoto"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_sinopsis
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_product_expresso_form
+msgid "Sinopsis"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_expresso_situacion
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_generador_productos_pendientes_situacion_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_situacion_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_producto_pendiente_situacion_id
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_situacion_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_situacion_tree
+msgid "Situacion"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_expresso_situacion_form
+#: model:ir.ui.menu,name:expresso_product_attributes.menu_expresso_situacion_form
+msgid "Situaciones"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_soporte
+msgid "Soporte"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: selection:expresso.sync_log_entry,objeto:0
+msgid "Stock de Nickel"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,help:expresso_product_attributes.field_res_users_property_account_position_id
+msgid ""
+"The fiscal position will determine taxes and accounts used for the partner."
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,help:expresso_product_attributes.field_res_users_has_unreconciled_entries
+msgid ""
+"The partner has at least one unreconciled debit and credit since last time "
+"the invoices & payments matching was performed."
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,help:expresso_product_attributes.field_res_users_property_account_payable_id
+msgid ""
+"This account will be used instead of the default one as the payable account "
+"for the current partner"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,help:expresso_product_attributes.field_res_users_property_account_receivable_id
+msgid ""
+"This account will be used instead of the default one as the receivable "
+"account for the current partner"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,help:expresso_product_attributes.field_res_users_property_supplier_payment_term_id
+msgid ""
+"This payment term will be used instead of the default one for purchase "
+"orders and vendor bills"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,help:expresso_product_attributes.field_res_users_property_payment_term_id
+msgid ""
+"This payment term will be used instead of the default one for sale orders "
+"and customer invoices"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,help:expresso_product_attributes.field_res_users_property_stock_customer
+msgid ""
+"This stock location will be used, instead of the default one, as the "
+"destination location for goods you send to this partner"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,help:expresso_product_attributes.field_res_users_property_stock_supplier
+msgid ""
+"This stock location will be used, instead of the default one, as the source "
+"location for goods you receive from the current partner"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_expresso_tipo_form
+#: model:ir.model,name:expresso_product_attributes.model_expresso_tipo
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_tipo_id
+#: model:ir.ui.menu,name:expresso_product_attributes.menu_expresso_tipo_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_tipo_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_tipo_tree
+msgid "Tipo"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_product_expresso_search
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_product_expresso_tree
+msgid "Titulo"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_producto_pendiente_form
+msgid "Titulo Pendiente"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: selection:expresso.sync_log_entry,objeto:0
+msgid "Titulos"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_generar_pedidos_pendientes
+msgid "Todos a Pendiente"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_total_invoiced
+msgid "Total Invoiced"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_debit
+msgid "Total Payable"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_credit
+msgid "Total Receivable"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_expresso_tree
+msgid "Total Tax Excluded"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_expresso_tree
+msgid "Total Tax Included"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,help:expresso_product_attributes.field_res_users_credit
+msgid "Total amount this customer owes you."
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,help:expresso_product_attributes.field_res_users_debit
+msgid "Total amount you have to pay to this vendor."
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_producto_pendiente_product_id
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_product_expresso_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_producto_pendiente_tree
+msgid "Título"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_product_producto_pendiente
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_producto_pendiente_search
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_producto_pendiente_tree
+msgid "Título Pendiente"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_expresso_productos
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedir_multi_titulos_linea_ids
+#: model:ir.ui.menu,name:expresso_product_attributes.expresso_productos
+#: model:ir.ui.menu,name:expresso_product_attributes.expresso_productos_productos
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_product_expresso_tree
+msgid "Títulos"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_producto_pendiente
+#: model:ir.ui.menu,name:expresso_product_attributes.expresso_productos_pendientes
+msgid "Títulos Pendiente"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_producto_pendiente_ids
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_expresso_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_form_corresponsal_sale
+msgid "Títulos Pendientes"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_producto_pendiente_price_unit
+msgid "Unit Price"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_expresso_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_form_corresponsal_sale
+msgid "UoM"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_info_corresponsal_user
+msgid "User"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_partner_info_corresponsal_id
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_info_corresponsal_id
+msgid "User Info"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_res_users
+msgid "Users"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_user_corresponsal_id_expresso
+msgid "Usuario Corresponsal"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_user_expresso_id_expresso
+msgid "Usuario Expresso"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_expresso_usuarios
+#: model:ir.ui.menu,name:expresso_product_attributes.expresso_usuarios
+msgid "Usuarios"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,help:expresso_product_attributes.field_res_users_currency_id
+msgid "Utility field to express amount currency"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_multi_marcar_para_procesar_wizard
+msgid "Va a marcar para procesar ciertos registros remotos."
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_fecha_valido_corresponsal
+msgid "Valid Date - Correspondent"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_fecha_valido_expresso
+msgid "Valid Date - Expresso"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_expresso_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_form_corresponsal_sale
+msgid "Validar Pedido"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model,name:expresso_product_attributes.model_expresso_valor
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_valor_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_valor_tree
+msgid "Valor"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_expresso_valor_form
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_valor_ids
+#: model:ir.ui.menu,name:expresso_product_attributes.menu_expresso_valor_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_product_expresso_form
+msgid "Valores"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_valuation
+msgid "Valuation"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_property_stock_supplier
+msgid "Vendor Location"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_property_supplier_payment_term_id
+msgid "Vendor Payment Term"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_volumen
+msgid "Volumen"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedir_multi_titulos_wizard_2
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedir_multi_titulos_wizard_3
+msgid "Volver"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_product_expresso_form
+msgid "hasta"
+msgstr ""

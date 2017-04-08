@@ -1,0 +1,261 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * expresso_erp
+# 
+# Translators:
+# Nicolas Mac Rouillon <nmr@ingadhoc.com>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-07-08 15:14+0000\n"
+"PO-Revision-Date: 2016-07-08 15:14+0000\n"
+"Last-Translator: Nicolas Mac Rouillon <nmr@ingadhoc.com>, 2017\n"
+"Language-Team: Spanish (https://www.transifex.com/adhoc/teams/46451/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid "Actualizar Atributos"
+msgstr "Actualizar Atributos"
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid "Actualizar Clientes"
+msgstr "Actualizar Clientes"
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid "Actualizar Facturas"
+msgstr "Actualizar Facturas"
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid "Actualizar Imagenes"
+msgstr "Actualizar Imagenes"
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid "Actualizar Packing"
+msgstr "Actualizar Packing"
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid "Actualizar Titulos"
+msgstr "Actualizar Titulos"
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid "Actualizar las Facturas que estan marcadas para procesar"
+msgstr "Actualizar las Facturas que estan marcadas para procesar"
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid "Actualizar los Clientes"
+msgstr ""
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid "Actualizar los Packing que estan marcados para procesar"
+msgstr ""
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid "Actualizar los Titulos que estan marcados para procesar"
+msgstr ""
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid "Actualizar los atributos de los Titulos"
+msgstr ""
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid "Actualizar los imagenes de los Titulos"
+msgstr ""
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid "Actualizar toda la base de datos lanzando un thread asincrono"
+msgstr ""
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid "Clientes"
+msgstr ""
+
+#. module: expresso_erp
+#: model:ir.model.fields,field_description:expresso_erp.field_expresso_erp_panel_control_actualizacion_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: expresso_erp
+#: model:ir.model.fields,field_description:expresso_erp.field_expresso_erp_panel_control_actualizacion_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: expresso_erp
+#: model:ir.model.fields,field_description:expresso_erp.field_expresso_erp_panel_control_actualizacion_display_name
+msgid "Display Name"
+msgstr "Nombre Mostrado "
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid ""
+"Este panel de control permite actualizar diferentes objetos del sistema."
+msgstr ""
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid "Facturas"
+msgstr "Facturas"
+
+#. module: expresso_erp
+#: model:ir.model.fields,field_description:expresso_erp.field_expresso_erp_panel_control_actualizacion_id
+msgid "ID"
+msgstr ""
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid "Iniciar Threading Actualización"
+msgstr ""
+
+#. module: expresso_erp
+#: model:ir.model.fields,field_description:expresso_erp.field_expresso_erp_panel_control_actualizacion___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: expresso_erp
+#: model:ir.model.fields,field_description:expresso_erp.field_expresso_erp_panel_control_actualizacion_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: expresso_erp
+#: model:ir.model.fields,field_description:expresso_erp.field_expresso_erp_panel_control_actualizacion_write_date
+msgid "Last Updated on"
+msgstr "Ultima Actualización en"
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid "Marcar ISBNs"
+msgstr ""
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid "Marcar registros"
+msgstr ""
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid ""
+"Marcar todos los ISBNs en la base de datos para actualizar / reprocesar"
+msgstr ""
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid ""
+"Marcar todos los registros de Facturas en la base de datos para actualizar /"
+" reprocesar"
+msgstr ""
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid ""
+"Marcar todos los registros de Packing en la base de datos para actualizar / "
+"reprocesar"
+msgstr ""
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid "Obtener ISBNs si no presentes"
+msgstr ""
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid "Obtener ISBNs si no presentes localmente, de toda la base de datos"
+msgstr ""
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid "Obtener Info. sobre Facturas"
+msgstr ""
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid "Obtener Info. sobre Packing"
+msgstr ""
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid "Obtener Info. sobre Titulos"
+msgstr ""
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid "Obtener los ISBNs de los Titulos modificados/agregados ultimamente"
+msgstr ""
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid "Obtener los registros de Facturas modificados/agregados ultimamente"
+msgstr ""
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid "Obtener los registros de Packing modificados/agregados ultimamente"
+msgstr ""
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid ""
+"Obtener registros de Facturas si no presentes localmente, de toda la base de"
+" datos"
+msgstr ""
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid ""
+"Obtener registros de Packing si no presentes localmente, de toda la base de "
+"datos"
+msgstr ""
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid "Obtener registros si no presentes"
+msgstr ""
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid "Packing"
+msgstr "Empaquetado"
+
+#. module: expresso_erp
+#: model:ir.actions.act_window,name:expresso_erp.action_panel_control_actualizacion_erp
+#: model:ir.ui.menu,name:expresso_erp.menu_panel_control_actualizacion_erp
+msgid "Panel de Control de Actualizaciones ERP"
+msgstr ""
+
+#. module: expresso_erp
+#: model:ir.model,name:expresso_erp.model_expresso_erp_panel_control_actualizacion
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid "Panel de Control de las Actualizaciones"
+msgstr ""
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid "Salir"
+msgstr ""
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid "Titulos"
+msgstr ""
+
+#. module: expresso_erp
+#: model:ir.ui.view,arch_db:expresso_erp.view_panel_control_actualizacion_erp_wizard
+msgid "Todo"
+msgstr ""

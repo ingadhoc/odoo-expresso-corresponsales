@@ -1,0 +1,363 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * expresso_nickel
+# 
+# Translators:
+# Nicolas Mac Rouillon <nmr@ingadhoc.com>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-07-08 15:14+0000\n"
+"PO-Revision-Date: 2016-07-08 15:14+0000\n"
+"Last-Translator: Nicolas Mac Rouillon <nmr@ingadhoc.com>, 2017\n"
+"Language-Team: Spanish (https://www.transifex.com/adhoc/teams/46451/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: expresso_nickel
+#: model:ir.model,name:expresso_nickel.model_expresso_nickel_update_nickel
+msgid "Actualizador Nickel"
+msgstr "Actualizador Nickel"
+
+#. module: expresso_nickel
+#: model:ir.ui.view,arch_db:expresso_nickel.view_panel_control_actualizacion_nickel_wizard
+msgid "Actualizar Clientes"
+msgstr "Actualizar Clientes"
+
+#. module: expresso_nickel
+#: model:ir.ui.view,arch_db:expresso_nickel.view_panel_control_actualizacion_nickel_wizard
+msgid "Actualizar Facturas"
+msgstr "Actualizar Facturas"
+
+#. module: expresso_nickel
+#: model:ir.ui.view,arch_db:expresso_nickel.view_panel_control_actualizacion_nickel_wizard
+msgid "Actualizar Stock"
+msgstr "Actualizar Stock"
+
+#. module: expresso_nickel
+#: model:ir.ui.view,arch_db:expresso_nickel.view_panel_control_actualizacion_nickel_wizard
+msgid "Actualizar el Stock"
+msgstr "Actualizar el Stock"
+
+#. module: expresso_nickel
+#: model:ir.ui.view,arch_db:expresso_nickel.view_panel_control_actualizacion_nickel_wizard
+msgid "Actualizar las Facturas"
+msgstr "Actualizar las Facturas"
+
+#. module: expresso_nickel
+#: model:ir.ui.view,arch_db:expresso_nickel.view_panel_control_actualizacion_nickel_wizard
+msgid "Actualizar los Clientes"
+msgstr ""
+
+#. module: expresso_nickel
+#: model:ir.ui.view,arch_db:expresso_nickel.view_panel_control_actualizacion_nickel_wizard
+msgid "Actualizar toda la base de datos lanzando un thread asincrono"
+msgstr ""
+
+#. module: expresso_nickel
+#: model:ir.ui.menu,name:expresso_nickel.menu_expresso_administracion_nickel
+msgid "Administración Nickel"
+msgstr ""
+
+#. module: expresso_nickel
+#: model:ir.model.fields,field_description:expresso_nickel.field_nickel_invoice_amount
+msgid "Amount"
+msgstr "Cantidad"
+
+#. module: expresso_nickel
+#: model:ir.model.fields,field_description:expresso_nickel.field_nickel_invoice_partner_id
+msgid "Client"
+msgstr "Cliente"
+
+#. module: expresso_nickel
+#: model:ir.model.fields,field_description:expresso_nickel.field_nickel_invoice_customer_code
+msgid "Client Code"
+msgstr "Código del cliente"
+
+#. module: expresso_nickel
+#: model:ir.actions.act_window,name:expresso_nickel.action_nickel_cliente_form
+#: model:ir.ui.menu,name:expresso_nickel.expresso_menu_nickel_cliente
+#: model:ir.ui.view,arch_db:expresso_nickel.view_nickel_cliente_form
+#: model:ir.ui.view,arch_db:expresso_nickel.view_nickel_cliente_tree
+msgid "Cliente de Nickel"
+msgstr ""
+
+#. module: expresso_nickel
+#: model:ir.ui.view,arch_db:expresso_nickel.view_panel_control_actualizacion_nickel_wizard
+msgid "Clientes"
+msgstr ""
+
+#. module: expresso_nickel
+#: model:ir.model.fields,field_description:expresso_nickel.field_nickel_invoice_code_currency
+msgid "Code Currency"
+msgstr "Código de la Moneda"
+
+#. module: expresso_nickel
+#: model:ir.model.fields,field_description:expresso_nickel.field_nickel_partner_country_code
+msgid "Country Code"
+msgstr "Código del País"
+
+#. module: expresso_nickel
+#: model:ir.model.fields,field_description:expresso_nickel.field_expresso_nickel_update_nickel_create_uid
+#: model:ir.model.fields,field_description:expresso_nickel.field_nickel_invoice_create_uid
+#: model:ir.model.fields,field_description:expresso_nickel.field_nickel_partner_create_uid
+#: model:ir.model.fields,field_description:expresso_nickel.field_panel_control_update_nickel_create_uid
+msgid "Created by"
+msgstr "Creado por "
+
+#. module: expresso_nickel
+#: model:ir.model.fields,field_description:expresso_nickel.field_expresso_nickel_update_nickel_create_date
+#: model:ir.model.fields,field_description:expresso_nickel.field_nickel_invoice_create_date
+#: model:ir.model.fields,field_description:expresso_nickel.field_nickel_partner_create_date
+#: model:ir.model.fields,field_description:expresso_nickel.field_panel_control_update_nickel_create_date
+msgid "Created on"
+msgstr "Creado en "
+
+#. module: expresso_nickel
+#: model:ir.model.fields,help:expresso_nickel.field_product_product_qty_available_2
+msgid ""
+"Current quantity of products.\n"
+"In a context with a single Stock Location, this includes goods stored at this Location, or any of its children.\n"
+"In a context with a single Warehouse, this includes goods stored in the Stock Location of this Warehouse, or any of its children.\n"
+"stored in the Stock Location of the Warehouse of this Shop, or any of its children.\n"
+"Otherwise, this includes goods stored in any Stock Location with 'internal' type."
+msgstr ""
+
+#. module: expresso_nickel
+#: model:ir.model.fields,field_description:expresso_nickel.field_expresso_nickel_update_nickel_display_name
+#: model:ir.model.fields,field_description:expresso_nickel.field_nickel_invoice_display_name
+#: model:ir.model.fields,field_description:expresso_nickel.field_nickel_partner_display_name
+#: model:ir.model.fields,field_description:expresso_nickel.field_panel_control_update_nickel_display_name
+msgid "Display Name"
+msgstr "Nombre Mostrado"
+
+#. module: expresso_nickel
+#: model:ir.ui.view,arch_db:expresso_nickel.view_panel_control_actualizacion_nickel_wizard
+msgid ""
+"Este panel de control permite actualizar diferentes objetos del sistema "
+"Nickel."
+msgstr ""
+
+#. module: expresso_nickel
+#: model:ir.model.fields,field_description:expresso_nickel.field_account_invoice_expiration_date
+#: model:ir.model.fields,field_description:expresso_nickel.field_nickel_invoice_expiration_date
+msgid "Expiration Date"
+msgstr "día de expiración"
+
+#. module: expresso_nickel
+#: model:ir.actions.act_window,name:expresso_nickel.action_nickel_invoice_form
+#: model:ir.ui.menu,name:expresso_nickel.expresso_menu_nickel_factura
+#: model:ir.ui.view,arch_db:expresso_nickel.view_invoice_expresso_nickel_form
+#: model:ir.ui.view,arch_db:expresso_nickel.view_nickel_invoice_form
+#: model:ir.ui.view,arch_db:expresso_nickel.view_nickel_invoice_search
+#: model:ir.ui.view,arch_db:expresso_nickel.view_nickel_invoice_tree
+msgid "Factura de Nickel"
+msgstr ""
+
+#. module: expresso_nickel
+#: model:ir.ui.view,arch_db:expresso_nickel.view_panel_control_actualizacion_nickel_wizard
+msgid "Facturas"
+msgstr "Facturas"
+
+#. module: expresso_nickel
+#: model:ir.model.fields,help:expresso_nickel.field_account_invoice_expiration_date
+msgid "Fecha del proximo vencimiento."
+msgstr ""
+
+#. module: expresso_nickel
+#: model:ir.model.fields,field_description:expresso_nickel.field_expresso_nickel_update_nickel_id
+#: model:ir.model.fields,field_description:expresso_nickel.field_nickel_invoice_id
+#: model:ir.model.fields,field_description:expresso_nickel.field_nickel_partner_id
+#: model:ir.model.fields,field_description:expresso_nickel.field_panel_control_update_nickel_id
+msgid "ID"
+msgstr ""
+
+#. module: expresso_nickel
+#: model:ir.model.fields,field_description:expresso_nickel.field_nickel_invoice_remote_id
+msgid "Identificador Remoto"
+msgstr ""
+
+#. module: expresso_nickel
+#: model:ir.model.fields,help:expresso_nickel.field_account_invoice_residual_2
+msgid "Importe restante a pagar."
+msgstr ""
+
+#. module: expresso_nickel
+#: model:ir.model.fields,help:expresso_nickel.field_account_invoice_paid
+msgid "Indica si la factura ha sido pagada."
+msgstr ""
+
+#. module: expresso_nickel
+#: model:ir.model,name:expresso_nickel.model_expresso_info_corresponsal
+msgid "Información de Usuario"
+msgstr ""
+
+#. module: expresso_nickel
+#: model:ir.ui.view,arch_db:expresso_nickel.view_panel_control_actualizacion_nickel_wizard
+msgid "Iniciar Threading Actualización"
+msgstr ""
+
+#. module: expresso_nickel
+#: model:ir.model,name:expresso_nickel.model_account_invoice
+#: model:ir.model.fields,field_description:expresso_nickel.field_nickel_invoice_invoice_id
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: expresso_nickel
+#: model:ir.model.fields,field_description:expresso_nickel.field_nickel_invoice_invoice_date
+msgid "Invoice Date"
+msgstr "Fecha de Factura"
+
+#. module: expresso_nickel
+#: model:ir.model.fields,field_description:expresso_nickel.field_nickel_invoice_invoice_number
+msgid "Invoice Number"
+msgstr "Número de Factura"
+
+#. module: expresso_nickel
+#: model:ir.model.fields,field_description:expresso_nickel.field_expresso_nickel_update_nickel___last_update
+#: model:ir.model.fields,field_description:expresso_nickel.field_nickel_invoice___last_update
+#: model:ir.model.fields,field_description:expresso_nickel.field_nickel_partner___last_update
+#: model:ir.model.fields,field_description:expresso_nickel.field_panel_control_update_nickel___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en "
+
+#. module: expresso_nickel
+#: model:ir.model.fields,field_description:expresso_nickel.field_expresso_nickel_update_nickel_write_uid
+#: model:ir.model.fields,field_description:expresso_nickel.field_nickel_invoice_write_uid
+#: model:ir.model.fields,field_description:expresso_nickel.field_nickel_partner_write_uid
+#: model:ir.model.fields,field_description:expresso_nickel.field_panel_control_update_nickel_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por "
+
+#. module: expresso_nickel
+#: model:ir.model.fields,field_description:expresso_nickel.field_expresso_nickel_update_nickel_write_date
+#: model:ir.model.fields,field_description:expresso_nickel.field_nickel_invoice_write_date
+#: model:ir.model.fields,field_description:expresso_nickel.field_nickel_partner_write_date
+#: model:ir.model.fields,field_description:expresso_nickel.field_panel_control_update_nickel_write_date
+msgid "Last Updated on"
+msgstr " Ultima Actualización en"
+
+#. module: expresso_nickel
+#: model:ir.model.fields,field_description:expresso_nickel.field_nickel_partner_booleano
+#: model:ir.model.fields,field_description:expresso_nickel.field_nickel_partner_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: expresso_nickel
+#: model:ir.model.fields,field_description:expresso_nickel.field_expresso_info_corresponsal_nickel_customer_id
+msgid "Nickel Client"
+msgstr "Cliente de Nickel"
+
+#. module: expresso_nickel
+#: model:ir.model,name:expresso_nickel.model_nickel_invoice
+#: model:ir.model.fields,field_description:expresso_nickel.field_account_invoice_nickel_invoice_ids
+msgid "Nickel Invoice"
+msgstr "Factura Nickel"
+
+#. module: expresso_nickel
+#: model:ir.model,name:expresso_nickel.model_nickel_partner
+msgid "Nickel Partner"
+msgstr "Nickel Partner"
+
+#. module: expresso_nickel
+#: model:ir.ui.view,arch_db:expresso_nickel.view_nickel_invoice_search
+msgid "No Pagado"
+msgstr ""
+
+#. module: expresso_nickel
+#: model:ir.ui.view,arch_db:expresso_nickel.view_nickel_invoice_search
+msgid "Pagado"
+msgstr ""
+
+#. module: expresso_nickel
+#: model:ir.model.fields,field_description:expresso_nickel.field_account_invoice_paid
+#: model:ir.model.fields,field_description:expresso_nickel.field_nickel_invoice_paid
+msgid "Paid"
+msgstr "Pago"
+
+#. module: expresso_nickel
+#: model:ir.actions.act_window,name:expresso_nickel.action_panel_control_actualizacion_nickel
+#: model:ir.ui.menu,name:expresso_nickel.menu_panel_control_actualizacion_nickel
+msgid "Panel de Control de Nickel"
+msgstr ""
+
+#. module: expresso_nickel
+#: model:ir.model,name:expresso_nickel.model_panel_control_update_nickel
+#: model:ir.ui.view,arch_db:expresso_nickel.view_panel_control_actualizacion_nickel_wizard
+msgid "Panel de Control de las Actualizaciones de Nickel"
+msgstr ""
+
+#. module: expresso_nickel
+#: model:ir.model,name:expresso_nickel.model_product_product
+msgid "Product"
+msgstr "Producto"
+
+#. module: expresso_nickel
+#: model:ir.model.fields,field_description:expresso_nickel.field_sale_order_line_product_warning
+#: model:ir.model.fields,field_description:expresso_nickel.field_sale_order_product_warning
+msgid "Product Warning"
+msgstr "Advertencia del producto"
+
+#. module: expresso_nickel
+#: model:ir.model.fields,field_description:expresso_nickel.field_product_product_qty_available_2
+msgid "Quantity Available 2"
+msgstr ""
+
+#. module: expresso_nickel
+#: model:ir.model.fields,field_description:expresso_nickel.field_nickel_partner_remote_id
+msgid "Remote ID"
+msgstr ""
+
+#. module: expresso_nickel
+#: model:ir.model.fields,field_description:expresso_nickel.field_account_invoice_residual_2
+msgid "Residual"
+msgstr ""
+
+#. module: expresso_nickel
+#: model:ir.model,name:expresso_nickel.model_sale_order
+msgid "Sales Order"
+msgstr ""
+
+#. module: expresso_nickel
+#: model:ir.model,name:expresso_nickel.model_sale_order_line
+msgid "Sales Order Line"
+msgstr ""
+
+#. module: expresso_nickel
+#: model:ir.ui.view,arch_db:expresso_nickel.view_panel_control_actualizacion_nickel_wizard
+msgid "Salir"
+msgstr ""
+
+#. module: expresso_nickel
+#: model:ir.model.fields,field_description:expresso_nickel.field_nickel_invoice_serie
+msgid "Serie"
+msgstr ""
+
+#. module: expresso_nickel
+#: model:ir.ui.view,arch_db:expresso_nickel.view_panel_control_actualizacion_nickel_wizard
+msgid "Stock"
+msgstr ""
+
+#. module: expresso_nickel
+#: sql_constraint:nickel_partner:0
+msgid "The Remote ID must be unique!"
+msgstr ""
+
+#. module: expresso_nickel
+#: sql_constraint:nickel_invoice:0
+msgid "The remote ID must be unique!"
+msgstr ""
+
+#. module: expresso_nickel
+#: model:ir.ui.view,arch_db:expresso_nickel.view_panel_control_actualizacion_nickel_wizard
+msgid "Todo"
+msgstr ""
+
+#. module: expresso_nickel
+#: model:ir.ui.view,arch_db:expresso_nickel.view_invoice_expresso_nickel_form
+msgid "Vencimientos"
+msgstr ""

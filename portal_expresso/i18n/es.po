@@ -1,0 +1,61 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * portal_expresso
+# 
+# Translators:
+# Nicolas Mac Rouillon <nmr@ingadhoc.com>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-07-08 15:14+0000\n"
+"PO-Revision-Date: 2016-07-08 15:14+0000\n"
+"Last-Translator: Nicolas Mac Rouillon <nmr@ingadhoc.com>, 2017\n"
+"Language-Team: Spanish (https://www.transifex.com/adhoc/teams/46451/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: portal_expresso
+#: model:ir.ui.menu,name:portal_expresso.menu_corresponsales_consultas
+msgid "Consultas"
+msgstr "Consultas"
+
+#. module: portal_expresso
+#: model:ir.ui.menu,name:portal_expresso.portal_menu
+msgid "Corresponsal"
+msgstr "Corresponsal"
+
+#. module: portal_expresso
+#: model:ir.ui.menu,name:portal_expresso.menu_corresponsales
+msgid "Corresponsales"
+msgstr "Corresponsales"
+
+#. module: portal_expresso
+#: model:ir.ui.menu,name:portal_expresso.menu_corresponsales_invoice
+msgid "Facturas"
+msgstr "Facturas"
+
+#. module: portal_expresso
+#: model:ir.ui.menu,name:portal_expresso.menu_corresponsales_pedido_nuevo
+msgid "Nuevo Pedido"
+msgstr "Nuevo Pedido"
+
+#. module: portal_expresso
+#: model:ir.ui.menu,name:portal_expresso.menu_corresponsales_pedidos
+#: model:ir.ui.menu,name:portal_expresso.menu_corresponsales_pedidos_pedidos
+msgid "Pedidos"
+msgstr "Pedidos"
+
+#. module: portal_expresso
+#: model:ir.ui.menu,name:portal_expresso.corresponsales_productos
+#: model:ir.ui.menu,name:portal_expresso.corresponsales_productos_productos
+msgid "Títulos"
+msgstr ""
+
+#. module: portal_expresso
+#: model:ir.ui.menu,name:portal_expresso.corresponsales_productos_pendientes
+msgid "Títulos Pendiente"
+msgstr ""
