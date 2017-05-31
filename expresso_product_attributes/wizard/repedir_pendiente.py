@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-
-
 from openerp import pooler
 from openerp import models, fields, _
 from openerp.exceptions import Warning

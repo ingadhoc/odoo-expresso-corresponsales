@@ -1,7 +1,4 @@
 # -*- coding: utf-8 -*-
-
-
-from openerp import pooler
 from openerp import models, fields, api, _
 from openerp.exceptions import Warning
 
@@ -16,7 +13,8 @@ class expresso_generador_productos_pendientes(models.TransientModel):
         'expresso.situacion', 'Situacion', required=True)
     notas = fields.Text('Notas')
 
-    def controlar_generacion_de_pendiente(self, cr, uid, ids, linea, context=None):
+    @api.model
+    def controlar_generacion_de_pendiente(self, linea):
         if linea.order_id.state_expresso == 'despachado':
             raise Warning(_('No puede modificar el pedido'))
         if linea.order_id.state_expresso == 'recibido':

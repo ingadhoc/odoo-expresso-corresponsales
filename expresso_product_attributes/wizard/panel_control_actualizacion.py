@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-from openerp import models,pooler
-
+from openerp import models, pooler
 from ..actualizador.facade_actualizacion import Facade_Actualizacion
 
 

@@ -16,12 +16,12 @@ class expresso_ciclo(models.Model):
         size=30,
         readonly=True,
         copy=False,
-        )
+    )
     denomination = fields.Char(
         'Denominación',
         size=30,
         required=True,
-        )
+    )
 
     _sql_constraints = [
         ('remote_id_no_uniq',
@@ -41,7 +41,7 @@ class expresso_coleccion(models.Model):
         size=30,
         readonly=True,
         copy=False,
-        )
+    )
     denomination = fields.Char(
         'Denominación',
         size=50,
@@ -65,11 +65,11 @@ class expresso_curso(models.Model):
         size=30,
         readonly=True,
         copy=False
-        )
+    )
     denomination = fields.Char(
         'Denominación',
         size=30,
-        )
+    )
 
     _sql_constraints = [
         ('remote_id_no_uniq',
@@ -89,12 +89,12 @@ class expresso_encuadernacion(models.Model):
         size=30,
         readonly=True,
         copy=False
-        )
+    )
     denomination = fields.Char(
         'Denominación',
         size=30,
         required=True
-        )
+    )
 
     _sql_constraints = [
         ('remote_id_no_uniq',
@@ -114,7 +114,7 @@ class expresso_forma_envio(models.Model):
         size=30,
         readonly=True,
         copy=False
-        )
+    )
     denomination = fields.Char(
         'Denominación',
         size=30,
@@ -138,12 +138,12 @@ class expresso_idioma(models.Model):
         size=30,
         readonly=True,
         copy=False
-        )
+    )
     denomination = fields.Char(
         'Denominación',
         size=20,
         required=True
-        )
+    )
     idioma_amigo = fields.Boolean('Idioma Amigo')
 
     _sql_constraints = [
@@ -164,12 +164,12 @@ class expresso_proyecto(models.Model):
         size=30,
         readonly=True,
         copy=False
-        )
+    )
     denomination = fields.Char(
         'Denominación',
         size=30,
         required=True
-        )
+    )
 
     _sql_constraints = [
         ('remote_id_no_uniq',
@@ -189,12 +189,12 @@ class expresso_publico(models.Model):
         size=30,
         readonly=True,
         copy=False
-        )
+    )
     denomination = fields.Char(
         'Denominación',
         size=50,
         required=True
-        )
+    )
 
     _sql_constraints = [
         ('remote_id_no_uniq',
@@ -214,15 +214,15 @@ class expresso_situacion(models.Model):
         size=30,
         readonly=True,
         copy=False
-        )
+    )
     denomination = fields.Char(
         'Denominación',
         size=30,
         required=True,
-        )
+    )
     permite_pedido = fields.Boolean(
         'Permite Pedido'
-        )
+    )
 
     _sql_constraints = [
         ('remote_id_no_uniq',
@@ -243,12 +243,12 @@ class expresso_tipo(models.Model):
         size=30,
         readonly=True,
         copy=False
-        )
+    )
     denomination = fields.Char(
         'Denominación',
         size=30,
         required=True
-        )
+    )
 
     _sql_constraints = [
         ('remote_id_no_uniq',
@@ -268,12 +268,12 @@ class expresso_valor(models.Model):
         size=30,
         readonly=True,
         copy=False
-        )
+    )
     denomination = fields.Char(
         'Denominación',
         size=20,
         required=True
-        )
+    )
 
     _sql_constraints = [
         ('remote_id_no_uniq',
@@ -296,12 +296,12 @@ class expresso_director(models.Model):
         size=30,
         readonly=True,
         copy=False
-        )
+    )
     denomination = fields.Char(
         'Denominación',
         size=50,
         required=True
-        )
+    )
 
     _sql_constraints = [
         ('remote_id_no_uniq',
@@ -321,20 +321,20 @@ class expresso_materia(models.Model):
         size=30,
         readonly=True,
         copy=False
-        )
+    )
     denomination = fields.Char(
         'Denominación',
         size=50,
         required=True
-        )
+    )
     director_id = fields.Many2one(
         'expresso.director',
         'Director'
-        )
+    )
     proyecto_id = fields.Many2one(
         'expresso.proyecto',
         'Proyecto'
-        )
+    )
 
     _sql_constraints = [
         ('remote_id_no_uniq',
@@ -354,20 +354,20 @@ class expresso_seleccion(models.Model):
         size=30,
         readonly=True,
         copy=False
-        )
+    )
     denomination = fields.Char(
         'Denominación',
         size=50,
         required=True
-        )
+    )
     matter_id = fields.Many2one(
         'expresso.materia',
         'Matter'
-        )
+    )
     project_id = fields.Many2one(
         'expresso.proyecto',
         'Project'
-        )
+    )
 
     _sql_constraints = [
         ('remote_id_no_uniq',

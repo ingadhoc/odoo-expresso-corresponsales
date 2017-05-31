@@ -12,4 +12,5 @@ class expresso_info_corresponsal(models.Model):
 
     nickel_customer_id = fields.Many2one(
         'nickel_partner',
-        'Nickel Client')
+        'Nickel Client'
+    )

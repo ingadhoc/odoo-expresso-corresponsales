@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+    
+    <record id="partner_expresso" model="res.partner">
+            <field name="name">Expresso User</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="customer" eval="False"/>
+            <field name="email">expresso@yourcompany.example.com</field>
+            <field name="street">Example</field>
+            <field name="city">Argentina</field>
+            <field name="zip">5101</field>
+    </record>
+    <record id="user_expresso" model="res.users">
+            <field name="partner_id" ref="partner_expresso"/>
+            <field name="login">expresso</field>
+            <field name="password">expresso</field>
+            <field name="signature">Expresso</field>
+            <field name="groups_id" eval="[(6,0,[ref('expresso_grupo_expresso')])]"/>
+            <!-- <field name="groups_id" eval="[(6,0,[ref('base.group_partner_manager'),ref('expresso_grupo_expresso')])]"/> -->
+    </record>
+
+</data>
+</openerp>

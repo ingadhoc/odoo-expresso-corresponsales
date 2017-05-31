@@ -1,0 +1,823 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+
+        <!--
+        <record id="access_account_journal_expresso" model="ir.model.access">
+			<field name="model_id" ref="account.model_account_journal"/>
+			<field name="name">account.journal.expresso</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="1" name="perm_write"/>
+			<field eval="1" name="perm_create"/>
+			<field eval="1" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
+		</record>
+
+		<record id="access_account_journal_view_expresso" model="ir.model.access">
+			<field name="model_id" ref="account.model_account_journal_view"/>
+			<field name="name">account.journal.view.expresso</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="1" name="perm_write"/>
+			<field eval="1" name="perm_create"/>
+			<field eval="1" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
+		</record>
+
+		<record id="access_account_journal_column_expresso" model="ir.model.access">
+			<field name="model_id" ref="account.model_account_journal_column"/>
+			<field name="name">account.journal.column.expresso</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="1" name="perm_write"/>
+			<field eval="1" name="perm_create"/>
+			<field eval="1" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
+		</record>
+
+		<record id="access_account_journal_period_expresso" model="ir.model.access">
+			<field name="model_id" ref="account.model_account_journal_period"/>
+			<field name="name">account.journal.period.expresso</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="1" name="perm_write"/>
+			<field eval="1" name="perm_create"/>
+			<field eval="1" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
+		</record>
+
+		<record id="access_account_payment_term_expresso" model="ir.model.access">
+			<field name="model_id" ref="account.model_account_payment_term"/>
+			<field name="name">account.payment.term.expresso</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
+		</record>
+
+		<record id="access_account_payment_term_line_expresso" model="ir.model.access">
+			<field name="model_id" ref="account.model_account_payment_term_line"/>
+			<field name="name">account.payment.term.line.expresso</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
+		</record>
+
+		<record id="access_account_account_type_expresso" model="ir.model.access">
+			<field name="model_id" ref="account.model_account_account_type"/>
+			<field name="name">account.account.type.expresso</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
+		</record>
+
+		<record id="access_account_tax_expresso" model="ir.model.access">
+			<field name="model_id" ref="account.model_account_tax"/>
+			<field name="name">account.tax.expresso</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
+		</record>
+
+
+		<record id="access_account_period_expresso" model="ir.model.access">
+			<field name="model_id" ref="account.model_account_period"/>
+			<field name="name">account.period.expresso</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
+		</record>
+
+		<record id="access_account_move_expresso" model="ir.model.access">
+			<field name="model_id" ref="account.model_account_move"/>
+			<field name="name">account.move.expresso</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="1" name="perm_write"/>
+			<field eval="1" name="perm_create"/>
+			<field eval="1" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
+		</record>
+
+		<record id="access_account_move_line_expresso" model="ir.model.access">
+			<field name="model_id" ref="account.model_account_move_line"/>
+			<field name="name">account.move.line.expresso</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="1" name="perm_write"/>
+			<field eval="1" name="perm_create"/>
+			<field eval="1" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
+		</record>
+
+		<record id="access_account_move_reconcile_expresso" model="ir.model.access">
+			<field name="model_id" ref="account.model_account_move_reconcile"/>
+			<field name="name">account.move.reconcile.expresso</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="1" name="perm_write"/>
+			<field eval="1" name="perm_create"/>
+			<field eval="1" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
+		</record>
+
+		<record id="access_account_model_expresso" model="ir.model.access">
+			<field name="model_id" ref="account.model_account_model"/>
+			<field name="name">account.model.expresso</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="1" name="perm_write"/>
+			<field eval="1" name="perm_create"/>
+			<field eval="1" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
+		</record>
+
+		<record id="access_account_model_line_expresso" model="ir.model.access">
+			<field name="model_id" ref="account.model_account_model_line"/>
+			<field name="name">account.model.line.expresso</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="1" name="perm_write"/>
+			<field eval="1" name="perm_create"/>
+			<field eval="1" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
+		</record>
+
+		<record id="access_account_subscription_expresso" model="ir.model.access">
+			<field name="model_id" ref="account.model_account_subscription"/>
+			<field name="name">account.subscription.expresso</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="1" name="perm_write"/>
+			<field eval="1" name="perm_create"/>
+			<field eval="1" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
+		</record>
+
+		<record id="access_account_subscription_line_expresso" model="ir.model.access">
+			<field name="model_id" ref="account.model_account_subscription_line"/>
+			<field name="name">account.subscription.line.expresso</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="1" name="perm_write"/>
+			<field eval="1" name="perm_create"/>
+			<field eval="1" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_expresso"/>
+		</record>
+        -->
+        <!-- account -->
+		<record id="access_account_fiscal_position_corresponsale" model="ir.model.access">
+			<field name="model_id" ref="account.model_account_fiscal_position"/>
+			<field name="name">account.fiscalyear.corresponsale</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
+		</record>
+
+		<record id="access_account_account_corresponsale" model="ir.model.access">
+			<field name="model_id" ref="account.model_account_account"/>
+			<field name="name">account.account.corresponsale</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
+		</record>
+
+		<record id="access_account_invoice_corresponsales" model="ir.model.access">
+			<field name="model_id" ref="account.model_account_invoice"/>
+			<field name="name">account.invoice.corresponsales</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
+		</record>
+
+		<record id="access_account_journal_corresponsales" model="ir.model.access">
+			<field name="model_id" ref="account.model_account_journal"/>
+			<field name="name">account.journal.corresponsales</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
+		</record>
+
+		<record id="access_account_journal_view_corresponsales" model="ir.model.access">
+			<field name="model_id" ref="account.model_account_journal"/>
+			<field name="name">account.journal.view.corresponsales</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
+		</record>
+		<record id="access_expresso_situacion_view_corresponsales" model="ir.model.access">
+			<field name="model_id" ref="expresso_product_attributes.model_expresso_situacion"/>
+			<field name="name">expresso.situacion.view.corresponsales</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
+		</record>
+
+		 <!--<record id="access_account_journal_column_corresponsales" model="ir.model.access">-->
+			<!--<field name="model_id" ref="account.model_account_journal_column"/>-->
+			<!--<field name="name">account.journal.column.corresponsales</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="0" name="perm_write"/>-->
+			<!--<field eval="0" name="perm_create"/>-->
+			<!--<field eval="0" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
+
+		<!--<record id="access_account_journal_period_corresponsales" model="ir.model.access">-->
+			<!--<field name="model_id" ref="account.model_account_journal_period"/>-->
+			<!--<field name="name">account.journal.period.corresponsales</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="0" name="perm_write"/>-->
+			<!--<field eval="0" name="perm_create"/>-->
+			<!--<field eval="0" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
+
+		<!-- base -->
+		<record id="access_res_partner_corresponsales" model="ir.model.access">
+			<field name="model_id" ref="base.model_res_partner"/>
+			<field name="name">res.partner.corresponsales</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="1" name="perm_write"/>
+			<field eval="1" name="perm_create"/>
+			<field eval="1" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
+		</record>
+
+		<record id="access_res_partner_bank_corresponsales" model="ir.model.access">
+			<field name="model_id" ref="base.model_res_partner_bank"/>
+			<field name="name">res.partner.bank.corresponsales</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="1" name="perm_write"/>
+			<field eval="1" name="perm_create"/>
+			<field eval="1" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
+		</record>
+
+
+
+		<!--<record id="access_res_partner_address_corresponsales" model="ir.model.access">-->
+			<!--<field name="model_id" ref="payment_transfer.model_payment_transaction"/>-->
+			<!--<field name="name">res.partner.address.corresponsales</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="0" name="perm_write"/>-->
+			<!--<field eval="0" name="perm_create"/>-->
+			<!--<field eval="0" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
+
+		<!-- expresso_product_attributes -->
+		<!--<record id="access_sale_empresa_logistica_corresponsales" model="ir.model.access">-->
+			<!--<field name="model_id" ref="expresso_product_attributes.model_sale_empresa_logistica"/>-->
+			<!--<field name="name">sale.empresa_logistica.corresponsales</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="0" name="perm_write"/>-->
+			<!--<field eval="0" name="perm_create"/>-->
+			<!--<field eval="0" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
+
+		<!--<record id="access_expresso_idioma_corresponsales" model="ir.model.access">-->
+			<!--<field name="model_id" ref="expresso_product_attributes.model_expresso_idioma"/>-->
+			<!--<field name="name">expresso.idioma.corresponsales</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="0" name="perm_write"/>-->
+			<!--<field eval="0" name="perm_create"/>-->
+			<!--<field eval="0" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
+
+		<!--<record id="access_expresso_forma_envio_corresponsales" model="ir.model.access">-->
+			<!--<field name="model_id" ref="expresso_product_attributes.model_expresso_forma_envio"/>-->
+			<!--<field name="name">expresso.forma_envio.corresponsales</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="0" name="perm_write"/>-->
+			<!--<field eval="0" name="perm_create"/>-->
+			<!--<field eval="0" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
+
+		<!--<record id="access_expresso_encuadernacion_corresponsales" model="ir.model.access">-->
+			<!--<field name="model_id" ref="expresso_product_attributes.model_expresso_encuadernacion"/>-->
+			<!--<field name="name">expresso.encuadernacion.corresponsales</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="0" name="perm_write"/>-->
+			<!--<field eval="0" name="perm_create"/>-->
+			<!--<field eval="0" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
+
+		<!--<record id="access_expresso_coleccion_corresponsales" model="ir.model.access">-->
+			<!--<field name="model_id" ref="expresso_product_attributes.model_expresso_coleccion"/>-->
+			<!--<field name="name">expresso.coleccion.corresponsales</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="0" name="perm_write"/>-->
+			<!--<field eval="0" name="perm_create"/>-->
+			<!--<field eval="0" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
+
+		<!--<record id="access_expresso_director_corresponsales" model="ir.model.access">-->
+			<!--<field name="model_id" ref="expresso_product_attributes.model_expresso_director"/>-->
+			<!--<field name="name">expresso.director.corresponsales</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="0" name="perm_write"/>-->
+			<!--<field eval="0" name="perm_create"/>-->
+			<!--<field eval="0" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
+
+		<!--<record id="access_expresso_proyecto_corresponsales" model="ir.model.access">-->
+			<!--<field name="model_id" ref="expresso_product_attributes.model_expresso_proyecto"/>-->
+			<!--<field name="name">expresso.proyecto.corresponsales</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="0" name="perm_write"/>-->
+			<!--<field eval="0" name="perm_create"/>-->
+			<!--<field eval="0" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
+
+		<!--<record id="access_expresso_materia_corresponsales" model="ir.model.access">-->
+			<!--<field name="model_id" ref="expresso_product_attributes.model_expresso_materia"/>-->
+			<!--<field name="name">expresso.materia.corresponsales</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="0" name="perm_write"/>-->
+			<!--<field eval="0" name="perm_create"/>-->
+			<!--<field eval="0" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
+
+		<!--<record id="access_expresso_situacion_corresponsales" model="ir.model.access">-->
+			<!--<field name="model_id" ref="expresso_product_attributes.model_expresso_situacion"/>-->
+			<!--<field name="name">expresso.situacion.corresponsales</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="0" name="perm_write"/>-->
+			<!--<field eval="0" name="perm_create"/>-->
+			<!--<field eval="0" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
+
+		<!--<record id="access_expresso_ciclo_corresponsales" model="ir.model.access">-->
+			<!--<field name="model_id" ref="expresso_product_attributes.model_expresso_ciclo"/>-->
+			<!--<field name="name">expresso.ciclo.corresponsales</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="0" name="perm_write"/>-->
+			<!--<field eval="0" name="perm_create"/>-->
+			<!--<field eval="0" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
+
+		<!--<record id="access_expresso_curso_corresponsales" model="ir.model.access">-->
+			<!--<field name="model_id" ref="expresso_product_attributes.model_expresso_curso"/>-->
+			<!--<field name="name">expresso.curso.corresponsales</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="0" name="perm_write"/>-->
+			<!--<field eval="0" name="perm_create"/>-->
+			<!--<field eval="0" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
+
+		<!--<record id="access_expresso_tipo_corresponsales" model="ir.model.access">-->
+			<!--<field name="model_id" ref="expresso_product_attributes.model_expresso_tipo"/>-->
+			<!--<field name="name">expresso.tipo.corresponsales</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="0" name="perm_write"/>-->
+			<!--<field eval="0" name="perm_create"/>-->
+			<!--<field eval="0" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
+
+		<!--<record id="access_expresso_publico_corresponsales" model="ir.model.access">-->
+			<!--<field name="model_id" ref="expresso_product_attributes.model_expresso_publico"/>-->
+			<!--<field name="name">expresso.publico.corresponsales</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="0" name="perm_write"/>-->
+			<!--<field eval="0" name="perm_create"/>-->
+			<!--<field eval="0" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
+
+		<!--<record id="access_expresso_seleccion_corresponsales" model="ir.model.access">-->
+			<!--<field name="model_id" ref="expresso_product_attributes.model_expresso_seleccion"/>-->
+			<!--<field name="name">expresso.seleccion.corresponsales</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="0" name="perm_write"/>-->
+			<!--<field eval="0" name="perm_create"/>-->
+			<!--<field eval="0" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
+
+		<!--<record id="access_expresso_valor_corresponsales" model="ir.model.access">-->
+			<!--<field name="model_id" ref="expresso_product_attributes.model_expresso_valor"/>-->
+			<!--<field name="name">expresso.valor.corresponsales</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="0" name="perm_write"/>-->
+			<!--<field eval="0" name="perm_create"/>-->
+			<!--<field eval="0" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
+
+		<!--<record id="access_pedido_multi_titulo_linea_corresponsales" model="ir.model.access">-->
+			<!--<field name="model_id" ref="expresso_product_attributes.model_pedido_multi_titulo_linea"/>-->
+			<!--<field name="name">pedido_multi_titulo.linea.corresponsales</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="1" name="perm_write"/>-->
+			<!--<field eval="1" name="perm_create"/>-->
+			<!--<field eval="1" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
+
+		<!--&lt;!&ndash; expresso_packing &ndash;&gt;-->
+		<!--<record id="access_expresso_packing_corresponsales" model="ir.model.access">-->
+			<!--<field name="model_id" ref="expresso_product_attributes.model_expresso_packing"/>-->
+			<!--<field name="name">expresso.packing.corresponsales</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="0" name="perm_write"/>-->
+			<!--<field eval="0" name="perm_create"/>-->
+			<!--<field eval="0" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
+
+		<!--<record id="access_expresso_packing_box_corresponsales" model="ir.model.access">-->
+			<!--<field name="model_id" ref="expresso_product_attributes.model_expresso_packing_box"/>-->
+			<!--<field name="name">expresso.packing.box.corresponsales</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="0" name="perm_write"/>-->
+			<!--<field eval="0" name="perm_create"/>-->
+			<!--<field eval="0" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
+
+		<!--<record id="access_expresso_packing_detail_corresponsales" model="ir.model.access">-->
+			<!--<field name="model_id" ref="expresso_product_attributes.model_expresso_packing_detail"/>-->
+			<!--<field name="name">expresso.packing.detail.corresponsales</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="0" name="perm_write"/>-->
+			<!--<field eval="0" name="perm_create"/>-->
+			<!--<field eval="0" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
+
+		<!--&lt;!&ndash; product &ndash;&gt;-->
+		<record id="access_product_product_corresponsales" model="ir.model.access">
+			<field name="model_id" ref="product.model_product_product"/>
+			<field name="name">product.product.corresponsales</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
+		</record>
+
+		<record id="access_product_template_corresponsales" model="ir.model.access">
+			<field name="model_id" ref="product.model_product_template"/>
+			<field name="name">product.template.corresponsales</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
+		</record>
+
+		<record id="access_product_pricelist_corresponsales" model="ir.model.access">
+			<field name="model_id" ref="product.model_product_pricelist"/>
+			<field name="name">product.pricelist.corresponsal</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
+		</record>
+
+		<record id="access_product_pricelist_item_corresponsales" model="ir.model.access">
+			<field name="model_id" ref="product.model_product_pricelist_item"/>
+			<field name="name">product.pricelist.corresponsal</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
+		</record>
+
+		<record id="access_product_packaging_corresponsales" model="ir.model.access">
+			<field name="model_id" ref="product.model_product_packaging"/>
+			<field name="name">product.packaging.corresponsal</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
+		</record>
+
+		<record id="access_product_uom_corresponsales" model="ir.model.access">
+			<field name="model_id" ref="product.model_product_uom"/>
+			<field name="name">product.uom.corresponsal</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
+		</record>
+
+
+		<record id="access_product_category_corresponsales" model="ir.model.access">
+			<field name="model_id" ref="product.model_product_category"/>
+			<field name="name">product.category.corresponsal</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
+		</record>
+
+		<!--<record id="access_product_product_expresso_corresponsales" model="ir.model.access">-->
+			<!--<field name="model_id" ref="expresso_product_attributes.model_product_product"/>-->
+			<!--<field name="name">product.expresso.corresponsal</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="0" name="perm_write"/>-->
+			<!--<field eval="0" name="perm_create"/>-->
+			<!--<field eval="0" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
+
+		<record id="access_product_attribute_corresponsales" model="ir.model.access">
+			<field name="model_id" ref="product.model_product_attribute"/>
+			<field name="name">product.attribute.corresponsal</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
+		</record>
+
+
+		<record id="access_product_supplierinfo_corresponsales" model="ir.model.access">
+			<field name="model_id" ref="product.model_product_supplierinfo"/>
+			<field name="name">product.supplierinfo.corresponsal</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
+		</record>
+
+		<record id="access_product_producto_pendiente_corresponsales" model="ir.model.access">
+			<field name="model_id" ref="expresso_product_attributes.model_product_producto_pendiente"/>
+			<field name="name">product.producto_pendiente.corresponsal</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="1" name="perm_write"/>
+			<field eval="1" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
+		</record>
+
+
+        <!-- sale -->
+	<record id="access_crm_team_corresponsales" model="ir.model.access">
+			<field name="model_id" ref="sale.model_crm_team"/>
+			<field name="name">crm.team.corresponsales</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
+		</record>
+
+		<record id="access_procurement_rule_corresponsales" model="ir.model.access">
+			<field name="model_id" ref="procurement.model_procurement_rule"/>
+			<field name="name">procurement.rule.corresponsales</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
+		</record>
+
+		<record id="access_expresso_forma_envio_corresponsal" model="ir.model.access">
+			<field name="model_id" ref="expresso_product_attributes.model_expresso_forma_envio"/>
+			<field name="name">corresponsal.forma_envio.expresso</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
+		</record>
+
+		<record id="access_stock_location_route" model="ir.model.access">
+			<field name="model_id" ref="stock.model_stock_location_route"/>
+			<field name="name">stock.warehouse</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
+		</record>
+
+		<record id="access_stock_warehouse_orderpoint_corresponsale" model="ir.model.access">
+			<field name="model_id" ref="stock.model_stock_warehouse_orderpoint"/>
+			<field name="name">stock.orderpoint.corresponsal</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
+		</record>
+
+	<record model="ir.rule" id="corresponsales_order">
+        <field name="name">Pedidos de los Corresponsales</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <!--<field name="domain_force">[('partner_id','=',user.partner_id.id)]</field>-->
+        <field name="domain_force">[('user_corresponsal_id_expresso','=',user.id)]</field>
+        <field name="groups" eval="[(4, ref('expresso_product_attributes.expresso_grupo_corresponsales'))]"/>
+    </record>
+
+	<record id="corresponsal_account_invoice_user_rule" model="ir.rule">
+		<field name="name">Portal Personal Account Invoices</field>
+		<field name="model_id" ref="account.model_account_invoice"/>
+		<!--<field name="domain_force">[('message_partner_ids','child_of',[user.commercial_partner_id.id])]</field>-->
+		<field name="groups" eval="[(4, ref('expresso_product_attributes.expresso_grupo_corresponsales'))]"/>
+		 <field eval="0" name="perm_unlink"/>
+         <field eval="0" name="perm_write"/>
+         <field eval="1" name="perm_read"/>
+         <field eval="0" name="perm_create"/>
+	</record>
+
+
+
+		<!--<record id="access_sale_order_corresponsales" model="ir.model.access">-->
+			<!--<field name="model_id" ref="sale.model_sale_order"/>-->
+			<!--<field name="name">sale.order.corresponsales</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="1" name="perm_write"/>-->
+			<!--<field eval="1" name="perm_create"/>-->
+			<!--<field eval="0" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
+
+		<!--<record id="access_sale_order_line_corresponsales" model="ir.model.access">-->
+			<!--<field name="model_id" ref="sale.model_sale_order_line"/>-->
+			<!--<field name="name">sale.order.line.corresponsales</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="1" name="perm_write"/>-->
+			<!--<field eval="1" name="perm_create"/>-->
+			<!--<field eval="1" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
+
+		<!-- <record id="access_sale_shop_corresponsales" model="ir.model.access">
+			<field name="model_id" ref="sale.model_sale_shop"/>
+			<field name="name">sale.shop.corresponsales</field>
+			<field eval="1" name="perm_read"/>
+			<field eval="1" name="perm_write"/>
+			<field eval="1" name="perm_create"/>
+			<field eval="1" name="perm_unlink"/>
+			<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>
+		</record> -->
+
+		<!-- stock -->
+		<!--<record id="access_stock_picking_corresponsales" model="ir.model.access">-->
+			<!--<field name="model_id" ref="stock_account.model_stock_picking"/>-->
+			<!--<field name="name">stock.picking.corresponsales</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="0" name="perm_write"/>-->
+			<!--<field eval="0" name="perm_create"/>-->
+			<!--<field eval="0" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
+
+		<!--<record id="access_stock_move_corresponsales" model="ir.model.access">-->
+			<!--<field name="model_id" ref="stock.model_stock_move"/>-->
+			<!--<field name="name">stock.move.corresponsales</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="0" name="perm_write"/>-->
+			<!--<field eval="0" name="perm_create"/>-->
+			<!--<field eval="0" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
+		<!--<record id="access_stock_warehouse" model="ir.model.access">-->
+			<!--<field name="model_id" ref="stock.model_stock_move"/>-->
+			<!--<field name="name">stock.warehouse</field>-->
+			<!--<field eval="1" name="perm_read"/>-->
+			<!--<field eval="0" name="perm_write"/>-->
+			<!--<field eval="0" name="perm_create"/>-->
+			<!--<field eval="0" name="perm_unlink"/>-->
+			<!--<field name="group_id" ref="expresso_product_attributes.expresso_grupo_corresponsales"/>-->
+		<!--</record>-->
+		<!--<record id="portal_sale_corresponsale_order_user_rule" model="ir.rule">-->
+            <!--<field name="name">Portal Personal Quotations/Sales Orders</field>-->
+            <!--<field name="model_id" ref="sale.model_sale_order"/>-->
+            <!--<field name="domain_force">[('message_partner_ids','child_of',[user.commercial_partner_id.id])]</field>-->
+            <!--<field name="groups" eval="[(4, ref('expresso_product_attributes.expresso_grupo_corresponsales'))]"/>-->
+            <!--<field eval="1" name="perm_unlink"/>-->
+            <!--<field eval="1" name="perm_write"/>-->
+            <!--<field eval="1" name="perm_read"/>-->
+            <!--<field eval="1" name="perm_create"/>-->
+        <!--</record>-->
+		<record id="portal_sale_corresponsale_partner_rule" model="ir.rule">
+            <field name="name">Corresponsal Personal Partner</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="domain_force">[('user_id','=',user.id)]</field>
+            <field name="groups" eval="[(4, ref('expresso_product_attributes.expresso_grupo_corresponsales'))]"/>
+            <field eval="1" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+		<record id="access_product_attribute_corresponsales_rule" model="ir.rule">
+			<field name="name">Portal product rule</field>
+			<field name="model_id" ref="product.model_product_attribute"/>
+			<field name="groups" eval="[(4, ref('expresso_product_attributes.expresso_grupo_corresponsales'))]"/>
+			<field eval="1" name="perm_read"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+		</record>
+		<record id="access_product_product_corresponsales_rule" model="ir.rule">
+			<field name="name">Portal product product rule</field>
+			<field name="model_id" ref="product.model_product_product"/>
+			<field name="groups" eval="[(4, ref('expresso_product_attributes.expresso_grupo_corresponsales'))]"/>
+			<field eval="1" name="perm_read"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+
+		</record>
+		<record id="access_product_template_corresponsales_rule" model="ir.rule">
+			<field name="name">Portal product template rule</field>
+			<field name="model_id" ref="product.model_product_template"/>
+			<field name="groups" eval="[(4, ref('expresso_product_attributes.expresso_grupo_corresponsales'))]"/>
+			<field eval="1" name="perm_read"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+
+		</record>
+
+		<record id="access_stock_corresponsales_rule" model="ir.rule">
+			<field name="name">Portal stock rule</field>
+			<field name="model_id" ref="stock.model_stock_warehouse"/>
+			<field name="groups" eval="[(4, ref('expresso_product_attributes.expresso_grupo_corresponsales'))]"/>
+			<field eval="1" name="perm_read"/>
+			<field eval="0" name="perm_write"/>
+			<field eval="0" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+
+		</record>
+
+		<record id="access_product_producto_pendiente_corresponsales_rule" model="ir.rule">
+			<field name="name">product.producto_pendiente.corresponsal_rule</field>
+			<field name="model_id" ref="expresso_product_attributes.model_product_producto_pendiente"/>
+			<field name="groups" eval="[(4, ref('expresso_product_attributes.expresso_grupo_corresponsales'))]"/>
+			<field eval="1" name="perm_read"/>
+			<field eval="1" name="perm_write"/>
+			<field eval="1" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+		</record>
+
+		<record id="access_sale_order_line_corresponsales_rule" model="ir.rule">
+			<field name="model_id" ref="sale.model_sale_order_line"/>
+			<field name="name">sale.order.line.corresponsales.rule</field>
+			<field name="groups" eval="[(4, ref('expresso_product_attributes.expresso_grupo_corresponsales'))]"/>
+			<field eval="1" name="perm_read"/>
+			<field eval="1" name="perm_write"/>
+			<field eval="1" name="perm_create"/>
+			<field eval="0" name="perm_unlink"/>
+		</record>
+
+		<!-- Sale Portal Disrtibutor CRUD all orders -->
+        <!--<record id="portal_sale_order_user_rule_corresponsale" model="ir.rule">-->
+            <!--<field name="name">Portal Corresponsale same partner Quotations/Sales Orders</field>-->
+            <!--<field name="model_id" ref="sale.model_sale_order"/>-->
+            <!--&lt;!&ndash;<field name="domain_force">[('partner_id.commercial_partner_id','=',user.commercial_partner_id.id)]</field>&ndash;&gt;-->
+            <!--<field name="groups" eval="[(4, ref('expresso_product_attributes.expresso_grupo_corresponsales'))]"/>-->
+            <!--<field eval="0" name="perm_unlink"/>-->
+            <!--<field eval="1" name="perm_write"/>-->
+            <!--<field eval="1" name="perm_read"/>-->
+            <!--<field eval="1" name="perm_create"/>-->
+        <!--</record>-->
+
+        <!-- Sale Portal Disrtibutor CRUD all orders -->
+        <!--<record id="portal_sale_order_line_user_rule_corresponsale" model="ir.rule">-->
+            <!--<field name="name">Portal Corresponsale same partner Quotations/Sales Orders</field>-->
+            <!--<field name="model_id" ref="sale.model_sale_order_line"/>-->
+            <!--<field name="domain_force">[('order_id.partner_id.commercial_partner_id','=',user.commercial_partner_id.id)]</field>-->
+            <!--<field name="groups" eval="[(4, ref('expresso_product_attributes.expresso_grupo_corresponsales'))]"/>-->
+            <!--<field eval="1" name="perm_unlink"/>-->
+            <!--<field eval="1" name="perm_write"/>-->
+            <!--<field eval="1" name="perm_read"/>-->
+            <!--<field eval="1" name="perm_create"/>-->
+        <!--</record>-->
+
+	</data>
+</openerp>

@@ -1,0 +1,7 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_sale_order1","sale_order corresponsales1","sale.model_sale_order","expresso_product_attributes.expresso_grupo_corresponsales",1,1,1,0
+"access_sale_order_line1","sale_order_line corresponsales1","sale.model_sale_order_line","expresso_product_attributes.expresso_grupo_corresponsales",1,1,1,0
+"access_stock_warehouse_user_corresponsal","stock.warehouse.user.corresponsal","stock.model_stock_warehouse","expresso_product_attributes.expresso_grupo_corresponsales",1,0,0,0
+"access_stock_location_user_corresponsal","stock.location.user.corresponsal","stock.model_stock_location","expresso_product_attributes.expresso_grupo_corresponsales",1,0,0,0
+"access_stock_quant_user_corresponsal","stock.quant.user.corresponsal","stock.model_stock_quant","expresso_product_attributes.expresso_grupo_corresponsales",1,0,0,0
+"access_res_groups_group_user","res_groups group_user","base.model_res_groups","expresso_product_attributes.expresso_grupo_corresponsales",1,0,0,0

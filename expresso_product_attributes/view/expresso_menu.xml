@@ -16,8 +16,6 @@
             name="Expresso"
             groups="expresso_grupo_expresso,base.group_system"
             sequence="1"/>
-            <!--web_icon="images/menu_express.png"-->
-            <!--web_icon_hover="images/menu_express_hover.png"/>-->
             
             <!-- Expresso / Títulos -->
             <menuitem
@@ -226,9 +224,6 @@
 	                action="action_expresso_sync_log_entry"
 	                parent="expresso_administracion"
 	                sequence="5"/>
-                
-                
-                
                 
     </data>
 </openerp>

@@ -147,12 +147,11 @@
             <field name="model">expresso.info_corresponsal</field>
             <field name="arch" type="xml">
                 <form string="Información de los Corresponsales">
-                    <field name="corresponsal"/>
-                    <field name="user"/>
-                    <field name="contrasenia"/>
-                    
-                    <newline/>
-                    <separator colspan="4" string="Partners"/>
+                    <group>
+                        <field name="corresponsal"/>
+                        <field name="user"/>
+                        <field name="contrasenia"/>
+                    </group>
                     <field name="partner_ids" nolabel="1" colspan="4"/>
                 </form>
             </field>
