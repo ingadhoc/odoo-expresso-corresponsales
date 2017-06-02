@@ -3,13 +3,14 @@
 # * expresso_product_attributes
 # 
 # Translators:
+# Juan José Scarafía <scarafia.juanjose@gmail.com>, 2017
 # Nicolas Mac Rouillon <nmr@ingadhoc.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-08 15:14+0000\n"
-"PO-Revision-Date: 2016-07-08 15:14+0000\n"
+"POT-Creation-Date: 2017-05-31 22:02+0000\n"
+"PO-Revision-Date: 2017-05-31 22:02+0000\n"
 "Last-Translator: Nicolas Mac Rouillon <nmr@ingadhoc.com>, 2017\n"
 "Language-Team: Spanish (https://www.transifex.com/adhoc/teams/46451/es/)\n"
 "MIME-Version: 1.0\n"
@@ -22,23 +23,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_sale_order_count
 msgid "# of Sales Order"
 msgstr "# de Pedidos de Venta"
-
-#. module: expresso_product_attributes
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pre_cerrar_pedido
-msgid "- Anexar como archivo adjunto el packing list."
-msgstr "- Anexar como archivo adjunto el packing list."
-
-#. module: expresso_product_attributes
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pre_cerrar_pedido
-msgid "- Anexar como archivo adjunto la factura."
-msgstr "- Anexar como archivo adjunto la factura."
-
-#. module: expresso_product_attributes
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pre_cerrar_pedido
-msgid ""
-"- Asociar a este pedido las facturas correspondientes dentro del sistema."
-msgstr ""
-"- Asociar a este pedido las facturas correspondientes dentro del sistema."
 
 #. module: expresso_product_attributes
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_property_account_payable_id
@@ -63,6 +47,71 @@ msgid "Actualizador"
 msgstr ""
 
 #. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid "Actualizar Atributos"
+msgstr "Actualizar Atributos"
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid "Actualizar Clientes"
+msgstr "Actualizar Clientes"
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid "Actualizar Facturas"
+msgstr "Actualizar Facturas"
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid "Actualizar Imagenes"
+msgstr "Actualizar Imagenes"
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid "Actualizar Packing"
+msgstr "Actualizar Packing"
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid "Actualizar Titulos"
+msgstr "Actualizar Titulos"
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid "Actualizar las Facturas que estan marcadas para procesar"
+msgstr "Actualizar las Facturas que estan marcadas para procesar"
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid "Actualizar los Clientes"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid "Actualizar los Packing que estan marcados para procesar"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid "Actualizar los Titulos que estan marcados para procesar"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid "Actualizar los atributos de los Titulos"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid "Actualizar los imagenes de los Titulos"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid "Actualizar toda la base de datos lanzando un thread asincrono"
+msgstr ""
+
+#. module: expresso_product_attributes
 #: model:ir.ui.menu,name:expresso_product_attributes.expresso_administracion
 msgid "Administración"
 msgstr ""
@@ -73,21 +122,6 @@ msgid "Aduana"
 msgstr "Aduana"
 
 #. module: expresso_product_attributes
-#: model:ir.actions.act_window,name:expresso_product_attributes.action_pedir_multi_titulos
-msgid "Agregar a Pedido"
-msgstr ""
-
-#. module: expresso_product_attributes
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedir_multi_titulos_wizard
-msgid "Agregar a nuevo pedido"
-msgstr ""
-
-#. module: expresso_product_attributes
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedir_multi_titulos_wizard
-msgid "Agregar a pedido existente"
-msgstr ""
-
-#. module: expresso_product_attributes
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_alto
 msgid "Alto"
 msgstr ""
@@ -96,18 +130,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_ancho
 msgid "Ancho"
 msgstr ""
-
-#. module: expresso_product_attributes
-#: model:ir.actions.act_window,name:expresso_product_attributes.action_pre_cerrar_pedido
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pre_cerrar_pedido
-msgid "Antes de cerrar el pedido"
-msgstr ""
-
-#. module: expresso_product_attributes
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_partner_associated_user_ids
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_associated_user_ids
-msgid "Associate Members"
-msgstr "Miembros asociados"
 
 #. module: expresso_product_attributes
 #: model:ir.ui.menu,name:expresso_product_attributes.expresso_productos_atributos
@@ -166,11 +188,6 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #. module: expresso_product_attributes
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pre_cerrar_pedido
-msgid "Cancel accion y completar el pedido"
-msgstr ""
-
-#. module: expresso_product_attributes
 #: model:ir.ui.view,arch_db:expresso_product_attributes.view_producto_pendiente_form
 #: model:ir.ui.view,arch_db:expresso_product_attributes.view_producto_pendiente_search
 #: selection:product.producto_pendiente,state:0
@@ -178,13 +195,7 @@ msgid "Cancelado"
 msgstr ""
 
 #. module: expresso_product_attributes
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedir_multi_titulos_wizard
-msgid "Cancelar"
-msgstr ""
-
-#. module: expresso_product_attributes
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_detail_product_qty
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedido_multi_titulo_linea_cantidad
 msgid "Cantidad"
 msgstr ""
 
@@ -194,13 +205,13 @@ msgid "Cantidad Disponible"
 msgstr ""
 
 #. module: expresso_product_attributes
-#: code:addons/expresso_product_attributes/wizard/generar_pendiente.py:42
+#: code:addons/expresso_product_attributes/wizard/generar_pendiente.py:40
 #, python-format
 msgid "Cantidad disponible muy grande"
 msgstr ""
 
 #. module: expresso_product_attributes
-#: code:addons/expresso_product_attributes/wizard/generar_pendiente.py:45
+#: code:addons/expresso_product_attributes/wizard/generar_pendiente.py:43
 #, python-format
 msgid "Cantidad disponible negativa"
 msgstr ""
@@ -216,7 +227,7 @@ msgid "Cerrado"
 msgstr ""
 
 #. module: expresso_product_attributes
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_expresso_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_form
 msgid "Cerrar Pedido"
 msgstr ""
 
@@ -241,17 +252,13 @@ msgid "Class"
 msgstr "Clase"
 
 #. module: expresso_product_attributes
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_customer_partner_id
-msgid "Client"
-msgstr "Cliente"
-
-#. module: expresso_product_attributes
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_product_producto_pendiente_partner_id
 msgid "Cliente"
 msgstr ""
 
 #. module: expresso_product_attributes
 #: selection:expresso.sync_log_entry,objeto:0
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
 msgid "Clientes"
 msgstr ""
 
@@ -280,7 +287,7 @@ msgid "Companies that refers to partner"
 msgstr "Compañías que se refieren a Partner"
 
 #. module: expresso_product_attributes
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_form_corresponsal_sale
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_form
 msgid "Confirmar Pedido"
 msgstr ""
 
@@ -290,14 +297,14 @@ msgid "Consultas"
 msgstr "Consultas"
 
 #. module: expresso_product_attributes
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pre_cerrar_pedido
-msgid "Continuar cerrando el pedido"
-msgstr ""
-
-#. module: expresso_product_attributes
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_contract_ids
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_contracts_count
 msgid "Contracts"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,help:expresso_product_attributes.field_expresso_info_corresponsal_contrasenia
+msgid "Contrasena en ERP expresso"
 msgstr ""
 
 #. module: expresso_product_attributes
@@ -307,16 +314,12 @@ msgid "Correctos"
 msgstr ""
 
 #. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_info_corresponsal_corresponsal
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_info_objeto_remoto_corresponsal
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_partner_id
 #: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_expresso_search
 msgid "Corresponsal"
 msgstr "Corresponsal"
-
-#. module: expresso_product_attributes
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_info_corresponsal_corresponsal
-msgid "Corresponsale"
-msgstr ""
 
 #. module: expresso_product_attributes
 #: model:ir.actions.act_window,name:expresso_product_attributes.action_expresso_res_partner
@@ -357,9 +360,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_tipo_create_uid
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_valor_create_uid
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_multi_marcar_para_procesar_create_uid
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedido_multi_titulo_linea_create_uid
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedir_multi_titulos_create_uid
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_pre_cerrar_pedido_create_uid
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_product_producto_pendiente_create_uid
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_empresa_logistica_create_uid
 msgid "Created by"
@@ -393,9 +393,6 @@ msgstr "Creado por"
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_tipo_create_date
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_valor_create_date
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_multi_marcar_para_procesar_create_date
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedido_multi_titulo_linea_create_date
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedir_multi_titulos_create_date
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_pre_cerrar_pedido_create_date
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_product_producto_pendiente_create_date
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_empresa_logistica_create_date
 msgid "Created on"
@@ -407,8 +404,13 @@ msgid "Currency"
 msgstr ""
 
 #. module: expresso_product_attributes
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_current_partner_id_for_filtering
-msgid "Current Partner id for Filtering"
+#: model:ir.model.fields,help:expresso_product_attributes.field_product_product_qty_available_2
+msgid ""
+"Current quantity of products.\n"
+"In a context with a single Stock Location, this includes goods stored at this Location, or any of its children.\n"
+"In a context with a single Warehouse, this includes goods stored in the Stock Location of this Warehouse, or any of its children.\n"
+"stored in the Stock Location of the Warehouse of this Shop, or any of its children.\n"
+"Otherwise, this includes goods stored in any Stock Location with 'internal' type."
 msgstr ""
 
 #. module: expresso_product_attributes
@@ -433,32 +435,6 @@ msgstr ""
 #. module: expresso_product_attributes
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_property_payment_term_id
 msgid "Customer Payment Term"
-msgstr ""
-
-#. module: expresso_product_attributes
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_product_expresso_form
-msgid "Código"
-msgstr ""
-
-#. module: expresso_product_attributes
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_fecha_cerrado_expresso
-msgid "Date Closed - Expresso"
-msgstr ""
-
-#. module: expresso_product_attributes
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_fecha_confirmado_corresponsal
-msgid "Date Confirm - Correspondent"
-msgstr ""
-
-#. module: expresso_product_attributes
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_fecha_recibido_corresponsal
-msgid "Date Received - Correspondent"
-msgstr ""
-
-#. module: expresso_product_attributes
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_expresso_form
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_form_corresponsal_sale
-msgid "Dates"
 msgstr ""
 
 #. module: expresso_product_attributes
@@ -500,7 +476,7 @@ msgid "Despachado"
 msgstr ""
 
 #. module: expresso_product_attributes
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_expresso_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_form
 msgid "Despachar"
 msgstr ""
 
@@ -527,16 +503,6 @@ msgid "Diferencia a Pendientes"
 msgstr ""
 
 #. module: expresso_product_attributes
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_dir_factura
-msgid "Dirección de la factura"
-msgstr ""
-
-#. module: expresso_product_attributes
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_dir_envio
-msgid "Dirección del envio"
-msgstr ""
-
-#. module: expresso_product_attributes
 #: model:ir.model,name:expresso_product_attributes.model_expresso_director
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_materia_director_id
 #: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_director_form
@@ -548,11 +514,6 @@ msgstr ""
 #: model:ir.ui.menu,name:expresso_product_attributes.menu_expresso_director_form
 #: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_director_tree
 msgid "Directores"
-msgstr ""
-
-#. module: expresso_product_attributes
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_fecha_despachado_expresso
-msgid "Dispatched Date - Expresso"
 msgstr ""
 
 #. module: expresso_product_attributes
@@ -583,9 +544,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_tipo_display_name
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_valor_display_name
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_multi_marcar_para_procesar_display_name
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedido_multi_titulo_linea_display_name
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedir_multi_titulos_display_name
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_pre_cerrar_pedido_display_name
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_product_producto_pendiente_display_name
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_empresa_logistica_display_name
 msgid "Display Name"
@@ -594,12 +552,6 @@ msgstr "Nombre Mostrado "
 #. module: expresso_product_attributes
 #: model:ir.ui.view,arch_db:expresso_product_attributes.view_product_expresso_search
 msgid "Disponible"
-msgstr ""
-
-#. module: expresso_product_attributes
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_product_expresso_search
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_product_expresso_tree
-msgid "EAN"
 msgstr ""
 
 #. module: expresso_product_attributes
@@ -641,7 +593,6 @@ msgstr ""
 
 #. module: expresso_product_attributes
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_embarque
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_embarque_corresponsales
 msgid "Embarque"
 msgstr ""
 
@@ -652,7 +603,6 @@ msgstr ""
 
 #. module: expresso_product_attributes
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_empresa_logistica_id
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_empresa_logistica_id_corresponsales
 msgid "Empresa de Logística"
 msgstr ""
 
@@ -695,11 +645,6 @@ msgid "Espesor"
 msgstr ""
 
 #. module: expresso_product_attributes
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pre_cerrar_pedido
-msgid "Esta por cerrar el pedido pero antes de hacerlo recuerde que debe:"
-msgstr ""
-
-#. module: expresso_product_attributes
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_product_producto_pendiente_state
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_state_expresso
 msgid "Estado"
@@ -711,19 +656,16 @@ msgid "Estado de cuenta"
 msgstr ""
 
 #. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid ""
+"Este panel de control permite actualizar diferentes objetos del sistema."
+msgstr ""
+
+#. module: expresso_product_attributes
 #: model:ir.ui.menu,name:expresso_product_attributes.expresso
 #: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_expresso_search
-msgid "Expresso"
-msgstr ""
-
-#. module: expresso_product_attributes
-#: model:res.groups,name:expresso_product_attributes.expresso_grupo_corresponsales
-msgid "Expresso / Corresponsales"
-msgstr ""
-
-#. module: expresso_product_attributes
 #: model:res.groups,name:expresso_product_attributes.expresso_grupo_expresso
-msgid "Expresso / Expresso"
+msgid "Expresso"
 msgstr ""
 
 #. module: expresso_product_attributes
@@ -737,8 +679,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_invoice_expresso_ids
 #: model:ir.ui.menu,name:expresso_product_attributes.expresso_consultas_invoice
 #: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_packing_form
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_expresso_form
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_form_corresponsal_sale
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
 msgid "Facturas"
 msgstr "Facturas"
 
@@ -748,8 +690,22 @@ msgid "Facturas de Nickel"
 msgstr ""
 
 #. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_fecha_cerrado_expresso
+msgid "Fecha Cerrado - Expresso"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_fecha_confirmado_corresponsal
+msgid "Fecha Confirmado - Corresponsal"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_fecha_despachado_expresso
+msgid "Fecha Despachado - Expresso"
+msgstr ""
+
+#. module: expresso_product_attributes
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_fecha_estimada_entrega
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_fecha_estimada_entrega_corresponsales
 msgid "Fecha Estimada de Entrega"
 msgstr ""
 
@@ -759,8 +715,22 @@ msgid "Fecha Orden"
 msgstr ""
 
 #. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_fecha_recibido_corresponsal
+msgid "Fecha Recibido - Corresponsal"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_fecha_valido_corresponsal
+msgid "Fecha Valido - Corresponsal"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_fecha_valido_expresso
+msgid "Fecha Valido - Expresso"
+msgstr ""
+
+#. module: expresso_product_attributes
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_fecha_salida
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_fecha_salida_corresponsales
 msgid "Fecha de Salida"
 msgstr ""
 
@@ -784,13 +754,17 @@ msgstr ""
 
 #. module: expresso_product_attributes
 #: model:ir.model.fields,help:expresso_product_attributes.field_sale_order_fecha_salida
-#: model:ir.model.fields,help:expresso_product_attributes.field_sale_order_fecha_salida_corresponsales
 msgid "Fecha en la que se estima que el pedido va a estar listo"
 msgstr ""
 
 #. module: expresso_product_attributes
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_info_objeto_remoto_datetime
 msgid "Fecha última actualización"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_form
+msgid "Fechas"
 msgstr ""
 
 #. module: expresso_product_attributes
@@ -809,7 +783,6 @@ msgid "Forma de Envio"
 msgstr ""
 
 #. module: expresso_product_attributes
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_forma_envio_id_corresponsales
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_forma_envio_id_expresso
 msgid "Forma de Envío"
 msgstr ""
@@ -876,9 +849,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_tipo_id
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_valor_id
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_multi_marcar_para_procesar_id
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedido_multi_titulo_linea_id
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedir_multi_titulos_id
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_pre_cerrar_pedido_id
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_product_producto_pendiente_id
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_empresa_logistica_id
 msgid "ID"
@@ -886,9 +856,6 @@ msgstr ""
 
 #. module: expresso_product_attributes
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_isbn
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_product_expresso_form
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_product_expresso_search
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_product_expresso_tree
 msgid "ISBN"
 msgstr ""
 
@@ -948,12 +915,6 @@ msgid "Imprimir Peso"
 msgstr ""
 
 #. module: expresso_product_attributes
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_res_partner_search
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_users_expresso_search
-msgid "Inactivo"
-msgstr ""
-
-#. module: expresso_product_attributes
 #: model:ir.actions.act_window,name:expresso_product_attributes.action_info_objeto_remoto
 #: model:ir.model,name:expresso_product_attributes.model_expresso_info_objeto_remoto
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sincronizacion_objeto_remoto_info_objeto_remoto_id
@@ -978,9 +939,7 @@ msgstr ""
 #. module: expresso_product_attributes
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_sync_log_entry_informacion
 #: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_sync_log_entry_form
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_expresso_form
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_form_corresponsal_sale
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_product_expresso_form
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_form
 #: model:ir.ui.view,arch_db:expresso_product_attributes.view_producto_pendiente_form
 msgid "Información"
 msgstr ""
@@ -1014,8 +973,8 @@ msgid "Information"
 msgstr ""
 
 #. module: expresso_product_attributes
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedir_multi_titulos_wizard
-msgid "Ingrese la cantidad ejemplares de cada titulos que desea pedir."
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid "Iniciar Threading Actualización"
 msgstr ""
 
 #. module: expresso_product_attributes
@@ -1035,24 +994,8 @@ msgid "Invoice Number"
 msgstr "Número de Factura"
 
 #. module: expresso_product_attributes
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_account_invoice_invoice_type
-msgid "Invoice Type"
-msgstr ""
-
-#. module: expresso_product_attributes
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_res_users_invoice_ids
 msgid "Invoices"
-msgstr ""
-
-#. module: expresso_product_attributes
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedir_multi_titulos_wizard_2
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedir_multi_titulos_wizard_3
-msgid "Ir al pedido"
-msgstr ""
-
-#. module: expresso_product_attributes
-#: model:ir.model.fields,help:expresso_product_attributes.field_res_users_customer_partner_id
-msgid "It would be the customer wich with this user will operate"
 msgstr ""
 
 #. module: expresso_product_attributes
@@ -1089,9 +1032,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_tipo___last_update
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_valor___last_update
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_multi_marcar_para_procesar___last_update
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedido_multi_titulo_linea___last_update
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedir_multi_titulos___last_update
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_pre_cerrar_pedido___last_update
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_product_producto_pendiente___last_update
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_empresa_logistica___last_update
 msgid "Last Modified on"
@@ -1125,9 +1065,6 @@ msgstr "Última modificación en"
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_tipo_write_uid
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_valor_write_uid
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_multi_marcar_para_procesar_write_uid
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedido_multi_titulo_linea_write_uid
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedir_multi_titulos_write_uid
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_pre_cerrar_pedido_write_uid
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_product_producto_pendiente_write_uid
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_empresa_logistica_write_uid
 msgid "Last Updated by"
@@ -1161,9 +1098,6 @@ msgstr "Última actualización por"
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_tipo_write_date
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_valor_write_date
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_multi_marcar_para_procesar_write_date
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedido_multi_titulo_linea_write_date
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedir_multi_titulos_write_date
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_pre_cerrar_pedido_write_date
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_product_producto_pendiente_write_date
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_empresa_logistica_write_date
 msgid "Last Updated on"
@@ -1183,18 +1117,6 @@ msgid "Latest Invoices & Payments Matching Date"
 msgstr ""
 
 #. module: expresso_product_attributes
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedido_multi_titulo_linea_form
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedido_multi_titulo_linea_tree
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedir_multi_titulos_wizard
-msgid "Linea Pedido Multiple de Titulos"
-msgstr ""
-
-#. module: expresso_product_attributes
-#: model:ir.model,name:expresso_product_attributes.model_pedido_multi_titulo_linea
-msgid "Linea Pedido Multiple de Títulos"
-msgstr ""
-
-#. module: expresso_product_attributes
 #: model:ir.actions.act_window,name:expresso_product_attributes.action_expresso_sync_log_entry
 #: model:ir.model,name:expresso_product_attributes.model_expresso_sync_log_entry
 #: model:ir.ui.menu,name:expresso_product_attributes.menu_sync_log_entry
@@ -1210,10 +1132,40 @@ msgid "Marca multiples entradas para reprocesar"
 msgstr ""
 
 #. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid "Marcar ISBNs"
+msgstr ""
+
+#. module: expresso_product_attributes
 #: model:ir.actions.act_window,name:expresso_product_attributes.action_multi_marcar_para_procesar_variants
 #: model:ir.ui.view,arch_db:expresso_product_attributes.view_info_objeto_remoto_form
 #: model:ir.ui.view,arch_db:expresso_product_attributes.view_multi_marcar_para_procesar_wizard
 msgid "Marcar para Procesar"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid "Marcar registros"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid ""
+"Marcar todos los ISBNs en la base de datos para actualizar / reprocesar"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid ""
+"Marcar todos los registros de Facturas en la base de datos para actualizar /"
+" reprocesar"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid ""
+"Marcar todos los registros de Packing en la base de datos para actualizar / "
+"reprocesar"
 msgstr ""
 
 #. module: expresso_product_attributes
@@ -1270,22 +1222,16 @@ msgid "No Procesado"
 msgstr ""
 
 #. module: expresso_product_attributes
-#: code:addons/expresso_product_attributes/wizard/generar_pendiente.py:21
+#: code:addons/expresso_product_attributes/wizard/generar_pendiente.py:19
 #, python-format
 msgid "No puede modificar el pedido"
 msgstr ""
 
 #. module: expresso_product_attributes
-#: code:addons/expresso_product_attributes/wizard/generar_pendiente.py:23
+#: code:addons/expresso_product_attributes/wizard/generar_pendiente.py:21
 #, python-format
 msgid ""
 "No se pueden eliminar Titulos del pedido cuando este esta en el estado %s."
-msgstr ""
-
-#. module: expresso_product_attributes
-#: code:addons/expresso_product_attributes/wizard/pedir_multi_titulos.py:77
-#, python-format
-msgid "No tiene Cliente asociado"
 msgstr ""
 
 #. module: expresso_product_attributes
@@ -1300,8 +1246,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_product_producto_pendiente_notas
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_sale_note
 #: model:ir.ui.view,arch_db:expresso_product_attributes.view_generar_pedidos_pendientes
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_expresso_form
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_form_corresponsal_sale
 msgid "Notas"
 msgstr ""
 
@@ -1337,8 +1281,72 @@ msgid "Objeto Actualizado"
 msgstr ""
 
 #. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid "Obtener ISBNs si no presentes"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid "Obtener ISBNs si no presentes localmente, de toda la base de datos"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid "Obtener Info. sobre Facturas"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid "Obtener Info. sobre Packing"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid "Obtener Info. sobre Titulos"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid "Obtener los ISBNs de los Titulos modificados/agregados ultimamente"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid "Obtener los registros de Facturas modificados/agregados ultimamente"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid "Obtener los registros de Packing modificados/agregados ultimamente"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid ""
+"Obtener registros de Facturas si no presentes localmente, de toda la base de"
+" datos"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid ""
+"Obtener registros de Packing si no presentes localmente, de toda la base de "
+"datos"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid "Obtener registros si no presentes"
+msgstr ""
+
+#. module: expresso_product_attributes
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_repedir_pendiente_pedido_existente_order_id
 msgid "Order"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_form
+msgid "Otra Información"
 msgstr ""
 
 #. module: expresso_product_attributes
@@ -1348,6 +1356,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_packing_form
 #: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_packing_search
 #: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_packing_tree
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
 msgid "Packing"
 msgstr "Empaquetado"
 
@@ -1362,7 +1371,14 @@ msgid "Packings"
 msgstr ""
 
 #. module: expresso_product_attributes
+#: model:ir.actions.act_window,name:expresso_product_attributes.action_panel_control_actualizacion
+#: model:ir.ui.menu,name:expresso_product_attributes.menu_panel_control_actualizacion
+msgid "Panel de Control de Actualizaciones"
+msgstr ""
+
+#. module: expresso_product_attributes
 #: model:ir.model,name:expresso_product_attributes.model_expresso_panel_control_actualizacion
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
 msgid "Panel de Control de las Actualizaciones"
 msgstr ""
 
@@ -1375,11 +1391,6 @@ msgstr ""
 #. module: expresso_product_attributes
 #: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_idioma_tree
 msgid "Partner Addresses"
-msgstr ""
-
-#. module: expresso_product_attributes
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_expresso_info_corresponsal_form
-msgid "Partners"
 msgstr ""
 
 #. module: expresso_product_attributes
@@ -1398,22 +1409,15 @@ msgid "Payment Methods"
 msgstr ""
 
 #. module: expresso_product_attributes
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedir_multi_titulos_order_id
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_product_producto_pendiente_order_id
 #: selection:sale.order,state_expresso:0
 msgid "Pedido"
 msgstr ""
 
 #. module: expresso_product_attributes
-#: code:addons/expresso_product_attributes/wizard/repedir_pendiente.py:30
+#: code:addons/expresso_product_attributes/wizard/repedir_pendiente.py:28
 #, python-format
 msgid "Pedido en estado incorrecto"
-msgstr ""
-
-#. module: expresso_product_attributes
-#: code:addons/expresso_product_attributes/wizard/pedir_multi_titulos.py:47
-#, python-format
-msgid "Pedido no especificado"
 msgstr ""
 
 #. module: expresso_product_attributes
@@ -1439,14 +1443,6 @@ msgid "Pedidos en estado Pendiente Expresso"
 msgstr ""
 
 #. module: expresso_product_attributes
-#: model:ir.model,name:expresso_product_attributes.model_pedir_multi_titulos
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedir_multi_titulos_wizard
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedir_multi_titulos_wizard_2
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedir_multi_titulos_wizard_3
-msgid "Pedir Multiples Titulos"
-msgstr ""
-
-#. module: expresso_product_attributes
 #: selection:sale.order,state_expresso:0
 msgid "Pendiente Corresponsal"
 msgstr ""
@@ -1469,18 +1465,8 @@ msgid "Peso"
 msgstr ""
 
 #. module: expresso_product_attributes
-#: model:ir.model,name:expresso_product_attributes.model_pre_cerrar_pedido
-msgid "Pre cerrar pedido"
-msgstr ""
-
-#. module: expresso_product_attributes
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_precio_dolares
 msgid "Precio en Dolares"
-msgstr ""
-
-#. module: expresso_product_attributes
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_line_price_unit_corresponsales
-msgid "Precio unidad"
 msgstr ""
 
 #. module: expresso_product_attributes
@@ -1501,8 +1487,12 @@ msgid "Product"
 msgstr "Producto"
 
 #. module: expresso_product_attributes
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_product_warning
+msgid "Product Warning"
+msgstr "Advertencia del producto"
+
+#. module: expresso_product_attributes
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_expresso_packing_detail_product_id
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedido_multi_titulo_linea_product_id
 msgid "Producto"
 msgstr ""
 
@@ -1532,11 +1522,6 @@ msgid "Publico Objetivo"
 msgstr ""
 
 #. module: expresso_product_attributes
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedir_multi_titulos_wizard
-msgid "Puede también agregar estos titulos a un pedido ya realizado."
-msgstr ""
-
-#. module: expresso_product_attributes
 #: model:ir.actions.act_window,name:expresso_product_attributes.action_expresso_publico_form
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_publico_id
 #: model:ir.ui.menu,name:expresso_product_attributes.menu_expresso_publico_form
@@ -1551,7 +1536,12 @@ msgid "Quantity"
 msgstr ""
 
 #. module: expresso_product_attributes
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_form_corresponsal_sale
+#: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_qty_available_2
+msgid "Quantity Available 2"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_form
 #: selection:sale.order,state_expresso:0
 msgid "Recibido"
 msgstr ""
@@ -1611,18 +1601,13 @@ msgid "Sales Orders"
 msgstr ""
 
 #. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid "Salir"
+msgstr ""
+
+#. module: expresso_product_attributes
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_account_invoice_samples
 msgid "Samples"
-msgstr ""
-
-#. module: expresso_product_attributes
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedir_multi_titulos_wizard_3
-msgid "Se agregaron correctamente los titulos seleccionados al pedido ."
-msgstr ""
-
-#. module: expresso_product_attributes
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedir_multi_titulos_wizard_2
-msgid "Se creo correctamente el pedido con los titulos seleccionados."
 msgstr ""
 
 #. module: expresso_product_attributes
@@ -1706,6 +1691,11 @@ msgid "Stock de Nickel"
 msgstr ""
 
 #. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_product_expresso_search
+msgid "Stock en Casals 2"
+msgstr ""
+
+#. module: expresso_product_attributes
 #: model:ir.model.fields,help:expresso_product_attributes.field_res_users_property_account_position_id
 msgid ""
 "The fiscal position will determine taxes and accounts used for the partner."
@@ -1783,12 +1773,23 @@ msgstr ""
 
 #. module: expresso_product_attributes
 #: selection:expresso.sync_log_entry,objeto:0
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
 msgid "Titulos"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_panel_control_actualizacion_wizard
+msgid "Todo"
 msgstr ""
 
 #. module: expresso_product_attributes
 #: model:ir.ui.view,arch_db:expresso_product_attributes.view_generar_pedidos_pendientes
 msgid "Todos a Pendiente"
+msgstr ""
+
+#. module: expresso_product_attributes
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_expresso_tree
+msgid "Total"
 msgstr ""
 
 #. module: expresso_product_attributes
@@ -1807,16 +1808,6 @@ msgid "Total Receivable"
 msgstr ""
 
 #. module: expresso_product_attributes
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_expresso_tree
-msgid "Total Tax Excluded"
-msgstr ""
-
-#. module: expresso_product_attributes
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_expresso_tree
-msgid "Total Tax Included"
-msgstr ""
-
-#. module: expresso_product_attributes
 #: model:ir.model.fields,help:expresso_product_attributes.field_res_users_credit
 msgid "Total amount this customer owes you."
 msgstr ""
@@ -1828,7 +1819,6 @@ msgstr ""
 
 #. module: expresso_product_attributes
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_product_producto_pendiente_product_id
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_product_expresso_form
 #: model:ir.ui.view,arch_db:expresso_product_attributes.view_producto_pendiente_tree
 msgid "Título"
 msgstr ""
@@ -1842,7 +1832,6 @@ msgstr ""
 
 #. module: expresso_product_attributes
 #: model:ir.actions.act_window,name:expresso_product_attributes.action_expresso_productos
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_pedir_multi_titulos_linea_ids
 #: model:ir.ui.menu,name:expresso_product_attributes.expresso_productos
 #: model:ir.ui.menu,name:expresso_product_attributes.expresso_productos_productos
 #: model:ir.ui.view,arch_db:expresso_product_attributes.view_product_expresso_tree
@@ -1857,20 +1846,13 @@ msgstr ""
 
 #. module: expresso_product_attributes
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_producto_pendiente_ids
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_expresso_form
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_form_corresponsal_sale
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_form
 msgid "Títulos Pendientes"
 msgstr ""
 
 #. module: expresso_product_attributes
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_product_producto_pendiente_price_unit
 msgid "Unit Price"
-msgstr ""
-
-#. module: expresso_product_attributes
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_expresso_form
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_form_corresponsal_sale
-msgid "UoM"
 msgstr ""
 
 #. module: expresso_product_attributes
@@ -1890,13 +1872,8 @@ msgid "Users"
 msgstr ""
 
 #. module: expresso_product_attributes
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_user_corresponsal_id_expresso
-msgid "Usuario Corresponsal"
-msgstr ""
-
-#. module: expresso_product_attributes
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_user_expresso_id_expresso
-msgid "Usuario Expresso"
+#: model:ir.model.fields,help:expresso_product_attributes.field_expresso_info_corresponsal_user
+msgid "Usuario en ERP expresso"
 msgstr ""
 
 #. module: expresso_product_attributes
@@ -1916,18 +1893,7 @@ msgid "Va a marcar para procesar ciertos registros remotos."
 msgstr ""
 
 #. module: expresso_product_attributes
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_fecha_valido_corresponsal
-msgid "Valid Date - Correspondent"
-msgstr ""
-
-#. module: expresso_product_attributes
-#: model:ir.model.fields,field_description:expresso_product_attributes.field_sale_order_fecha_valido_expresso
-msgid "Valid Date - Expresso"
-msgstr ""
-
-#. module: expresso_product_attributes
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_expresso_form
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_form_corresponsal_sale
+#: model:ir.ui.view,arch_db:expresso_product_attributes.view_order_form
 msgid "Validar Pedido"
 msgstr ""
 
@@ -1964,12 +1930,6 @@ msgstr ""
 #. module: expresso_product_attributes
 #: model:ir.model.fields,field_description:expresso_product_attributes.field_product_product_volumen
 msgid "Volumen"
-msgstr ""
-
-#. module: expresso_product_attributes
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedir_multi_titulos_wizard_2
-#: model:ir.ui.view,arch_db:expresso_product_attributes.view_pedir_multi_titulos_wizard_3
-msgid "Volver"
 msgstr ""
 
 #. module: expresso_product_attributes
